@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "FileData/1.0.0": {
+        "dependencies": {
+          "ShopApplication": "1.0.0"
+        },
+        "runtime": {
+          "FileData.dll": {}
+        }
+      },
+      "Shared/1.0.0": {
+        "runtime": {
+          "Shared.dll": {}
+        }
+      },
+      "ShopApplication/1.0.0": {
+        "dependencies": {
+          "Shared": "1.0.0"
+        },
+        "runtime": {
+          "ShopApplication.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FileData/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ShopApplication/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
