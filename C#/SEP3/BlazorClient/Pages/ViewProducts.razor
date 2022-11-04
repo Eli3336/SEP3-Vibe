@@ -1,0 +1,51 @@
+@page "/ViewProducts"
+@using global::Shared
+@using HttpClients.ClientInterfaces
+@inject IProductService productService
+<h3>ViewProducts</h3>
+
+@if (!string.IsNullOrEmpty(msg))
+{
+    <div>
+        <span>@msg</span>
+    </div>
+}
+
+@if (products == null)
+{
+    <span>Loading..</span>
+}
+else if (!products.Any())
+{
+    <span>No products to be found</span>
+}
+else
+{
+    <div class="product-container">
+        @foreach (Product product in products)
+        {
+            <div class="product-card">
+                <label>@product.name</label>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private IEnumerable<Product>? products;
+    private string msg = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        msg = "";
+        try
+        {
+            products = await productService.GetProducts();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+}
