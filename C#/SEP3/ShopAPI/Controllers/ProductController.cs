@@ -53,7 +53,7 @@ namespace Shop.Controllers;
     
     
         [HttpGet]
-        public async Task<ActionResult<List<string>>> GetProductsAsync()
+        public async Task<ActionResult<List<Product>>> GetProductsAsync()
         {
             try
             {

@@ -22,3 +22,15 @@ C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\Shared\obj\Debug\net
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\Shared\obj\Debug\net6.0\refint\Shared.dll
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\Shared\obj\Debug\net6.0\Shared.pdb
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\Shared\obj\Debug\net6.0\ref\Shared.dll
+D:\Programacion\SEP3-Vibe\C#\SEP3\Shared\bin\Debug\net6.0\Shared.deps.json
+D:\Programacion\SEP3-Vibe\C#\SEP3\Shared\bin\Debug\net6.0\Shared.dll
+D:\Programacion\SEP3-Vibe\C#\SEP3\Shared\bin\Debug\net6.0\Shared.pdb
+D:\Programacion\SEP3-Vibe\C#\SEP3\Shared\obj\Debug\net6.0\Shared.csproj.AssemblyReference.cache
+D:\Programacion\SEP3-Vibe\C#\SEP3\Shared\obj\Debug\net6.0\Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programacion\SEP3-Vibe\C#\SEP3\Shared\obj\Debug\net6.0\Shared.AssemblyInfoInputs.cache
+D:\Programacion\SEP3-Vibe\C#\SEP3\Shared\obj\Debug\net6.0\Shared.AssemblyInfo.cs
+D:\Programacion\SEP3-Vibe\C#\SEP3\Shared\obj\Debug\net6.0\Shared.csproj.CoreCompileInputs.cache
+D:\Programacion\SEP3-Vibe\C#\SEP3\Shared\obj\Debug\net6.0\Shared.dll
+D:\Programacion\SEP3-Vibe\C#\SEP3\Shared\obj\Debug\net6.0\refint\Shared.dll
+D:\Programacion\SEP3-Vibe\C#\SEP3\Shared\obj\Debug\net6.0\Shared.pdb
+D:\Programacion\SEP3-Vibe\C#\SEP3\Shared\obj\Debug\net6.0\ref\Shared.dll

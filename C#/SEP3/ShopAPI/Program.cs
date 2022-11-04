@@ -1,3 +1,12 @@
+using System.Text;
+using ShopApplication.DaoInterfaces;
+using ShopApplication.Logic;
+using ShopApplication.LogicInterfaces;
+using FileData;
+using FileData.DAOs;
+
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +16,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<FileContext>();
+builder.Services.AddScoped<IProductDao, ProductFileDao>();
+builder.Services.AddScoped<IProductLogic, ProductLogic>();
+
+
+
 var app = builder.Build();
 
 app.UseCors(x => x
@@ -14,7 +29,6 @@ app.UseCors(x => x
     .AllowAnyHeader()
     .SetIsOriginAllowed(origin => true) // allow any origin
     .AllowCredentials());
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -26,8 +40,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllers();
 
 app.Run();
-
