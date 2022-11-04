@@ -1,4 +1,5 @@
 using Shared;
+using Shared.DTOs;
 using ShopApplication.DaoInterfaces;
 using ShopApplication.LogicInterfaces;
 
@@ -34,7 +35,7 @@ public class ProductLogic : IProductLogic
             throw new Exception("description must be less than 150 characters!");
     }
     */
-
+/*
     public Task<Product?> GetByNameAsync(string name)
     {
         return productDao.GetByNameAsync(name);
@@ -44,5 +45,11 @@ public class ProductLogic : IProductLogic
     {
 
         return productDao.GetProductsAsync();
+    }
+*/
+    public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto)
+    {
+
+        return productDao.GetAsync(searchProductsParametersDto);
     }
 }

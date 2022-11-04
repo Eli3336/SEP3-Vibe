@@ -1,4 +1,5 @@
 using Shared;
+using Shared.DTOs;
 using ShopApplication.DaoInterfaces;
 
 namespace FileData.DAOs;
@@ -33,7 +34,7 @@ namespace FileData.DAOs;
 
 
       
-
+/*
       public Task<Product?> GetByNameAsync(string name)
         {
             Product? existing = context.products.FirstOrDefault(p =>
@@ -58,6 +59,24 @@ namespace FileData.DAOs;
             }
 
             return Task.FromResult(productList);
+        }
+*/
+
+        public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto)
+        {
+
+            IEnumerable<Product> products = context.products.AsEnumerable();
+
+            if (searchProductsParametersDto.nameContains != null)
+            {
+
+                products = context.products.Where(p =>
+                    p.name.Contains(searchProductsParametersDto.nameContains, StringComparison.OrdinalIgnoreCase));
+                
+                
+            }
+
+            return Task.FromResult(products);
         }
     
     }
