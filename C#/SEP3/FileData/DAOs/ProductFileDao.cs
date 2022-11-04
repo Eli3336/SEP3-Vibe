@@ -1,4 +1,5 @@
 using Shared;
+using ShopApplication.DaoInterfaces;
 
 namespace FileData.DAOs;
 
@@ -29,9 +30,11 @@ namespace FileData.DAOs;
             return Task.FromResult(products);
         }
         */
+
+
       
-      
-        public Task<Product?> GetByTitleAsync(string name)
+
+      public Task<Product?> GetByNameAsync(string name)
         {
             Product? existing = context.products.FirstOrDefault(p =>
                 p.name.Equals(name, StringComparison.OrdinalIgnoreCase)
@@ -42,7 +45,7 @@ namespace FileData.DAOs;
        
     // Revise method
     
-        public Task<List<Product>> GetAllPostsAsync()
+        public Task<List<Product>> GetProductsAsync()
         {
         
             IEnumerable<Product> products = context.products.AsEnumerable();

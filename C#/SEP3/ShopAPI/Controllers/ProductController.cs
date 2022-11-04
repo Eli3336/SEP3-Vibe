@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
+using Shared;
+using ShopApplication.LogicInterfaces;
 
 namespace Shop.Controllers;
 
-public class ProductController
-{
-    
-    
-    [ApiController]
+
+
+[ApiController]
     [Route("[controller]")]
     public class ProductController : ControllerBase
     {
@@ -53,11 +53,11 @@ public class ProductController
     
     
         [HttpGet]
-        public async Task<ActionResult<List<string>>> GetAllPostsAsync()
+        public async Task<ActionResult<List<string>>> GetProductsAsync()
         {
             try
             {
-                List<string> products = await productLogic.GetAllPostsAsync();
+                List<Product> products = await productLogic.GetProductsAsync();
                 return Ok(products);
             }
             catch (Exception e)
@@ -67,4 +67,3 @@ public class ProductController
             }
         }
     }
-}

@@ -1,0 +1,48 @@
+using Shared;
+using ShopApplication.DaoInterfaces;
+using ShopApplication.LogicInterfaces;
+
+namespace ShopApplication.Logic;
+
+public class ProductLogic : IProductLogic
+{
+    private readonly IProductDao productDao;
+
+    public ProductLogic(IProductDao productDao)
+    {
+        this.productDao = productDao;
+    }
+    
+
+   
+/* Not relevant for this requirement but might prove useful
+    private static void ValidateData(ProductCreationDto productoToCreate)
+    {
+        string name = productToCreate.name;
+        string description = productToCreate.description;
+
+        if (name.Length < 3)
+            throw new Exception("name must be at least 3 characters!");
+
+        if (name.Length > 50)
+            throw new Exception("name must be less than 50 characters!");
+
+        if (description.Length < 3)
+            throw new Exception("description must be at least 3 characters!");
+
+        if (description.Length > 150)
+            throw new Exception("description must be less than 150 characters!");
+    }
+    */
+
+    public Task<Product?> GetByNameAsync(string name)
+    {
+        return productDao.GetByNameAsync(name);
+    }
+
+    public Task<List<Product>> GetProductsAsync()
+    {
+
+        return productDao.GetProductsAsync();
+    }
+}
