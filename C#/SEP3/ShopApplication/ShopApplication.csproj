@@ -10,4 +10,9 @@
       <ProjectReference Include="..\Shared\Shared.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Logic" />
+      <Folder Include="LogicInterfaces" />
+    </ItemGroup>
+
 </Project>
