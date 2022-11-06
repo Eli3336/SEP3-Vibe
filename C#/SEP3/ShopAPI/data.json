@@ -1,0 +1,11 @@
+{
+  "products": [
+    {
+      "Id": 0,
+      "name": "Masa",
+      "description": "troelson",
+      "price" : 10.22
+    }
+    
+  ]
+}

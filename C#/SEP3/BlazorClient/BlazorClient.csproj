@@ -15,4 +15,13 @@
       <ProjectReference Include="..\HttpClients\HttpClients.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="Pages\viewProducts.css">
+        <DependentUpon>ViewProducts.razor</DependentUpon>
+      </None>
+      <None Update="Shared\navbar.css">
+        <DependentUpon>NavMenu.razor</DependentUpon>
+      </None>
+    </ItemGroup>
+
 </Project>
