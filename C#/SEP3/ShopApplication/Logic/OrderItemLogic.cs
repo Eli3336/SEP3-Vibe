@@ -1,4 +1,5 @@
 using Shared;
+using ShopApplication.DaoInterfaces;
 using ShopApplication.LogicInterfaces;
 
 namespace ShopApplication.Logic;
@@ -15,5 +16,10 @@ public class OrderItemLogic : IOrderItemLogic
     public Task<List<OrderItem>> GetAllOrderItemsAsync()
     {
         return orderItemDao.GetAllOrderItemsAsync();
+    }
+
+    public Task<OrderItem> OrderProduct(long id, int quantity)
+    {
+        return orderItemDao.OrderProduct(id, quantity);
     }
 }

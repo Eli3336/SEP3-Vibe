@@ -34,6 +34,15 @@ public class FileContext
             return dataContainer!.Categories;
         }
     }
+    
+    public ICollection<OrderItem> OrderItems
+    {
+        get
+        {
+            LoadData();
+            return dataContainer!.OrderItems;
+        }
+    }
   
     private void LoadData()
     {
@@ -44,8 +53,9 @@ public class FileContext
             dataContainer = new ()
             {
               Customers = new List<Customer>(),
-                Products = new List<Product>(),
-              Categories = new List<Category>()
+              Products = new List<Product>(),
+              Categories = new List<Category>(),
+              OrderItems = new List<OrderItem>()
             };
             return;
         }
@@ -58,5 +68,18 @@ public class FileContext
         string serialized = JsonSerializer.Serialize(dataContainer);
         File.WriteAllText(filePath, serialized);
         dataContainer = null;
+    }
+
+    public Product getProductById(long id)
+    {
+        for (int i = 0; i < Products.Count; i++)
+        {
+            if (Products.GetEnumerator().Current.id == id)
+            {
+                return Products.GetEnumerator().Current;
+            }
+        }
+
+        return new Product();
     }
 }

@@ -6,7 +6,7 @@ namespace Shop.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class OrderItemsController
+public class OrderItemsController : ControllerBase
 {
     private readonly IOrderItemLogic orderItemLogic;
 
@@ -28,5 +28,21 @@ public class OrderItemsController
             Console.WriteLine(e);
             return StatusCode(500, e.Message);
         }
+    }
+    
+    [HttpPost]
+    public async Task<ActionResult<OrderItem>> OrderProduct(long id, int quantity)
+    {
+        try
+        {
+            OrderItem orderItem = await orderItemLogic.OrderProduct(id, quantity);
+            return Created($"/orderItems/{orderItem.product.id}", orderItem);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+        
     }
 }
