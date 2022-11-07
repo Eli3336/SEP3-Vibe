@@ -4,8 +4,8 @@ namespace FileData;
 
 public class DataContainer
 {
-  //  public ICollection<Customer> customers { get; set; }
-    public ICollection<Product> products { get; set; }
-  //  public ICollection<Category> categories { get; set; }
+   public ICollection<Customer> Customers { get; set; }
+    public ICollection<Product> Products { get; set; }
+   public ICollection<Category> Categories { get; set; }
 
 }

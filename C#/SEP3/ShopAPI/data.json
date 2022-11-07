@@ -1,7 +1,7 @@
 {
-  "products": [
+  "Products": [
     {
-      "Id": 0,
+      "id": 1,
       "name": "Masa",
       "description": "troelson",
       "price" : 10.22
