@@ -2,13 +2,13 @@ namespace Shared;
 
 public class OrderItem
 {
-    private List<Product> products;
-    private int quantity;
-    private double price;
+    public Product product{ get; set; }
+    public int quantity{ get; set; }
+    public double price{ get; set; }
 
-    public OrderItem(List<Product> products, int quantity, double price)
+    public OrderItem(Product product, int quantity, double price)
     {
-        this.products = products;
+        this.product = product;
         this.quantity = quantity;
         this.price = price;
     }

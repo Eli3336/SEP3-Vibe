@@ -65,17 +65,29 @@ namespace FileData.DAOs;
         public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto)
         {
 
-            IEnumerable<Product> products = context.products.AsEnumerable();
+            IEnumerable<Product> products = context.Products.AsEnumerable();
 
             if (searchProductsParametersDto.nameContains != null)
             {
 
-                products = context.products.Where(p => p.name.Contains(searchProductsParametersDto.nameContains, StringComparison.OrdinalIgnoreCase));
+                products = context.Products.Where(p =>
+                    p.name.Contains(searchProductsParametersDto.nameContains, StringComparison.OrdinalIgnoreCase));
                 
                 
             }
 
             return Task.FromResult(products);
         }
-    
+
+        public Task<IEnumerable<Product>> GetProductById(long? id)
+        {
+            IEnumerable<Product> products = context.Products.AsEnumerable();
+
+            if (id != null)
+            {
+                products = context.Products.Where(p =>
+                    p.id==id);
+            }
+            return Task.FromResult(products);
+        }
     }

@@ -9,4 +9,5 @@ public interface IProductLogic
     Task<List<Product>> GetProductsAsync();
 */
     Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto);
+    Task<IEnumerable<Product>> GetProductById(long? id);
 }
