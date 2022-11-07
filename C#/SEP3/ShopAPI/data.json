@@ -5,6 +5,12 @@
       "name": "Masa",
       "description": "troelson",
       "price" : 10.22
+    },
+    {
+      "id": 2,
+      "name": "Chair",
+      "description": "a good chair",
+      "price" : 5
     }
     
   ],
@@ -15,10 +21,11 @@
         "id": 1,
         "name": "Masa",
         "description": "troelson",
-        "price" : 10.22
+        "price": 10.22
       },
       "quantity": 2,
       "price": 20.44
     }
+    
   ]
 }

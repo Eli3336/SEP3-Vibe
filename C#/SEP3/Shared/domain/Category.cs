@@ -4,7 +4,7 @@ namespace Shared;
 
 public class Category
 {
-    private string name { get; set; }
+    public string name { get; set; }
 
     public Category(string name)
     {

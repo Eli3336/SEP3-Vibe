@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Shared;
+using Shared.DTOs;
 using ShopApplication.LogicInterfaces;
 
 namespace Shop.Controllers;
@@ -15,12 +16,27 @@ public class OrderItemsController : ControllerBase
         this.orderItemLogic = orderItemLogic;
     }
     
-    [HttpGet]
+    /*[HttpGet]
     public async Task<ActionResult<List<OrderItem>>> GetAllOrderItemsAsync()
     {
         try
         {
             List<OrderItem> orderItems = await orderItemLogic.GetAllOrderItemsAsync();
+            return Ok(orderItems);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }*/
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<OrderItem>>> GetAsync([FromQuery] long? id)
+    {
+        try
+        {
+            SearchOrderItemsParametersDto parameters = new(id);
+            IEnumerable<OrderItem> orderItems = await orderItemLogic.GetAsync(parameters);
             return Ok(orderItems);
         }
         catch (Exception e)
