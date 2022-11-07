@@ -29,8 +29,15 @@ public class OrderItemFileDao : IOrderItemDao
 
     public Task<OrderItem> OrderProduct(long id, int quantity)
     {
-        context.Products.Where(p => p.id == id);
-        Product product = context.getProductById(id);
+        List<Product> products = context.Products.ToList();
+        Product product = new Product();
+        for (int i = 0; i < products.Count; i++)
+        {
+            if (products[i].id == id)
+            {
+                product = products[i];
+            }
+        }
         double price = product.price * quantity;
         OrderItem orderItem = new OrderItem(product, quantity, price);
 
