@@ -2,9 +2,9 @@ namespace Shared;
 
 public class ShoppingCart
 {
-    public List<OrderItem> items;
-    public int size;
-    public double totalPrice;
+    private List<OrderItem> items;
+    private int size;
+    private double totalPrice;
 
     public ShoppingCart(List<OrderItem> items, int size, double totalPrice)
     {

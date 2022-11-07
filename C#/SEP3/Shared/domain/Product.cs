@@ -2,11 +2,11 @@ namespace Shared;
 
 public class Product
 {
-    public long id { get; set; }
-    public string name { get; set; }
-    public string description { get; set; }
-    public double price { get; set; }
-    public Category category;
+    private long id { get; set; }
+    private string name { get; set; }
+    private string description { get; set; }
+    private double price { get; set; }
+    private Category category;
 
     public Product(Category category, long id, string name, string description, double price)
     {

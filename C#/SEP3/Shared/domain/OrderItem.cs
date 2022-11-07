@@ -2,9 +2,9 @@ namespace Shared;
 
 public class OrderItem
 {
-    public List<Product> products;
-    public int quantity;
-    public double price;
+    private List<Product> products;
+    private int quantity;
+    private double price;
 
     public OrderItem(List<Product> products, int quantity, double price)
     {

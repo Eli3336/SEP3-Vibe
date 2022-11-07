@@ -2,12 +2,12 @@
 
 public class Customer
 {
-    public string name { get; set; }
-    public string phoneNumber { get; set; }
-    public string username { get; set; }
-    public string password { get; set; }
+    private string name { get; set; }
+    private string phoneNumber { get; set; }
+    private string username { get; set; }
+    private string password { get; set; }
 
-    public ShoppingCart shoppingCart;
+    private ShoppingCart shoppingCart;
 
     public Customer(string name, string phoneNumber, string username, string password, ShoppingCart shoppingCart)
     {
