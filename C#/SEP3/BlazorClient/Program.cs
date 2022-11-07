@@ -9,7 +9,7 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { 
-    BaseAddress = new Uri("https://localhost:5238") 
+    BaseAddress = new Uri("https://localhost:7043") 
 });
 builder.Services.AddScoped<IProductService, ProductHttpClient>();
 

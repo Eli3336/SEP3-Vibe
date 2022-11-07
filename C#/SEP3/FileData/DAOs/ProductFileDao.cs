@@ -70,8 +70,7 @@ namespace FileData.DAOs;
             if (searchProductsParametersDto.nameContains != null)
             {
 
-                products = context.products.Where(p =>
-                    p.name.Contains(searchProductsParametersDto.nameContains, StringComparison.OrdinalIgnoreCase));
+                products = context.products.Where(p => p.name.Contains(searchProductsParametersDto.nameContains, StringComparison.OrdinalIgnoreCase));
                 
                 
             }

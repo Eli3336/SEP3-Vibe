@@ -1,10 +1,22 @@
 {
   "products": [
     {
-      "Id": 0,
+      "id": 1,
       "name": "Masa",
       "description": "troelson",
       "price" : 10.22
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "description": "troelson",
+      "price" : 12
+    },
+    {
+      "id": 3,
+      "name": "Lol",
+      "description": "troelson",
+      "price" : 2
     }
     
   ]

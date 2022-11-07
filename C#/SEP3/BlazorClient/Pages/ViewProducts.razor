@@ -1,7 +1,9 @@
 @page "/ViewProducts"
-@using global::Shared
 @using HttpClients.ClientInterfaces
+@using global::Shared
 @inject IProductService productService
+@inject HttpClient Http
+
 <h3>ViewProducts</h3>
 
 @if (!string.IsNullOrEmpty(msg))
@@ -21,7 +23,7 @@ else if (!products.Any())
 }
 else
 {
-    <div class="product-container">
+    <div class="users-container">
         @foreach (Product product in products)
         {
             <div class="product-card">
@@ -33,6 +35,7 @@ else
 
 @code {
     private IEnumerable<Product>? products;
+    private Product[]? list;
     private string msg = "";
 
     protected override async Task OnInitializedAsync()

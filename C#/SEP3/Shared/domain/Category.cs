@@ -4,10 +4,10 @@ namespace Shared;
 
 public class Category
 {
-    private string name { get; set; }
+    private string nameCat { get; set; }
 
-    public Category(string name)
+    public Category(string nameCat)
     {
-        this.name = name;
+        this.nameCat = nameCat;
     }
 }
