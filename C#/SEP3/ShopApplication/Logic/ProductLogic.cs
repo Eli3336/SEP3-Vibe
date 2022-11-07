@@ -52,4 +52,9 @@ public class ProductLogic : IProductLogic
 
         return productDao.GetAsync(searchProductsParametersDto);
     }
+
+    public Task<IEnumerable<Product>> GetProductById(long? id)
+    {
+        return productDao.GetProductById(id);
+    }
 }
