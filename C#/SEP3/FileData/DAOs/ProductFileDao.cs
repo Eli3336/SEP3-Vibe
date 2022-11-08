@@ -78,6 +78,18 @@ namespace FileData.DAOs;
 
             return Task.FromResult(products);
         }
+        
+        public Task<IEnumerable<Product>> GetProductById(long? id)
+        {
+            IEnumerable<Product> products = context.Products.AsEnumerable();
+
+            if (id != null)
+            {
+                products = context.Products.Where(p =>
+                    p.id==id);
+            }
+            return Task.FromResult(products);
+        }
 
         
     }
