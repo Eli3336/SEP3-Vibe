@@ -1,1 +1,23 @@
-{"Customers":null,"Products":[{"id":1,"name":"Masa","description":"troelson","price":10.22},{"id":2,"name":"Chair","description":"a good chair","price":5}],"Categories":null,"OrderItems":[{"product":{"id":1,"name":"Masa","description":"troelson","price":10.22},"quantity":2,"price":20.44},{"product":{"id":2,"name":"Chair","description":"a good chair","price":5},"quantity":2,"price":10}]}
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Masa",
+      "description": "troelson",
+      "price" : 10.22
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "description": "troelson",
+      "price" : 12
+    },
+    {
+      "id": 3,
+      "name": "Lol",
+      "description": "troelson",
+      "price" : 2
+    }
+    
+  ]
+}

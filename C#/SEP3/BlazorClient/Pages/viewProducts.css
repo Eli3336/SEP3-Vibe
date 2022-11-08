@@ -5,3 +5,10 @@
     padding: 15px;
     border-radius: 10px;
 }
+
+.grid{
+    display: grid;
+    gap:1rem;
+    grid-auto-flow:column;
+    grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
+}

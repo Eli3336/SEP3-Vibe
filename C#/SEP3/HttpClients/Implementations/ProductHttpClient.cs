@@ -1,5 +1,4 @@
 using System.Text.Json;
-using System.Net.Http.Json;
 using HttpClients.ClientInterfaces;
 using Shared;
 
@@ -16,7 +15,7 @@ public class ProductHttpClient : IProductService
     
     public async Task<IEnumerable<Product>> GetProducts(string? nameContains = null)
     {
-        string uri = "/products";
+        string uri = "/Product";
         if (!string.IsNullOrEmpty(nameContains))
         {
             uri += $"?name={nameContains}";

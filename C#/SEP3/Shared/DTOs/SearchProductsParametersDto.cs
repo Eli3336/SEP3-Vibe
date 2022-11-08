@@ -4,8 +4,8 @@ public class SearchProductsParametersDto
 {
     public  string? nameContains { get; }
 
-    public SearchProductsParametersDto(string? nameContains1)
+    public SearchProductsParametersDto(string? nameContains)
     {
-        nameContains = nameContains1;
+        this.nameContains = nameContains;
     }
 }
