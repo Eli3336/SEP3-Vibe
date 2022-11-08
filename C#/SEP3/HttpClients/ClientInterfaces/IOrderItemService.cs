@@ -5,6 +5,6 @@ namespace HttpClients.ClientInterfaces;
 
 public interface IOrderItemService
 {
-    //Task<OrderItem> OrderProduct(long id, int quantity);
+    Task<OrderItem> OrderProduct(OrderItemCreationDto dto);
     Task<IEnumerable<OrderItem>> GetOrderItem(string? nameContains = null);
 }

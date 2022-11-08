@@ -1,6 +1,8 @@
+using System.Net.Http.Json;
 using System.Text.Json;
 using HttpClients.ClientInterfaces;
 using Shared;
+using Shared.DTOs;
 
 
 namespace HttpClients.Implementations;
@@ -14,10 +16,21 @@ public class OrderItemHttpClient : IOrderItemService
         this.client = client;
     }
 
-    //public Task<OrderItem> OrderProduct(long id, int quantity)
-    //{
-    //    throw new NotImplementedException();
-    //}
+    public async Task<OrderItem> OrderProduct(OrderItemCreationDto dto)
+    {
+        HttpResponseMessage response = await client.PostAsJsonAsync("/OrderItems", dto);
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+
+        OrderItem orderItem = JsonSerializer.Deserialize<OrderItem>(result, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return orderItem;
+    }
 
     public async Task<IEnumerable<OrderItem>> GetOrderItem(string? nameContains = null)
     {

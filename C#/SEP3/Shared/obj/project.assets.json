@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+      "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
       "projectName": "Shared",
-      "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+      "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
       "packagesPath": "C:\\Users\\Domi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\obj\\",
+      "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Domi\\AppData\\Roaming\\NuGet\\NuGet.Config"

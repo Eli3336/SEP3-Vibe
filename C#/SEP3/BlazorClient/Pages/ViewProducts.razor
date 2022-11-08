@@ -1,8 +1,11 @@
 @page "/ViewProducts"
 @using HttpClients.ClientInterfaces
 @using global::Shared
+@using global::Shared.DTOs
 @inject IProductService productService
+@inject IOrderItemService orderItemService
 @inject HttpClient Http
+@inject NavigationManager navMgr
 
 <h3>ViewProducts</h3>
 
@@ -27,15 +30,32 @@ else
         @foreach (Product product in products)
         {
             <div class="product-card">
-                <label>@product.name</label>
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <label @bind="productName">@product.name</label>
+                    <p class="card-text">@product.description</p>
+                    <select class="custom-select" id="inputGroupSelect04">
+                        <option value="1" @bind="selectedQuantity">1</option>
+                        </select>
+                    <a href="#" class="btn btn-primary" @onclick="AddToCart"
+                       >Add to Cart</a>
+                </div>
+                
             </div>
         }
-    </div>
+        
+  
+  
+</div>
+        
+   
 }
 
 @code {
     private IEnumerable<Product>? products;
     private Product[]? list;
+    private string productName = "";
+    private int selectedQuantity;
     private string msg = "";
 
     protected override async Task OnInitializedAsync()
@@ -44,6 +64,31 @@ else
         try
         {
             products = await productService.GetProducts();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+
+    private async void AddToCart()
+    {
+        msg = "";
+
+        try
+        {
+            Product productCart = new Product();
+            @foreach (Product product in products)
+            {
+                if (product.name.Equals(productName))
+                {
+                    productCart = product;
+                }
+            }
+            OrderItemCreationDto dto= new OrderItemCreationDto(productCart,selectedQuantity, (productCart.price*selectedQuantity));
+            await orderItemService.OrderProduct(dto);
+            navMgr.NavigateTo("/OrderItems");
         }
         catch (Exception e)
         {

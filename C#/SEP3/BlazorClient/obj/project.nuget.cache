@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "POgR8o3rSiSc0EiY7YL/kAyXsUuad3NyneYPMP6nplCled9TRx0LVhnUCEhMQnbc0dsoboZei4QLoOPxDuT4kA==",
+  "dgSpecHash": "Zu5AosWuuSYAYt1Xt3N1OLh2LSPQmACt6Cx3V8OnKMb88xExMfKKfEaa2LnGX4IbAh+xstyUCH1BWzw+qkixSg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj",
+  "projectFilePath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Domi\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.8\\microsoft.aspnetcore.authorization.6.0.8.nupkg.sha512",
     "C:\\Users\\Domi\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.8\\microsoft.aspnetcore.components.6.0.8.nupkg.sha512",

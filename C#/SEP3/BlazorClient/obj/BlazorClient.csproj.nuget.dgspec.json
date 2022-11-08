@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj": {}
+    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj": {
+    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj",
+        "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj",
         "projectName": "BlazorClient",
-        "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj",
+        "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj",
         "packagesPath": "C:\\Users\\Domi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\obj\\",
+        "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Domi\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj": {
-                "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj"
+              "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj": {
+                "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj"
               }
             }
           }
@@ -83,14 +83,14 @@
         }
       }
     },
-    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj": {
+    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj",
+        "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj",
         "projectName": "HttpClients",
-        "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj",
+        "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj",
         "packagesPath": "C:\\Users\\Domi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\obj\\",
+        "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Domi\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -105,8 +105,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj"
+              "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj"
               }
             }
           }
@@ -140,14 +140,14 @@
         }
       }
     },
-    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
+    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+        "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
         "packagesPath": "C:\\Users\\Domi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Domi\\AppData\\Roaming\\NuGet\\NuGet.Config"

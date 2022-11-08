@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj": {}
+    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj": {
+    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
+        "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
         "projectName": "Supplier",
-        "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
+        "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
         "packagesPath": "C:\\Users\\Domi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\obj\\",
+        "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Domi\\AppData\\Roaming\\NuGet\\NuGet.Config"

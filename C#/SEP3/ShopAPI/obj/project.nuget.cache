@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/bpn9mpZQMmdKSD1IUkEZtVI1LQjd3SuRJNv8vOQGmOJ7NYmo/mHM4ngffGPiAg+WKxBjAQkbp1I1FrIg273EA==",
+  "dgSpecHash": "jkzGUL6Lc2St6IGsUqr0oupLTEHoxVaSD3WjDL87pcJEL+CsAhD2I6U3oWrTrzLODLNZKTKdLyiHjFiRqte++w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj",
+  "projectFilePath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Domi\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Domi\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
