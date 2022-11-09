@@ -37,5 +37,15 @@
       "price" : 2
     }
     
-  ]
+  ],
+  "OrderItems": {
+    "product": {
+      "id": 1,
+      "name": "Masa",
+      "description": "troelson",
+      "price" : 10.22
+    },
+    "quantity": 2,
+    "price": 20.44
+  }
 }
