@@ -26,31 +26,8 @@ else if (!products.Any())
 }
 else
 {
-    <div class="users-container">
-        @foreach (Product product in products)
-        {
-            <div class="product-card">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <label @bind="productName">@product.name</label>
-                    <p class="card-text">@product.description</p>
-                    <select class="custom-select" id="inputGroupSelect04">
-                        <option value="1" @bind="selectedQuantity">1</option>
-                        </select>
-                    <a href="#" class="btn btn-primary" @onclick="AddToCart"
-                       >Add to Cart</a>
-                </div>
-                
-            </div>
-        }
-        
-  
-  
-</div>
-        
-    
     <div class="container px-4">
-        <div class="row justify-content-center g-5">
+            <div class="row justify-content-center g-5">
             @foreach (Product product in products)
             {
                 <div class="card col-sm-3" style="width: 18rem;">
@@ -58,17 +35,16 @@ else
                     <div class="card-body">
                         <h5 class="card-title"><label>@product.name</label></h5>
                         <p class="card-text text-truncate"><label>@product.description</label></p>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
+                        <a href="#" class="btn btn-primary" @onclick="AddToCart">Add to cart</a>
                     </div>
                 </div>
-
+    
             }
+            </div>
         </div>
-    </div>
-}
-}
-   
-}
+    }
+  
+
 
 @code {
     private IEnumerable<Product>? products;
@@ -107,7 +83,7 @@ else
             }
             OrderItemCreationDto dto= new OrderItemCreationDto(productCart,selectedQuantity, (productCart.price*selectedQuantity));
             await orderItemService.OrderProduct(dto);
-            navMgr.NavigateTo("/OrderItems");
+            navMgr.NavigateTo("/ShoppingCart");
         }
         catch (Exception e)
         {
