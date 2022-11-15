@@ -1,6 +1,7 @@
 using System.Text.Json;
 using HttpClients.ClientInterfaces;
 using Shared;
+using Shared.DTOs;
 
 namespace HttpClients.Implementations;
 
@@ -13,7 +14,7 @@ public class ProductHttpClient : IProductService
         this.client = client;
     }
     
-    public async Task<IEnumerable<Product>> GetProducts(string? nameContains = null)
+   /* public async Task<IEnumerable<Product>> GetProducts(string? nameContains = null)
     {
         string uri = "/Product";
         if (!string.IsNullOrEmpty(nameContains))
@@ -33,5 +34,70 @@ public class ProductHttpClient : IProductService
             PropertyNameCaseInsensitive = true
         })!;
         return products;
+    }
+    */
+   
+    public async Task<ICollection<Product>> GetAsync(string? nameContains)
+    {
+        try
+        {
+            string query = ConstructQuery(nameContains);
+
+            HttpResponseMessage response = await client.GetAsync("/Product" + query);
+            string content = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception(content);
+            }
+
+            ICollection<Product> products = JsonSerializer.Deserialize<ICollection<Product>>(content, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            })!;
+            return products;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return null;
+        }
+    }
+    
+
+    public async Task<ProductCreationDto> GetByIdAsync(long? id)
+    {
+        try
+        {
+            HttpResponseMessage response = await client.GetAsync($"/Product/{id}");
+            string content = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception(content);
+            }
+
+            ProductCreationDto post = JsonSerializer.Deserialize<ProductCreationDto>(content, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            })!;
+            return post;
+        }
+        catch(Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return null;
+        }
+    }
+    
+    private static string ConstructQuery( string? nameContains)
+    {
+        string query = "";
+        
+        if (!string.IsNullOrEmpty(nameContains))
+        {
+            query += string.IsNullOrEmpty(query) ? "?" : "&";
+            query += $"titleContains={nameContains}";
+        }
+
+        return query;
     }
 }

@@ -13,7 +13,7 @@ public interface IProductDao
     Task<Product?> GetByNameAsync(string name);
 */
 
-    public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto);
-
+     Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto);
+     Task<Product?> GetByIdAsync(long id);
 
 }
