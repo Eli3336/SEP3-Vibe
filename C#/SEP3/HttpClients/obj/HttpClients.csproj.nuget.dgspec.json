@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj": {}
+    "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj": {
+    "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj",
+        "projectUniqueName": "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj",
         "projectName": "HttpClients",
-        "projectPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj",
-        "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\obj\\",
+        "projectPath": "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj",
+        "packagesPath": "C:\\Users\\Bianca\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Bianca\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -26,8 +26,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj"
+              "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj"
               }
             }
           }
@@ -61,17 +61,17 @@
         }
       }
     },
-    "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
+    "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\Bianca\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Bianca\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
