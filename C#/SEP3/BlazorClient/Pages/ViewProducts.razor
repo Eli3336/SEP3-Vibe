@@ -1,13 +1,11 @@
 @page "/ViewProducts"
 @using HttpClients.ClientInterfaces
 @using global::Shared
-@using global::Shared.DTOs
+@using Microsoft.VisualBasic.CompilerServices
 @inject IProductService productService
-@inject IOrderItemService orderItemService
 @inject HttpClient Http
-@inject NavigationManager navMgr
+<div class="d-flex justify-content-center mb-5"><h1>Our Products</h1></div>
 
-<h3>ViewProducts</h3>
 
 @if (!string.IsNullOrEmpty(msg))
 {
@@ -27,30 +25,26 @@ else if (!products.Any())
 else
 {
     <div class="container px-4">
-            <div class="row justify-content-center g-5">
-            @foreach (Product product in products)
-            {
-                <div class="card col-sm-3" style="width: 18rem;">
-                    <img class="card-img-top img-thumbnail"  src="https://i.pinimg.com/564x/a3/6b/42/a36b422bb2bebcbd77bba846b83ddf5d.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><label>@product.name</label></h5>
-                        <p class="card-text text-truncate"><label>@product.description</label></p>
-                        <a href="#" class="btn btn-primary" @onclick="AddToCart">Add to cart</a>
-                    </div>
+        <div class="row justify-content-center g-5">
+        @foreach (Product product in products)
+        {
+            <div class="card col-sm-3" style="width: 18rem;">
+                <img class="card-img-top img-thumbnail"  src="https://i.pinimg.com/564x/a3/6b/42/a36b422bb2bebcbd77bba846b83ddf5d.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><label>@product.name</label></h5>
+                    <p class="card-text text-truncate"><label>@product.description</label></p>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
                 </div>
-    
-            }
             </div>
+        
+        }
         </div>
-    }
-  
-
+    </div>
+}
 
 @code {
     private IEnumerable<Product>? products;
     private Product[]? list;
-    private string productName = "";
-    private int selectedQuantity;
     private string msg = "";
 
     protected override async Task OnInitializedAsync()
@@ -59,31 +53,6 @@ else
         try
         {
             products = await productService.GetProducts();
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            msg = e.Message;
-        }
-    }
-
-    private async void AddToCart()
-    {
-        msg = "";
-
-        try
-        {
-            Product productCart = new Product();
-            @foreach (Product product in products)
-            {
-                if (product.name.Equals(productName))
-                {
-                    productCart = product;
-                }
-            }
-            OrderItemCreationDto dto= new OrderItemCreationDto(productCart,selectedQuantity, (productCart.price*selectedQuantity));
-            await orderItemService.OrderProduct(dto);
-            navMgr.NavigateTo("/ShoppingCart");
         }
         catch (Exception e)
         {

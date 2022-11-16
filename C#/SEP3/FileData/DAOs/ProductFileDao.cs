@@ -72,13 +72,13 @@ namespace FileData.DAOs;
 
                 products = context.Products.Where(p =>
                     p.name.Contains(searchProductsParametersDto.nameContains, StringComparison.OrdinalIgnoreCase));
-                
-                
+
+
             }
 
             return Task.FromResult(products);
         }
-
+        
         public Task<IEnumerable<Product>> GetProductById(long? id)
         {
             IEnumerable<Product> products = context.Products.AsEnumerable();
@@ -90,4 +90,6 @@ namespace FileData.DAOs;
             }
             return Task.FromResult(products);
         }
+
+        
     }
