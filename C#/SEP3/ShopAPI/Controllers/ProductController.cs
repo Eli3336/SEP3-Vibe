@@ -34,7 +34,7 @@ public class ProductController : ControllerBase
        }
        */
 
-      [HttpGet]
+     [HttpGet]
      public async Task<ActionResult<IEnumerable<Product>>> GetAsync([FromQuery] string? name)
      {
          try
@@ -64,26 +64,7 @@ public class ProductController : ControllerBase
              return StatusCode(500, e.Message);
          }
      }
-     
 
 
-    /*[HttpGet]
-    public async Task<ActionResult<List<Product>>> GetProductsAsync()
-    {
-        try
-        {
-            List<Product> products = await productLogic.GetProductsAsync();
-            return Ok(products);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return StatusCode(500, e.Message);
-        }
-    }
-}
-*/
-    
-    
-    
+
 }

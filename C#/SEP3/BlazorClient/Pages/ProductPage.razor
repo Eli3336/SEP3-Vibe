@@ -3,7 +3,11 @@
 @using HttpClients.ClientInterfaces
 @inject IProductService productService
 
-
+@if (currentProduct == null)
+{
+           <label>Loading Post data..</label>
+}else
+{
 <div class="container">
     <div class="card">
         <div class="card-body">
@@ -54,11 +58,11 @@
         </div>
     </div>
 </div>
-
-
+}
 @code {
     [Parameter]
     public long id { get; set; }
+    
     
     private string msg = "";
     private ProductCreationDto currentProduct;
