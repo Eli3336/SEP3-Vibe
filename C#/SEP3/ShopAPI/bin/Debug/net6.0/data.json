@@ -1,14 +1,5 @@
 {
-  "Customers": [
-    {
-      "Id" : 1,
-      "name": "Ana Aninsen",
-      "phoneNumber" : "+4550123456",
-      "username" : "Ana",
-      "password" : "banana"
-    }
-  ],
-  "Products": [
+  "products": [
     {
       "id": 1,
       "name": "Masa",
