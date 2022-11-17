@@ -1,6 +1,6 @@
 using System.Collections;
 
-namespace Shared;
+namespace Shared.domain;
 
 public class Category
 {
