@@ -1,9 +1,10 @@
 using System.Security.Claims;
 using BlazorApp.Services.Http;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace BlazorClient.Auth;
 
-public class CustomAuthProvider
+public class CustomAuthProvider : AuthenticationStateProvider
 {
     private readonly IAuthService authService;
 

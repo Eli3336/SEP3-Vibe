@@ -1,5 +1,5 @@
-﻿using Domain.DTOs;
-using Domain.Models;
+﻿using Shared.DTOs;
+using Shared.domain;
 using Shared;
 
 namespace BlazorApp.Services.ClientInterfaces;

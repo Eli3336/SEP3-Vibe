@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.Json;
 using Domain.DTOs;
 using Domain.Models;
+using Shared;
 
 namespace BlazorApp.Services.Http;
 
@@ -17,7 +18,7 @@ public class JwtAuthService : IAuthService
 
     public async Task LoginAsync(string username, string password)
     {
-        UserLoginDto userLoginDto = new()
+        CustomerLoginDto userLoginDto = new()
         {
             UserName = username,
             Password = password
@@ -65,9 +66,9 @@ public class JwtAuthService : IAuthService
         return Task.CompletedTask;
     }
 
-    public async Task RegisterAsync(User user)  
+    public async Task RegisterAsync(Customer customer)  
     {
-        string userAsJson = JsonSerializer.Serialize(user);
+        string userAsJson = JsonSerializer.Serialize(customer);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
         HttpResponseMessage response = await client.PostAsync("https://localhost:7130/auth/register", content);
         string responseContent = await response.Content.ReadAsStringAsync();
@@ -84,7 +85,7 @@ public class JwtAuthService : IAuthService
         return Task.FromResult(principal);
     }
 
-
+    // Re-stolen from Troels
     // Below methods stolen from https://github.com/SteveSandersonMS/presentation-2019-06-NDCOslo/blob/master/demos/MissionControl/MissionControl.Client/Util/ServiceExtensions.cs
     private static IEnumerable<Claim> ParseClaimsFromJwt(string jwt)
     {
