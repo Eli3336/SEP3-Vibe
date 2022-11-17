@@ -1,9 +1,9 @@
 
 @page "/login"
-@using Shared.DTOs
-@using BlazorApp.Services.Http
+@using BlazorClient.Services.Http
 @using BlazorClient.Services.ClientInterfaces
-@inject IUserService userService;
+@using global::Shared.DTOs
+@inject ICustomerService customerService;
 @inject NavigationManager navMgr
 
 
@@ -58,7 +58,7 @@
 
         try
         {
-            await userService.Create(new UserCreationDto(username, password));
+            await customerService.Create(new CustomerCreationDto(username, password));
             username = "";
             password = "";
             resultMsg = "User successfully created";

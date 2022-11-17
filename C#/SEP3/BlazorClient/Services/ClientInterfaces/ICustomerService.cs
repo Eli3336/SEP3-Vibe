@@ -1,10 +1,9 @@
-﻿using Shared.DTOs;
-using Shared.domain;
-using Shared;
+﻿using Shared;
+using Shared.DTOs;
 
-namespace BlazorApp.Services.ClientInterfaces;
+namespace BlazorClient.Services.ClientInterfaces;
 
 public interface ICustomerService
 {
-   // Task<Customer> Create(CustomerCreationDto dto);
+    Task<Customer> Create(CustomerCreationDto dto);
 }

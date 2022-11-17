@@ -1,11 +1,10 @@
 ﻿using System.Net.Http.Json;
 using System.Text.Json;
-using BlazorApp.Services.ClientInterfaces;
-using Shared.DTOs;
-using Shared.domain;
+using BlazorClient.Services.ClientInterfaces;
 using Shared;
+using Shared.DTOs;
 
-namespace BlazorApp.Services.Implementations;
+namespace BlazorClient.Services.Implementations;
 
 public class CustomerHttpClient : ICustomerService
 {
@@ -18,7 +17,7 @@ public class CustomerHttpClient : ICustomerService
 
     public async Task<Customer> Create(CustomerCreationDto dto)
     {
-        HttpResponseMessage response = await client.PostAsJsonAsync("/users", dto);
+        HttpResponseMessage response = await client.PostAsJsonAsync("/customers", dto);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {

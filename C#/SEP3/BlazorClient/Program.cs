@@ -1,11 +1,13 @@
-using BlazorApp.Services.Http;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using BlazorClient;
 using BlazorClient.Auth;
-using HttpClients.ClientInterfaces;
-using HttpClients.Implementations;
+using BlazorClient.Services;
+using BlazorClient.Services.ClientInterfaces;
+using BlazorClient.Services.Http;
+using BlazorClient.Services.Implementations;
 using Microsoft.AspNetCore.Components.Authorization;
+using Shared.Auth;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
