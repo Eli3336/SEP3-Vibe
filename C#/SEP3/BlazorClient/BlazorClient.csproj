@@ -22,6 +22,9 @@
       <None Update="Shared\navbar.css">
         <DependentUpon>NavMenu.razor</DependentUpon>
       </None>
+      <None Update="Pages\index.css">
+        <DependentUpon>Index.razor</DependentUpon>
+      </None>
     </ItemGroup>
 
 </Project>

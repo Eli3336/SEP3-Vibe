@@ -27,12 +27,11 @@ else
         <div class="row justify-content-center g-5">
         @foreach (Product product in products)
         {
-            <div class="card col-sm-3" @onclick="@(() => navMgr.NavigateTo($"/ProductPage/{product.id}"))"style="width: 18rem;">
+            <div class="card col-sm-3" @onclick="@(() => navMgr.NavigateTo($"/ProductPage/{product.id}"))">
                 <img class="card-img-top img-thumbnail"  src="https://i.pinimg.com/564x/a3/6b/42/a36b422bb2bebcbd77bba846b83ddf5d.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title"><label>@product.name</label></h5>
                     <p class="card-text text-truncate"><label>@product.description</label></p>
-                    <a href="#" class="btn btn-primary">Add to cart</a>
                 </div>
             </div>
         
