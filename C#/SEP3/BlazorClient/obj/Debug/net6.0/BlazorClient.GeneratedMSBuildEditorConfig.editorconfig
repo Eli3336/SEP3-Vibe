@@ -26,6 +26,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Programming/SEP3Git/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Programming/SEP3Git/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/LoginButtons.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5CdXR0b25zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Programming/SEP3Git/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/ShoppingCart.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcHBpbmdDYXJ0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,6 +1,8 @@
+using BlazorApp.Services.Http;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using BlazorClient;
+using BlazorClient.Auth;
 using HttpClients.ClientInterfaces;
 using HttpClients.Implementations;
 
@@ -13,6 +15,14 @@ builder.Services.AddScoped(sp => new HttpClient {
 });
 builder.Services.AddScoped<IProductService, ProductHttpClient>();
 builder.Services.AddScoped<IOrderItemService, OrderItemHttpClient>();
+
+
+
+builder.Services.AddScoped<IAuthService, JwtAuthService>();
+builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
+
+
+AuthorizationPolicies.AddPolicies(builder.Services);
 
 await builder.Build().RunAsync();
 
