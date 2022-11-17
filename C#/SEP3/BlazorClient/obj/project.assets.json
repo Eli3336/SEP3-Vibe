@@ -1819,19 +1819,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bianca\\.nuget\\packages\\": {}
+    "C:\\Users\\luisd\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj",
+      "projectUniqueName": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj",
       "projectName": "BlazorClient",
-      "projectPath": "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj",
-      "packagesPath": "C:\\Users\\Bianca\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\obj\\",
+      "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj",
+      "packagesPath": "C:\\Users\\luisd\\.nuget\\packages\\",
+      "outputPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Bianca\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -1843,8 +1843,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj": {
-              "projectPath": "C:\\Users\\Bianca\\OneDrive\\Documents\\GitHub\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj"
+            "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj": {
+              "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\HttpClients\\HttpClients.csproj"
             }
           }
         }
@@ -1883,7 +1883,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[6.0.8, 6.0.8]"
+            "version": "[6.0.10, 6.0.10]"
           }
         ],
         "frameworkReferences": {
@@ -1891,7 +1891,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\luisd\\.dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
