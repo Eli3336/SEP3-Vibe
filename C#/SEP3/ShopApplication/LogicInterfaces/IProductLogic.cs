@@ -5,9 +5,6 @@ namespace ShopApplication.LogicInterfaces;
 
 public interface IProductLogic
 {
-   /* Task<Product?> GetByNameAsync(string name);    
-    Task<List<Product>> GetProductsAsync();
-*/
     Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto);
-    Task<IEnumerable<Product>> GetProductById(long? id);
+    Task<ProductCreationDto> GetByIdAsync(long id);
 }

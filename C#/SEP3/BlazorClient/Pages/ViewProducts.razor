@@ -1,9 +1,8 @@
 @page "/ViewProducts"
 @using HttpClients.ClientInterfaces
 @using global::Shared
-@using Microsoft.VisualBasic.CompilerServices
 @inject IProductService productService
-@inject HttpClient Http
+@inject NavigationManager navMgr
 <div class="d-flex justify-content-center mb-5"><h1>Our Products</h1></div>
 
 
@@ -28,7 +27,7 @@ else
         <div class="row justify-content-center g-5">
         @foreach (Product product in products)
         {
-            <div class="card col-sm-3" style="width: 18rem;">
+            <div class="card col-sm-3" @onclick="@(() => navMgr.NavigateTo($"/ProductPage/{product.id}"))"style="width: 18rem;">
                 <img class="card-img-top img-thumbnail"  src="https://i.pinimg.com/564x/a3/6b/42/a36b422bb2bebcbd77bba846b83ddf5d.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title"><label>@product.name</label></h5>
@@ -44,7 +43,8 @@ else
 
 @code {
     private IEnumerable<Product>? products;
-    private Product[]? list;
+    private string? titleContains = "";
+
     private string msg = "";
 
     protected override async Task OnInitializedAsync()
@@ -52,7 +52,7 @@ else
         msg = "";
         try
         {
-            products = await productService.GetProducts();
+            products = await productService.GetAsync(titleContains);
         }
         catch (Exception e)
         {

@@ -50,6 +50,21 @@ public class ProductController : ControllerBase
          }
      }
      
+     [HttpGet("{id:long}")]
+     public async Task<ActionResult<ProductCreationDto>> GetById([FromRoute] long id)
+     {
+         try
+         {
+             ProductCreationDto result = await productLogic.GetByIdAsync(id);
+             return Ok(result);
+         }
+         catch (Exception e)
+         {
+             Console.WriteLine(e);
+             return StatusCode(500, e.Message);
+         }
+     }
+     
 
 
     /*[HttpGet]

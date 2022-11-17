@@ -22,12 +22,20 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Bianca/OneDrive/Documents/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bianca/OneDrive/Documents/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Bianca/OneDrive/Documents/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bianca/OneDrive/Documents/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/ShoppingCart.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcHBpbmdDYXJ0LnJhem9y
+[C:/Users/Bianca/OneDrive/Documents/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/ProductPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Bianca/OneDrive/Documents/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/ViewProducts.razor]
