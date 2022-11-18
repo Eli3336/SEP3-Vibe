@@ -42,11 +42,6 @@ public class AuthService:IAuthService
         return Task.FromResult(existingCustomer);
     }
 
-    public Task<Customer> ValidateUser(string username, string password)
-    {
-        throw new NotImplementedException();
-    }
-
     public Task RegisterCustomer(Customer customer)
     {
 

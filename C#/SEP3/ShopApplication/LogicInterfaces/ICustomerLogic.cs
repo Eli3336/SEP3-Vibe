@@ -5,6 +5,6 @@ namespace ShopApplication.LogicInterfaces;
 
 public interface ICustomerLogic
 {
-    Task<Customer> CreateAsync(CustomerCreationDto userToCreate);
+    Task<Customer> CreateAsync(CustomerCreationDto customerToCreate);
     Task<IEnumerable<Customer>> GetAsync(SearchCustomerParametersDto? searchParameters);
 }
