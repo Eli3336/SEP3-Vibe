@@ -1,10 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "xekdzLg4kdeJFmV3r5W9WV6DXJIiqBbcm5LJtZ2OLW9oh+CpupTtsbsJxrJAkwYzdHJ2S6ly/JP79cEXXmg/bQ==",
+  "dgSpecHash": "fyQ8MJbvZsujujB1TzIDy0wdR5v9uWFvW4uPMlmEgEWZdEievg9bQmTHn7CSVrLJpxceoeXl+X570pgH7iJ8UQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj",
+  "projectFilePath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\mihai\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+    "C:\\Users\\luisd\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.11\\microsoft.aspnetcore.authorization.6.0.11.nupkg.sha512",
+    "C:\\Users\\luisd\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.11\\microsoft.aspnetcore.metadata.6.0.11.nupkg.sha512",
+    "C:\\Users\\luisd\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\luisd\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.3\\microsoft.extensions.logging.abstractions.6.0.3.nupkg.sha512",
+    "C:\\Users\\luisd\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\luisd\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\luisd\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

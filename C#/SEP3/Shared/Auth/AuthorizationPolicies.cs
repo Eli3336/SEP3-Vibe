@@ -8,8 +8,8 @@ public static class AuthorizationPolicies
         services.AddAuthorizationCore(options =>
         {
             options.AddPolicy("MustBeLoggedIn", a =>
-                a.RequireAuthenticatedCustomer());
-    
+                a.RequireAuthenticatedUser());
+    // Authenticated User is a built in function, no need for customer definition
             
                 
         });
