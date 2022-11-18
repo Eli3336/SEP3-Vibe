@@ -97,6 +97,16 @@
       },
       "quantity": 1,
       "price": 10.22
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Lol",
+        "description": "blue",
+        "price": 2
+      },
+      "quantity": 1,
+      "price": 2
     }
   ]
 }
