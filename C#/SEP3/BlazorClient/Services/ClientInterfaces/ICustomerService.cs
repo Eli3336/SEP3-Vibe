@@ -6,5 +6,5 @@ namespace BlazorApp.Services.ClientInterfaces;
 
 public interface ICustomerService
 {
-   // Task<Customer> Create(CustomerCreationDto dto);
+    Task<Customer> Create(CustomerCreationDto dto);
 }

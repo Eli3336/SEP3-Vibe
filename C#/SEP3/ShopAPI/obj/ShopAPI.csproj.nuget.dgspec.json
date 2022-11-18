@@ -1,33 +1,39 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj": {}
+    "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj": {}
   },
   "projects": {
-    "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj": {
+    "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj",
+        "projectUniqueName": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj",
         "projectName": "FileData",
-        "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj",
+        "projectPath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj",
         "packagesPath": "C:\\Users\\luisd\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\FileData\\obj\\",
+        "outputPath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\FileData\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
-                "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj"
+              "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
+                "projectPath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj"
               }
             }
           }
@@ -57,26 +63,32 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\luisd\\.dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
+    "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+        "projectUniqueName": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+        "projectPath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
         "packagesPath": "C:\\Users\\luisd\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\obj\\",
+        "outputPath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\Shared\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -110,37 +122,43 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\luisd\\.dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj": {
+    "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj",
+        "projectUniqueName": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj",
         "projectName": "ShopAPI",
-        "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj",
+        "projectPath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj",
         "packagesPath": "C:\\Users\\luisd\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\obj\\",
+        "outputPath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj": {
-                "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj"
+              "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj": {
+                "projectPath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj"
               },
-              "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
-                "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj"
+              "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
+                "projectPath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj"
               }
             }
           }
@@ -179,34 +197,40 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\luisd\\.dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
+    "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
+        "projectUniqueName": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
         "projectName": "ShopApplication",
-        "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
+        "projectPath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
         "packagesPath": "C:\\Users\\luisd\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\obj\\",
+        "outputPath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
-                "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj"
+              "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
+                "projectPath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj"
               }
             }
           }
@@ -236,7 +260,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\luisd\\.dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

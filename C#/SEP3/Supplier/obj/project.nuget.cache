@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ev2pgCzBJnrHpxiolqy8dZZcpcWlUHm4fBh2i8wYWjW3cDLdTUu5GkDqZnYJy0MxWyAfhu8aY2bk1Heod6k6aw==",
+  "dgSpecHash": "X7g0PXK6ZadoY6W6ZMBmgRouf0vxn80t73UxQqzQcR4Ozs86t+mIV8P/HfuGgrZwk2KRILXDxQm5NkgiAGri8Q==",
   "success": true,
-  "projectFilePath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
+  "projectFilePath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luisd\\.nuget\\packages\\google.protobuf\\3.18.0\\google.protobuf.3.18.0.nupkg.sha512",
     "C:\\Users\\luisd\\.nuget\\packages\\grpc.aspnetcore\\2.40.0\\grpc.aspnetcore.2.40.0.nupkg.sha512",
