@@ -66,7 +66,47 @@
         "price": 10.22
       },
       "quantity": 3,
-      "price": 30.660000000000004
+      "price": 30.66
+    },
+    {
+      "product": {
+        "id": 2,
+        "name": "Bob",
+        "description": "electric",
+        "price": 12
+      },
+      "quantity": 3,
+      "price": 36
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Lol",
+        "description": "blue",
+        "price": 2
+      },
+      "quantity": 5,
+      "price": 10
+    },
+    {
+      "product": {
+        "id": 4,
+        "name": "Pan",
+        "description": "soft",
+        "price": 10.22
+      },
+      "quantity": 1,
+      "price": 10.22
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Lol",
+        "description": "blue",
+        "price": 2
+      },
+      "quantity": 1,
+      "price": 2
     }
   ]
 }

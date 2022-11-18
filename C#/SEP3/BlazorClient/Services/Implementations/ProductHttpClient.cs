@@ -1,6 +1,7 @@
 using System.Text.Json;
 using BlazorClient.Services.ClientInterfaces;
 using Shared;
+using Shared.DTOs;
 
 namespace BlazorClient.Services.Implementations;
 
@@ -13,25 +14,68 @@ public class ProductHttpClient : IProductService
         this.client = client;
     }
     
-    public async Task<IEnumerable<Product>> GetProducts(string? nameContains = null)
+  
+    public async Task<ICollection<Product>> GetAsync(string? nameContains)
     {
-        string uri = "/Product";
+        try
+        {
+            string query = ConstructQuery(nameContains);
+
+            HttpResponseMessage response = await client.GetAsync("/Product" + query);
+            string content = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception(content);
+            }
+
+            ICollection<Product> products = JsonSerializer.Deserialize<ICollection<Product>>(content, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            })!;
+            return products;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return null;
+        }
+    }
+    
+
+    public async Task<ProductCreationDto> GetByIdAsync(long? id)
+    {
+        try
+        {
+            HttpResponseMessage response = await client.GetAsync($"/Product/{id}");
+            string content = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception(content);
+            }
+
+            ProductCreationDto post = JsonSerializer.Deserialize<ProductCreationDto>(content, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            })!;
+            return post;
+        }
+        catch(Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return null;
+        }
+    }
+    
+    private static string ConstructQuery( string? nameContains)
+    {
+        string query = "";
+        
         if (!string.IsNullOrEmpty(nameContains))
         {
-            uri += $"?name={nameContains}";
-        }
-        HttpResponseMessage response = await client.GetAsync(uri);
-        string result = await response.Content.ReadAsStringAsync();
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new Exception(result);
+            query += string.IsNullOrEmpty(query) ? "?" : "&";
+            query += $"titleContains={nameContains}";
         }
 
-        Console.WriteLine(result);
-        IEnumerable<Product> products = JsonSerializer.Deserialize<IEnumerable<Product>>(result, new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        })!;
-        return products;
+        return query;
     }
 }

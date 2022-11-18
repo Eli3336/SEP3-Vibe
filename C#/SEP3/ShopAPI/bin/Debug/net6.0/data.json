@@ -1,11 +1,11 @@
 {
   "Customers": [
     {
-      "id" : 0,
-      "name" : "Ana Aninsen",
-      "phoneNumber" : "+4550123456",
-      "username" : "Ana",
-      "password" : "banana"
+      "Id": 0,
+      "name": "Ana Aninsen",
+      "phoneNumber": "\u002B4550123456",
+      "username": "Ana",
+      "password": "banana"
     }
   ],
   "Products": [
@@ -13,49 +13,70 @@
       "id": 1,
       "name": "Masa",
       "description": "troelson",
-      "price" : 10.22
+      "price": 10.22
     },
     {
       "id": 2,
       "name": "Bob",
       "description": "electric",
-      "price" : 12
+      "price": 12
     },
     {
       "id": 3,
       "name": "Lol",
       "description": "blue",
-      "price" : 2
+      "price": 2
     },
     {
       "id": 4,
       "name": "Pan",
       "description": "soft",
-      "price" : 10.22
+      "price": 10.22
     },
     {
       "id": 5,
       "name": "Bowl",
       "description": "red",
-      "price" : 12
+      "price": 12
     },
     {
       "id": 6,
       "name": "Cardigan",
       "description": "whjEGFWEGFLSGFISElfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
-      "price" : 2
+      "price": 2
     }
   ],
-  "OrderItems" : [
+  "Categories": null,
+  "OrderItems": [
     {
       "product": {
         "id": 1,
         "name": "Masa",
         "description": "troelson",
-        "price" : 10.22
+        "price": 10.22
       },
       "quantity": 2,
       "price": 20.44
+    },
+    {
+      "product": {
+        "id": 1,
+        "name": "Masa",
+        "description": "troelson",
+        "price": 10.22
+      },
+      "quantity": 3,
+      "price": 30.66
+    },
+    {
+      "product": {
+        "id": 2,
+        "name": "Bob",
+        "description": "electric",
+        "price": 12
+      },
+      "quantity": 3,
+      "price": 36
     }
   ]
 }
