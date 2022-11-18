@@ -47,11 +47,11 @@ public class OrderItemsController : ControllerBase
     }
     
     [HttpPost]
-    public async Task<ActionResult<OrderItem>> OrderProduct(long id, int quantity)
+    public async Task<ActionResult<OrderItem>> OrderProduct(OrderItemCreationDto dto)
     {
         try
         {
-            OrderItem orderItem = await orderItemLogic.OrderProduct(id, quantity);
+            OrderItem orderItem = await orderItemLogic.OrderProduct(dto);
             return Created($"/orderItems/{orderItem.product.id}", orderItem);
         }
         catch (Exception e)

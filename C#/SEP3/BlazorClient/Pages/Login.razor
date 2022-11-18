@@ -1,10 +1,9 @@
 
 @page "/login"
-@using BlazorClient.Services
+@using BlazorClient.Services.Http
 @using BlazorClient.Services.ClientInterfaces
 @using global::Shared.DTOs
 @inject ICustomerService customerService;
-@inject IAuthService authService;
 @inject NavigationManager navMgr
 
 
@@ -32,8 +31,8 @@
     <div class="form-group field">
         <label>Name:</label>
         <input type="text" @bind="name" @bind:event="oninput"/>
-        <label>PhoneNumber:</label>
-        <input type="text" @bind="phoneNumber" @bind:event="oninput"/>
+        <label>Phone Number:</label>
+        <input type="password" @bind="phoneNumber" @bind:event="oninput"/>
         <label>User name:</label>
         <input type="text" @bind="username" @bind:event="oninput"/>
         <label>Password:</label>
@@ -84,7 +83,7 @@
         resultMsg = "";
         try
         {
-            await authService.LoginAsync(usernameLog, passwordLog);
+            //await authService.LoginAsync(usernameLog, passwordLog);
             navMgr.NavigateTo("/ViewPosts");
         }
         catch (Exception e)
