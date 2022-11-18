@@ -6,6 +6,6 @@ namespace ShopApplication.DaoInterfaces;
 public interface IOrderItemDao
 {
    // Task<List<OrderItem>> GetAllOrderItemsAsync();
-    Task<OrderItem> OrderProduct(long id, int quantity);
+    Task<OrderItem> OrderProduct(OrderItem orderItem);
     Task<IEnumerable<OrderItem>> GetAsync(SearchOrderItemsParametersDto parametersDto);
 }

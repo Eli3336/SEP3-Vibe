@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj": {}
+    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj": {
+    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj",
+        "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj",
         "projectName": "FileData",
-        "projectPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj",
-        "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\FileData\\obj\\",
+        "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj",
+        "packagesPath": "C:\\Users\\Domi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\FileData\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Domi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -26,8 +26,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
-                "projectPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj"
+              "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
+                "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj"
               }
             }
           }
@@ -61,17 +61,17 @@
         }
       }
     },
-    "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
+    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\Domi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Domi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -120,17 +120,17 @@
         }
       }
     },
-    "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj": {
+    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj",
         "projectName": "ShopAPI",
-        "projectPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj",
-        "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\obj\\",
+        "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj",
+        "packagesPath": "C:\\Users\\Domi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Domi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -142,11 +142,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj": {
-                "projectPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj"
+              "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj": {
+                "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj"
               },
-              "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
-                "projectPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj"
+              "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
+                "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj"
               }
             }
           }
@@ -189,17 +189,17 @@
         }
       }
     },
-    "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
+    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
+        "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
         "projectName": "ShopApplication",
-        "projectPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
-        "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\obj\\",
+        "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
+        "packagesPath": "C:\\Users\\Domi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Domi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -211,8 +211,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj"
+              "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj"
               }
             }
           }
