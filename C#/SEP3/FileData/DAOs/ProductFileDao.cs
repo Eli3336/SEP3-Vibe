@@ -65,12 +65,12 @@ namespace FileData.DAOs;
         public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto)
         {
 
-            IEnumerable<Product> products = context.Products.AsEnumerable();
+            IEnumerable<Product> products = context.products.AsEnumerable();
 
             if (searchProductsParametersDto.nameContains != null)
             {
 
-                products = context.Products.Where(p => p.name.Contains(searchProductsParametersDto.nameContains, StringComparison.OrdinalIgnoreCase));
+                products = context.products.Where(p => p.name.Contains(searchProductsParametersDto.nameContains, StringComparison.OrdinalIgnoreCase));
                 
                 
             }
@@ -80,7 +80,7 @@ namespace FileData.DAOs;
 
         public Task<Product?> GetByIdAsync(long id)
         {
-            Product? existing = context.Products.FirstOrDefault(p =>
+            Product? existing = context.products.FirstOrDefault(p =>
                 p.id==id
             );
             return Task.FromResult(existing);

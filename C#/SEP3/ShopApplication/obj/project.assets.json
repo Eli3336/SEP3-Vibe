@@ -67,19 +67,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Domi\\.nuget\\packages\\": {}
+    "C:\\Users\\mihai\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
+      "projectUniqueName": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
       "projectName": "ShopApplication",
-      "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
-      "packagesPath": "C:\\Users\\Domi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\obj\\",
+      "projectPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
+      "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Domi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -91,8 +91,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj"
+            "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj"
             }
           }
         }
