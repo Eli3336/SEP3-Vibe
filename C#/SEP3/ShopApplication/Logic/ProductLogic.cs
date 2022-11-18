@@ -53,15 +53,8 @@ public class ProductLogic : IProductLogic
         return productDao.GetAsync(searchProductsParametersDto);
     }
 
-    public async Task<ProductCreationDto> GetByIdAsync(long id)
+    public Task<IEnumerable<Product>> GetProductById(long? id)
     {
-        Product? product = await productDao.GetByIdAsync(id);
-        if (product == null)
-        {
-            throw new Exception(
-                $"Product with id {id} not found!");
-        }
-
-        return new ProductCreationDto(product.id, product.name, product.description, product.price);
+        return productDao.GetProductById(id);
     }
 }

@@ -70,19 +70,26 @@ namespace FileData.DAOs;
             if (searchProductsParametersDto.nameContains != null)
             {
 
-                products = context.Products.Where(p => p.name.Contains(searchProductsParametersDto.nameContains, StringComparison.OrdinalIgnoreCase));
-                
-                
+                products = context.Products.Where(p =>
+                    p.name.Contains(searchProductsParametersDto.nameContains, StringComparison.OrdinalIgnoreCase));
+
+
             }
 
             return Task.FromResult(products);
         }
-
-        public Task<Product?> GetByIdAsync(long id)
+        
+        public Task<IEnumerable<Product>> GetProductById(long? id)
         {
-            Product? existing = context.Products.FirstOrDefault(p =>
-                p.id==id
-            );
-            return Task.FromResult(existing);
+            IEnumerable<Product> products = context.Products.AsEnumerable();
+
+            if (id != null)
+            {
+                products = context.Products.Where(p =>
+                    p.id==id);
+            }
+            return Task.FromResult(products);
         }
+
+        
     }

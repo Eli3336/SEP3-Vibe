@@ -34,7 +34,7 @@ public class ProductController : ControllerBase
        }
        */
 
-     [HttpGet]
+      [HttpGet]
      public async Task<ActionResult<IEnumerable<Product>>> GetAsync([FromQuery] string? name)
      {
          try
@@ -50,21 +50,36 @@ public class ProductController : ControllerBase
          }
      }
      
-     [HttpGet("{id:long}")]
-     public async Task<ActionResult<ProductCreationDto>> GetById([FromRoute] long id)
-     {
-         try
-         {
-             ProductCreationDto result = await productLogic.GetByIdAsync(id);
-             return Ok(result);
-         }
-         catch (Exception e)
-         {
-             Console.WriteLine(e);
-             return StatusCode(500, e.Message);
-         }
-     }
 
 
+    /*[HttpGet]
+    public async Task<ActionResult<List<Product>>> GetProductsAsync()
+    {
+        try
+        {
+            List<Product> products = await productLogic.GetProductsAsync();
+            return Ok(products);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+*/
+    [HttpGet("{id}")]
+    public async Task<ActionResult<IEnumerable<Product>>> GetProductById([FromQuery] long? id)
+    {
+        try
+        {
+            IEnumerable<Product> products = await productLogic.GetProductById(id);
+            return Ok(products);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
 
 }

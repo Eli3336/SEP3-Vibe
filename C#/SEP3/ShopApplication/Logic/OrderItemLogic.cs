@@ -8,13 +8,10 @@ namespace ShopApplication.Logic;
 public class OrderItemLogic : IOrderItemLogic
 {
     private readonly IOrderItemDao orderItemDao;
-    private readonly IProductDao productDao;
 
-
-    public OrderItemLogic(IOrderItemDao orderItemDao, IProductDao productDao)
+    public OrderItemLogic(IOrderItemDao orderItemDao)
     {
         this.orderItemDao = orderItemDao;
-        this.productDao = productDao;
     }
 
     // public Task<List<OrderItem>> GetAllOrderItemsAsync()
@@ -27,30 +24,8 @@ public class OrderItemLogic : IOrderItemLogic
         return orderItemDao.GetAsync(parametersDto);
     }
 
-    public async Task<OrderItem> OrderProduct(OrderItemCreationDto dto)
+    public Task<OrderItem> OrderProduct(long id, int quantity)
     {
-        Product? product = await productDao.GetByIdAsync(dto.ProductId);
-        if (product==null)
-        {
-            throw new Exception($"Product with id: {dto.ProductId} was not found");
-        }
-
-        double price = product.price;
-        
-        ValidateData(dto);
-        OrderItem orderItem = new OrderItem(product, dto.Quantity, price*dto.Quantity);
-        OrderItem created = await orderItemDao.OrderProduct(orderItem);
-        return created;
-    }
-
-    private static void ValidateData(OrderItemCreationDto orderToCreate)
-    {
-        
-        int quantity = orderToCreate.Quantity;
-
-        if (quantity<1)
-        {
-            throw new Exception("The quantity is incorrect");
-        }
+        return orderItemDao.OrderProduct(id, quantity);
     }
 }

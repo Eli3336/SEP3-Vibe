@@ -2,13 +2,14 @@ namespace Shared.DTOs;
 
 public class OrderItemCreationDto
 {
-    public long ProductId { get;}
+    public Product Product { get;}
     public int Quantity{ get;}
-    
+    public double Price{ get;}
 
-    public OrderItemCreationDto(long productId, int quantity)
+    public OrderItemCreationDto(Product product, int quantity, double price)
     {
-        ProductId = productId;
+        Product = product;
         Quantity = quantity;
+        Price = price;
     }
 }
