@@ -1,5 +1,14 @@
 {
-  "products": [
+  "Customers": [
+    {
+      "id" : 0,
+      "name" : "Ana Aninsen",
+      "phoneNumber" : "+4550123456",
+      "username" : "Ana",
+      "password" : "banana"
+    }
+  ],
+  "Products": [
     {
       "id": 1,
       "name": "Masa",
@@ -36,6 +45,17 @@
       "description": "whjEGFWEGFLSGFISElfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
       "price" : 2
     }
-    
+  ],
+  "OrderItems" : [
+    {
+      "product": {
+        "id": 1,
+        "name": "Masa",
+        "description": "troelson",
+        "price" : 10.22
+      },
+      "quantity": 2,
+      "price": 20.44
+    }
   ]
 }
