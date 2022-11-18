@@ -7,5 +7,5 @@ public interface IOrderItemLogic
 {
     //Task<List<OrderItem>> GetAllOrderItemsAsync();
     Task<IEnumerable<OrderItem>> GetAsync(SearchOrderItemsParametersDto parametersDto);
-    Task<OrderItem> OrderProduct(long id,int quantity);
+    Task<OrderItem> OrderProduct(OrderItemCreationDto orderToCreate);
 }

@@ -27,20 +27,8 @@ public class OrderItemFileDao : IOrderItemDao
         return Task.FromResult(orderItemsList);
     }*/
 
-    public Task<OrderItem> OrderProduct(long id, int quantity)
+    public Task<OrderItem> OrderProduct(OrderItem orderItem)
     {
-        List<Product> products = context.Products.ToList();
-        Product product = new Product();
-        for (int i = 0; i < products.Count; i++)
-        {
-            if (products[i].id == id)
-            {
-                product = products[i];
-            }
-        }
-        double price = product.price * quantity;
-        OrderItem orderItem = new OrderItem(product, quantity, price);
-
         context.OrderItems.Add(orderItem);
         context.SaveChanges();
 
