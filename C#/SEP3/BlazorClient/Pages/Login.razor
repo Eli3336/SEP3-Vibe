@@ -1,8 +1,8 @@
 
 @page "/login"
-@using Shared.DTOs
-@using BlazorApp.Services.Http
-@using BlazorApp.Services.ClientInterfaces
+@using BlazorClient.Services
+@using BlazorClient.Services.ClientInterfaces
+@using global::Shared.DTOs
 @inject ICustomerService customerService;
 @inject IAuthService authService;
 @inject NavigationManager navMgr
@@ -30,6 +30,10 @@
 <div class="card2">
     <h3>Create User</h3>
     <div class="form-group field">
+        <label>Name:</label>
+        <input type="text" @bind="name" @bind:event="oninput"/>
+        <label>PhoneNumber:</label>
+        <input type="text" @bind="phoneNumber" @bind:event="oninput"/>
         <label>User name:</label>
         <input type="text" @bind="username" @bind:event="oninput"/>
         <label>Password:</label>
@@ -45,6 +49,8 @@
 </div>
 </div>
 @code {
+    private string name = "";
+    private string phoneNumber = "";
     private string username = "";
     private string password = "";
     private string usernameLog = "";
@@ -59,7 +65,7 @@
 
         try
         {
-            await customerService.Create(new CustomerCreationDto(username, password));
+            await customerService.Create(new CustomerCreationDto(name, phoneNumber, username, password));
             username = "";
             password = "";
             resultMsg = "User successfully created";
