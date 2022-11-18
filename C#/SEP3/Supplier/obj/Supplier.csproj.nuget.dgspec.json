@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj": {}
+    "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj": {}
   },
   "projects": {
-    "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj": {
+    "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
+        "projectUniqueName": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
         "projectName": "Supplier",
-        "projectPath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
-        "packagesPath": "C:\\Users\\luisd\\.nuget\\packages\\",
-        "outputPath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\Supplier\\obj\\",
+        "projectPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
+        "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mihai\\OneDrive\\Documents\\GitHub\\SEP3\\SEP3-Vibe\\C#\\SEP3\\Supplier\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

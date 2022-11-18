@@ -83,7 +83,7 @@
         resultMsg = "";
         try
         {
-            //await authService.LoginAsync(usernameLog, passwordLog);
+            await authService.LoginAsync(usernameLog, passwordLog);
             navMgr.NavigateTo("/ViewPosts");
         }
         catch (Exception e)
