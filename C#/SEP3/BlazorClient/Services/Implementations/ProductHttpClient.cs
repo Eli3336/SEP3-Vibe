@@ -22,7 +22,7 @@ public class ProductHttpClient : IProductService
         {
           
 
-            HttpResponseMessage response = await client.DeleteAsync("/Product" + id);
+            HttpResponseMessage response = await client.DeleteAsync($"/Product/{id}");
             string content = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)
             {
