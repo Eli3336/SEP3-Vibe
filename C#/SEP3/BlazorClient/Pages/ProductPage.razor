@@ -1,9 +1,7 @@
 @page "/ProductPage/{id:long}"
 @using global::Shared.DTOs
-@using BlazorClient.Services.ClientInterfaces
-@using global::Shared
+@using HttpClients.ClientInterfaces
 @inject IProductService productService
-@inject IOrderItemService orderItemService
 
 @if (currentProduct == null)
 {
@@ -25,8 +23,7 @@
                     <h2 class="mt-5">
                         @currentProduct.price
                     </h2>
-                    <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to cart"
-                            @onclick="AddToCart">
+                    <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to cart">
                     Add to cart</button>
                     <h3 class="box-title mt-5">Sustainability Percentage: (or ingredients idk)</h3>
                     <ul class="list-unstyled">
@@ -84,20 +81,4 @@
             msg = e.Message;
         }
     }
-
-    private async void AddToCart()
-    {
-        try
-        {
-            OrderItemCreationDto dto = new OrderItemCreationDto(currentProduct.id, 1);
-            await orderItemService.OrderProduct(dto);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-        
-    }
-    
 }
