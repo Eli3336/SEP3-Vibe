@@ -3,6 +3,7 @@
 @using BlazorClient.Services.ClientInterfaces
 @inject IOrderItemService orderItemService
 @inject HttpClient Http
+@inject NavigationManager navMgr;
 @if (!string.IsNullOrEmpty(msg))
             {
                 <div>
@@ -45,7 +46,7 @@
                                             <div class="col">
                                                 <a href="#">-</a><a href="#" class="border">@orderItem.quantity</a><a href="#">+</a>
                                             </div>
-                                            <div class="col">&euro; @orderItem.price <span class="close">&#10005;</span></div>
+                                            <div class="col">&euro; @orderItem.price <Button class="oi oi-x" @onclick="@(() => removeItem(orderItem.id))"></Button></div>
                                         </div>
                                     </div>
                                 }
@@ -94,6 +95,26 @@
             Console.WriteLine(e);
             msg = e.Message;
         }
+
         
+        
+    }
+    
+    private async Task removeItem(long id)
+    {
+        msg = "";
+        try
+        {
+            await orderItemService.DeleteAsync(id);
+        
+            var list1 = new List<OrderItem>(orderItems!);
+            list1.RemoveAll(orderItem => orderItem.id == id);
+            orderItems = list1.AsEnumerable();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
     }
 }

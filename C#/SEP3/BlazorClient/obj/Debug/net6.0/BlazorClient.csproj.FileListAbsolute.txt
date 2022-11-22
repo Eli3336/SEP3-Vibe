@@ -1029,8 +1029,6 @@ C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Deb
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\BlazorClient.dll
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\BlazorClient.pdb
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\dotnet.6.0.8.ryv9ak21k8.js
-C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\HttpClients.dll
-C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\HttpClients.pdb
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\Shared.dll
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\Shared.pdb
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\Microsoft.Win32.Registry.dll.gz
@@ -1087,7 +1085,6 @@ C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Deb
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Numerics.dll.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\Microsoft.Extensions.FileSystemGlobbing.dll.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\icudt_CJK.dat.gz
-C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\HttpClients.dll.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Security.Cryptography.Cng.dll.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Xml.Linq.dll.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\Microsoft.Extensions.Configuration.dll.gz
@@ -1127,7 +1124,6 @@ C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Deb
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\dotnet.6.0.8.ryv9ak21k8.js.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.IO.FileSystem.AccessControl.dll.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Collections.Immutable.dll.gz
-C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\HttpClients.pdb.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Windows.dll.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Collections.Concurrent.dll.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Net.dll.gz
@@ -1435,9 +1431,7 @@ C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Deb
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\icudt_CJK.dat
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\icudt_EFIGS.dat
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\icudt_no_CJK.dat
-C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\HttpClients.dll
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\Shared.dll
-C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\HttpClients.pdb
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\Shared.pdb
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\BlazorClient.csproj.AssemblyReference.cache
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\BlazorClient.GeneratedMSBuildEditorConfig.editorconfig
@@ -1445,12 +1439,9 @@ C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Deb
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\BlazorClient.AssemblyInfo.cs
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\BlazorClient.csproj.CoreCompileInputs.cache
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\BlazorClient.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\s0RbX69t.gz
-C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\Z1VKZwXz.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\ac1Uk0nh.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\7sofzfy+.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\KI8XAGa3.gz
-C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\UDNC7hYB.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\BYMuGLhU.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\X8UJ5cLv.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\+75L0u9r.gz
@@ -1462,7 +1453,6 @@ C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Deb
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\ZDhH2n1t.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\ARnDZ1x1.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\w7ufnz+D.gz
-C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\Coc5JfbS.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\TpgBpA+o.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\iiXUm5ja.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\f+1mypjJ.gz
@@ -1641,9 +1631,7 @@ C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Deb
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\AUiANGlo.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\+OziFtIw.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\JOuxQ3AN.gz
-C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\b2IURdqu.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\FolwIM4s.gz
-C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\hdJolKuT.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\Lt3oevee.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\QebV5VPo.gz
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\ENUq1X+q.gz
@@ -4137,3 +4125,11 @@ C:\Users\Domi\OneDrive\Dokumenty\Uni\SEP\Fall2022\GitHub\SEP3-Vibe\C#\SEP3\Blazo
 C:\Users\Domi\OneDrive\Dokumenty\Uni\SEP\Fall2022\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\rTy+Aak1.gz
 C:\Users\Domi\OneDrive\Dokumenty\Uni\SEP\Fall2022\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\vr2uSrHh.gz
 C:\Users\Domi\OneDrive\Dokumenty\Uni\SEP\Fall2022\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\7g5Aa1NZ.gz
+C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Authorization.dll
+C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Authorization.dll.gz
+C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Authorization.dll
+C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\c4LBjNah.gz
+C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\DI+82vc1.gz
+C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\lfSpq52F.gz
+C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\hYwAMlPX.gz
+C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\obj\Debug\net6.0\build-gz\QcSjcHcJ.gz
