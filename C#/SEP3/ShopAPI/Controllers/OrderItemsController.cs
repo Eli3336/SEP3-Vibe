@@ -46,13 +46,14 @@ public class OrderItemsController : ControllerBase
         }
     }
     
+    
     [HttpPost]
     public async Task<ActionResult<OrderItem>> OrderProduct(OrderItemCreationDto dto)
     {
         try
         {
             OrderItem orderItem = await orderItemLogic.OrderProduct(dto);
-            return Created($"/orderItems/{orderItem.product.id}", orderItem);
+            return Created($"/OrderItems/{orderItem.id}", orderItem);
         }
         catch (Exception e)
         {
@@ -60,5 +61,50 @@ public class OrderItemsController : ControllerBase
             return StatusCode(500, e.Message);
         }
         
+    }
+    
+    [HttpPatch]
+    public async Task<ActionResult> UpdateAsync([FromBody] OrderItemUpdateDto dto)
+    {
+        try
+        {
+            await orderItemLogic.UpdateAsync(dto);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+    
+    [HttpDelete("{id:long}")]
+    public async Task<ActionResult> DeleteAsync([FromRoute] long id)
+    {
+        try
+        {
+            await orderItemLogic.DeleteAsync(id);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+    
+    [HttpGet("{id:long}")]
+    public async Task<ActionResult<OrderItemCreationDto>> GetById([FromRoute] long id)
+    {
+        try
+        {
+            OrderItemCreationDto result = await orderItemLogic.GetByIdAsync(id);
+            return Ok(result);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
     }
 }

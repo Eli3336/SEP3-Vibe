@@ -29,6 +29,16 @@ public class OrderItemFileDao : IOrderItemDao
 
     public Task<OrderItem> OrderProduct(OrderItem orderItem)
     {
+
+        long id = 1;
+            if (context.OrderItems.Any())
+            {
+                id = context.OrderItems.Max(t => t.id);
+                id++;
+            }
+
+            orderItem.id = id;
+        
         context.OrderItems.Add(orderItem);
         context.SaveChanges();
 
@@ -44,5 +54,41 @@ public class OrderItemFileDao : IOrderItemDao
         }
 
         return Task.FromResult(orderItems);
+    }
+
+    public Task<OrderItem?> GetByIdAsync(long id)
+    {
+        OrderItem? existing = context.OrderItems.FirstOrDefault(t => t.id == id);
+        return Task.FromResult(existing);
+    }
+    
+    public Task UpdateAsync(OrderItem toUpdate)
+    {
+        OrderItem? existing = context.OrderItems.FirstOrDefault(todo => todo.id == toUpdate.id);
+        if (existing == null)
+        {
+            throw new Exception($"Order with id {toUpdate.id} does not exist!");
+        }
+
+        context.OrderItems.Remove(existing);
+        context.OrderItems.Add(toUpdate);
+        
+        context.SaveChanges();
+        
+        return Task.CompletedTask;
+    }
+    
+    public Task DeleteAsync(long id)
+    {
+        OrderItem? existing = context.OrderItems.FirstOrDefault(orderItem => orderItem.id == id);
+        if (existing == null)
+        {
+            throw new Exception($"OrderItem with id {id} does not exist!");
+        }
+
+        context.OrderItems.Remove(existing); 
+        context.SaveChanges();
+    
+        return Task.CompletedTask;
     }
 }

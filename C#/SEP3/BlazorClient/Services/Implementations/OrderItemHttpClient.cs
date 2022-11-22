@@ -54,4 +54,14 @@ public class OrderItemHttpClient : IOrderItemService
         return orderItems;
     }
 
+    
+    public async Task DeleteAsync(long id)
+    {
+        HttpResponseMessage response = await client.DeleteAsync($"OrderItems/{id}");
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+    }
 }

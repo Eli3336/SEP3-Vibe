@@ -2,6 +2,7 @@ namespace Shared;
 
 public class OrderItem
 {
+    public long id { get; set; }
     public Product product{ get; set; }
     public int quantity{ get; set; }
     public double price{ get; set; }
@@ -13,5 +14,9 @@ public class OrderItem
         this.price = price;
     }
     
+    public OrderItem()
+    {
+    }
+
     
 }
