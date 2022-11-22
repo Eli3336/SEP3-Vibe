@@ -1,11 +1,11 @@
 using System.Net.Http.Json;
 using System.Text.Json;
-using HttpClients.ClientInterfaces;
+using BlazorClient.Services.ClientInterfaces;
 using Shared;
 using Shared.DTOs;
 
 
-namespace HttpClients.Implementations;
+namespace BlazorClient.Services.Implementations;
 
 public class OrderItemHttpClient : IOrderItemService
 {

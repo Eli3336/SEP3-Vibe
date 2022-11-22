@@ -12,8 +12,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileData", "FileData\FileDa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopApplication", "ShopApplication\ShopApplication.csproj", "{F351FF63-E2E6-484F-AFA0-764F6F62F0C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClients", "HttpClients\HttpClients.csproj", "{3B9EC73B-4EBF-48DE-BDDA-BF64C92B84B7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,9 +42,5 @@ Global
 		{F351FF63-E2E6-484F-AFA0-764F6F62F0C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F351FF63-E2E6-484F-AFA0-764F6F62F0C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F351FF63-E2E6-484F-AFA0-764F6F62F0C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3B9EC73B-4EBF-48DE-BDDA-BF64C92B84B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B9EC73B-4EBF-48DE-BDDA-BF64C92B84B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B9EC73B-4EBF-48DE-BDDA-BF64C92B84B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B9EC73B-4EBF-48DE-BDDA-BF64C92B84B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

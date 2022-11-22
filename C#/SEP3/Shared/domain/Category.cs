@@ -1,5 +1,3 @@
-using System.Collections;
-
 namespace Shared;
 
 public class Category
