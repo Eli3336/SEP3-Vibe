@@ -716,19 +716,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\luisd\\.nuget\\packages\\": {}
+    "C:\\Users\\mihai\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
+      "projectUniqueName": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
       "projectName": "Supplier",
-      "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
-      "packagesPath": "C:\\Users\\luisd\\.nuget\\packages\\",
-      "outputPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Supplier\\obj\\",
+      "projectPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
+      "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -776,7 +776,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\luisd\\.dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

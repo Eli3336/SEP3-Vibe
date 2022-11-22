@@ -71,19 +71,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\luisd\\.nuget\\packages\\": {}
+    "C:\\Users\\mihai\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
+      "projectUniqueName": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
       "projectName": "ShopApplication",
-      "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
-      "packagesPath": "C:\\Users\\luisd\\.nuget\\packages\\",
-      "outputPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\obj\\",
+      "projectPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
+      "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -95,8 +95,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
-              "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj"
+            "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj"
             }
           }
         }
@@ -126,7 +126,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\luisd\\.dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
