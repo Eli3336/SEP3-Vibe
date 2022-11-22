@@ -65,7 +65,6 @@ D:\Programacion\SEP3-Vibe\C#\SEP3\ShopAPI\obj\Debug\net6.0\ShopAPI.pdb
 D:\Programacion\SEP3-Vibe\C#\SEP3\ShopAPI\obj\Debug\net6.0\ShopAPI.genruntimeconfig.cache
 D:\Programacion\SEP3-Vibe\C#\SEP3\ShopAPI\obj\Debug\net6.0\ref\ShopAPI.dll
 D:\Programacion\SEP3-Vibe\C#\SEP3\ShopAPI\bin\Debug\net6.0\data.json
-C:\Users\mihai\OneDrive\Documents\GitHub\SEP3\SEP3-Vibe\C#\SEP3\ShopAPI\bin\Debug\net6.0\data.json
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\ShopAPI\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\ShopAPI\bin\Debug\net6.0\appsettings.json
 C:\Users\Bianca\OneDrive\Documents\GitHub\SEP3-Vibe\C#\SEP3\ShopAPI\bin\Debug\net6.0\data.json

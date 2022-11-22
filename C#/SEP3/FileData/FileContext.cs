@@ -8,42 +8,33 @@ public class FileContext
     private const string filePath = "data.json";
     private DataContainer? dataContainer;
 
-    public ICollection<Customer> Customers
+ /*   public ICollection<Customer> customers
     {
         get
         {
             LoadData();
-            return dataContainer!.Customers;
+            return dataContainer!.customers;
         }
     }
-
-    public ICollection<Product> Products
+*/
+    public ICollection<Product> products
     {
         get
         {
             LoadData();
-            return dataContainer!.Products;
+            return dataContainer!.products;
         }
     }
-    
-    public ICollection<Category> Categories
+   /* 
+    public ICollection<Category> categories
     {
         get
         {
             LoadData();
-            return dataContainer!.Categories;
+            return dataContainer!.categories;
         }
     }
-    
-    public ICollection<OrderItem> OrderItems
-    {
-        get
-        {
-            LoadData();
-            return dataContainer!.OrderItems;
-        }
-    }
-  
+ */   
     private void LoadData()
     {
         if (dataContainer != null) return;
@@ -52,10 +43,9 @@ public class FileContext
         {
             dataContainer = new ()
             {
-              Customers = new List<Customer>(),
-              Products = new List<Product>(),
-              Categories = new List<Category>(),
-              OrderItems = new List<OrderItem>()
+              //  customers = new List<Customer>(),
+                products = new List<Product>(),
+              //  categories = new List<Category>()
             };
             return;
         }
@@ -65,25 +55,8 @@ public class FileContext
     
     public void SaveChanges()
     {
-        string serialized = JsonSerializer.Serialize(dataContainer, new JsonSerializerOptions
-        {
-            WriteIndented = true
-        });
-            
+        string serialized = JsonSerializer.Serialize(dataContainer);
         File.WriteAllText(filePath, serialized);
         dataContainer = null;
-    }
-
-    public Product getProductById(long id)
-    {
-        for (int i = 0; i < Products.Count; i++)
-        {
-            if (Products.GetEnumerator().Current.id == id)
-            {
-                return Products.GetEnumerator().Current;
-            }
-        }
-
-        return new Product();
     }
 }

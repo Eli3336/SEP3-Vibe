@@ -7,5 +7,4 @@ public interface IProductLogic
 {
     Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto);
     Task<ProductCreationDto> GetByIdAsync(long id);
-    Task<IEnumerable<Product>> GetProductById(long? id);
 }

@@ -2,16 +2,16 @@
 
 public class Customer
 {
-    public string name { get; set; }
-    public string phoneNumber { get; set; }
-    public string username { get; set; }
-    public string password { get; set; }
+    private string nameC { get; set; }
+    private string phoneNumber { get; set; }
+    private string username { get; set; }
+    private string password { get; set; }
 
-    public ShoppingCart shoppingCart;
+    private ShoppingCart shoppingCart;
 
-    public Customer(string name, string phoneNumber, string username, string password, ShoppingCart shoppingCart)
+    public Customer(string nameC, string phoneNumber, string username, string password, ShoppingCart shoppingCart)
     {
-        this.name = name;
+        this.nameC = nameC;
         this.phoneNumber = phoneNumber;
         this.username = username;
         this.password = password;

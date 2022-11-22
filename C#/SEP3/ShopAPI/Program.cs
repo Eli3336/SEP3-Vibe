@@ -20,9 +20,6 @@ builder.Services.AddScoped<FileContext>();
 builder.Services.AddScoped<IProductDao, ProductFileDao>();
 builder.Services.AddScoped<IProductLogic, ProductLogic>();
 
-builder.Services.AddScoped<IOrderItemDao, OrderItemFileDao>();
-builder.Services.AddScoped<IOrderItemLogic, OrderItemLogic>();
-
 
 
 var app = builder.Build();

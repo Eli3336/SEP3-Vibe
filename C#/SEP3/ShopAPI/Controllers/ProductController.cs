@@ -67,20 +67,4 @@ public class ProductController : ControllerBase
 
 
 
-    
-    [HttpGet("{id}")]
-    public async Task<ActionResult<IEnumerable<Product>>> GetProductById([FromQuery] long? id)
-    {
-        try
-        {
-            IEnumerable<Product> products = await productLogic.GetProductById(id);
-            return Ok(products);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            return StatusCode(500, e.Message);
-        }
-    }
-
 }

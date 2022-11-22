@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SEP3-Vibe.iml" filepath="$PROJECT_DIR$/.idea/SEP3-Vibe.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java/Supplier/Supplier.iml" filepath="$PROJECT_DIR$/Java/Supplier/Supplier.iml" />
-    </modules>
-  </component>
-</project>
