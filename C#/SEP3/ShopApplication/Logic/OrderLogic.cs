@@ -17,10 +17,6 @@ public class OrderLogic : IOrderLogic
 
     public async Task<Order> CreateAsync(OrderCreationDto dto)
     {
-        Order? existing = await orderDao.GetByIdAsync(dto.Id);
-        if (existing != null)
-            throw new Exception("Id already taken!");
-
         try
         {
             ValidateData(dto);
@@ -32,7 +28,10 @@ public class OrderLogic : IOrderLogic
 
         Order toCreate = new Order
         {
-            address = dto.Address
+            orderDate = dto.OrderDate,
+            orderPrice = dto.OrderPrice,
+            address = dto.Address,
+            items = dto.Items
         };
 
         Order created = await orderDao.CreateAsync(toCreate);
