@@ -13,6 +13,27 @@ namespace FileData.DAOs;
         {
             this.context = context;
         }
+        
+        
+        
+        public Task DeleteAsync(long id)
+        {
+            Product? existing = context.Products.FirstOrDefault(product => product.id == id);
+            if (existing == null)
+            {
+                throw new Exception($"Product with id {id} does not exist!");
+            }
+
+            context.Products.Remove(existing); 
+            context.SaveChanges();
+    
+            return Task.CompletedTask;
+        }
+        
+        
+        
+        
+        
         // might be used later 
       /*  public Task<Product> CreateAsync(Product product)
         {

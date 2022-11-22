@@ -6,22 +6,24 @@
       "phoneNumber": "\u002B4550123456",
       "username": "Ana",
       "password": "banana"
+    },
+    {
+      "Id": 1,
+      "name": "string",
+      "phoneNumber": "string",
+      "username": "string",
+      "password": "string"
     }
   ],
   "Products": [
-    {
-      "id": 1,
-      "name": "Masa",
-      "description": "troelson",
-      "price": 10.22
-    },
     {
       "id": 2,
       "name": "Bob",
       "description": "electric",
       "price": 12
     },
-    {
+
+     {
       "id": 3,
       "name": "Lol",
       "description": "blue",

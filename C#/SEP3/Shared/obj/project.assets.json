@@ -5,10 +5,14 @@
       "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
@@ -49,19 +53,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Domi\\.nuget\\packages\\": {}
+    "C:\\Users\\luisd\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+      "projectUniqueName": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
       "projectName": "Shared",
-      "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
-      "packagesPath": "C:\\Users\\Domi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Fall2022\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\obj\\",
+      "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+      "packagesPath": "C:\\Users\\luisd\\.nuget\\packages\\",
+      "outputPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Domi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -106,7 +110,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\luisd\\.dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

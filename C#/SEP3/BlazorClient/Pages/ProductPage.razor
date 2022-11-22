@@ -27,8 +27,13 @@
                     </h2>
                     <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to cart"
                             @onclick="AddToCart">
-                    Add to cart</button>
+                        Add to cart</button>
+                    
+                    <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Remove product"
+                            @onclick="RemoveProduct">
+                    Remove product</button>
                     <h3 class="box-title mt-5">Sustainability Percentage: (or ingredients idk)</h3>
+                    
                     <ul class="list-unstyled">
                         <li><i class="fa fa-check text-success"></i>thingy 1</li>
                         <li><i class="fa fa-check text-success"></i>thingy 2 etc</li>
@@ -98,6 +103,22 @@
             throw;
         }
         
+    }
+
+    private async void RemoveProduct()
+    {
+
+        try
+        {
+
+            await productService.DeleteAsync(currentProduct.id);
+        }
+        
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
     
 }

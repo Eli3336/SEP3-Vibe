@@ -7,4 +7,6 @@ public interface IProductLogic
 {
     Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto);
     Task<ProductCreationDto> GetByIdAsync(long id);
+    
+    Task DeleteAsync(long id);
 }

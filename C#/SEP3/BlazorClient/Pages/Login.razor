@@ -3,8 +3,10 @@
 @using BlazorClient.Services.Http
 @using BlazorClient.Services.ClientInterfaces
 @using global::Shared.DTOs
+@using BlazorClient.Services
 @inject ICustomerService customerService;
-@inject NavigationManager navMgr
+@inject IAuthService authService;
+@inject NavigationManager navMgr;
 
 
 
@@ -83,8 +85,8 @@
         resultMsg = "";
         try
         {
-            //await authService.LoginAsync(usernameLog, passwordLog);
-            navMgr.NavigateTo("/ViewPosts");
+            await authService.LoginAsync(usernameLog, passwordLog);
+            navMgr.NavigateTo("/ViewProducts");
         }
         catch (Exception e)
         {

@@ -12,16 +12,7 @@ public class AuthService:IAuthService
 
     private readonly IList<Customer> customers = new List<Customer>
     {
-        new Customer
-        {
-            username = "Ana",
-            password = "banana"
-        },
-        new Customer
-        {
-            username= "Bob",
-            password = "bobby"
-        }
+        
     };
     public Task<Customer> ValidateCustomer(string username, string password)
     {

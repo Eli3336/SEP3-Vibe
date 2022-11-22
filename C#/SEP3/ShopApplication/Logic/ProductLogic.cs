@@ -14,6 +14,18 @@ public class ProductLogic : IProductLogic
         this.productDao = productDao;
     }
     
+    public async Task DeleteAsync(long id)
+    {
+        Product? product = await productDao.GetByIdAsync(id);
+        if (product == null)
+        {
+            throw new Exception($"Product with ID {id} was not found!");
+        }
+
+
+        await productDao.DeleteAsync(id);
+    }
+    
 
    
 /* Not relevant for this requirement but might prove useful
