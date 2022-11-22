@@ -1,7 +1,7 @@
 using Shared;
 using Shared.DTOs;
 
-namespace HttpClients.ClientInterfaces;
+namespace BlazorClient.Services.ClientInterfaces;
 
 public interface IProductService
 {
