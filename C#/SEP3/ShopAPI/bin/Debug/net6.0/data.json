@@ -80,28 +80,6 @@
       },
       "quantity": 1,
       "price": 2
-    },
-    {
-      "id": 4,
-      "product": {
-        "id": 1,
-        "name": "Masa",
-        "description": "troelson",
-        "price": 10.22
-      },
-      "quantity": 1,
-      "price": 10.22
-    },
-    {
-      "id": 5,
-      "product": {
-        "id": 1,
-        "name": "Masa",
-        "description": "troelson",
-        "price": 10.22
-      },
-      "quantity": 1,
-      "price": 10.22
     }
   ]
 }

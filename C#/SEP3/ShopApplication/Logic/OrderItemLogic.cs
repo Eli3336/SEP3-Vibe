@@ -45,7 +45,7 @@ public class OrderItemLogic : IOrderItemLogic
     }
  
     public async Task UpdateAsync(OrderItemUpdateDto dto)
-    {   /*
+    {   
         OrderItem? existing = await orderItemDao.GetByIdAsync(dto.id);
 
         if (existing == null)
@@ -54,26 +54,17 @@ public class OrderItemLogic : IOrderItemLogic
         }
         
         Product? product = null;
-        if (dto.productId != null)
-        {
-            product = await productDao.GetByIdAsync((long)dto.productId);
-            if (product == null)
-            {
-                throw new Exception($"Product with id {dto.productId} was not found.");
-            }
-        }
-        
+
         Product productToUse = product ?? existing.product;
+        int quantity = dto.quantity ?? existing.quantity;
        
 
-        OrderItem updated = new ( )
+        OrderItem updated = new ( productToUse, quantity, quantity*productToUse.price)
         {
-            
+            id=existing.id
         };
-
-        ValidateData(updated);
-
-        await orderItemDao.UpdateAsync(updated);*/
+        
+        await orderItemDao.UpdateAsync(updated);
     }
     
 
