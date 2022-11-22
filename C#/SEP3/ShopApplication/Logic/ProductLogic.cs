@@ -14,7 +14,7 @@ public class ProductLogic : IProductLogic
         this.productDao = productDao;
     }
     
-    public async Task DeleteAsync(int id)
+    public async Task DeleteAsync(long id)
     {
         Product? product = await productDao.GetByIdAsync(id);
         if (product == null)

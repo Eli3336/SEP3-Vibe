@@ -16,7 +16,7 @@ namespace FileData.DAOs;
         
         
         
-        public Task DeleteAsync(int id)
+        public Task DeleteAsync(long id)
         {
             Product? existing = context.Products.FirstOrDefault(product => product.id == id);
             if (existing == null)
