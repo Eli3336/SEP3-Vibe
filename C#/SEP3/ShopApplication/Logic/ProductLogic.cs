@@ -64,4 +64,9 @@ public class ProductLogic : IProductLogic
 
         return new ProductCreationDto(product.id, product.name, product.description, product.price);
     }
+
+    public Task<IEnumerable<Product>> GetProductById(long? id)
+    {
+        return productDao.GetProductById(id);
+    }
 }
