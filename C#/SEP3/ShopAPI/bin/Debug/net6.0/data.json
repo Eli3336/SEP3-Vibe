@@ -6,6 +6,13 @@
       "phoneNumber": "\u002B4550123456",
       "username": "Ana",
       "password": "banana"
+    },
+    {
+      "Id": 1,
+      "name": "string",
+      "phoneNumber": "string",
+      "username": "string",
+      "password": "string"
     }
   ],
   "Products": [

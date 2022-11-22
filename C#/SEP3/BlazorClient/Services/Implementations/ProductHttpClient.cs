@@ -13,6 +13,28 @@ public class ProductHttpClient : IProductService
     {
         this.client = client;
     }
+
+
+    public async Task DeleteAsync(long id)
+    {
+        
+        try
+        {
+          
+
+            HttpResponseMessage response = await client.DeleteAsync("/Product" + id);
+            string content = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception(content);
+            }
+            
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+    }
     
   
     public async Task<ICollection<Product>> GetAsync(string? nameContains)
