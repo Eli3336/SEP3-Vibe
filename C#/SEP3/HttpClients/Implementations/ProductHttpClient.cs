@@ -1,9 +1,9 @@
 using System.Text.Json;
-using BlazorClient.Services.ClientInterfaces;
+using HttpClients.ClientInterfaces;
 using Shared;
 using Shared.DTOs;
 
-namespace BlazorClient.Services.Implementations;
+namespace HttpClients.Implementations;
 
 public class ProductHttpClient : IProductService
 {
