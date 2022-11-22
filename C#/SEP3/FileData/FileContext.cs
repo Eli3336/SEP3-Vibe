@@ -43,6 +43,15 @@ public class FileContext
             return dataContainer!.OrderItems;
         }
     }
+    
+    public ICollection<Order> Orders
+    {
+        get
+        {
+            LoadData();
+            return dataContainer!.Orders;
+        }
+    }
   
     private void LoadData()
     {
@@ -55,7 +64,8 @@ public class FileContext
               Customers = new List<Customer>(),
               Products = new List<Product>(),
               Categories = new List<Category>(),
-              OrderItems = new List<OrderItem>()
+              OrderItems = new List<OrderItem>(),
+              Orders = new List<Order>()
             };
             return;
         }

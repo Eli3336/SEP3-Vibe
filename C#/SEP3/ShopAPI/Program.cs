@@ -27,6 +27,9 @@ builder.Services.AddScoped<IOrderItemLogic, OrderItemLogic>();
 builder.Services.AddScoped<ICustomerDao, CustomerFileDao>();
 builder.Services.AddScoped<ICustomerLogic, CustomerLogic>();
 
+builder.Services.AddScoped<IOrderDao, OrderFileDao>();
+builder.Services.AddScoped<IOrderLogic, OrderLogic>();
+
 //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 //{
     // options.RequireHttpsMetadata = false;

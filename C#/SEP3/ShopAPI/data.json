@@ -22,8 +22,7 @@
       "description": "electric",
       "price": 12
     },
-
-     {
+    {
       "id": 3,
       "name": "Lol",
       "description": "blue",
@@ -82,6 +81,16 @@
       },
       "quantity": 5,
       "price": 10
+    }
+  ],
+  "Orders": [
+    {
+      "Id": 1,
+      "address": "ajfabcfjoabcaibca, cka cjoasbcsaobc"
+    },
+    {
+      "Id": 2,
+      "address": "aiudgaiucvacka, aocbouagcusacb acbaocb"
     }
   ]
 }

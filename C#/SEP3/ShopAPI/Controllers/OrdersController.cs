@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Shared;
+using Shared.DTOs;
+using ShopApplication.LogicInterfaces;
 
 namespace Shop.Controllers;
 
@@ -14,12 +17,12 @@ public class OrdersController :ControllerBase
     }
     
     [HttpPost]
-    public async Task<ActionResult<Order>> CreateAsync(CustomerCreationDto dto)
+    public async Task<ActionResult<Order>> CreateAsync(OrderCreationDto dto)
     {
         try
         {
-            Customer customer = await customerLogic.CreateAsync(dto);
-            return Created($"/customers/{customer.Id}", customer);
+            Order order = await orderLogic.CreateAsync(dto);
+            return Created($"/orders/{order.Id}", order);
         }
         catch (Exception e)
         {
@@ -29,13 +32,13 @@ public class OrdersController :ControllerBase
     }
     
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Customer>>> GetAsync([FromQuery] string? username)
+    public async Task<ActionResult<IEnumerable<Order>>> GetAsync([FromQuery] long? id)
     {
         try
         {
-            SearchCustomerParametersDto parameters = new(username);
-            IEnumerable<Customer> users = await customerLogic.GetAsync(parameters);
-            return Ok(users);
+            SearchOrderParametersDto parameters = new(id);
+            IEnumerable<Order> orders = await orderLogic.GetAsync(parameters);
+            return Ok(orders);
         }
         catch (Exception e)
         {
