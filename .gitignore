@@ -1199,7 +1199,3 @@ C\#/SEP3/Supplier/obj/rider.project.restore.info
 C\#/SEP3/Supplier/obj/Supplier.csproj.nuget.dgspec.json
 C\#/SEP3/Supplier/obj/Supplier.csproj.nuget.g.props
 C\#/SEP3/BlazorClient/obj/Debug/net6.0/BlazorClient.csproj.AssemblyReference.cache
-*.cache
-*.sentinel
-C\#/SEP3/BlazorClient/obj/Debug/net6.0/BlazorClient.csproj.AssemblyReference.cache
-C\#/SEP3/ShopAPI/obj/staticwebassets.pack.sentinel
