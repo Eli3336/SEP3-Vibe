@@ -2,7 +2,7 @@ namespace Shared;
 
 public class Order
 {
-    public long Id { get; set; }
+    public int Id { get; set; }
     public DateTime orderDate { get; set; }
     public double orderPrice { get; set; }
     public string address { get; set; }

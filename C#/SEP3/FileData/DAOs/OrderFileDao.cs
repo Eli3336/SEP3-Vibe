@@ -15,7 +15,7 @@ public class OrderFileDao : IOrderDao
 
     public Task<Order> CreateAsync(Order order)
     {
-        long orderId = 1;
+        int orderId = 1;
         if (context.Orders.Any())
         {
             orderId = context.Orders.Max(c => c.Id);
