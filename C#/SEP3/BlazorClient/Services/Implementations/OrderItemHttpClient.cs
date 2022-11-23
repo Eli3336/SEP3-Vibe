@@ -1,4 +1,5 @@
 using System.Net.Http.Json;
+using System.Text;
 using System.Text.Json;
 using BlazorClient.Services.ClientInterfaces;
 using Shared;
@@ -63,5 +64,36 @@ public class OrderItemHttpClient : IOrderItemService
             string content = await response.Content.ReadAsStringAsync();
             throw new Exception(content);
         }
+    }
+
+    public async Task UpdateAsync(OrderItemUpdateDto orderItem)
+    {
+        string dtoAsJson = JsonSerializer.Serialize(orderItem);
+        StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
+
+        HttpResponseMessage response = await client.PatchAsync("/OrderItems", body);
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+    }
+
+    public async Task<OrderItemCreationDto> GetByIdAsync(long id)
+    {
+        HttpResponseMessage response = await client.GetAsync($"/OrderItems/{id}");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        OrderItemCreationDto orderItem = JsonSerializer.Deserialize<OrderItemCreationDto>(content, 
+            new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            }
+        )!;
+        return orderItem;
     }
 }
