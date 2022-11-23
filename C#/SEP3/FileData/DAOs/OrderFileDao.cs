@@ -22,7 +22,7 @@ public class OrderFileDao : IOrderDao
             orderId++;
         }
 
-        order.Id = orderId;
+        order.Id = (int)orderId;
 
         context.Orders.Add(order);
         context.SaveChanges();
