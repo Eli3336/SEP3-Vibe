@@ -20,6 +20,7 @@ builder.Services.AddScoped<IProductService, ProductHttpClient>();
 builder.Services.AddScoped<ICustomerService, CustomerHttpClient>();
 
 builder.Services.AddScoped<IOrderItemService, OrderItemHttpClient>();
+builder.Services.AddScoped<IOrderService, OrderHttpClient>();
 
 
 

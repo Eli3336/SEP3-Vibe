@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "md/aKA6UnsDTJoPpu25b5TkdPNfc8iXix7lfSBrHzMGS5U/9sf2AxkNEYBycXVyMGKXvNa9QoNvvR9BO9u1Gtw==",
+  "dgSpecHash": "7kHiAvieClaOaAbpeTvDHU6tTtJNizJ1eiHb5SF1QGSEv5HHHBzJ8Kyjxx6LQc4695ooa5PUK6z/ATwfw4X4tA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+  "projectFilePath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\mihai\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+    "C:\\Users\\Domi\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

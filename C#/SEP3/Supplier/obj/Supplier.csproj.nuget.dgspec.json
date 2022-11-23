@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj": {}
+    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Git\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj": {
+    "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Git\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
+        "projectUniqueName": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Git\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
         "projectName": "Supplier",
-        "projectPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
-        "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Supplier\\obj\\",
+        "projectPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Git\\SEP3-Vibe\\C#\\SEP3\\Supplier\\Supplier.csproj",
+        "packagesPath": "C:\\Users\\Domi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Domi\\OneDrive\\Dokumenty\\Uni\\SEP\\Git\\SEP3-Vibe\\C#\\SEP3\\Supplier\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Domi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -62,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
