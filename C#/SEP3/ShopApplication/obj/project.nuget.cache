@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vPyh9sd6mdULbVsIAUtFTOvwUBkve/3oZfEG8IRESW+jz/fNqRZHmd/ZylUdAFEGDJCniG90RMRevZQxLZU90w==",
+  "dgSpecHash": "xISeq36nLVA4rDeMrmo5q9e6+o7fIrt6sdt+uMoxhnxNNFRseK9kHTQNNZ/lRGJw3vk7DYaCjBXH9ZNR6DMtKA==",
   "success": true,
-  "projectFilePath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
+  "projectFilePath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luisd\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
   ],

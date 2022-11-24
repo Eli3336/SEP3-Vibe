@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XRfCSaDqTpgQhOfYSDj8f/5fI05snB8dTWEm5iSxjKjBwLngutzaMN2mf9OH3U9ofKcCUsyCdveu9ZABBf0Ohg==",
+  "dgSpecHash": "N63rAqhr8N2ucGvFnLMhNfYyZR9HZzTn94YzhZeTZzmzO2bXXkOPiomx7D0QRYf4sIBhNB6FCUluhyxhXMssxQ==",
   "success": true,
-  "projectFilePath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj",
+  "projectFilePath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\BlazorClient\\BlazorClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luisd\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.11\\microsoft.aspnetcore.authorization.6.0.11.nupkg.sha512",
     "C:\\Users\\luisd\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.11\\microsoft.aspnetcore.components.6.0.11.nupkg.sha512",
@@ -34,7 +34,7 @@
     "C:\\Users\\luisd\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\luisd\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
     "C:\\Users\\luisd\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
-    "C:\\Users\\luisd\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.10\\microsoft.netcore.app.runtime.mono.browser-wasm.6.0.10.nupkg.sha512"
+    "C:\\Users\\luisd\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.8\\microsoft.netcore.app.runtime.mono.browser-wasm.6.0.8.nupkg.sha512"
   ],
   "logs": []
 }

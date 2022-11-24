@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9Q2ighu6TZ7zsXcSgWBFDL33qIpU0oxwq9Swvy2K4A3E5M5BxTNkcP1sK8AUybE19wTgAbgtRGS3dl5872BoQg==",
+  "dgSpecHash": "R9YdLi4618XSqX2l4FjaSXvK2ifg+J5ClfklOjT5E5Dx4hWMTLH6GEIGCFDK5x+iwqalyXYIPLIv8z2md0lckQ==",
   "success": true,
-  "projectFilePath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj",
+  "projectFilePath": "D:\\Programacion\\SEP3-Vibe\\C#\\SEP3\\ShopAPI\\ShopAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luisd\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.11\\microsoft.data.sqlite.core.6.0.11.nupkg.sha512",
     "C:\\Users\\luisd\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.11\\microsoft.entityframeworkcore.6.0.11.nupkg.sha512",
