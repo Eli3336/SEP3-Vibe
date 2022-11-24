@@ -1,4 +1,5 @@
 using System.Text;
+using EfcDataAccess.DAOs;
 using ShopApplication.DaoInterfaces;
 using ShopApplication.Logic;
 using ShopApplication.LogicInterfaces;
@@ -18,16 +19,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<FileContext>();
-builder.Services.AddScoped<IProductDao, ProductFileDao>();
+builder.Services.AddScoped<IProductDao, ProductEfcDao>();
 builder.Services.AddScoped<IProductLogic, ProductLogic>();
 
-builder.Services.AddScoped<IOrderItemDao, OrderItemFileDao>();
+builder.Services.AddScoped<IOrderItemDao, OrderItemsEfcDao>();
 builder.Services.AddScoped<IOrderItemLogic, OrderItemLogic>();
 
-builder.Services.AddScoped<ICustomerDao, CustomerFileDao>();
+builder.Services.AddScoped<ICustomerDao, CustomerEfcDao>();
 builder.Services.AddScoped<ICustomerLogic, CustomerLogic>();
 
-builder.Services.AddScoped<IOrderDao, OrderFileDao>();
+builder.Services.AddScoped<IOrderDao, OrderEfcDao>();
 builder.Services.AddScoped<IOrderLogic, OrderLogic>();
 
 //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
