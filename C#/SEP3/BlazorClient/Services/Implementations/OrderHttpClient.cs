@@ -17,7 +17,7 @@ public class OrderHttpClient : IOrderService
 
     public async Task<Order> CreateAsync(OrderCreationDto orderToCreate)
     {
-        HttpResponseMessage response = await client.PostAsJsonAsync("/OrderItems", orderToCreate);
+        HttpResponseMessage response = await client.PostAsJsonAsync("/Orders", orderToCreate);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
