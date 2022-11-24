@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj": {}
+    "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj": {
+    "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj",
+        "projectUniqueName": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj",
         "projectName": "FileData",
-        "projectPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj",
-        "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\FileData\\obj\\",
+        "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\FileData\\FileData.csproj",
+        "packagesPath": "C:\\Users\\luisd\\.nuget\\packages\\",
+        "outputPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\FileData\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -26,8 +26,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
-                "projectPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj"
+              "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
+                "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj"
               }
             }
           }
@@ -57,21 +57,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\luisd\\.dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
+    "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+        "projectUniqueName": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
-        "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\obj\\",
+        "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj",
+        "packagesPath": "C:\\Users\\luisd\\.nuget\\packages\\",
+        "outputPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -116,21 +116,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\luisd\\.dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
+    "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
+        "projectUniqueName": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
         "projectName": "ShopApplication",
-        "projectPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
-        "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\obj\\",
+        "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\ShopApplication.csproj",
+        "packagesPath": "C:\\Users\\luisd\\.nuget\\packages\\",
+        "outputPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\ShopApplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mihai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\luisd\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -142,8 +142,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\mihai\\OneDrive - ViaUC\\Dokumenter\\GitHub\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj"
+              "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj": {
+                "projectPath": "D:\\Programming\\SEP3Git\\SEP3-Vibe\\C#\\SEP3\\Shared\\Shared.csproj"
               }
             }
           }
@@ -173,7 +173,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\luisd\\.dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

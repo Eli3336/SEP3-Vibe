@@ -11,49 +11,49 @@ build_property.EnableTrimAnalyzer = true
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = BlazorClient
 build_property.RootNamespace = BlazorClient
-build_property.ProjectDir = C:\Users\mihai\OneDrive - ViaUC\Dokumenter\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient\
+build_property.ProjectDir = D:\Programming\SEP3Git\SEP3-Vibe\C#\SEP3\BlazorClient\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\mihai\OneDrive - ViaUC\Dokumenter\GitHub\SEP3-Vibe\C#\SEP3\BlazorClient
+build_property.MSBuildProjectDirectory = D:\Programming\SEP3Git\SEP3-Vibe\C#\SEP3\BlazorClient
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/mihai/OneDrive - ViaUC/Dokumenter/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/App.razor]
+[D:/Programming/SEP3Git/SEP3-Vibe/C\#/SEP3/BlazorClient/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mihai/OneDrive - ViaUC/Dokumenter/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/Index.razor]
+[D:/Programming/SEP3Git/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mihai/OneDrive - ViaUC/Dokumenter/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/Login.razor]
+[D:/Programming/SEP3Git/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mihai/OneDrive - ViaUC/Dokumenter/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/LoginButtons.razor]
+[D:/Programming/SEP3Git/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/LoginButtons.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5CdXR0b25zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mihai/OneDrive - ViaUC/Dokumenter/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/ProductPage.razor]
+[D:/Programming/SEP3Git/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/ProductPage.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mihai/OneDrive - ViaUC/Dokumenter/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/ShoppingCart.razor]
+[D:/Programming/SEP3Git/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/ShoppingCart.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcHBpbmdDYXJ0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mihai/OneDrive - ViaUC/Dokumenter/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/ViewProducts.razor]
+[D:/Programming/SEP3Git/SEP3-Vibe/C\#/SEP3/BlazorClient/Pages/ViewProducts.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld1Byb2R1Y3RzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mihai/OneDrive - ViaUC/Dokumenter/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/Shared/MainLayout.razor]
+[D:/Programming/SEP3Git/SEP3-Vibe/C\#/SEP3/BlazorClient/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mihai/OneDrive - ViaUC/Dokumenter/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/Shared/NavMenu.razor]
+[D:/Programming/SEP3Git/SEP3-Vibe/C\#/SEP3/BlazorClient/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mihai/OneDrive - ViaUC/Dokumenter/GitHub/SEP3-Vibe/C\#/SEP3/BlazorClient/_Imports.razor]
+[D:/Programming/SEP3Git/SEP3-Vibe/C\#/SEP3/BlazorClient/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
