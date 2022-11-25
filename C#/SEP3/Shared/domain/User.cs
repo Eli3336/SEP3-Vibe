@@ -1,6 +1,6 @@
 ﻿namespace Shared;
 
-public class Customer
+public class User
 {
     public int Id { get; set; }
     public string name { get; set; }
@@ -10,9 +10,9 @@ public class Customer
 
     public ShoppingCart shoppingCart;
     
-    public Customer(){}
+    public User(){}
 
-    public Customer(string name, string phoneNumber, string username, string password, ShoppingCart shoppingCart)
+    public User(string name, string phoneNumber, string username, string password, ShoppingCart shoppingCart)
     {
         this.name = name;
         this.phoneNumber = phoneNumber;

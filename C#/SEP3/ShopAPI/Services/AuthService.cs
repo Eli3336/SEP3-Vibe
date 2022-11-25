@@ -10,45 +10,45 @@ public class AuthService:IAuthService
 
     public FileContext context = new FileContext();
 
-    private readonly IList<Customer> customers = new List<Customer>
+    private readonly IList<User> users = new List<User>
     {
         
     };
-    public Task<Customer> ValidateCustomer(string username, string password)
+    public Task<User> ValidateUser(string username, string password)
     {
 
-        Customer? existingCustomer = context.Customers.FirstOrDefault(c => 
-            c.username.Equals(username, StringComparison.OrdinalIgnoreCase));
+        User? existingUser = context.Users.FirstOrDefault(u => 
+            u.username.Equals(username, StringComparison.OrdinalIgnoreCase));
         
-        if (existingCustomer == null)
+        if (existingUser == null)
         {
-            throw new Exception("Customer not found");
+            throw new Exception("User not found");
         }
 
-        if (!existingCustomer.password.Equals(password))
+        if (!existingUser.password.Equals(password))
         {
             throw new Exception("Password mismatch");
         }
 
-        return Task.FromResult(existingCustomer);
+        return Task.FromResult(existingUser);
     }
 
-    public Task RegisterCustomer(Customer customer)
+    public Task RegisterUser(User user)
     {
 
-        if (string.IsNullOrEmpty(customer.username))
+        if (string.IsNullOrEmpty(user.username))
         {
             throw new ValidationException("Username cannot be null");
         }
 
-        if (string.IsNullOrEmpty(customer.password))
+        if (string.IsNullOrEmpty(user.password))
         {
             throw new ValidationException("Password cannot be null");
         }
         
         
-        customers.Add(customer);
-        context.Customers.Add(customer);
+        users.Add(user);
+        context.Users.Add(user);
         return Task.CompletedTask;
     }
 }

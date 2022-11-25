@@ -3,7 +3,7 @@ using Shared.DTOs;
 
 namespace BlazorClient.Services.ClientInterfaces;
 
-public interface ICustomerService
+public interface IUserService
 {
-    Task<Customer> Create(CustomerCreationDto dto);
+    Task<User> Create(UserCreationDto dto);
 }

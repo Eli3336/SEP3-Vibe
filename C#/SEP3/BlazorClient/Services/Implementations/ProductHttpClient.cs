@@ -17,11 +17,8 @@ public class ProductHttpClient : IProductService
 
     public async Task DeleteAsync(long id)
     {
-        
         try
         {
-          
-
             HttpResponseMessage response = await client.DeleteAsync($"/Product/{id}");
             string content = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)

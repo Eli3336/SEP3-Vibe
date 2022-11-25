@@ -1,13 +1,13 @@
 namespace Shared.DTOs;
 
-public class CustomerCreationDto
+public class UserCreationDto
 {
     public string Name { get;}
     public string PhoneNumber { get; set; }
     public string UserName { get;}
     public string Password { get; set; }
 
-    public CustomerCreationDto(string name, string phoneNumber, string username, string password)
+    public UserCreationDto(string name, string phoneNumber, string username, string password)
     {
         Name = name;
         PhoneNumber = phoneNumber;

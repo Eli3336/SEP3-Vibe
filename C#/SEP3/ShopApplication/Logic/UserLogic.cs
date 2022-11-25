@@ -5,18 +5,18 @@ using ShopApplication.LogicInterfaces;
 
 namespace ShopApplication.Logic;
 
-public class CustomerLogic : ICustomerLogic
+public class UserLogic : IUserLogic
 {
-    private readonly ICustomerDao customerDao;
+    private readonly IUserDao userDao;
 
-    public CustomerLogic(ICustomerDao customerDao)
+    public UserLogic(IUserDao userDao)
     {
-        this.customerDao = customerDao;
+        this.userDao = userDao;
     }
 
-    public async Task<Customer> CreateAsync(CustomerCreationDto dto)
+    public async Task<User> CreateAsync(UserCreationDto dto)
     {
-        Customer? existing = await customerDao.GetByUsernameAsync(dto.UserName);
+        User? existing = await userDao.GetByUsernameAsync(dto.UserName);
         if (existing != null)
             throw new Exception("Username already taken!");
 
@@ -28,7 +28,7 @@ public class CustomerLogic : ICustomerLogic
         {
             throw new Exception(e.Message);
         }
-        Customer toCreate = new Customer
+        User toCreate = new User
         {
             name = dto.Name,
             phoneNumber = dto.PhoneNumber,
@@ -36,22 +36,22 @@ public class CustomerLogic : ICustomerLogic
             password = dto.Password
         };
     
-        Customer created = await customerDao.CreateAsync(toCreate);
+        User created = await userDao.CreateAsync(toCreate);
     
         return created;
     }
 
-    public Task<IEnumerable<Customer>> GetAsync(SearchCustomerParametersDto? searchParameters)
+    public Task<IEnumerable<User>> GetAsync(SearchUserParametersDto? searchParameters)
     {
-        return customerDao.GetAsync(searchParameters);
+        return userDao.GetAsync(searchParameters);
     }
 
-    private static void ValidateData(CustomerCreationDto customerToCreate)
+    private static void ValidateData(UserCreationDto userToCreate)
     {
-        string name = customerToCreate.Name;
-        string phoneNumber = customerToCreate.PhoneNumber;
-        string userName = customerToCreate.UserName;
-        string password = customerToCreate.Password;
+        string name = userToCreate.Name;
+        string phoneNumber = userToCreate.PhoneNumber;
+        string userName = userToCreate.UserName;
+        string password = userToCreate.Password;
 
         if (name.Length < 3)
             throw new Exception("Name must be at least 3 characters!");
