@@ -56,7 +56,7 @@ public class OrderItemFileDao : IOrderItemDao
         return Task.FromResult(orderItems);
     }
 
-    public Task<OrderItem?> GetByIdAsync(long id)
+    public Task<OrderItem> GetByIdAsync(long id)
     {
         OrderItem? existing = context.OrderItems.FirstOrDefault(t => t.id == id);
         return Task.FromResult(existing);
