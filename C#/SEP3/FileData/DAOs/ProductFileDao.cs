@@ -16,18 +16,16 @@ namespace FileData.DAOs;
         
         
         
-        public Task DeleteAsync(long id)
+        public async Task DeleteAsync(long id)
         {
-            Product? existing = context.Products.FirstOrDefault(product => product.id == id);
+            Product? existing = await GetByIdAsync(id);
             if (existing == null)
             {
-                throw new Exception($"Product with id {id} does not exist!");
+                throw new Exception($"Todo with id {id} not found");
             }
 
-            context.Products.Remove(existing); 
+            context.Products.Remove(existing);
             context.SaveChanges();
-    
-            return Task.CompletedTask;
         }
         
         
