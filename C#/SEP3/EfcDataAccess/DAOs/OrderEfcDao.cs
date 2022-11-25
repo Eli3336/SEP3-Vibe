@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Shared;
 using Shared.DTOs;
 using ShopApplication.DaoInterfaces;
@@ -6,18 +8,36 @@ namespace EfcDataAccess.DAOs;
 
 public class OrderEfcDao : IOrderDao
 {
-    public Task<Order> CreateAsync(Order order)
+    private readonly TodoContext context;
+
+    public OrderEfcDao(TodoContext context)
     {
-        throw new NotImplementedException();
+        this.context = context;
+    }
+    public async Task<Order> CreateAsync(Order order)
+    {
+        EntityEntry<Order> newOrder = await context.Orders.AddAsync(order);
+        await context.SaveChangesAsync();
+        return newOrder.Entity;
     }
 
-    public Task<Order?> GetByIdAsync(long id)
+    public async Task<Order?> GetByIdAsync(long id)
     {
-        throw new NotImplementedException();
+        Order? existing = await context.Orders.FirstOrDefaultAsync(o => o.Id == id);
+        return existing;
     }
 
-    public Task<IEnumerable<Order>> GetAsync(SearchOrderParametersDto? searchParameters)
+    public async Task<IEnumerable<Order>> GetAsync(SearchOrderParametersDto? searchParameters)
     {
-        throw new NotImplementedException();
+
+        IQueryable<Order> ordersQuery = context.Orders.AsQueryable();
+        if (searchParameters.Id != null)
+        {
+            ordersQuery = ordersQuery.Where(o => o.Id == searchParameters.Id);
+        }
+
+        IEnumerable<Order> result = await ordersQuery.ToListAsync();
+        return result;
+        
     }
 }
