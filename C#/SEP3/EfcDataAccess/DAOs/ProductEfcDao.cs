@@ -40,7 +40,7 @@ public class ProductEfcDao : IProductDao
         Product? existing = await GetByIdAsync(id);
         if (existing == null)
         {
-            throw new Exception($"Todo with id {id} not found");
+            throw new Exception($"Product with id {id} not found");
         }
 
         context.Products.Remove(existing);
