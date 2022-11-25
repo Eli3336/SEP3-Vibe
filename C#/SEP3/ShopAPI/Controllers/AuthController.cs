@@ -23,19 +23,19 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost, Route("register")]
-    public async Task<ActionResult> Register([FromBody] Customer customer)
+    public async Task<ActionResult> Register([FromBody] User user)
     {
-        await authService.RegisterCustomer(customer);
+        await authService.RegisterUser(user);
         return Ok();
     }
 
     [HttpPost, Route("login")]
-    public async Task<ActionResult> Login([FromBody] CustomerLoginDto customerLoginDto)
+    public async Task<ActionResult> Login([FromBody] UserLoginDto userLoginDto)
     {
         try
         {
-            Customer customer = await authService.ValidateCustomer(customerLoginDto.UserName, customerLoginDto.Password);
-            string token = GenerateJwt(customer);
+            User user = await authService.ValidateUser(userLoginDto.UserName, userLoginDto.Password);
+            string token = GenerateJwt(user);
         
             return Ok(token);
         }
@@ -45,9 +45,9 @@ public class AuthController : ControllerBase
         }
     }
 
-    private string GenerateJwt(Customer customer)
+    private string GenerateJwt(User user)
     {
-        List<Claim> claims = GenerateClaims(customer);
+        List<Claim> claims = GenerateClaims(user);
         
         //SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
        // SigningCredentials signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
@@ -68,14 +68,14 @@ public class AuthController : ControllerBase
       return "";
     }
 
-    private List<Claim> GenerateClaims(Customer customer)
+    private List<Claim> GenerateClaims(User user)
     {
         var claims = new[]
         {
           //  new Claim(JwtRegisteredClaimNames.Sub, config["Jwt:Subject"]),
            // new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
            // new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-            new Claim(ClaimTypes.Name, customer.username)
+            new Claim(ClaimTypes.Name, user.username)
         };
         return claims.ToList();
     }

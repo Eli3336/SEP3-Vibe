@@ -6,29 +6,29 @@ using Shared.DTOs;
 
 namespace BlazorClient.Services.Implementations;
 
-public class CustomerHttpClient : ICustomerService
+public class UserHttpClient : IUserService
 {
     private readonly HttpClient client;
 
-    public CustomerHttpClient(HttpClient client)
+    public UserHttpClient(HttpClient client)
     {
         this.client = client;
     }
 
-    public async Task<Customer> Create(CustomerCreationDto dto)
+    public async Task<User> Create(UserCreationDto dto)
     {
-        HttpResponseMessage response = await client.PostAsJsonAsync("/customers", dto);
+        HttpResponseMessage response = await client.PostAsJsonAsync("/users", dto);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(result);
         }
 
-        Customer customer = JsonSerializer.Deserialize<Customer>(result, new JsonSerializerOptions
+        User user = JsonSerializer.Deserialize<User>(result, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;
-        return customer;
+        return user;
     }
 
 

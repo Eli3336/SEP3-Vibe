@@ -25,8 +25,8 @@ builder.Services.AddScoped<IProductLogic, ProductLogic>();
 builder.Services.AddScoped<IOrderItemDao, OrderItemsEfcDao>();
 builder.Services.AddScoped<IOrderItemLogic, OrderItemLogic>();
 
-builder.Services.AddScoped<ICustomerDao, CustomerEfcDao>();
-builder.Services.AddScoped<ICustomerLogic, CustomerLogic>();
+builder.Services.AddScoped<IUserDao, UserEfcDao>();
+builder.Services.AddScoped<IUserLogic, UserLogic>();
 
 builder.Services.AddScoped<IOrderDao, OrderEfcDao>();
 builder.Services.AddScoped<IOrderLogic, OrderLogic>();

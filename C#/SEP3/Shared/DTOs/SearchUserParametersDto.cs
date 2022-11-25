@@ -1,10 +1,10 @@
 namespace Shared.DTOs;
 
-public class SearchCustomerParametersDto
+public class SearchUserParametersDto
 {
     public string? UsernameContains { get; }
 
-    public SearchCustomerParametersDto(string? usernameContains)
+    public SearchUserParametersDto(string? usernameContains)
     {
         UsernameContains = usernameContains;
     }
