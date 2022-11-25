@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Shared;
 using Shared.DTOs;
 using ShopApplication.DaoInterfaces;
@@ -45,4 +46,21 @@ public class ProductEfcDao : IProductDao
 
         context.Products.Remove(existing);
         context.SaveChanges();    }
+    
+    /*
+    public async Task<Product> CreateAsync(Product product)
+    {
+        EntityEntry<Product> added = await context.Products.AddAsync(product);
+        await context.SaveChangesAsync();
+        return added.Entity;
+    }
+    */
+    /*
+    public async Task UpdateAsync(Product product)
+    {
+        context.ChangeTracker.Clear();
+        context.Products.Update(product);
+        await context.SaveChangesAsync();
+    }
+    */
 }
