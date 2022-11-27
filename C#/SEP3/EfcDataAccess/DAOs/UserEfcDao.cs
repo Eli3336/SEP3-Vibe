@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Shared;
 using Shared.DTOs;
 using ShopApplication.DaoInterfaces;
@@ -12,45 +14,37 @@ public class UserEfcDao : IUserDao
     {
         this.context = context;
     }
-    public Task<User> CreateAsync(User user)
+
+    public async Task<User> CreateAsync(User user)
     {
-        int userId = 1;
-        if (context.Users.Any())
-        {
-            userId = context.Users.Max(u => u.Id);
-            userId++;
-        }
-
-        user.Id = userId;
-
-        context.Users.Add(user);
-        context.SaveChanges();
-
-        return Task.FromResult(user);
+        EntityEntry<User> newUser = await context.Users.AddAsync(user);
+        await context.SaveChangesAsync();
+        return newUser.Entity;
     }
 
-    public Task<User?> GetByUsernameAsync(string userName)
+    public async Task<User?> GetByUsernameAsync(string userName)
     {
-        User? existing = context.Users.FirstOrDefault(u =>
-            u.username.Equals(userName, StringComparison.OrdinalIgnoreCase)
+        User? existing = await context.Users.FirstOrDefaultAsync(u =>
+            u.username.ToLower().Equals(userName.ToLower())
         );
-        return Task.FromResult(existing);
+        return existing;
     }
 
-    public Task<IEnumerable<User>> GetAsync(SearchUserParametersDto? searchParameters)
+    public async Task<IEnumerable<User>> GetAsync(SearchUserParametersDto searchParameters)
     {
-        IEnumerable<User> users = context.Users.AsEnumerable();
-        if (searchParameters?.UsernameContains != null)
+        IQueryable<User> usersQuery = context.Users.AsQueryable();
+        if (searchParameters.UsernameContains != null)
         {
-            users = context.Users.Where(u =>
-                u.username.Contains(searchParameters.UsernameContains, StringComparison.OrdinalIgnoreCase));
+            usersQuery = usersQuery.Where(u => u.username.ToLower().Contains(searchParameters.UsernameContains.ToLower()));
         }
 
-        return Task.FromResult(users);
+        IEnumerable<User> result = await usersQuery.ToListAsync();
+        return result;
     }
 
-    public Task<User?> GetByIdAsync(int id)
+    public async Task<User?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
-    }
+        User? existing = await context.Users.FirstOrDefaultAsync(u =>
+            u.Id==id);
+        return existing;    }
 }

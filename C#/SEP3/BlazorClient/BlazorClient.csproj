@@ -22,6 +22,12 @@
       <None Update="Pages\index.css">
         <DependentUpon>Index.razor</DependentUpon>
       </None>
+      <None Update="Pages\productPage.css">
+        <DependentUpon>ProductPage.razor</DependentUpon>
+      </None>
+      <None Update="Pages\shoppingCart.css">
+        <DependentUpon>ShoppingCart.razor</DependentUpon>
+      </None>
     </ItemGroup>
 
     <ItemGroup>
