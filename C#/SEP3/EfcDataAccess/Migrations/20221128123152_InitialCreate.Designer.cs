@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EfcDataAccess.Migrations
 {
-    [DbContext(typeof(TodoContext))]
+    [DbContext(typeof(ShopContext))]
     [Migration("20221128123152_InitialCreate")]
     partial class InitialCreate
     {

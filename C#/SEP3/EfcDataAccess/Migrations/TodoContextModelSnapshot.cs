@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EfcDataAccess.Migrations
 {
-    [DbContext(typeof(TodoContext))]
+    [DbContext(typeof(ShopContext))]
     partial class TodoContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

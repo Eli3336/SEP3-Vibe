@@ -8,9 +8,9 @@ namespace EfcDataAccess.DAOs;
 
 public class OrderEfcDao : IOrderDao
 {
-    private readonly TodoContext context;
+    private readonly ShopContext context;
 
-    public OrderEfcDao(TodoContext context)
+    public OrderEfcDao(ShopContext context)
     {
         this.context = context;
     }
