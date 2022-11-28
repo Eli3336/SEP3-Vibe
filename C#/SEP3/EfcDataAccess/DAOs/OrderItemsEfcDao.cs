@@ -23,35 +23,31 @@ public class OrderItemsEfcDao : IOrderItemDao
 
     public async Task<IEnumerable<OrderItem>> GetAsync(SearchOrderItemsParametersDto parametersDto)
     {
-        IQueryable<OrderItem> orderItems = context.OrderItems.AsQueryable();
-        if (parametersDto.id != null)
+        IQueryable<OrderItem> orderItems = context.OrderItems.Include(orderItem => orderItem.product).AsQueryable();
+        if (parametersDto.id !=null)
         {
-            orderItems = context.OrderItems.Where(o => o.product.id == parametersDto.id);
+            orderItems = orderItems.Where(o => o.product.id == parametersDto.id);
         }
         
-        IEnumerable<OrderItem> result = await orderItems.ToListAsync();
+        
+        List<OrderItem> result = await orderItems.ToListAsync();
         return result;
     }
 
     public async Task UpdateAsync(OrderItem orderItem)
     {
-        OrderItem? existing = await context.OrderItems.FirstOrDefaultAsync(todo => todo.id == orderItem.id);
-        if (existing == null)
-        {
-            throw new Exception($"Order with id {orderItem.id} does not exist!");
-        }
-
-        context.OrderItems.Remove(existing);
-        context.OrderItems.Add(orderItem);
         
-        context.SaveChanges();
+        context.OrderItems.Update(orderItem);
+        await context.SaveChangesAsync();
     }
 
     public async Task<OrderItem> GetByIdAsync(long id)
     {
-        OrderItem? existing = await context.OrderItems.FirstOrDefaultAsync(t => t.id == id);
-        return await Task.FromResult(existing);
-        
+        OrderItem? existing = await context.OrderItems
+            .AsNoTracking()
+            .Include(orderItem => orderItem.product)
+            .SingleOrDefaultAsync(t => t.id == id);
+        return existing;
     }
 
     public async Task DeleteAsync(long id)
@@ -63,6 +59,6 @@ public class OrderItemsEfcDao : IOrderItemDao
         }
         
         context.OrderItems.Remove(existing); 
-        context.SaveChanges();
+        await context.SaveChangesAsync();
     }
 }
