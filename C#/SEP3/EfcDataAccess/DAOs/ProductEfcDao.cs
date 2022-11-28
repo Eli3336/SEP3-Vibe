@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Shared;
 using Shared.DTOs;
 using ShopApplication.DaoInterfaces;
@@ -6,18 +8,59 @@ namespace EfcDataAccess.DAOs;
 
 public class ProductEfcDao : IProductDao
 {
-    public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto)
+    
+    private readonly TodoContext context;
+
+    public async Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto)
     {
-        throw new NotImplementedException();
+        IQueryable<Product> query = context.Products.Include(product => product.id).AsQueryable();
+    
+        if (!string.IsNullOrEmpty(searchProductsParametersDto.nameContains))
+        {
+            // we know username is unique, so just fetch the first
+            query = query.Where(product =>
+                product.name.ToLower().Equals(searchProductsParametersDto.nameContains.ToLower()));
+        }
+    
+       
+        List<Product> result = await query.ToListAsync();
+        return result;    }
+
+    public async  Task<Product?> GetByIdAsync(long id)
+    {
+        
+        Product? found = await context.Products
+            .Include(product => product.id)
+            .SingleOrDefaultAsync(product => product.id == id);
+        return found;
+        
     }
 
-    public Task<Product?> GetByIdAsync(long id)
+    public async Task DeleteAsync(long id)
     {
-        throw new NotImplementedException();
-    }
+        Product? existing = await GetByIdAsync(id);
+        if (existing == null)
+        {
+            throw new Exception($"Product with id {id} not found");
+        }
 
-    public Task DeleteAsync(long id)
+        context.Products.Remove(existing);
+        context.SaveChanges();    }
+    
+    /*
+    public async Task<Product> CreateAsync(Product product)
     {
-        throw new NotImplementedException();
+        EntityEntry<Product> added = await context.Products.AddAsync(product);
+        await context.SaveChangesAsync();
+        return added.Entity;
     }
+    */
+    /*
+    public async Task UpdateAsync(Product product)
+    {
+        context.ChangeTracker.Clear();
+        context.Products.Update(product);
+        await context.SaveChangesAsync();
+    }
+    */
 }

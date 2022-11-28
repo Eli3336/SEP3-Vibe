@@ -4,7 +4,7 @@
 @using BlazorClient.Services.ClientInterfaces
 @using global::Shared.DTOs
 @using BlazorClient.Services
-@inject ICustomerService customerService;
+@inject IUserService userService;
 @inject IAuthService authService;
 @inject NavigationManager navMgr;
 
@@ -66,7 +66,7 @@
 
         try
         {
-            await customerService.Create(new CustomerCreationDto(name, phoneNumber, username, password));
+            await userService.Create(new UserCreationDto(name, phoneNumber, username, password));
             username = "";
             password = "";
             resultMsg = "User successfully created";
