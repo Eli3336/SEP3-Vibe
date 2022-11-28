@@ -1,4 +1,5 @@
 using System.Text;
+using EfcDataAccess;
 using EfcDataAccess.DAOs;
 using ShopApplication.DaoInterfaces;
 using ShopApplication.Logic;
@@ -18,7 +19,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<FileContext>();
+builder.Services.AddScoped<TodoContext>();
 builder.Services.AddScoped<IProductDao, ProductEfcDao>();
 builder.Services.AddScoped<IProductLogic, ProductLogic>();
 

@@ -10,30 +10,31 @@ public class ProductEfcDao : IProductDao
 {
     
     private readonly TodoContext context;
+    public ProductEfcDao(TodoContext context)
+    {
+        this.context = context;
+    }
 
     public async Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto)
     {
-        IQueryable<Product> query = context.Products.Include(product => product.id).AsQueryable();
+        IQueryable<Product> query = context.Products.AsQueryable();
     
-        if (!string.IsNullOrEmpty(searchProductsParametersDto.nameContains))
+        if (searchProductsParametersDto.nameContains != null)
         {
             // we know username is unique, so just fetch the first
-            query = query.Where(product =>
-                product.name.ToLower().Equals(searchProductsParametersDto.nameContains.ToLower()));
+            query = query.Where(p =>
+                p.name.ToLower().Contains(searchProductsParametersDto.nameContains.ToLower()));
         }
-    
-       
-        List<Product> result = await query.ToListAsync();
-        return result;    }
+        
+        IEnumerable<Product> result = await query.ToListAsync();
+        return result;
+    }
 
     public async  Task<Product?> GetByIdAsync(long id)
     {
-        
-        Product? found = await context.Products
-            .Include(product => product.id)
-            .SingleOrDefaultAsync(product => product.id == id);
+        Product? found = await context.Products.FirstOrDefaultAsync(p => p.id == id);
+
         return found;
-        
     }
 
     public async Task DeleteAsync(long id)
@@ -45,7 +46,8 @@ public class ProductEfcDao : IProductDao
         }
 
         context.Products.Remove(existing);
-        context.SaveChanges();    }
+        context.SaveChanges();    
+    }
     
     /*
     public async Task<Product> CreateAsync(Product product)

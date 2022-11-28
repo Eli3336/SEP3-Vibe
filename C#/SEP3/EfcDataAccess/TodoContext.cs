@@ -12,7 +12,7 @@ public class TodoContext : DbContext
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source = Todo.db");
+        optionsBuilder.UseSqlite("Data Source = ../EfcDataAccess/Shop.db");
     }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -21,6 +21,5 @@ public class TodoContext : DbContext
         modelBuilder.Entity<User>().HasKey(user => user.Id);
         modelBuilder.Entity<OrderItem>().HasKey(orderItem => orderItem.id);
         modelBuilder.Entity<Order>().HasKey(order => order.Id);
-        
     }
 }
