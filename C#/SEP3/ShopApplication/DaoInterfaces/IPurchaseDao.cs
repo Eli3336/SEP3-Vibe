@@ -1,6 +1,11 @@
+using Shared;
+
 namespace ShopApplication.DaoInterfaces;
 
-public class IPurchaseDao
+public interface IPurchaseDao
 {
+    Task<Purchase> CreateAsync(Purchase purchase);
     
+    Task<Purchase?> GetByIdAsync(long id);
+
 }

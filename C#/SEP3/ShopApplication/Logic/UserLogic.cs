@@ -15,25 +15,25 @@ public class UserLogic : IUserLogic
     }
 
     public async Task<User> CreateAsync(UserCreationDto dto)
-    {
-        User? existing = await userDao.GetByUsernameAsync(dto.UserName);
-        if (existing != null)
-            throw new Exception("Username already taken!");
-
-        try
-        {
-            ValidateData(dto);
-        }
-        catch (Exception e)
-        {
-            throw new Exception(e.Message);
-        }
-        User toCreate = new User
-        {
-            name = dto.Name,
-            phoneNumber = dto.PhoneNumber,
-            username = dto.UserName,
-            password = dto.Password
+                   {
+                       User? existing = await userDao.GetByUsernameAsync(dto.UserName);
+                       if (existing != null)
+                           throw new Exception("Username already taken!");
+               
+                       try
+                       {
+                           ValidateData(dto);
+                       }
+                       catch (Exception e)
+                       {
+                           throw new Exception(e.Message);
+                       }
+                       User toCreate = new User
+                       {
+                           name = dto.Name,
+                           phoneNumber = dto.PhoneNumber,
+                           username = dto.UserName,
+                           password = dto.Password
         };
     
         User created = await userDao.CreateAsync(toCreate);

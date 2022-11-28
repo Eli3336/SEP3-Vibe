@@ -7,11 +7,13 @@ public class Purchase
     public DateTime dateTime { get; set; }
 
 
-    public Purchase(List<OrderItem> orderItems, long userId)
+    public Purchase(long userId, List<OrderItem> orderItems)
     {
 
         this.orderItems = orderItems;
         this.userId = userId;
         this.dateTime = DateTime.Now;
     }
+
+    
 }
