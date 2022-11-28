@@ -8,9 +8,9 @@ namespace EfcDataAccess.DAOs;
 
 public class UserEfcDao : IUserDao
 {
-    private readonly TodoContext context;
+    private readonly ShopContext context;
 
-    public UserEfcDao(TodoContext context)
+    public UserEfcDao(ShopContext context)
     {
         this.context = context;
     }

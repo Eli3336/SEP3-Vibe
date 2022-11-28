@@ -8,49 +8,47 @@ namespace EfcDataAccess.DAOs;
 
 public class OrderItemsEfcDao : IOrderItemDao
 {
-    private readonly TodoContext context;
 
-    public OrderItemsEfcDao(TodoContext context)
+    private readonly ShopContext context;
+
+    public OrderItemsEfcDao(ShopContext context)
     {
         this.context = context;
     }
+
     public async Task<OrderItem> OrderProduct(OrderItem orderItem)
     {
-        EntityEntry<OrderItem> newOrder = await context.OrderItems.AddAsync(orderItem);
+        EntityEntry<OrderItem> newOrderItem = await context.OrderItems.AddAsync(orderItem);
         await context.SaveChangesAsync();
-        return newOrder.Entity;
+        return newOrderItem.Entity;
     }
 
-    public async Task<IEnumerable<OrderItem>> GetAsync(SearchOrderItemsParametersDto parametersDto)
+    public async Task<IEnumerable<OrderItem>> GetAsync(SearchOrderItemsParametersDto searchParameters)
     {
-        IQueryable<OrderItem> orderItems = context.OrderItems.AsQueryable();
-        if (parametersDto.id != null)
+        IQueryable<OrderItem> orderItemsQuery = context.OrderItems.AsQueryable();
+        if (searchParameters.id != null)
         {
-            orderItems = context.OrderItems.Where(o => o.product.id == parametersDto.id);
+            orderItemsQuery = orderItemsQuery.Where(o => o.id == searchParameters.id);
         }
-        
-        IEnumerable<OrderItem> result = await orderItems.ToListAsync();
+
+        IEnumerable<OrderItem> result = await orderItemsQuery.ToListAsync();
         return result;
     }
 
     public async Task UpdateAsync(OrderItem orderItem)
     {
-        OrderItem? existing = await context.OrderItems.FirstOrDefaultAsync(todo => todo.id == orderItem.id);
-        if (existing == null)
-        {
-            throw new Exception($"Order with id {orderItem.id} does not exist!");
-        }
-
-        context.OrderItems.Remove(existing);
-        context.OrderItems.Add(orderItem);
-        
-        context.SaveChanges();
+        context.ChangeTracker.Clear();
+        context.OrderItems.Update(orderItem);
+        await context.SaveChangesAsync();
     }
 
-    public async Task<OrderItem> GetByIdAsync(long id)
+    public async  Task<OrderItem?> GetByIdAsync(long id)
     {
-        OrderItem? existing = await context.OrderItems.FirstOrDefaultAsync(t => t.id == id);
-        return await Task.FromResult(existing);
+        
+        OrderItem? found = await context.OrderItems
+            .Include(orderItem => orderItem.id)
+            .SingleOrDefaultAsync(orderItem => orderItem.id == id);
+        return found;
         
     }
 
@@ -59,10 +57,10 @@ public class OrderItemsEfcDao : IOrderItemDao
         OrderItem? existing = await GetByIdAsync(id);
         if (existing == null)
         {
-            throw new Exception($"OrderItem with id {id} does not exist!");
+            throw new Exception($"OrderItem with id {id} not found");
         }
-        
-        context.OrderItems.Remove(existing); 
-        context.SaveChanges();
+
+        context.OrderItems.Remove(existing);
+        context.SaveChanges();    
     }
 }
