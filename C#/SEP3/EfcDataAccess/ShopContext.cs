@@ -3,7 +3,7 @@ using Shared;
 
 namespace EfcDataAccess;
 
-public class TodoContext : DbContext
+public class ShopContext : DbContext
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Product> Products { get; set; }

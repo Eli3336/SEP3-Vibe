@@ -9,7 +9,12 @@ namespace EfcDataAccess.DAOs;
 public class ProductEfcDao : IProductDao
 {
     
-    private readonly TodoContext context;
+    private readonly ShopContext context;
+
+    public ProductEfcDao(ShopContext context)
+    {
+        this.context = context;
+    }
 
     public async Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto)
     {
