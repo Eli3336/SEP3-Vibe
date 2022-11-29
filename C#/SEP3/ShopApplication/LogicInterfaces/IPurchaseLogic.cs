@@ -1,4 +1,5 @@
 using Shared;
+using Shared.DTOs;
 
 namespace ShopApplication.LogicInterfaces;
 

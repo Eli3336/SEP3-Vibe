@@ -10,20 +10,18 @@ namespace Shop.Controllers;
 [ApiController]
 [Route("[controller]")]
 
-public class PurchaseController
+public class PurchaseController : ControllerBase
 {
     
     private readonly IPurchaseLogic purchaseLogic;
 
-    
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<Product>>> GetAsync([FromQuery] string? name)
+    [HttpGet("{id:long}")]
+    public async Task<ActionResult<PurchaseCreationDto>> GetById([FromRoute] long id)
     {
         try
         {
-            SearchProductsParametersDto parameters = new(name);
-            IEnumerable<Product> products = await purchaseLogic.GetAsync(parameters);
-            return Ok(products);
+            PurchaseCreationDto result = await purchaseLogic.GetByIdAsync(id);
+            return Ok(result);
         }
         catch (Exception e)
         {
@@ -31,4 +29,21 @@ public class PurchaseController
             return StatusCode(500, e.Message);
         }
     }
+    
+    [HttpPost]
+    public async Task<ActionResult<Purchase>> CreateAsync(PurchaseCreationDto dto)
+    {
+        try
+        {
+            Purchase purchase = await purchaseLogic.CreateAsync(dto);
+            return Created($"/OrderItems/{purchase.userId}", purchase.orderItems);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+        
+    }
+   
 }
