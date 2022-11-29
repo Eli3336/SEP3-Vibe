@@ -20,4 +20,9 @@
         <Protobuf Include="Protos\greet.proto" GrpcServices="Client" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Shared\Shared.csproj" />
+      <ProjectReference Include="..\ShopApplication\ShopApplication.csproj" />
+    </ItemGroup>
+
 </Project>

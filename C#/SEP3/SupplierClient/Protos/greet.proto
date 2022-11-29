@@ -10,18 +10,22 @@ package greet;
 
 
 
-// The greeting service definition.
-service Greeter {
-  // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply);
+service ShopGrpc{
+  rpc OrderProduct(ProductGrpc) returns(ProductResponse);
+  //rpc EditProduct(ProductGrpc) returns (ProductResponse);
 }
 
-// The request message containing the user's name.
-message HelloRequest {
+message ProductGrpc{
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+  CategoryGrpc category = 5;
+}
+message CategoryGrpc{
   string name = 1;
 }
 
-// The response message containing the greetings.
-message HelloReply {
-  string message = 1;
+message ProductResponse{
+  string confirmed = 1;
 }
