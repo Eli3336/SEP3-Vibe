@@ -1,8 +1,14 @@
 syntax = "proto3";
 
+
+
 option csharp_namespace = "Supplier";
 
+
+
 package greet;
+
+
 
 // The greeting service definition.
 service Greeter {
@@ -19,3 +25,5 @@ message HelloRequest {
 message HelloReply {
   string message = 1;
 }
+
+
