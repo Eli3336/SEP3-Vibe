@@ -1,4 +1,5 @@
 using Shared;
+using Shared.DTOs;
 using ShopApplication.DaoInterfaces;
 using ShopApplication.LogicInterfaces;
 
@@ -17,15 +18,15 @@ public class PurchaseLogic : IPurchaseLogic
     {
         Purchase toCreate = new Purchase
         {
-            userId = dto.userId,
-            orderItems = dto.orderItems,
+            userId = purchaseToCreate.id,
+            orderItems = purchaseToCreate.orderItem,
         };
     
         Purchase created = await purchaseDao.CreateAsync(toCreate);
     
         return created;    }
 
-    public Task<PurchaseCreationDto> GetByIdAsync(long id)
+    public async Task<PurchaseCreationDto> GetByIdAsync(long id)
     {
         Purchase? purchase = await purchaseDao.GetByIdAsync(id);
         if (purchase == null)
@@ -34,6 +35,6 @@ public class PurchaseLogic : IPurchaseLogic
                 $"Purchase with id {id} not found!");
         }
 
-        return new PurchaseCreationDto()(purchase.userId, purchase.orderItems);
+        return new PurchaseCreationDto(purchase.userId, purchase.orderItems);
     }
 }
