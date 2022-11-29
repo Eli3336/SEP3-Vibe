@@ -10,6 +10,8 @@ public class ShopContext : DbContext
     public DbSet<OrderItem> OrderItems { get; set; }
     public DbSet<Order> Orders { get; set; }
     
+    public DbSet<Purchase> Purchases { get; set; }
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlite("Data Source = ../EfcDataAccess/Shop.db");
@@ -21,5 +23,6 @@ public class ShopContext : DbContext
         modelBuilder.Entity<User>().HasKey(user => user.Id);
         modelBuilder.Entity<OrderItem>().HasKey(orderItem => orderItem.id);
         modelBuilder.Entity<Order>().HasKey(order => order.Id);
+
     }
 }
