@@ -23,6 +23,8 @@ public class ShopContext : DbContext
         modelBuilder.Entity<User>().HasKey(user => user.Id);
         modelBuilder.Entity<OrderItem>().HasKey(orderItem => orderItem.id);
         modelBuilder.Entity<Order>().HasKey(order => order.Id);
+        modelBuilder.Entity<Purchase>().HasKey(purchase => purchase.userId);
+
 
     }
 }
