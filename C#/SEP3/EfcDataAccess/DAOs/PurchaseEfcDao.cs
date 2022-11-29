@@ -8,9 +8,9 @@ namespace EfcDataAccess.DAOs;
 public class PurchaseEfcDao : IPurchaseDao
 {
     
-    private readonly TodoContext context;
+    private readonly ShopContext context;
 
-    public PurchaseEfcDao(TodoContext context)
+    public PurchaseEfcDao(ShopContext context)
     {
         this.context = context;
     }
