@@ -78,7 +78,7 @@
                 </div>
                 
                 <Modal ShowModal="showModal">
-                    <p>For now its just a message i need to figure out how to shou something that wasnt created yet, aka the receipt</p>
+                    <p>A receipt of your order has been created! You can view all your receipts in your profile!</p>
                     <button @onclick="@Proceed">Wonderful</button>
                 </Modal>
             }
@@ -93,6 +93,7 @@
     private string address = "";
     private double price;
     private bool showModal;
+    private Order order = null;
     
     protected override async Task OnInitializedAsync()
     {
@@ -120,7 +121,9 @@
             List<OrderItem> items = orderItems.ToList();
             address = street + " " + city + " " + zip;
             OrderCreationDto dto = new OrderCreationDto(price,address, items);
-            await orderService.CreateAsync(dto);
+            order=await orderService.CreateAsync(dto);
+            PurchaseCreationDto purchaseDto = new PurchaseCreationDto(1, order);//username should come from authentication not be 1 by default
+
         }
         catch (Exception e)
         {
