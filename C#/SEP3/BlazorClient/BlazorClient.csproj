@@ -28,6 +28,9 @@
       <None Update="Pages\shoppingCart.css">
         <DependentUpon>ShoppingCart.razor</DependentUpon>
       </None>
+      <None Update="Pages\UIComponents\modal.css">
+        <DependentUpon>Modal.razor</DependentUpon>
+      </None>
     </ItemGroup>
 
     <ItemGroup>

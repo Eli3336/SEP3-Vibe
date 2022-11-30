@@ -4,6 +4,8 @@
 @using global::Shared.DTOs
 @inject IOrderItemService orderItemService
 @inject IOrderService orderService
+@using UIComponents
+@inject NavigationManager navMgr
 
 <h3>Checkout</h3>
 @if (!string.IsNullOrEmpty(msg))
@@ -74,6 +76,11 @@
                     </div>
                     <button class="btn" @onclick="MakeOrder">Buy</button>
                 </div>
+                
+                <Modal ShowModal="showModal">
+                    <p>For now its just a message i need to figure out how to shou something that wasnt created yet, aka the receipt</p>
+                    <button @onclick="@Proceed">Wonderful</button>
+                </Modal>
             }
 
 @code {
@@ -85,6 +92,7 @@
     private string zip = "";
     private string address = "";
     private double price;
+    private bool showModal;
     
     protected override async Task OnInitializedAsync()
     {
@@ -119,6 +127,12 @@
             Console.WriteLine(e);
             throw;
         }
+    }
+
+    private void Proceed()
+    {
+        showModal = false;
+        navMgr.NavigateTo("/ViewProducts");
     }
     
 }}

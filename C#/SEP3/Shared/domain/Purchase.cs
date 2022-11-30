@@ -12,7 +12,7 @@ public class Purchase
 
         this.order = order;
         this.userId = userId;
-        
+
     }
 
     
