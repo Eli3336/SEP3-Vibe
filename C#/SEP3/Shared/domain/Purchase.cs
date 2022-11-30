@@ -14,6 +14,7 @@ public class Purchase
         this.finalPrice = finalPrice;
         this.order = order;
         this.user = user;
+
     }
 
     private Purchase(){}

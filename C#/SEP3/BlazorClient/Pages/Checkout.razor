@@ -4,6 +4,8 @@
 @using global::Shared.DTOs
 @inject IOrderItemService orderItemService
 @inject IOrderService orderService
+@using UIComponents
+@inject NavigationManager navMgr
 
 <h3>Checkout</h3>
 @if (!string.IsNullOrEmpty(msg))
@@ -74,6 +76,11 @@
                     </div>
                     <button class="btn" @onclick="MakeOrder">Buy</button>
                 </div>
+                
+                <Modal ShowModal="showModal">
+                    <p>A receipt of your order has been created! You can view all your receipts in your profile!</p>
+                    <button @onclick="@Proceed">Wonderful</button>
+                </Modal>
             }
 
 @code {
@@ -85,6 +92,9 @@
     private string zip = "";
     private string address = "";
     private double price;
+    private bool showModal;
+    private Order order = null;
+    private User userTest = new User();
     
     protected override async Task OnInitializedAsync()
     {
@@ -115,14 +125,23 @@
                 items.Add(order.id);
             }
             address = street + " " + city + " " + zip;
+
             OrderCreationDto dto = new OrderCreationDto(address, items);
-            await orderService.CreateAsync(dto);
+            order=await orderService.CreateAsync(dto);
+            PurchaseCreationDto purchaseDto = new PurchaseCreationDto(userTest, order);//username should come from authentication not be 1 by default
+
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             throw;
         }
+    }
+
+    private void Proceed()
+    {
+        showModal = false;
+        navMgr.NavigateTo("/ViewProducts");
     }
     
 }}

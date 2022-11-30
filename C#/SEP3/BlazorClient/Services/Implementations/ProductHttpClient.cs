@@ -1,3 +1,4 @@
+using System.Text;
 using System.Text.Json;
 using BlazorClient.Services.ClientInterfaces;
 using Shared;
@@ -67,6 +68,19 @@ public class ProductHttpClient : IProductService
                 PropertyNameCaseInsensitive = true
             })!;
             return post;
+    }
+    
+    public async Task UpdateAsync(ProductUpdateDto product)
+    {
+        string dtoAsJson = JsonSerializer.Serialize(product);
+        StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
+
+        HttpResponseMessage response = await client.PatchAsync("/Product", body);
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
     }
     
     private static string ConstructQuery( string? nameContains)

@@ -3,7 +3,6 @@
 @using BlazorClient.Services.ClientInterfaces
 @using global::Shared.DTOs
 @inject IOrderItemService orderItemService
-@inject HttpClient Http
 @inject NavigationManager navMgr;
 
 @if (!string.IsNullOrEmpty(msg))
@@ -46,7 +45,7 @@
                                                 <div class="row">@orderItem.product.description</div>
                                             </div>
                                             <div class="col">
-                                                <a href="#" @onclick="@(() => decrease(orderItem.id))">-</a><a href="#" class="border">@orderItem.quantity</a><a href="#" @onclick="@(() => increase(orderItem.id))">+</a>
+                                                <a href="#" @onclick="@(() => decrease(orderItem.id))">-</a><a href="#" class="border">@orderItem.quantity</a><a href="#" @onclick="@(() => increase(orderItem.id, orderItem.product.stock))">+</a>
                                             </div>
                                             <div class="col">&euro; @orderItem.price <Button class="oi oi-x" @onclick="@(() => removeItem(orderItem.id))"></Button></div>
                                         </div>
@@ -85,6 +84,7 @@
     private OrderItem[]? list;
     private string msg = "";
     private OrderItemUpdateDto dto = null!;
+    private OrderItem orderItem= null!;
 
     protected override async Task OnInitializedAsync()
     {
@@ -142,21 +142,25 @@
         }
     }
 
-    private async Task increase(long id)
+    private async Task increase(long id, int stock)
     {
      
         msg = "";
         try
         {
+
             OrderItemCreationDto creationDto = await orderItemService.GetByIdAsync(id);
-            dto = new(id)
+            if (creationDto.quantity < stock) //also need to update the stock somewhere idk where but created the update async in services
             {
-                quantity = (creationDto.quantity + 1),
-                id = id
-            };
-            await orderItemService.UpdateAsync(dto);
-            navMgr.NavigateTo("/ShoppingCart");
-            
+                dto = new(id)
+                {
+                    quantity = (creationDto.quantity + 1),
+                    id = id
+                };
+                await orderItemService.UpdateAsync(dto);
+                navMgr.NavigateTo("/ShoppingCart");
+            }
+
         }
         catch (Exception e)
         {
