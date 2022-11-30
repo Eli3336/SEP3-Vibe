@@ -41,4 +41,9 @@ public class PurchaseLogic : IPurchaseLogic
 
         return new PurchaseCreationDto(purchase.user.name, purchase.order);
     }
+
+    public Task<ICollection<Purchase>> GetAsync(string? nameContains = null)
+    {
+        throw new NotImplementedException();
+    }
 }

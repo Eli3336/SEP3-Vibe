@@ -36,9 +36,7 @@ public class ProductHttpClient : IProductService
   
     public async Task<ICollection<Product>> GetAsync(string? nameContains)
     {
-        try
-        {
-            string query = ConstructQuery(nameContains);
+        string query = ConstructQuery(nameContains);
 
             HttpResponseMessage response = await client.GetAsync("/Product" + query);
             string content = await response.Content.ReadAsStringAsync();
@@ -52,12 +50,6 @@ public class ProductHttpClient : IProductService
                 PropertyNameCaseInsensitive = true
             })!;
             return products;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-            return null;
-        }
     }
     
 

@@ -1,0 +1,55 @@
+@page "/PurchaseHistory"
+@inject IPurchaseService purchaseService
+@using global::Shared.DTOs
+@using BlazorClient.Services.ClientInterfaces
+@using global::Shared
+<h3>PurchaseHistory</h3>
+<div>
+			<div class="table-responsive pb-5">
+				<table id="tbOrderHistory" class="table border ps-table w-100 mb-3">
+					<thead>
+						<tr>
+							<th class="font-weight-bold py-2 border-0">#Order</th>
+							<th class="font-weight-bold py-2 border-0 quantity">Number of Products</th>
+							<th class="font-weight-bold py-2 border-0 ">Date</th>
+							<th class="font-weight-bold py-2 border-0 ">Total</th>
+						</tr>
+					</thead>
+					<tbody>
+					@foreach (var item in purchases)
+                            {
+                                <tr>
+                                    <td>@item.id</td>
+                                    <td>@item.order.items.Count</td>
+                                    <td>@item.order.orderDate</td>
+                                    <td>@item.finalPrice</td>
+                                </tr>
+                            }
+					</tbody>
+				</table>
+			</div>
+</div>
+@code {
+	private IEnumerable<Purchase>? purchases;
+	private string msg = "";
+	private long? id= null;
+
+	protected override async Task OnInitializedAsync()
+	{
+		msg = "";
+		try
+		{
+			purchases = await purchaseService.GetAsync(id);
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine(e);
+			msg = e.Message;
+		}
+	}
+	
+
+
+
+
+}
