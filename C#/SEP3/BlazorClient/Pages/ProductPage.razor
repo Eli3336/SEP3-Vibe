@@ -94,7 +94,7 @@
     {
         try
         {
-            OrderItemCreationDto dto = new OrderItemCreationDto(currentProduct.id, 1);
+            OrderItemCreationDto dto = new OrderItemCreationDto(id, 1);
             await orderItemService.OrderProduct(dto);
         }
         catch (Exception e)
@@ -111,7 +111,7 @@
         try
         {
 
-            await productService.DeleteAsync(currentProduct.id);
+            await productService.DeleteAsync(id);
         }
         
         catch (Exception e)

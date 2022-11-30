@@ -25,31 +25,29 @@ public class OrderItemsEfcDao : IOrderItemDao
 
     public async Task<IEnumerable<OrderItem>> GetAsync(SearchOrderItemsParametersDto searchParameters)
     {
-        IQueryable<OrderItem> orderItemsQuery = context.OrderItems.AsQueryable();
+        IQueryable<OrderItem> orderItems = context.OrderItems.Include(orderItem => orderItem.product).AsQueryable();
         if (searchParameters.id != null)
         {
-            orderItemsQuery = orderItemsQuery.Where(o => o.id == searchParameters.id);
+            orderItems = orderItems.Where(o => o.id == searchParameters.id);
         }
 
-        IEnumerable<OrderItem> result = await orderItemsQuery.ToListAsync();
+        IEnumerable<OrderItem> result = await orderItems.ToListAsync();
         return result;
     }
 
     public async Task UpdateAsync(OrderItem orderItem)
     {
-        context.ChangeTracker.Clear();
         context.OrderItems.Update(orderItem);
         await context.SaveChangesAsync();
     }
 
     public async  Task<OrderItem?> GetByIdAsync(long id)
     {
-        
-        OrderItem? found = await context.OrderItems
-            .Include(orderItem => orderItem.id)
-            .SingleOrDefaultAsync(orderItem => orderItem.id == id);
-        return found;
-        
+        OrderItem? existing = await context.OrderItems
+            .AsNoTracking()
+            .Include(orderItem => orderItem.product)
+            .SingleOrDefaultAsync(t => t.id == id);
+        return existing;
     }
 
     public async Task DeleteAsync(long id)
@@ -61,6 +59,6 @@ public class OrderItemsEfcDao : IOrderItemDao
         }
 
         context.OrderItems.Remove(existing);
-        context.SaveChanges();    
+        await context.SaveChangesAsync();
     }
 }

@@ -36,7 +36,7 @@ public class PurchaseController : ControllerBase
         try
         {
             Purchase purchase = await purchaseLogic.CreateAsync(dto);
-            return Created($"/OrderItems/{purchase.userId}", purchase.order);
+            return Created($"/OrderItems/{purchase.id}", purchase.order);
         }
         catch (Exception e)
         {

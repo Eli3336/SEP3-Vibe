@@ -2,17 +2,14 @@ namespace Shared.DTOs;
 
 public class OrderCreationDto
 {
-    public DateTime OrderDate { get; }
-    public double OrderPrice { get;  }
-    public string Address { get; }
+    public string address { get; }
     
-    public List<OrderItem> Items { get; }
+    public List<long> itemsId { get; }
 
-    public OrderCreationDto(double orderPrice, string address, List<OrderItem> items)
+    public OrderCreationDto( string address, List<long> itemsId)
     {
-        OrderDate = DateTime.Now;
-        OrderPrice = orderPrice;
-        Address = address;
-        Items = items;
+        
+        this.address = address;
+        this.itemsId = itemsId;
     }
 }
