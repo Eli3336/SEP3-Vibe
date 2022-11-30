@@ -16,7 +16,7 @@ public class PurchaseLogic : IPurchaseLogic
 
     public async Task<Purchase> CreateAsync(PurchaseCreationDto purchaseToCreate)
     {
-        Purchase toCreate = new Purchase(purchaseToCreate.id, purchaseToCreate.orderItem);
+        Purchase toCreate = new Purchase(purchaseToCreate.id, purchaseToCreate.order);
         Purchase created = await purchaseDao.CreateAsync(toCreate);
     
         return created;    }
@@ -30,6 +30,6 @@ public class PurchaseLogic : IPurchaseLogic
                 $"Purchase with id {id} not found!");
         }
 
-        return new PurchaseCreationDto(purchase.userId, purchase.orderItems);
+        return new PurchaseCreationDto(purchase.userId, purchase.order);
     }
 }

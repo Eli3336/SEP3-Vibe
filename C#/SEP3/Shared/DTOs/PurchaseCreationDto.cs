@@ -4,12 +4,12 @@ public class PurchaseCreationDto
 {
     public long id { get; set; }
 
-    public List<OrderItem> orderItem { get; set; }
+    public Order order { get; set; }
 
-    public PurchaseCreationDto(long id, List<OrderItem> orderItem)
+    public PurchaseCreationDto(long id, Order order)
     {
 
         this.id = id;
-        this.orderItem = orderItem;
+        this.order = order;
     }
 }
