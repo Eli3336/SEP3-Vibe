@@ -23,21 +23,23 @@ public class OrderEfcDao : IOrderDao
 
     public async Task<Order?> GetByIdAsync(long id)
     {
-        Order? existing = await context.Orders.FirstOrDefaultAsync(o => o.Id == id);
+        Order? existing = await context.Orders
+            .AsNoTracking()
+            .Include(order=> order.items)
+            .SingleOrDefaultAsync(o => o.Id == id);
         return existing;
     }
 
     public async Task<IEnumerable<Order>> GetAsync(SearchOrderParametersDto? searchParameters)
     {
 
-        IQueryable<Order> ordersQuery = context.Orders.AsQueryable();
+        IQueryable<Order> ordersQuery = context.Orders.Include(order=>order.items).AsQueryable();
         if (searchParameters.Id != null)
         {
             ordersQuery = ordersQuery.Where(o => o.Id == searchParameters.Id);
         }
 
-        IEnumerable<Order> result = await ordersQuery.ToListAsync();
+        List<Order> result = await ordersQuery.ToListAsync();
         return result;
-        
     }
 }
