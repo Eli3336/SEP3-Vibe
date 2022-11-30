@@ -22,13 +22,14 @@ public class OrdersController :ControllerBase
         try
         {
             Order order = await orderLogic.CreateAsync(dto);
-            return Created($"/orders/{order.Id}", order);
+            return Created($"/Orders/{order.Id}", order);
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             return StatusCode(500, e.Message);
         }
+        
     }
     
     [HttpGet]

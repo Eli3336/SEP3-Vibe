@@ -1,13 +1,12 @@
 using Shared;
 using Shared.DTOs;
 
-namespace ShopApplication.LogicInterfaces;
+namespace BlazorClient.Services.ClientInterfaces;
 
-public interface IPurchaseLogic
+public interface IPurchaseService
 {
     Task<Purchase> CreateAsync(PurchaseCreationDto purchaseToCreate);
     
     Task<PurchaseCreationDto> GetByIdAsync(long id);
-    Task<ICollection<Purchase>> GetAsync(string? nameContains=null);
-
+    Task<ICollection<Purchase>> GetAsync(long? idContains=null);
 }

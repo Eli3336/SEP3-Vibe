@@ -10,5 +10,5 @@ public interface IOrderItemLogic
     Task<OrderItem> OrderProduct(OrderItemCreationDto dto);
     Task UpdateAsync(OrderItemUpdateDto orderItem);
     Task DeleteAsync(long id);
-    Task<OrderItemCreationDto> GetByIdAsync(long id);
+    Task<OrderItemGetDto> GetByIdAsync(long id);
 }

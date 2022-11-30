@@ -23,6 +23,6 @@ public class PurchaseEfcDao : IPurchaseDao
 
     public async Task<Purchase?> GetByIdAsync(long id)
     {
-        Purchase? existing = await context.Purchases.FirstOrDefaultAsync(t => t.userId == id);
+        Purchase? existing = await context.Purchases.FirstOrDefaultAsync(t => t.id == id);
         return await Task.FromResult(existing);    }
 }

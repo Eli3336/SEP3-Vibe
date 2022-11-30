@@ -90,7 +90,7 @@ public class OrderItemLogic : IOrderItemLogic
         await orderItemDao.DeleteAsync(id);
     }
     
-    public async Task<OrderItemCreationDto> GetByIdAsync(long id)
+    public async Task<OrderItemGetDto> GetByIdAsync(long id)
     {
         OrderItem? orderItem = await orderItemDao.GetByIdAsync(id);
         if (orderItem == null)
@@ -98,6 +98,6 @@ public class OrderItemLogic : IOrderItemLogic
             throw new Exception($"OrderItem with id {id} not found");
         }
 
-        return new OrderItemCreationDto(orderItem.product.id, orderItem.quantity);
+        return new OrderItemGetDto(orderItem.product, orderItem.quantity, orderItem.price);
     }
 }

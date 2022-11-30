@@ -73,12 +73,40 @@ namespace EfcDataAccess.Migrations
                         name: "FK_OrderItems_Orders_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Orders",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_OrderItems_Products_productid",
                         column: x => x.productid,
                         principalTable: "Products",
                         principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Purchases",
+                columns: table => new
+                {
+                    id = table.Column<long>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    orderId = table.Column<long>(type: "INTEGER", nullable: false),
+                    finalPrice = table.Column<double>(type: "REAL", nullable: false),
+                    userId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Purchases", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Purchases_Orders_orderId",
+                        column: x => x.orderId,
+                        principalTable: "Orders",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Purchases_Users_userId",
+                        column: x => x.userId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -91,6 +119,16 @@ namespace EfcDataAccess.Migrations
                 name: "IX_OrderItems_productid",
                 table: "OrderItems",
                 column: "productid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Purchases_orderId",
+                table: "Purchases",
+                column: "orderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Purchases_userId",
+                table: "Purchases",
+                column: "userId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -99,13 +137,16 @@ namespace EfcDataAccess.Migrations
                 name: "OrderItems");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Purchases");
+
+            migrationBuilder.DropTable(
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Users");
         }
     }
 }

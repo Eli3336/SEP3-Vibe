@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfcDataAccess.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    [Migration("20221128123152_InitialCreate")]
+    [Migration("20221130134436_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -89,6 +89,30 @@ namespace EfcDataAccess.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("Shared.Purchase", b =>
+                {
+                    b.Property<long>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("finalPrice")
+                        .HasColumnType("REAL");
+
+                    b.Property<long>("orderId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("userId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("orderId");
+
+                    b.HasIndex("userId");
+
+                    b.ToTable("Purchases");
+                });
+
             modelBuilder.Entity("Shared.User", b =>
                 {
                     b.Property<int>("Id")
@@ -120,7 +144,8 @@ namespace EfcDataAccess.Migrations
                 {
                     b.HasOne("Shared.Order", null)
                         .WithMany("items")
-                        .HasForeignKey("OrderId");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Shared.Product", "product")
                         .WithMany()
@@ -129,6 +154,25 @@ namespace EfcDataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("product");
+                });
+
+            modelBuilder.Entity("Shared.Purchase", b =>
+                {
+                    b.HasOne("Shared.Order", "order")
+                        .WithMany()
+                        .HasForeignKey("orderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Shared.User", "user")
+                        .WithMany()
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("order");
+
+                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("Shared.Order", b =>

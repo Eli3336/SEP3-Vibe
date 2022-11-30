@@ -109,9 +109,13 @@
         msg = "";
         try
         {
-            List<OrderItem> items = orderItems.ToList();
+            List<long> items = new List<long>();
+            foreach (var order in orderItems)
+            {
+                items.Add(order.id);
+            }
             address = street + " " + city + " " + zip;
-            OrderCreationDto dto = new OrderCreationDto(price,address, items);
+            OrderCreationDto dto = new OrderCreationDto(address, items);
             await orderService.CreateAsync(dto);
         }
         catch (Exception e)

@@ -36,9 +36,7 @@ public class ProductHttpClient : IProductService
   
     public async Task<ICollection<Product>> GetAsync(string? nameContains)
     {
-        try
-        {
-            string query = ConstructQuery(nameContains);
+        string query = ConstructQuery(nameContains);
 
             HttpResponseMessage response = await client.GetAsync("/Product" + query);
             string content = await response.Content.ReadAsStringAsync();
@@ -52,20 +50,12 @@ public class ProductHttpClient : IProductService
                 PropertyNameCaseInsensitive = true
             })!;
             return products;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-            return null;
-        }
     }
     
 
     public async Task<ProductCreationDto> GetByIdAsync(long? id)
     {
-        try
-        {
-            HttpResponseMessage response = await client.GetAsync($"/Product/{id}");
+        HttpResponseMessage response = await client.GetAsync($"/Product/{id}");
             string content = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)
             {
@@ -77,12 +67,6 @@ public class ProductHttpClient : IProductService
                 PropertyNameCaseInsensitive = true
             })!;
             return post;
-        }
-        catch(Exception e)
-        {
-            Console.WriteLine(e.Message);
-            return null;
-        }
     }
     
     private static string ConstructQuery( string? nameContains)

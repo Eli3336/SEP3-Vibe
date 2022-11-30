@@ -9,33 +9,34 @@ public class OrderLogic : IOrderLogic
 {
 
     private readonly IOrderDao orderDao;
+    private readonly IOrderItemDao orderItemDao;
 
-    public OrderLogic(IOrderDao orderDao)
+    public OrderLogic(IOrderDao orderDao, IOrderItemDao orderItemDao)
     {
         this.orderDao = orderDao;
+        this.orderItemDao = orderItemDao;
     }
 
     public async Task<Order> CreateAsync(OrderCreationDto dto)
     {
-        try
+        List<OrderItem> orderItems = new List<OrderItem>();
+        foreach (var itemId in dto.itemsId)
         {
-            ValidateData(dto);
+            OrderItem? item = await orderItemDao.GetByIdAsync(itemId);
+                    if (item==null)
+                    {
+                        throw new Exception($"Order with id: {itemId} was not found");
+                    }
+            orderItems.Add(item);
         }
-        catch (Exception e)
+        double price = 0;
+        foreach (var order in orderItems)
         {
-            throw new Exception(e.Message);
+            price += order.price;
         }
-
-        Order toCreate = new Order
-        {
-            orderDate = dto.OrderDate,
-            orderPrice = dto.OrderPrice,
-            address = dto.Address,
-            items = dto.Items
-        };
-
+        ValidateData(dto);
+        Order toCreate = new Order(DateTime.Today, price, dto.address, orderItems);
         Order created = await orderDao.CreateAsync(toCreate);
-
         return created;
     }
 
@@ -46,7 +47,7 @@ public class OrderLogic : IOrderLogic
 
     private static void ValidateData(OrderCreationDto orderToCreate)
     {
-        string address = orderToCreate.Address;
+        string address = orderToCreate.address;
 
         if (address.Length < 3)
             throw new Exception("Address must be at least 3 characters!");

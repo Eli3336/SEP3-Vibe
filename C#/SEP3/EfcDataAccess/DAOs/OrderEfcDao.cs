@@ -16,10 +16,10 @@ public class OrderEfcDao : IOrderDao
     }
     public async Task<Order> CreateAsync(Order order)
     {
-        EntityEntry<Order> newOrder = await context.Orders.AddAsync(order);
-        await context.SaveChangesAsync();
-        return newOrder.Entity;
-    }
+            EntityEntry<Order> newOrder = await context.Orders.AddAsync(order);
+            await context.SaveChangesAsync();
+            return newOrder.Entity;
+        }
 
     public async Task<Order?> GetByIdAsync(long id)
     {
