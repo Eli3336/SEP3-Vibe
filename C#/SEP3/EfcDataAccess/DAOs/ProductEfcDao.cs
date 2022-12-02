@@ -32,7 +32,8 @@ public class ProductEfcDao : IProductDao
 
     public async  Task<Product?> GetByIdAsync(long id)
     {
-        Product? found = await context.Products.FirstOrDefaultAsync(p => p.id == id);
+        Product? found = await context.Products.AsNoTracking().
+        FirstOrDefaultAsync(p => p.id == id);
 
         return found;
     }
@@ -46,9 +47,14 @@ public class ProductEfcDao : IProductDao
         }
 
         context.Products.Remove(existing);
-        context.SaveChanges();    
+        await context.SaveChangesAsync();    
     }
-    
+
+    public async Task AdminUpdateAsync(Product product)
+    {
+        context.Products.Update(product);
+        await context.SaveChangesAsync();    }
+
     /*
     public async Task<Product> CreateAsync(Product product)
     {
@@ -57,12 +63,5 @@ public class ProductEfcDao : IProductDao
         return added.Entity;
     }
     */
-    /*
-    public async Task UpdateAsync(Product product)
-    {
-        context.ChangeTracker.Clear();
-        context.Products.Update(product);
-        await context.SaveChangesAsync();
-    }
-    */
+   
 }

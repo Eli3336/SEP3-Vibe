@@ -19,7 +19,16 @@ public class Product
        this.stock = stock;
        this.image = image;
        this.ingredients = ingredients;
+   } 
+   public Product( string name, string description, double price, string image, string ingredients)
+   {
+       this.name = name;
+       this.description = description;
+       this.price = price;
+       this.image = image;
+       this.ingredients = ingredients;
    }
+   
 
    public Product()
    {

@@ -9,4 +9,6 @@ public interface IProductLogic
     Task<ProductCreationDto> GetByIdAsync(long id);
     
     Task DeleteAsync(long id);
+    Task AdminUpdateAsync(ProductAdminUpdateDto product);
+
 }

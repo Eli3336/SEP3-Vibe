@@ -79,7 +79,21 @@ public class ProductController : ControllerBase
              return StatusCode(500, e.Message);
          }
      }
-
+     
+     [HttpPatch]
+     public async Task<ActionResult> AdminUpdateAsync([FromBody] ProductAdminUpdateDto dto)
+     {
+         try
+         {
+             await productLogic.AdminUpdateAsync(dto);
+             return Ok();
+         }
+         catch (Exception e)
+         {
+             Console.WriteLine(e);
+             return StatusCode(500, e.Message);
+         }
+     }
 
 
 }
