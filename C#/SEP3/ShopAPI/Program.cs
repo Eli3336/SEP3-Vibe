@@ -30,8 +30,8 @@ builder.Services.AddScoped<IUserDao, UserEfcDao>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 
 
-builder.Services.AddScoped<IPurchaseDao, PurchaseEfcDao>();
-builder.Services.AddScoped<IPurchaseLogic, PurchaseLogic>();
+builder.Services.AddScoped<IReceiptDao, PurchaseEfcDao>();
+builder.Services.AddScoped<IReceiptLogic, ReceiptLogic>();
 
 builder.Services.AddScoped<IOrderDao, OrderEfcDao>();
 builder.Services.AddScoped<IOrderLogic, OrderLogic>();

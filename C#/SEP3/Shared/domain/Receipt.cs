@@ -1,6 +1,6 @@
 namespace Shared;
 
-public class Purchase
+public class Receipt
 {
     public long id { get; set; }
     public Order order { get; set; }
@@ -9,7 +9,7 @@ public class Purchase
     
     public User user { get; set;}
 
-    public Purchase(User user, Order order, double finalPrice)
+    public Receipt(User user, Order order, double finalPrice)
     {
         this.finalPrice = finalPrice;
         this.order = order;
@@ -17,7 +17,7 @@ public class Purchase
 
     }
 
-    private Purchase(){}
+    private Receipt(){}
 
 
 }

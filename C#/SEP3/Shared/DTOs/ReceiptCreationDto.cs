@@ -1,12 +1,12 @@
 namespace Shared.DTOs;
 
-public class PurchaseCreationDto
+public class ReceiptCreationDto
 {
     public User user { get; set; }
 
     public Order order { get; set; }
 
-    public PurchaseCreationDto(User user, Order order)
+    public ReceiptCreationDto(User user, Order order)
     {
 
         this.user = user;

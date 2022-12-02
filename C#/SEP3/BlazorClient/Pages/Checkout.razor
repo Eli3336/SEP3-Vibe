@@ -128,7 +128,7 @@
 
             OrderCreationDto dto = new OrderCreationDto(address, items);
             order=await orderService.CreateAsync(dto);
-            PurchaseCreationDto purchaseDto = new PurchaseCreationDto(userTest, order);//username should come from authentication not be 1 by default
+            ReceiptCreationDto purchaseDto = new ReceiptCreationDto(userTest, order);//username should come from authentication not be 1 by default
 
         }
         catch (Exception e)

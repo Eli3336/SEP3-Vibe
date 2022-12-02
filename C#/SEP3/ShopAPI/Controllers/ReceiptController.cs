@@ -10,17 +10,17 @@ namespace Shop.Controllers;
 [ApiController]
 [Route("[controller]")]
 
-public class PurchaseController : ControllerBase
+public class ReceiptController : ControllerBase
 {
     
-    private readonly IPurchaseLogic purchaseLogic;
+    private readonly IReceiptLogic receiptLogic;
 
     [HttpGet("{id:long}")]
-    public async Task<ActionResult<PurchaseCreationDto>> GetById([FromRoute] long id)
+    public async Task<ActionResult<ReceiptCreationDto>> GetById([FromRoute] long id)
     {
         try
         {
-            PurchaseCreationDto result = await purchaseLogic.GetByIdAsync(id);
+            ReceiptCreationDto result = await receiptLogic.GetByIdAsync(id);
             return Ok(result);
         }
         catch (Exception e)
@@ -31,12 +31,12 @@ public class PurchaseController : ControllerBase
     }
     
     [HttpPost]
-    public async Task<ActionResult<Purchase>> CreateAsync(PurchaseCreationDto dto)
+    public async Task<ActionResult<Receipt>> CreateAsync(ReceiptCreationDto dto)
     {
         try
         {
-            Purchase purchase = await purchaseLogic.CreateAsync(dto);
-            return Created($"/OrderItems/{purchase.id}", purchase.order);
+            Receipt receipt = await receiptLogic.CreateAsync(dto);
+            return Created($"/OrderItems/{receipt.id}", receipt.order);
         }
         catch (Exception e)
         {
