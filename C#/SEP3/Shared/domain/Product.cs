@@ -9,8 +9,9 @@ public class Product
     public int stock { get; set; }
     public string image { get; set; }
     public string ingredients  { get; set; }
-   // public Category category;
-   public Product(long id, string name, string description, double price, int stock, string image, string ingredients)
+    
+    public Category category { get; set; }
+   public Product(long id, string name, string description, double price, int stock, string image, string ingredients, Category category)
    {
        this.id = id;
        this.name = name;
@@ -19,18 +20,17 @@ public class Product
        this.stock = stock;
        this.image = image;
        this.ingredients = ingredients;
+       this.category = category;
    } 
-   public Product( string name, string description, double price, string image, string ingredients)
+   public Product( string name, string description, double price, string image, string ingredients, Category category)
    {
        this.name = name;
        this.description = description;
        this.price = price;
        this.image = image;
        this.ingredients = ingredients;
+       this.category = category;
    }
    
-
-   public Product()
-   {
-   }
+   public Product() { }
 }

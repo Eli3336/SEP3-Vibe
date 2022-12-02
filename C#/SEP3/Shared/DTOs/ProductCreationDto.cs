@@ -11,8 +11,9 @@ public class ProductCreationDto
     public string image { get; }
     public string ingredients { get; }
 
+    public Category category { get; }
 
-    public ProductCreationDto(string name, string description, double price, int stock, string image, string ingredients)
+    public ProductCreationDto(string name, string description, double price, int stock, string image, string ingredients, Category category)
     {
         this.name = name;
         this.description = description;
@@ -20,5 +21,6 @@ public class ProductCreationDto
         this.stock = stock;
         this.image = image;
         this.ingredients = ingredients;
+        this.category = category;
     }
 }

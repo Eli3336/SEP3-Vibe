@@ -9,9 +9,11 @@ public class ProductAdminUpdateDto
     public string? image { get; set; }
     public string? ingredients { get; set; }
     
+    public Category? category { get; set; }
+    
     public ProductAdminUpdateDto(){}
 
-    public ProductAdminUpdateDto(long? id, string? name, string? description, double? price, string? image, string? ingredients)
+    public ProductAdminUpdateDto(long? id, string? name, string? description, double? price, string? image, string? ingredients, Category category)
     {
         this.id = id;
         this.name = name;
@@ -19,5 +21,6 @@ public class ProductAdminUpdateDto
         this.price = price;
         this.image = image;
         this.ingredients = ingredients;
+        this.category = category;
     }
 }

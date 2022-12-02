@@ -16,9 +16,9 @@ public class ProductHttpClient : IProductService
     }
 
 
-    public async Task SaveEditAsync(long? id, string? name, string? description, double? price, string? image, string? ingredients)
+    public async Task SaveEditAsync(long? id, string? name, string? description, double? price, string? image, string? ingredients, Category category)
     {
-        ProductAdminUpdateDto product = new ProductAdminUpdateDto(id, name, description, price, image, ingredients);
+        ProductAdminUpdateDto product = new ProductAdminUpdateDto(id, name, description, price, image, ingredients, category);
         string dtoAsJson = JsonSerializer.Serialize(product);
         StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
 

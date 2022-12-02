@@ -25,10 +25,7 @@ public class ProductLogic : IProductLogic
 
         await productDao.DeleteAsync(id);
     }
-
     
-
-
     /* Not relevant for this requirement but might prove useful
     private static void ValidateData(ProductCreationDto productoToCreate)
     {
@@ -62,7 +59,6 @@ public class ProductLogic : IProductLogic
 */
     public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto)
     {
-
         return productDao.GetAsync(searchProductsParametersDto);
     }
 
@@ -74,8 +70,7 @@ public class ProductLogic : IProductLogic
             throw new Exception(
                 $"Product with id {id} not found!");
         }
-
-        return new ProductCreationDto( product.name, product.description, product.price, product.stock, product.image, product.ingredients);
+        return new ProductCreationDto( product.name, product.description, product.price, product.stock, product.image, product.ingredients, product.category);
     }
     
     public async Task AdminUpdateAsync(ProductAdminUpdateDto dto)
@@ -87,22 +82,22 @@ public class ProductLogic : IProductLogic
             throw new Exception($"Product with ID {dto.id} not found!");
         }
         
-
         string nameToUse = dto.name ?? existing.name;
         string descriptionToUse = dto.description ?? existing.description;
         double priceToUse = dto.price ?? existing.price;
         string imageToUse = dto.image ?? existing.image;
         string ingredientsToUse = dto.ingredients ?? existing.ingredients;
+        Category categoryToUse = dto.category ?? existing.category;
     
-        Product updated = new (nameToUse, descriptionToUse, priceToUse, imageToUse, ingredientsToUse )
+        Product updated = new (nameToUse, descriptionToUse, priceToUse, imageToUse, ingredientsToUse, categoryToUse)
         {
             id = existing.id,
             stock = existing.stock,
         };
 
         ValidateProduct(updated);
-
-        await productDao.AdminUpdateAsync(updated);    }
+        await productDao.AdminUpdateAsync(updated);
+    }
     
     private void ValidateProduct(Product dto)
     {
@@ -111,5 +106,6 @@ public class ProductLogic : IProductLogic
         if (string.IsNullOrEmpty(dto.ingredients)) throw new Exception("Ingredients cannot be empty.");
         if (string.IsNullOrEmpty(dto.image)) throw new Exception("Image cannot be empty.");
         if (dto.price<=0) throw new Exception("Price cannot be lower or equal to 0.");
+        if (dto.category == null) throw new Exception("Category cannot be null");
     }
 }
