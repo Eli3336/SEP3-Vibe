@@ -11,7 +11,7 @@ public interface IProductDao
  */
 
      Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto);
-     Task<Product?> GetByIdAsync(long id);
+     Task<Product?> GetByIdAsync(long? id);
      
      Task DeleteAsync(long id);
      Task AdminUpdateAsync(Product product);

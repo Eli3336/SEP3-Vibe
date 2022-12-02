@@ -99,7 +99,7 @@ namespace FileData.DAOs;
             return Task.FromResult(products);
         }
 
-        public Task<Product?> GetByIdAsync(long id)
+        public Task<Product?> GetByIdAsync(long? id)
         {
             Product? existing = context.Products.FirstOrDefault(p =>
                 p.id==id
