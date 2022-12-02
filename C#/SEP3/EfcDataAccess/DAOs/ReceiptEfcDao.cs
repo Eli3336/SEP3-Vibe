@@ -5,7 +5,7 @@ using ShopApplication.DaoInterfaces;
 
 namespace EfcDataAccess.DAOs;
 
-public class PurchaseEfcDao : IPurchaseDao
+public class PurchaseEfcDao : IReceiptDao
 {
     
     private readonly ShopContext context;
@@ -15,14 +15,14 @@ public class PurchaseEfcDao : IPurchaseDao
         this.context = context;
     }
     
-    public async Task<Purchase> CreateAsync(Purchase purchase)
+    public async Task<Receipt> CreateAsync(Receipt receipt)
     {
-        EntityEntry<Purchase> newOrder = await context.Purchases.AddAsync(purchase);
+        EntityEntry<Receipt> newOrder = await context.Receipts.AddAsync(receipt);
         await context.SaveChangesAsync();
         return newOrder.Entity;    }
 
-    public async Task<Purchase?> GetByIdAsync(long id)
+    public async Task<Receipt?> GetByIdAsync(long id)
     {
-        Purchase? existing = await context.Purchases.FirstOrDefaultAsync(t => t.id == id);
+        Receipt? existing = await context.Receipts.FirstOrDefaultAsync(t => t.id == id);
         return await Task.FromResult(existing);    }
 }

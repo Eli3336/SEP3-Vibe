@@ -11,7 +11,7 @@ public class ShopContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
     public DbSet<Order> Orders { get; set; }
-    public DbSet<Purchase> Purchases { get; set; }
+    public DbSet<Receipt> Receipts { get; set; }
    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -22,7 +22,7 @@ public class ShopContext : DbContext
     {
         modelBuilder.Entity<Product>().HasKey(product => product.id);
         modelBuilder.Entity<User>().HasKey(user => user.Id);
-        modelBuilder.Entity<Purchase>().HasKey(purchase => purchase.id);
+        modelBuilder.Entity<Receipt>().HasKey(receipt => receipt.id);
         modelBuilder.Entity<OrderItem>(entity =>
         {
             entity.HasKey(orderItem => orderItem.id);

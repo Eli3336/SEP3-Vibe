@@ -6,16 +6,16 @@ using Shared.DTOs;
 
 namespace BlazorClient.Services.Implementations;
 
-public class PurchaseHttpClient : IPurchaseService
+public class ReceiptHttpClient : IReceiptService
 {
     private readonly HttpClient client;
 
-    public PurchaseHttpClient(HttpClient client)
+    public ReceiptHttpClient(HttpClient client)
     {
         this.client = client;
     }
     
-    public async Task<Purchase> CreateAsync(PurchaseCreationDto purchaseToCreate)
+    public async Task<Receipt> CreateAsync(ReceiptCreationDto purchaseToCreate)
     {
         HttpResponseMessage response = await client.PostAsJsonAsync("/Purchases", purchaseToCreate);
         string result = await response.Content.ReadAsStringAsync();
@@ -24,19 +24,19 @@ public class PurchaseHttpClient : IPurchaseService
             throw new Exception(result);
         }
 
-        Purchase purchase= JsonSerializer.Deserialize<Purchase>(result, new JsonSerializerOptions
+        Receipt purchase= JsonSerializer.Deserialize<Receipt>(result, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;
         return purchase;
     }
 
-    public Task<PurchaseCreationDto> GetByIdAsync(long id)
+    public Task<ReceiptCreationDto> GetByIdAsync(long id)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<ICollection<Purchase>> GetAsync(long? idContains = null)
+    public async Task<ICollection<Receipt>> GetAsync(long? idContains = null)
     {
         HttpResponseMessage response = await client.GetAsync("/Purchase");
         string content = await response.Content.ReadAsStringAsync();
@@ -45,7 +45,7 @@ public class PurchaseHttpClient : IPurchaseService
             throw new Exception(content);
         }
 
-        ICollection<Purchase> purchases = JsonSerializer.Deserialize<ICollection<Purchase>>(content, new JsonSerializerOptions
+        ICollection<Receipt> purchases = JsonSerializer.Deserialize<ICollection<Receipt>>(content, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;
