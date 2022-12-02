@@ -46,4 +46,9 @@ public class OrderFileDao : IOrderDao
 
         return Task.FromResult(orders);
     }
+
+    public Task<Order> CreateAdminOrderAsync(Order order)
+    {
+        throw new NotImplementedException();
+    }
 }

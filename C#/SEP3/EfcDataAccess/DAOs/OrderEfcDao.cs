@@ -4,6 +4,7 @@ using Shared;
 using Shared.DTOs;
 using ShopApplication.DaoInterfaces;
 
+
 namespace EfcDataAccess.DAOs;
 
 public class OrderEfcDao : IOrderDao
@@ -39,5 +40,10 @@ public class OrderEfcDao : IOrderDao
         IEnumerable<Order> result = await ordersQuery.ToListAsync();
         return result;
         
+    }
+
+    public Task<Order> CreateAdminOrderAsync(Order order)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -40,6 +40,11 @@ public class OrderLogic : IOrderLogic
         return created;
     }
 
+    public Task<Order> CreateAdminOrderAsync(OrderCreationDto orderToCreate)
+    {
+        throw new NotImplementedException();
+    }
+
     public Task<IEnumerable<Order>> GetAsync(SearchOrderParametersDto? searchParameters)
     {
         return orderDao.GetAsync(searchParameters);
