@@ -74,6 +74,6 @@ public class ProductLogic : IProductLogic
                 $"Product with id {id} not found!");
         }
 
-        return new ProductCreationDto( product.name, product.description, product.price, product.stock);
+        return new ProductCreationDto( product.name, product.description, product.price, product.stock, product.image, product.ingredients);
     }
 }
