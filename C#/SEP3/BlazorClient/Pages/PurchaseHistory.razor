@@ -1,5 +1,5 @@
 @page "/PurchaseHistory"
-@inject IPurchaseService purchaseService
+@inject IReceiptService receiptService
 @using global::Shared.DTOs
 @using BlazorClient.Services.ClientInterfaces
 @using global::Shared
@@ -30,7 +30,7 @@
 			</div>
 </div>
 @code {
-	private IEnumerable<Purchase>? purchases;
+	private IEnumerable<Receipt>? purchases;
 	private string msg = "";
 	private long? id= null;
 
@@ -39,7 +39,7 @@
 		msg = "";
 		try
 		{
-			purchases = await purchaseService.GetAsync(id);
+			purchases = await receiptService.GetAsync(id);
 		}
 		catch (Exception e)
 		{
