@@ -35,3 +35,5 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+C\#/SEP3/EfcDataAccess/Shop.db-wal
+C\#/SEP3/EfcDataAccess/Shop.db-shm

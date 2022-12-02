@@ -18,10 +18,10 @@ public class PurchaseLogic : IPurchaseLogic
 
     public async Task<Purchase> CreateAsync(PurchaseCreationDto purchaseToCreate)
     {
-        User? user = await userDao.GetByUsernameAsync(purchaseToCreate.userName);
+        User? user = await userDao.GetByUsernameAsync(purchaseToCreate.user.username);
         if (user==null)
         {
-            throw new Exception($"User with username: {purchaseToCreate.userName} was not found");
+            throw new Exception($"User with username: {purchaseToCreate.user} was not found");
         }
         
         Purchase toCreate = new Purchase(user,purchaseToCreate.order,purchaseToCreate.order.orderPrice);
@@ -39,7 +39,7 @@ public class PurchaseLogic : IPurchaseLogic
                 $"Purchase with id {id} not found!");
         }
 
-        return new PurchaseCreationDto(purchase.user.name, purchase.order);
+        return new PurchaseCreationDto(purchase.user, purchase.order);
     }
 
     public Task<ICollection<Purchase>> GetAsync(string? nameContains = null)
