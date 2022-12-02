@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfcDataAccess.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    [Migration("20221130134436_InitialCreate")]
+    [Migration("20221202150901_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,6 +77,14 @@ namespace EfcDataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("image")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ingredients")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -84,12 +92,15 @@ namespace EfcDataAccess.Migrations
                     b.Property<double>("price")
                         .HasColumnType("REAL");
 
+                    b.Property<int>("stock")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("id");
 
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Shared.Purchase", b =>
+            modelBuilder.Entity("Shared.Receipt", b =>
                 {
                     b.Property<long>("id")
                         .ValueGeneratedOnAdd()
@@ -110,7 +121,7 @@ namespace EfcDataAccess.Migrations
 
                     b.HasIndex("userId");
 
-                    b.ToTable("Purchases");
+                    b.ToTable("Receipts");
                 });
 
             modelBuilder.Entity("Shared.User", b =>
@@ -156,7 +167,7 @@ namespace EfcDataAccess.Migrations
                     b.Navigation("product");
                 });
 
-            modelBuilder.Entity("Shared.Purchase", b =>
+            modelBuilder.Entity("Shared.Receipt", b =>
                 {
                     b.HasOne("Shared.Order", "order")
                         .WithMany()
