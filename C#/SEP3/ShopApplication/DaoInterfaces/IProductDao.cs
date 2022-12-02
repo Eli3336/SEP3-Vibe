@@ -14,5 +14,6 @@ public interface IProductDao
      Task<Product?> GetByIdAsync(long id);
      
      Task DeleteAsync(long id);
+     Task AdminUpdateAsync(Product product);
 
 }

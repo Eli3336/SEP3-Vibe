@@ -27,11 +27,13 @@ namespace FileData.DAOs;
             context.Products.Remove(existing);
             context.SaveChanges();
         }
-        
-        
-        
-        
-        
+
+        public Task AdminUpdateAsync(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+
         // might be used later 
       /*  public Task<Product> CreateAsync(Product product)
         {
