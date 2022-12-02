@@ -4,12 +4,12 @@ package via.sep3.supplier.service;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.beans.factory.annotation.Autowired;
-import via.sdj3.supplier.protobuf.ProductGrpc;
-import via.sdj3.supplier.protobuf.ProductResponse;
-import via.sdj3.supplier.protobuf.ShopGrpcGrpc;
 import via.sep3.supplier.data.repository.ICategoryRep;
 import via.sep3.supplier.data.repository.IProductRep;
 import via.sep3.supplier.logic.ProductsLogic;
+import via.sep3.supplier.protobuf.ProductGrpc;
+import via.sep3.supplier.protobuf.ProductResponse;
+import via.sep3.supplier.protobuf.ShopGrpcGrpc;
 
 
 @GRpcService

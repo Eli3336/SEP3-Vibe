@@ -1,4 +1,4 @@
-package via.sdj3.supplier.protobuf;
+package via.sep3.supplier.protobuf;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
@@ -14,29 +14,29 @@ public final class ShopGrpcGrpc {
   public static final String SERVICE_NAME = "ShopGrpc";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<via.sdj3.supplier.protobuf.ProductGrpc,
-      via.sdj3.supplier.protobuf.ProductResponse> getOrderProductMethod;
+  private static volatile io.grpc.MethodDescriptor<via.sep3.supplier.protobuf.ProductGrpc,
+      via.sep3.supplier.protobuf.ProductResponse> getOrderProductMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "OrderProduct",
-      requestType = via.sdj3.supplier.protobuf.ProductGrpc.class,
-      responseType = via.sdj3.supplier.protobuf.ProductResponse.class,
+      requestType = via.sep3.supplier.protobuf.ProductGrpc.class,
+      responseType = via.sep3.supplier.protobuf.ProductResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<via.sdj3.supplier.protobuf.ProductGrpc,
-      via.sdj3.supplier.protobuf.ProductResponse> getOrderProductMethod() {
-    io.grpc.MethodDescriptor<via.sdj3.supplier.protobuf.ProductGrpc, via.sdj3.supplier.protobuf.ProductResponse> getOrderProductMethod;
+  public static io.grpc.MethodDescriptor<via.sep3.supplier.protobuf.ProductGrpc,
+      via.sep3.supplier.protobuf.ProductResponse> getOrderProductMethod() {
+    io.grpc.MethodDescriptor<via.sep3.supplier.protobuf.ProductGrpc, via.sep3.supplier.protobuf.ProductResponse> getOrderProductMethod;
     if ((getOrderProductMethod = ShopGrpcGrpc.getOrderProductMethod) == null) {
       synchronized (ShopGrpcGrpc.class) {
         if ((getOrderProductMethod = ShopGrpcGrpc.getOrderProductMethod) == null) {
           ShopGrpcGrpc.getOrderProductMethod = getOrderProductMethod =
-              io.grpc.MethodDescriptor.<via.sdj3.supplier.protobuf.ProductGrpc, via.sdj3.supplier.protobuf.ProductResponse>newBuilder()
+              io.grpc.MethodDescriptor.<via.sep3.supplier.protobuf.ProductGrpc, via.sep3.supplier.protobuf.ProductResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "OrderProduct"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  via.sdj3.supplier.protobuf.ProductGrpc.getDefaultInstance()))
+                  via.sep3.supplier.protobuf.ProductGrpc.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  via.sdj3.supplier.protobuf.ProductResponse.getDefaultInstance()))
+                  via.sep3.supplier.protobuf.ProductResponse.getDefaultInstance()))
               .setSchemaDescriptor(new ShopGrpcMethodDescriptorSupplier("OrderProduct"))
               .build();
         }
@@ -98,8 +98,8 @@ public final class ShopGrpcGrpc {
      *rpc EditProduct(ProductGrpc) returns (ProductResponse);
      * </pre>
      */
-    public void orderProduct(via.sdj3.supplier.protobuf.ProductGrpc request,
-        io.grpc.stub.StreamObserver<via.sdj3.supplier.protobuf.ProductResponse> responseObserver) {
+    public void orderProduct(via.sep3.supplier.protobuf.ProductGrpc request,
+        io.grpc.stub.StreamObserver<via.sep3.supplier.protobuf.ProductResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getOrderProductMethod(), responseObserver);
     }
 
@@ -109,8 +109,8 @@ public final class ShopGrpcGrpc {
             getOrderProductMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                via.sdj3.supplier.protobuf.ProductGrpc,
-                via.sdj3.supplier.protobuf.ProductResponse>(
+                via.sep3.supplier.protobuf.ProductGrpc,
+                via.sep3.supplier.protobuf.ProductResponse>(
                   this, METHODID_ORDER_PRODUCT)))
           .build();
     }
@@ -135,8 +135,8 @@ public final class ShopGrpcGrpc {
      *rpc EditProduct(ProductGrpc) returns (ProductResponse);
      * </pre>
      */
-    public void orderProduct(via.sdj3.supplier.protobuf.ProductGrpc request,
-        io.grpc.stub.StreamObserver<via.sdj3.supplier.protobuf.ProductResponse> responseObserver) {
+    public void orderProduct(via.sep3.supplier.protobuf.ProductGrpc request,
+        io.grpc.stub.StreamObserver<via.sep3.supplier.protobuf.ProductResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getOrderProductMethod(), getCallOptions()), request, responseObserver);
     }
@@ -161,7 +161,7 @@ public final class ShopGrpcGrpc {
      *rpc EditProduct(ProductGrpc) returns (ProductResponse);
      * </pre>
      */
-    public via.sdj3.supplier.protobuf.ProductResponse orderProduct(via.sdj3.supplier.protobuf.ProductGrpc request) {
+    public via.sep3.supplier.protobuf.ProductResponse orderProduct(via.sep3.supplier.protobuf.ProductGrpc request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getOrderProductMethod(), getCallOptions(), request);
     }
@@ -186,8 +186,8 @@ public final class ShopGrpcGrpc {
      *rpc EditProduct(ProductGrpc) returns (ProductResponse);
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<via.sdj3.supplier.protobuf.ProductResponse> orderProduct(
-        via.sdj3.supplier.protobuf.ProductGrpc request) {
+    public com.google.common.util.concurrent.ListenableFuture<via.sep3.supplier.protobuf.ProductResponse> orderProduct(
+        via.sep3.supplier.protobuf.ProductGrpc request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getOrderProductMethod(), getCallOptions()), request);
     }
@@ -213,8 +213,8 @@ public final class ShopGrpcGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_ORDER_PRODUCT:
-          serviceImpl.orderProduct((via.sdj3.supplier.protobuf.ProductGrpc) request,
-              (io.grpc.stub.StreamObserver<via.sdj3.supplier.protobuf.ProductResponse>) responseObserver);
+          serviceImpl.orderProduct((via.sep3.supplier.protobuf.ProductGrpc) request,
+              (io.grpc.stub.StreamObserver<via.sep3.supplier.protobuf.ProductResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -238,7 +238,7 @@ public final class ShopGrpcGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return via.sdj3.supplier.protobuf.Contract.getDescriptor();
+      return via.sep3.supplier.protobuf.Contract.getDescriptor();
     }
 
     @java.lang.Override
