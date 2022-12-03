@@ -17,6 +17,16 @@ namespace EfcDataAccess.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.11");
 
+            modelBuilder.Entity("Shared.Category", b =>
+                {
+                    b.Property<string>("name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("name");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("Shared.Order", b =>
                 {
                     b.Property<long>("Id")
@@ -71,6 +81,10 @@ namespace EfcDataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("categoryname")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("description")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -94,6 +108,8 @@ namespace EfcDataAccess.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("id");
+
+                    b.HasIndex("categoryname");
 
                     b.ToTable("Products");
                 });
@@ -163,6 +179,17 @@ namespace EfcDataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("product");
+                });
+
+            modelBuilder.Entity("Shared.Product", b =>
+                {
+                    b.HasOne("Shared.Category", "category")
+                        .WithMany()
+                        .HasForeignKey("categoryname")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("category");
                 });
 
             modelBuilder.Entity("Shared.Receipt", b =>

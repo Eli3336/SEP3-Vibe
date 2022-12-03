@@ -16,6 +16,20 @@ public class ProductHttpClient : IProductService
     }
 
 
+    public async Task SaveEditAsync(long? id, string? name, string? description, double? price, string? image, string? ingredients, Category category)
+    {
+        ProductAdminUpdateDto product = new ProductAdminUpdateDto(id, name, description, price, image, ingredients, category);
+        string dtoAsJson = JsonSerializer.Serialize(product);
+        StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
+
+        HttpResponseMessage response = await client.PatchAsync("/Product", body);
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+    }
+
     public async Task DeleteAsync(long id)
     {
         try
@@ -53,6 +67,37 @@ public class ProductHttpClient : IProductService
             return products;
     }
     
+    public async Task<ProductDto> GetDtoByIdAsync(long? id)
+    {
+        HttpResponseMessage response = await client.GetAsync($"/Product/{id}");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        ProductDto post = JsonSerializer.Deserialize<ProductDto>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return post;
+    }
+    
+    public async Task<ProductAdminUpdateDto> GetUpdateDtoByIdAsync(long? id)
+    {
+        HttpResponseMessage response = await client.GetAsync($"/Product/{id}");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        ProductAdminUpdateDto post = JsonSerializer.Deserialize<ProductAdminUpdateDto>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return post;
+    }
 
     public async Task<ProductCreationDto> GetByIdAsync(long? id)
     {
@@ -95,4 +140,6 @@ public class ProductHttpClient : IProductService
 
         return query;
     }
+    
+    
 }

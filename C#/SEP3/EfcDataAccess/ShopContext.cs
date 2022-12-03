@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Shared;
@@ -12,7 +13,8 @@ public class ShopContext : DbContext
     public DbSet<OrderItem> OrderItems { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<Receipt> Receipts { get; set; }
-   
+    public DbSet<Category> Categories { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlite("Data Source = ../EfcDataAccess/Shop.db");
@@ -20,6 +22,7 @@ public class ShopContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Category>().HasKey(category => category.name);
         modelBuilder.Entity<Product>().HasKey(product => product.id);
         modelBuilder.Entity<User>().HasKey(user => user.Id);
         modelBuilder.Entity<Receipt>().HasKey(receipt => receipt.id);
@@ -32,7 +35,13 @@ public class ShopContext : DbContext
             entity.HasKey(order => order.Id);
             entity.HasMany(o => o.items)
                 .WithOne()
-                .OnDelete(DeleteBehavior.Cascade);;
+                .OnDelete(DeleteBehavior.Cascade);
         });
     }
+
+   /* public async Task<EntityEntry<Product>> CreateProduct(Product product)
+    {
+        
+    }
+    */
 }

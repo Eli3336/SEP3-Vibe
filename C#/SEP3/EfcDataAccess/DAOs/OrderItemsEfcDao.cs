@@ -44,7 +44,8 @@ public class OrderItemsEfcDao : IOrderItemDao
     public async  Task<OrderItem?> GetByIdAsync(long id)
     {
         OrderItem? existing = await context.OrderItems
-            .AsNoTracking()
+            //.AsNoTracking()
+            //.FindAsync(id)
             .Include(orderItem => orderItem.product)
             .SingleOrDefaultAsync(t => t.id == id);
         return existing;

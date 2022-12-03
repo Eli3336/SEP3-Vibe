@@ -1,4 +1,5 @@
 using System.Net.Http.Json;
+using System.Text;
 using System.Text.Json;
 using BlazorClient.Services.ClientInterfaces;
 using Shared;
@@ -15,9 +16,11 @@ public class ReceiptHttpClient : IReceiptService
         this.client = client;
     }
     
-    public async Task<Receipt> CreateAsync(ReceiptCreationDto purchaseToCreate)
+    public async Task<Receipt> CreateAsync(ReceiptCreationDto receiptToCreate)
     {
-        HttpResponseMessage response = await client.PostAsJsonAsync("/Purchases", purchaseToCreate);
+        string dtoAsJson = JsonSerializer.Serialize(receiptToCreate);
+        StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
+        HttpResponseMessage response = await client.PostAsJsonAsync("/PurchaseHistory", body);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {

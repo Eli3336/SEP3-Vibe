@@ -1,0 +1,102 @@
+@page "/EditProductPage/{id:long}"
+@using global::Shared.DTOs
+@using BlazorClient.Services.ClientInterfaces
+@inject IProductService productService
+@inject NavigationManager navMgr
+<div class="d-flex justify-content-center mb-5"><h1>Edit Product</h1></div>
+
+<div class="form-group field">
+    <label>Name:</label>
+    <input type="text" @bind="currentProduct.name" @bind:event="oninput"/>
+    <label>Description:</label>
+    <input type="text" @bind="currentProduct.description" @bind:event="oninput"/>
+    <label>Price:</label>
+    <input type="text" @bind="currentProduct.price" @bind:event="oninput"/>
+    <label>Image:</label>
+    <input type="text" @bind="currentProduct.image" @bind:event="oninput"/>
+    <label>Ingredients:</label>
+    <input type="text" @bind="currentProduct.ingredients" @bind:event="oninput"/>
+     <label>Category:</label>
+            <input type="text" @bind="currentProduct.category" @bind:event="oninput"/>
+</div>
+
+<div class="button-row">
+    <span>@msg</span>
+    <button @onclick="EditProduct">Save Changes</button>
+</div>
+
+@code {
+    [Parameter]
+    public long id { get; set; }
+    
+    
+    private string msg = "";
+    private ProductAdminUpdateDto currentProduct = new ProductAdminUpdateDto();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        msg = "";
+        try
+        {
+            currentProduct= await productService.GetUpdateDtoByIdAsync(id);
+           
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+    
+    private async void EditProduct()
+    {
+        try
+        {
+            if (ValidateData())
+            {
+                await productService.SaveEditAsync(id, currentProduct.name, currentProduct.description, currentProduct.price, currentProduct.image, currentProduct.ingredients, currentProduct.category);
+                navMgr.NavigateTo($"/ProductPage/{id}");
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+
+    private bool ValidateData()
+    {
+        if (string.IsNullOrEmpty(currentProduct.name))
+        {
+            msg = "The name cannot be empty!";
+            return false;
+        }
+        else if(string.IsNullOrEmpty(currentProduct.description))
+        {
+            msg = "The description cannot be empty!";
+            return false;
+        }
+        else if(currentProduct.price < 1 || currentProduct.price == null)
+        {
+            msg = "The price is not valid!";
+            return false;
+        }
+        else if(string.IsNullOrEmpty(currentProduct.image))
+        {
+            msg = "The image field cannot be empty!";
+            return false;
+        }
+        else if(string.IsNullOrEmpty(currentProduct.ingredients))
+        {
+            msg = "The ingredients field cannot be empty!";
+            return false;
+        }
+        else if(string.IsNullOrEmpty(currentProduct.category.name))
+        {
+            msg = "The category field cannot be empty!";
+            return false;
+        }
+        return true;
+    }
+}

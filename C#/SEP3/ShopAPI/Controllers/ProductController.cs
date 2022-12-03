@@ -18,13 +18,13 @@ public class ProductController : ControllerBase
         this.productLogic = productLogic;
     }
 
-    /*   [HttpPost]
-       public async Task<ActionResult<Product>> CreateAsync(Pro dto)
+     /*  [HttpPost]
+       public async Task<ActionResult<Product>> CreateAsync(ProductCreationDto dto)
        {
            try
            {
                Product product = await productLogic.CreateAsync(dto);
-               return Created($"/products/{product.Id}", product);
+               return Created($"/products/{product.id}", product);
            }
            catch (Exception e)
            {
@@ -33,6 +33,7 @@ public class ProductController : ControllerBase
            }
        }
        */
+    
 
      [HttpGet]
      public async Task<ActionResult<IEnumerable<Product>>> GetAsync([FromQuery] string? name)
