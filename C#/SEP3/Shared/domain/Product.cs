@@ -22,7 +22,20 @@ public class Product
        this.ingredients = ingredients;
        this.category = category;
    } 
-   public Product( string name, string description, double price, string image, string ingredients, Category category)
+   public Product( string name, string description, double price, int stock, string image, string ingredients, Category category)
+   {
+       this.name = name;
+       this.description = description;
+       this.price = price;
+       this.stock = stock;
+       this.image = image;
+       this.ingredients = ingredients;
+       this.category = category;
+   }
+   
+   public Product() { }
+
+   public Product(string name, string description, double price, string image, string ingredients, Category category)
    {
        this.name = name;
        this.description = description;
@@ -31,6 +44,4 @@ public class Product
        this.ingredients = ingredients;
        this.category = category;
    }
-   
-   public Product() { }
 }

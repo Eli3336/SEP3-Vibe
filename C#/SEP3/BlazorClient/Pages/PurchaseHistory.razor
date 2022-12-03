@@ -16,7 +16,7 @@
 						</tr>
 					</thead>
 					<tbody>
-					@foreach (var item in purchases)
+					@foreach (var item in receipts)
                             {
                                 <tr>
                                     <td>@item.id</td>
@@ -30,7 +30,7 @@
 			</div>
 </div>
 @code {
-	private IEnumerable<Receipt>? purchases;
+	private IEnumerable<Receipt>? receipts;
 	private string msg = "";
 	private long? id= null;
 
@@ -39,7 +39,7 @@
 		msg = "";
 		try
 		{
-			purchases = await receiptService.GetAsync(id);
+			receipts = await receiptService.GetAsync(id);
 		}
 		catch (Exception e)
 		{

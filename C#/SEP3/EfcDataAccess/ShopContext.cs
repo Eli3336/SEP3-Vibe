@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Shared;
@@ -12,7 +13,6 @@ public class ShopContext : DbContext
     public DbSet<OrderItem> OrderItems { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<Receipt> Receipts { get; set; }
-    
     public DbSet<Category> Categories { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -22,8 +22,8 @@ public class ShopContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Product>().HasKey(product => product.id);
         modelBuilder.Entity<Category>().HasKey(category => category.name);
+        modelBuilder.Entity<Product>().HasKey(product => product.id);
         modelBuilder.Entity<User>().HasKey(user => user.Id);
         modelBuilder.Entity<Receipt>().HasKey(receipt => receipt.id);
         modelBuilder.Entity<OrderItem>(entity =>
@@ -38,4 +38,10 @@ public class ShopContext : DbContext
                 .OnDelete(DeleteBehavior.Cascade);
         });
     }
+
+   /* public async Task<EntityEntry<Product>> CreateProduct(Product product)
+    {
+        
+    }
+    */
 }

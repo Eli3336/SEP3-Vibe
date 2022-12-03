@@ -57,7 +57,16 @@ public class ProductLogic : IProductLogic
         return productDao.GetProductsAsync();
     }
 */
-    public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto)
+/*public async Task<Product> CreateAsync(ProductCreationDto productToCreate)
+{
+    Product toCreate = new Product(productToCreate.name, productToCreate.description, productToCreate.price, productToCreate.stock, productToCreate.image, productToCreate.ingredients, productToCreate.category);
+    Product created = await productDao.CreateAsync(toCreate);
+    
+    return created;
+}
+*/
+
+public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto)
     {
         return productDao.GetAsync(searchProductsParametersDto);
     }
