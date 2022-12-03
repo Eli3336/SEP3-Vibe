@@ -5,7 +5,7 @@ option java_package= "via.sep3.supplier.protobuf";
 
 service ShopGrpc{
   rpc OrderProduct(ProductGrpc) returns(ProductResponse);
-  //rpc EditProduct(ProductGrpc) returns (ProductResponse);
+  rpc EditProduct(ProductGrpc) returns (ProductResponse);
 }
 
 message ProductGrpc{

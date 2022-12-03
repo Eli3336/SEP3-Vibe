@@ -42,10 +42,11 @@ public final class Contract {
       "\001(\003\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\r" +
       "\n\005price\030\004 \001(\001\022\037\n\010category\030\005 \001(\0132\r.Catego" +
       "ryGrpc\"\034\n\014CategoryGrpc\022\014\n\004name\030\001 \001(\t\"$\n\017" +
-      "ProductResponse\022\021\n\tconfirmed\030\001 \001(\t2:\n\010Sh" +
+      "ProductResponse\022\021\n\tconfirmed\030\001 \001(\t2i\n\010Sh" +
       "opGrpc\022.\n\014OrderProduct\022\014.ProductGrpc\032\020.P" +
-      "roductResponseB\036\n\032via.sep3.supplier.prot" +
-      "obufP\001b\006proto3"
+      "roductResponse\022-\n\013EditProduct\022\014.ProductG" +
+      "rpc\032\020.ProductResponseB\036\n\032via.sep3.suppli" +
+      "er.protobufP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

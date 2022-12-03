@@ -10,8 +10,14 @@ import java.util.List;
 @Repository
 public interface IProductRep extends JpaRepository<Product, Long>
 {
-    @Query(value = "SELECT * FROM products a WHERE a.product_id = :product_id",nativeQuery = true)
+    @Query(value = "SELECT * FROM products  WHERE id = :product_id",nativeQuery = true)
     List<Product> getProductById(Long product_id);
+
+    @Query(value = "UPDATE products  SET product_name= :product_name ," +
+            " product_description= :product_description, price= :price " +
+            "WHERE  id = :product_id",nativeQuery = true)
+    Product editProductById(Long product_id, String product_name, String product_description, double price);
+
 
 
 }
