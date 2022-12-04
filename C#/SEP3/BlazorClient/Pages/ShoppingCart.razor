@@ -125,8 +125,9 @@
     {
         msg = "";
         try
-        {
+        {   
             OrderItemCreationDto creationDto = await orderItemService.GetByIdAsync(id);
+            if(creationDto.quantity>1){
             dto = new(id)
             {
                 quantity = (creationDto.quantity - 1),
@@ -134,6 +135,7 @@
             };
             await orderItemService.UpdateAsync(dto);
             navMgr.NavigateTo("/ShoppingCart");
+                }
         }
         catch (Exception e)
         {
