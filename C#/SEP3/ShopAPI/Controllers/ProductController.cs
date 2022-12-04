@@ -18,7 +18,7 @@ public class ProductController : ControllerBase
         this.productLogic = productLogic;
     }
 
-     /*  [HttpPost]
+       [HttpPost]
        public async Task<ActionResult<Product>> CreateAsync(ProductCreationDto dto)
        {
            try
@@ -32,7 +32,7 @@ public class ProductController : ControllerBase
                return StatusCode(500, e.Message);
            }
        }
-       */
+       
     
 
      [HttpGet]

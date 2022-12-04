@@ -108,6 +108,7 @@
         {
             OrderItemCreationDto dto = new OrderItemCreationDto(id, 1);
             await orderItemService.OrderProduct(dto);
+            navMgr.NavigateTo("/ShoppingCart");
         }
         catch (Exception e)
         {

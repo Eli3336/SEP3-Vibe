@@ -17,7 +17,7 @@
     <label>Ingredients:</label>
     <input type="text" @bind="currentProduct.ingredients" @bind:event="oninput"/>
      <label>Category:</label>
-            <input type="text" @bind="currentProduct.category" @bind:event="oninput"/>
+            <input type="text" @bind="currentProduct.categoryName" @bind:event="oninput"/>
 </div>
 
 <div class="button-row">
@@ -54,7 +54,7 @@
         {
             if (ValidateData())
             {
-                await productService.SaveEditAsync(id, currentProduct.name, currentProduct.description, currentProduct.price, currentProduct.image, currentProduct.ingredients, currentProduct.category);
+                await productService.SaveEditAsync(id, currentProduct.name, currentProduct.description, currentProduct.price, currentProduct.image, currentProduct.ingredients, currentProduct.categoryName);
                 navMgr.NavigateTo($"/ProductPage/{id}");
             }
         }
@@ -92,7 +92,7 @@
             msg = "The ingredients field cannot be empty!";
             return false;
         }
-        else if(string.IsNullOrEmpty(currentProduct.category.name))
+        else if(string.IsNullOrEmpty(currentProduct.categoryName))
         {
             msg = "The category field cannot be empty!";
             return false;

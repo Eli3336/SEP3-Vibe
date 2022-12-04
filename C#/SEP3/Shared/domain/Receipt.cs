@@ -16,8 +16,5 @@ public class Receipt
         this.user = user;
 
     }
-
-    private Receipt(){}
-
-
+    public Receipt(){}
 }

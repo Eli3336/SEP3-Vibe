@@ -8,10 +8,12 @@ namespace ShopApplication.Logic;
 public class ProductLogic : IProductLogic
 {
     private readonly IProductDao productDao;
+    private readonly ICategoryDao categoryDao;
 
-    public ProductLogic(IProductDao productDao)
+    public ProductLogic(IProductDao productDao, ICategoryDao categoryDao)
     {
         this.productDao = productDao;
+        this.categoryDao = categoryDao;
     }
     
     public async Task DeleteAsync(long id)
@@ -57,14 +59,15 @@ public class ProductLogic : IProductLogic
         return productDao.GetProductsAsync();
     }
 */
-/*public async Task<Product> CreateAsync(ProductCreationDto productToCreate)
+public async Task<Product> CreateAsync(ProductCreationDto productToCreate)
 {
-    Product toCreate = new Product(productToCreate.name, productToCreate.description, productToCreate.price, productToCreate.stock, productToCreate.image, productToCreate.ingredients, productToCreate.category);
+    Category? categoryToUse = await categoryDao.GetByName(productToCreate.categoryName);
+    Product toCreate = new Product(productToCreate.name, productToCreate.description, productToCreate.price, productToCreate.stock, productToCreate.image, productToCreate.ingredients, categoryToUse);
     Product created = await productDao.CreateAsync(toCreate);
     
     return created;
 }
-*/
+
 
 public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto)
     {
@@ -79,7 +82,7 @@ public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchPro
             throw new Exception(
                 $"Product with id {id} not found!");
         }
-        return new ProductCreationDto( product.name, product.description, product.price, product.stock, product.image, product.ingredients, product.category);
+        return new ProductCreationDto( product.name, product.description, product.price, product.stock, product.image, product.ingredients, product.category.name);
     }
     
     public async Task AdminUpdateAsync(ProductAdminUpdateDto dto)
@@ -96,7 +99,7 @@ public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchPro
         double priceToUse = dto.price ?? existing.price;
         string imageToUse = dto.image ?? existing.image;
         string ingredientsToUse = dto.ingredients ?? existing.ingredients;
-        Category categoryToUse = dto.category ?? existing.category;
+        Category categoryToUse = await categoryDao.GetByName(dto.categoryName);
     
         Product updated = new (nameToUse, descriptionToUse, priceToUse, imageToUse, ingredientsToUse, categoryToUse)
         {

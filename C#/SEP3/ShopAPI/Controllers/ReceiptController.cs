@@ -36,7 +36,7 @@ public class ReceiptController : ControllerBase
         try
         {
             Receipt receipt = await receiptLogic.CreateAsync(dto);
-            return Created($"/OrderItems/{receipt.id}", receipt.order);
+            return Created($"/Receipt/{receipt.id}", receipt.order);
         }
         catch (Exception e)
         {
