@@ -47,6 +47,14 @@ public class ProductEfcDao : IProductDao
         return found;
     }
 
+    public async Task<Product?> GetSearchAsync(string? search)
+    {
+        Product?  existing = await context.Products.FirstOrDefaultAsync(p =>
+            p.name.ToLower().Equals(search.ToLower())
+        );
+        return existing;
+    }
+
     public async Task DeleteAsync(long id)
     {
         Product? existing = await GetByIdAsync(id);

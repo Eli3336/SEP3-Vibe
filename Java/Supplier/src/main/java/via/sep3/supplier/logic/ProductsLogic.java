@@ -22,7 +22,8 @@ public class ProductsLogic {
 
     public boolean existsProductById(long id)
     {
-        return productRep.existsById(id);
+        return !productRep.getProductById(id).isEmpty();
+        //return productRep.existsById(id);
     }
 
     public void toEditProduct(long id, String name, String description, double price)

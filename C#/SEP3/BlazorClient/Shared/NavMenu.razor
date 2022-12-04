@@ -38,7 +38,7 @@
                 <li class="nav-item">
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @bind="toSearch" @bind:event="oninput">
-                        <button class="btn btn-outline-success" type="submit"  @onclick="@(() => navMgr.NavigateTo($"/ProductPage/{toSearch}"))">Search</button>
+                        <button class="btn btn-outline-success" @onclick="@(() => navMgr.NavigateTo($"/SearchPage/{toSearch}"))"  >Search</button>
                     </form>
                     
                 </li>
@@ -51,7 +51,7 @@
     private bool collapseNavMenu = true;
     private string? NavBarCssClass => collapseNavMenu ? null : "show";
     private string? NavButtonCssClass => collapseNavMenu ? "collapsed" : null;
-    private string? toSearch;
+    private string toSearch = "";
 
     private void ToggleNavMenu()
     {

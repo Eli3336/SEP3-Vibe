@@ -13,7 +13,13 @@ public class ProductLogic : IProductLogic
     {
         this.productDao = productDao;
     }
-    
+
+    public async Task<IEnumerable<Product>> GetSearchAsync(string search)
+    {
+        SearchProductsParametersDto searchDto = new SearchProductsParametersDto(search);
+        return await productDao.GetAsync(searchDto);
+    }
+
     public async Task DeleteAsync(long id)
     {
         Product? product = await productDao.GetByIdAsync(id);
