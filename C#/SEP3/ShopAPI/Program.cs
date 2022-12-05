@@ -4,8 +4,6 @@ using EfcDataAccess.DAOs;
 using ShopApplication.DaoInterfaces;
 using ShopApplication.Logic;
 using ShopApplication.LogicInterfaces;
-using FileData;
-using FileData.DAOs;
 using Shared.Auth;
 using Shop.Services;
 
@@ -29,12 +27,14 @@ builder.Services.AddScoped<IOrderItemLogic, OrderItemLogic>();
 builder.Services.AddScoped<IUserDao, UserEfcDao>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 
-
 builder.Services.AddScoped<IReceiptDao, PurchaseEfcDao>();
 builder.Services.AddScoped<IReceiptLogic, ReceiptLogic>();
 
 builder.Services.AddScoped<IOrderDao, OrderEfcDao>();
 builder.Services.AddScoped<IOrderLogic, OrderLogic>();
+
+builder.Services.AddScoped<ICategoryDao, CategoryEfcDao>();
+builder.Services.AddScoped<ICategoryLogic, CategoryLogic>();
 
 //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 //{

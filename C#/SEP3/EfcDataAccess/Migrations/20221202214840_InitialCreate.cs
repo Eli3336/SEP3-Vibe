@@ -10,6 +10,17 @@ namespace EfcDataAccess.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    name = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.name);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Orders",
                 columns: table => new
                 {
@@ -22,24 +33,6 @@ namespace EfcDataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Products",
-                columns: table => new
-                {
-                    id = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    name = table.Column<string>(type: "TEXT", nullable: false),
-                    description = table.Column<string>(type: "TEXT", nullable: false),
-                    price = table.Column<double>(type: "REAL", nullable: false),
-                    stock = table.Column<int>(type: "INTEGER", nullable: false),
-                    image = table.Column<string>(type: "TEXT", nullable: false),
-                    ingredients = table.Column<string>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Products", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -59,30 +52,27 @@ namespace EfcDataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrderItems",
+                name: "Products",
                 columns: table => new
                 {
                     id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    productid = table.Column<long>(type: "INTEGER", nullable: false),
-                    quantity = table.Column<int>(type: "INTEGER", nullable: false),
+                    name = table.Column<string>(type: "TEXT", nullable: false),
+                    description = table.Column<string>(type: "TEXT", nullable: false),
                     price = table.Column<double>(type: "REAL", nullable: false),
-                    OrderId = table.Column<long>(type: "INTEGER", nullable: true)
+                    stock = table.Column<int>(type: "INTEGER", nullable: false),
+                    image = table.Column<string>(type: "TEXT", nullable: false),
+                    ingredients = table.Column<string>(type: "TEXT", nullable: false),
+                    categoryname = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderItems", x => x.id);
+                    table.PrimaryKey("PK_Products", x => x.id);
                     table.ForeignKey(
-                        name: "FK_OrderItems_Orders_OrderId",
-                        column: x => x.OrderId,
-                        principalTable: "Orders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_OrderItems_Products_productid",
-                        column: x => x.productid,
-                        principalTable: "Products",
-                        principalColumn: "id",
+                        name: "FK_Products_Categories_categoryname",
+                        column: x => x.categoryname,
+                        principalTable: "Categories",
+                        principalColumn: "name",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -113,6 +103,34 @@ namespace EfcDataAccess.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "OrderItems",
+                columns: table => new
+                {
+                    id = table.Column<long>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    productid = table.Column<long>(type: "INTEGER", nullable: false),
+                    quantity = table.Column<int>(type: "INTEGER", nullable: false),
+                    price = table.Column<double>(type: "REAL", nullable: false),
+                    OrderId = table.Column<long>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OrderItems", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_OrderItems_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_OrderItems_Products_productid",
+                        column: x => x.productid,
+                        principalTable: "Products",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_OrderItems_OrderId",
                 table: "OrderItems",
@@ -122,6 +140,11 @@ namespace EfcDataAccess.Migrations
                 name: "IX_OrderItems_productid",
                 table: "OrderItems",
                 column: "productid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_categoryname",
+                table: "Products",
+                column: "categoryname");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Receipts_orderId",
@@ -150,6 +173,9 @@ namespace EfcDataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
         }
     }
 }

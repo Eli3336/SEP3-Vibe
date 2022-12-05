@@ -15,13 +15,22 @@ public class ProductEfcDao : IProductDao
         this.context = context;
     }
 
+
+    public async Task<Product> CreateAsync(Product product)
+    {
+        EntityEntry<Product> newProduct = await context.Products.AddAsync(product);
+        await context.SaveChangesAsync();
+        return newProduct.Entity;
+        //it can't create product bcs unique constraint on category name
+    }
+    
+
     public async Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchProductsParametersDto)
     {
-        IQueryable<Product> query = context.Products.AsQueryable();
+        IQueryable<Product> query = context.Products.Include(product => product.category).AsQueryable();
     
         if (searchProductsParametersDto.nameContains != null)
         {
-            // we know username is unique, so just fetch the first
             query = query.Where(p =>
                 p.name.ToLower().Contains(searchProductsParametersDto.nameContains.ToLower()));
         }
@@ -32,8 +41,8 @@ public class ProductEfcDao : IProductDao
 
     public async  Task<Product?> GetByIdAsync(long id)
     {
-        Product? found = await context.Products.AsNoTracking().
-        FirstOrDefaultAsync(p => p.id == id);
+        Product? found = await context.Products.Include(product => product.category).FirstAsync(product => product.id == id);
+       //     .AsNoTracking().FirstOrDefaultAsync(p => p.id == id);
 
         return found;
     }
@@ -53,15 +62,6 @@ public class ProductEfcDao : IProductDao
     public async Task AdminUpdateAsync(Product product)
     {
         context.Products.Update(product);
-        await context.SaveChangesAsync();    }
-
-    /*
-    public async Task<Product> CreateAsync(Product product)
-    {
-        EntityEntry<Product> added = await context.Products.AddAsync(product);
-        await context.SaveChangesAsync();
-        return added.Entity;
+        await context.SaveChangesAsync();    
     }
-    */
-   
 }

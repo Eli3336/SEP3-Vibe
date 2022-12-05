@@ -4,6 +4,7 @@
 @using global::Shared
 @inject IProductService productService
 @inject IOrderItemService orderItemService
+@inject NavigationManager navMgr
 
 @if (currentProduct == null)
 {
@@ -28,6 +29,10 @@
                     <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Add to cart"
                             @onclick="AddToCart">
                         Add to cart</button>
+                        
+                    <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Edit product"
+                            @onclick="@(() => navMgr.NavigateTo($"/EditProductPage/{id}"))">
+                    Edit product</button>
                     
                     <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Remove product"
                             @onclick="RemoveProduct">
@@ -103,6 +108,7 @@
         {
             OrderItemCreationDto dto = new OrderItemCreationDto(id, 1);
             await orderItemService.OrderProduct(dto);
+            navMgr.NavigateTo("/ShoppingCart");
         }
         catch (Exception e)
         {

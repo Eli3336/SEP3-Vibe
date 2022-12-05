@@ -4,6 +4,7 @@
 @using global::Shared.DTOs
 @inject IOrderItemService orderItemService
 @inject IOrderService orderService
+@inject IReceiptService receiptService
 @using UIComponents
 @inject NavigationManager navMgr
 
@@ -94,7 +95,11 @@
     private double price;
     private bool showModal;
     private Order order = null;
-    private User userTest = new User();
+    private Receipt receipt = null;
+    private User userTest = new User()
+    {
+        username = "Ana"
+    };
     
     protected override async Task OnInitializedAsync()
     {
@@ -128,8 +133,8 @@
 
             OrderCreationDto dto = new OrderCreationDto(address, items);
             order=await orderService.CreateAsync(dto);
-            ReceiptCreationDto purchaseDto = new ReceiptCreationDto(userTest, order);//username should come from authentication not be 1 by default
-
+            ReceiptCreationDto receiptDto = new ReceiptCreationDto(userTest, order);//username should come from authentication not be 1 by default
+            receipt = await receiptService.CreateAsync(receiptDto);
         }
         catch (Exception e)
         {
