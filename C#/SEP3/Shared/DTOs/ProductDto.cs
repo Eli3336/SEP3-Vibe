@@ -12,10 +12,10 @@ public class ProductDto
     public string image { get; }
     public string ingredients { get; }
     
-    public Category category { get; }
+    public string categoryName { get; }
 
 
-    public ProductDto(long id, string name, string description, double price, int stock, string image, string ingredients, Category category)
+    public ProductDto(long id, string name, string description, double price, int stock, string image, string ingredients, string categoryName)
     {
         this.id = id;
         this.name = name;
@@ -24,6 +24,6 @@ public class ProductDto
         this.stock = stock;
         this.image = image;
         this.ingredients = ingredients;
-        this.category = category;
+        this.categoryName = categoryName;
     }
 }

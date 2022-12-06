@@ -39,9 +39,4 @@ public class ShopContext : DbContext
         });
     }
 
-   /* public async Task<EntityEntry<Product>> CreateProduct(Product product)
-    {
-        
-    }
-    */
 }
