@@ -15,7 +15,13 @@ public class ProductLogic : IProductLogic
         this.productDao = productDao;
         this.categoryDao = categoryDao;
     }
-    
+
+    public async Task<IEnumerable<Product>> GetSearchAsync(string search)
+    {
+        SearchProductsParametersDto searchDto = new SearchProductsParametersDto(search);
+        return await productDao.GetAsync(searchDto);
+    }
+
     public async Task DeleteAsync(long id)
     {
         Product? product = await productDao.GetByIdAsync(id);
@@ -87,7 +93,7 @@ public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchPro
     
     public async Task AdminUpdateAsync(ProductAdminUpdateDto dto)
     {
-        Product? existing = await productDao.GetByIdAsync(dto.id);
+        Product? existing = await productDao.GetByIdToUpdateAsync(dto.id);
 
         if (existing == null)
         {

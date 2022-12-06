@@ -46,7 +46,7 @@ public class OrderItemLogic : IOrderItemLogic
  
     public async Task UpdateAsync(OrderItemUpdateDto dto)
     {   
-        OrderItem? existing = await orderItemDao.GetByIdAsync(dto.id);
+        OrderItem? existing = await orderItemDao.GetByIdToUpdateAsync(dto.id);
 
         if (existing == null)
         {

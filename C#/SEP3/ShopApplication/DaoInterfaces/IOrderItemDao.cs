@@ -12,4 +12,6 @@ public interface IOrderItemDao
     Task<OrderItem?> GetByIdAsync(long id);
     Task DeleteAsync(long id);
 
+    Task<OrderItem?> GetByIdToUpdateAsync(long id);
+
 }
