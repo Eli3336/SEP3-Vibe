@@ -96,7 +96,10 @@
     private bool showModal;
     private Order order = null;
     private Receipt receipt = null;
-    private User userTest = new User();
+    private User userTest = new User()
+    {
+        username = "Ana"
+    };
     
     protected override async Task OnInitializedAsync()
     {

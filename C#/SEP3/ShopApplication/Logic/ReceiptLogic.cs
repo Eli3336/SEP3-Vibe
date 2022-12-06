@@ -21,7 +21,7 @@ public class ReceiptLogic : IReceiptLogic
         User? user = await userDao.GetByUsernameAsync(receiptToCreate.user.username);
         if (user==null)
         {
-            throw new Exception($"User with username: {receiptToCreate.user} was not found");
+            throw new Exception($"User with username: {receiptToCreate.user.username} was not found");
         }
         
         Receipt toCreate = new Receipt(user,receiptToCreate.order,receiptToCreate.order.orderPrice);

@@ -28,4 +28,10 @@ public class CategoryEfcDao : ICategoryDao
         IEnumerable<Category> result = await query.ToListAsync();
         return result;
     }
+
+    public async Task<Category?> GetByName(string name)
+    {
+        Category? existing = await context.Categories.FirstOrDefaultAsync(c => c.name == name);
+        return existing;
+    }
 }

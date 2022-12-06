@@ -20,7 +20,7 @@ public class ReceiptHttpClient : IReceiptService
     {
         string dtoAsJson = JsonSerializer.Serialize(receiptToCreate);
         StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
-        HttpResponseMessage response = await client.PostAsJsonAsync("/PurchaseHistory", body);
+        HttpResponseMessage response = await client.PostAsJsonAsync("/Receipt", body);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
@@ -41,7 +41,7 @@ public class ReceiptHttpClient : IReceiptService
 
     public async Task<ICollection<Receipt>> GetAsync(long? idContains = null)
     {
-        HttpResponseMessage response = await client.GetAsync("/Purchase");
+        HttpResponseMessage response = await client.GetAsync($"/Receipt/{idContains}");
         string content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
