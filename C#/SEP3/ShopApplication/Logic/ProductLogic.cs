@@ -90,7 +90,7 @@ public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchPro
     
     public async Task AdminUpdateAsync(ProductAdminUpdateDto dto)
     {
-        Product? existing = await productDao.GetByIdAsync(dto.id);
+        Product? existing = await productDao.GetByIdToUpdateAsync(dto.id);
 
         if (existing == null)
         {

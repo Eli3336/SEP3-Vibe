@@ -46,6 +46,13 @@ public class ProductEfcDao : IProductDao
 
         return found;
     }
+    
+    public async  Task<Product?> GetByIdToUpdateAsync(long? id)
+    {
+        Product? found = await context.Products.AsNoTracking().FirstOrDefaultAsync(p => p.id == id);
+
+        return found;
+    }
 
     public async Task<Product?> GetSearchAsync(string? search)
     {
