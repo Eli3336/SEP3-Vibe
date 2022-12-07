@@ -86,6 +86,7 @@
     
     private string msg = "";
     private ProductCreationDto currentProduct;
+    private OrderItemUpdateDto dto = null!;
     
     protected override async Task OnInitializedAsync()
     {
@@ -106,19 +107,40 @@
     {
         try
         {
-            OrderItemCreationDto dto = new OrderItemCreationDto(id, 1);
-            await orderItemService.OrderProduct(dto);
-            navMgr.NavigateTo("/ShoppingCart");
+            bool ok = false;
+            List<OrderItem> orderItems = ShoppingCart.orderItems.ToList();
+            for (int i = 0; i < orderItems.Count && ok == false; i++)
+            {
+                if (orderItems[i].product.id == id)
+                {
+                    OrderItemCreationDto creationDto = await orderItemService.GetByIdAsync(orderItems[i].id);
+                    if (creationDto.quantity < orderItems[i].product.stock)
+                    {
+                        dto = new(orderItems[i].id)
+                        {
+                            quantity = (creationDto.quantity + 1),
+                            id = orderItems[i].id
+                        };
+                        await orderItemService.UpdateAsync(dto);
+                        ok = true;
+                    }
+                }
+            }
+            if (ok == false)
+                {
+                    OrderItemCreationDto dto = new OrderItemCreationDto(id, 1);
+                    await orderItemService.OrderProduct(dto);
+                }
+                navMgr.NavigateTo("/ShoppingCart");
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
         }
-        
     }
 
-    private async void RemoveProduct()
+
+        private async void RemoveProduct()
     {
 
         try
