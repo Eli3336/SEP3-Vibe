@@ -27,7 +27,7 @@ builder.Services.AddScoped<IOrderItemLogic, OrderItemLogic>();
 builder.Services.AddScoped<IUserDao, UserEfcDao>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 
-builder.Services.AddScoped<IReceiptDao, PurchaseEfcDao>();
+builder.Services.AddScoped<IReceiptDao, ReceiptEfcDao>();
 builder.Services.AddScoped<IReceiptLogic, ReceiptLogic>();
 
 builder.Services.AddScoped<IOrderDao, OrderEfcDao>();
