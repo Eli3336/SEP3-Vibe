@@ -96,4 +96,22 @@ public class OrderItemHttpClient : IOrderItemService
         )!;
         return orderItem;
     }
+
+    public async Task<List<OrderItem>> GetAll()
+    {
+        string uri = "/OrderItems";
+        HttpResponseMessage response = await client.GetAsync(uri);
+        string result = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+
+        Console.WriteLine(result);
+        IEnumerable<OrderItem> orderItems = JsonSerializer.Deserialize<IEnumerable<OrderItem>>(result, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return orderItems.ToList();
+    }
 }
