@@ -1,32 +1,72 @@
-﻿@inject NavigationManager navMgr
+﻿@using Syncfusion.Blazor.Popups
+@inject NavigationManager navMgr
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">Vibe Shop✓</a>
+        <a class="navbar-brand"  href="">Vibe Shop✓</a>
         <button class="navbar-toggler @NavButtonCssClass" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-label="Toggle navigation" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse @NavBarCssClass" id="navbarCollapse" @onclick="ToggleNavMenu">
+        <div class="collapse navbar-collapse @NavBarCssClass" id="navbarCollapse" @onclick="ToggleNavMenu ">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item ">
                     <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                         <span class="oi oi-home" aria-hidden="true"></span> Home
                     </NavLink>
                 </li>
+               
                 <li class="nav-item">
-                    <NavLink class="nav-link" href="ViewProducts">
-                        <span class="oi oi-tags" aria-hidden="true"></span> Products
-                    </NavLink>
-                </li>
+                            <div class="nav-link" @onclick="()=>expandSubMenu= !expandSubMenu">
+                                <span class="oi oi-tags" aria-hidden="true"></span> Products
+                            </div>
+                            @if (expandSubMenu)
+                            {
+                                <ul class="nav flex-column">
+                                    <li class="nav-item ">
+                                        <NavLink class="nav-link" href="ViewProducts" @onclick="()=>expandSubMenu= !expandSubMenu">
+                                            All
+                                        </NavLink>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <NavLink class="nav-link" href="Clothes" @onclick="()=>expandSubMenu= !expandSubMenu">
+                                            Clothes
+                                        </NavLink>
+                                        
+                                    </li><li class="nav-item ">
+                                        <NavLink class="nav-link" href="Cosmetics"  @onclick="()=>expandSubMenu= !expandSubMenu">
+                                            Cosmetics
+                                        </NavLink>
+                                    </li><li class="nav-item ">
+                                        <NavLink class="nav-link" href="Jewelry" @onclick="()=>expandSubMenu= !expandSubMenu">
+                                            Jewelry
+                                        </NavLink>
+                                    </li><li class="nav-item">
+                                        <NavLink class="nav-link" href="HomeDecor" @onclick="()=>expandSubMenu= !expandSubMenu">
+                                            Home Decor
+                                        </NavLink>
+                                    </li>
+                                </ul>
+                            }
+                        </li>
+                
                 <li class="nav-item">
                     <NavLink class="nav-link" href="ShoppingCart">
                         <span class="oi oi-cart" aria-hidden="true"></span> Shopping Cart
                     </NavLink>
                 </li>
                 <li class="nav-item">
-                    <NavLink class="nav-link" href="login">
-                        <span class="oi oi-person" aria-hidden="true"></span> Profile
-                    </NavLink>
+                     <div class="nav-link" @onclick="()=>expandSubMenu= !expandSubMenu">
+                                                    <span class="oi oi-tags" aria-hidden="true"></span> Products
+                                                </div>
+                                                @if (expandSubMenu)
+                                                {
+                                                    <ul class="nav flex-column">
+                                                        <li class="nav-item ">
+                                                            <NavLink class="nav-link" href="ViewProducts" @onclick="()=>expandSubMenu= !expandSubMenu">
+                                                                All
+                                                            </NavLink>
+                                                        </li>
+                                                    </ul>
                 </li>
                 <li class="nav-item">
                     <NavLink class="nav-link" href="about">
@@ -52,7 +92,10 @@
     private string? NavBarCssClass => collapseNavMenu ? null : "show";
     private string? NavButtonCssClass => collapseNavMenu ? "collapsed" : null;
     private string toSearch = "";
+    private bool expandSubMenu;//add
 
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;

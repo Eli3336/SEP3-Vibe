@@ -1,0 +1,70 @@
+@page "/Clothes"
+
+@using BlazorClient.Services.ClientInterfaces
+@using global::Shared
+@inject IProductService productService
+@inject NavigationManager navMgr
+
+<div class="d-flex justify-content-center mb-5"><h1>Clothes</h1></div>
+
+
+@if (!string.IsNullOrEmpty(msg))
+{
+    <div>
+        <span>@msg</span>
+    </div>
+}
+
+@if (products == null)
+{
+    <span>Loading..</span>
+}
+else if (!products.Any())
+{
+    <span>No products to be found</span>
+}
+else
+{
+    <div class="container px-4">
+        <div class="row justify-content-center g-5">
+            @foreach (Product product in products)
+            {
+                @if (product.stock > 0 && product.category.name.Equals("Clothes"))
+                {
+                    <div class="card col-sm-3" @onclick="@(() => navMgr.NavigateTo($"/ProductPage/{product.id}"))">
+                        <img class="card-img-top img-thumbnail" src="https://i.pinimg.com/564x/a3/6b/42/a36b422bb2bebcbd77bba846b83ddf5d.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><label>@product.name</label></h5>
+                            <p class="card-text text-truncate"><label>@product.description</label></p>
+                        </div>
+                    </div>
+                }
+
+            }
+        </div>
+    </div>
+}
+
+@code {
+    
+    private IEnumerable<Product>? products;
+    private string? titleContains = "";
+
+    private string msg = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        msg = "";
+        try
+        {
+            products = await productService.GetAsync(titleContains);
+            
+            
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+}
