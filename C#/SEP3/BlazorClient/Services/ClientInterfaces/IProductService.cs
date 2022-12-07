@@ -16,5 +16,7 @@ public interface IProductService
     Task SaveEditAsync(long id, string? name, string? description, double? price, string? image, string? ingredients, string? categoryName);
 
     Task DeleteAsync(long id);
-    
+
+    Task<Product> GetProductById(long id);
+
 }

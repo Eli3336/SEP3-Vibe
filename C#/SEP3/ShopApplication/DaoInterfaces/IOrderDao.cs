@@ -9,6 +9,6 @@ public interface IOrderDao
     Task<Order?> GetByIdAsync(long id);
     Task<IEnumerable<Order>> GetAsync(SearchOrderParametersDto? searchParameters);
     
-    Task<Order> CreateAdminOrderAsync(Order order);
+   
 
 }
