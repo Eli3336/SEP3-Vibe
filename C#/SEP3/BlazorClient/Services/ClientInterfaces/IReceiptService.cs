@@ -7,6 +7,6 @@ public interface IReceiptService
 {
     Task<Receipt> CreateAsync(ReceiptCreationDto purchaseToCreate);
     
-    Task<ReceiptCreationDto> GetByIdAsync(long id);
-    Task<ICollection<Receipt>> GetAsync(long? idContains=null);
+    Task<ReceiptGetDto> GetByIdAsync(long id);
+    Task<IEnumerable<Receipt>> GetAsync(long? idContains=null);
 }
