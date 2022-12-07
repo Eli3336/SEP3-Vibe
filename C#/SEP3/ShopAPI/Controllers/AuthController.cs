@@ -1,8 +1,8 @@
-//using System.IdentityModel.Tokens.Jwt;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
-//using Microsoft.IdentityModel.Tokens;
+using Microsoft.IdentityModel.Tokens;
 using Shared;
 using Shared.DTOs;
 using Shop.Services;
@@ -49,32 +49,31 @@ public class AuthController : ControllerBase
     {
         List<Claim> claims = GenerateClaims(user);
         
-        //SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
-       // SigningCredentials signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
+        SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
+        SigningCredentials signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
         
-       // JwtHeader header = new JwtHeader(signIn);
+        JwtHeader header = new JwtHeader(signIn);
         
-       // JwtPayload payload = new JwtPayload(
-           // config["Jwt:Issuer"],
-          //  config["Jwt:Audience"],
-          //  claims, 
-          //  null,
-          //  DateTime.UtcNow.AddMinutes(60));
+        JwtPayload payload = new JwtPayload(
+            config["Jwt:Issuer"],
+            config["Jwt:Audience"],
+            claims, 
+            null,
+            DateTime.UtcNow.AddMinutes(60));
         
-       // JwtSecurityToken token = new JwtSecurityToken(header, payload);
+        JwtSecurityToken token = new JwtSecurityToken(header, payload);
         
-       // string serializedToken = new JwtSecurityTokenHandler().WriteToken(token);
-      //  return serializedToken;
-      return "";
+        string serializedToken = new JwtSecurityTokenHandler().WriteToken(token);
+        return serializedToken;
     }
 
     private List<Claim> GenerateClaims(User user)
     {
         var claims = new[]
         {
-          //  new Claim(JwtRegisteredClaimNames.Sub, config["Jwt:Subject"]),
-           // new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-           // new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
+           new Claim(JwtRegisteredClaimNames.Sub, config["Jwt:Subject"]),
+           new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
             new Claim(ClaimTypes.Name, user.username)
         };
         return claims.ToList();

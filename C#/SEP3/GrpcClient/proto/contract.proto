@@ -1,11 +1,18 @@
 syntax = "proto3";
 
-option java_multiple_files = true;
-option java_package= "via.sep3.supplier.protobuf";
+
+
+option csharp_namespace = "GrpcClient";
+
+
+
+package greet;
+
+
 
 service ShopGrpc{
   rpc OrderProduct(ProductGrpc) returns(ProductResponse);
-  rpc EditProduct(ProductGrpc) returns (ProductResponse);
+  //rpc EditProduct(ProductGrpc) returns (ProductResponse);
 }
 
 message ProductGrpc{
@@ -22,5 +29,3 @@ message CategoryGrpc{
 message ProductResponse{
   string confirmed = 1;
 }
-
-

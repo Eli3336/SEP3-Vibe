@@ -123,8 +123,8 @@
 
         try
         {
-
             await productService.DeleteAsync(id);
+            navMgr.NavigateTo("/ViewProducts");
         }
         
         catch (Exception e)
