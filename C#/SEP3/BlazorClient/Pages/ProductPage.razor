@@ -124,13 +124,23 @@
         try
         {
             await productService.DeleteAsync(id);
+            List<OrderItem> orderItems = await orderItemService.GetAll();
+            for (int i = 0; i < orderItems.Count; i++)
+            {
+                if(orderItems[i].product.id == id)
+                    await orderItemService.DeleteAsync(orderItems[i].id);
+            }
+
+            var list1 = new List<OrderItem>(ShoppingCart.orderItems!);
+            list1.RemoveAll(orderItem => orderItem.id == id);
+            ShoppingCart.orderItems = list1.AsEnumerable();
+            
             navMgr.NavigateTo("/ViewProducts");
         }
-        
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
+            msg = e.Message;
         }
     }
     
