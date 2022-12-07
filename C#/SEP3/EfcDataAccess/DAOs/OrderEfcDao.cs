@@ -64,7 +64,10 @@ public class OrderEfcDao : IOrderDao
                 Id = orderItems.product.id,
                 Name = orderItems.product.name,
                 Description = orderItems.product.description,
-                Category = new CategoryGrpc(),
+                Category = new CategoryGrpc()
+                {
+                    Name = orderItems.product.category.ToString()
+                },
                 Price = orderItems.product.price
             });
         }
