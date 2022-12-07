@@ -85,7 +85,7 @@ public class ProductEfcDao : IProductDao
 
     public async Task AdminUpdateAsync(Product product)
     {
-        GrpcClient.ProductGrpc productGrpc = await ClientProduct.EditProduct(new ProductGrpc()
+        ProductResponse productGrpc = await ClientProduct.EditProductAsync(new ProductGrpc()
         {
             Id = product.id,
             Name = product.name,
