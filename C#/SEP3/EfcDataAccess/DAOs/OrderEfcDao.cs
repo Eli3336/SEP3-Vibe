@@ -46,37 +46,4 @@ public class OrderEfcDao : IOrderDao
         IEnumerable<Order> result = await ordersQuery.ToListAsync();
         return result;
     }
-
-    public async Task<Order> CreateAdminOrderAsync(Order order)
-    {
-        OrderItem orderItems = new OrderItem();
-
-        foreach (OrderItem orderItem in order.items)
-        {
-            orderItems = orderItem;
-        }
-
-        try
-        {
-
-            ProductResponse productGrpc = await ClientOrder.OrderProductAsync(new ProductGrpc()
-            {
-                Id = orderItems.product.id,
-                Name = orderItems.product.name,
-                Description = orderItems.product.description,
-                Category = new CategoryGrpc()
-                {
-                    Name = orderItems.product.category.ToString()
-                },
-                Price = orderItems.product.price
-            });
-        }
-        
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-        }
-
-        return null;
-    }
 }

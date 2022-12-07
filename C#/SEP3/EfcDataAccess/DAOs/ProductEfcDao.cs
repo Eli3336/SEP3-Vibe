@@ -102,4 +102,29 @@ public class ProductEfcDao : IProductDao
         context.Products.Update(product);
         await context.SaveChangesAsync();    
     }
+
+    public async Task<String> CreateAdminOrderAsync(Product product)
+    {
+        ProductResponse productResponse = new ProductResponse();
+        try
+        {
+            productResponse = await ClientProduct.OrderProductAsync(new ProductGrpc()
+            {
+                Id = product.id,
+                Name = product.name,
+                Description = product.description,
+                Category = new CategoryGrpc()
+                {
+                    Name = product.category.ToString()
+                },
+                Price = product.price
+            });
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+        return "" + productResponse;
+    }
 }
