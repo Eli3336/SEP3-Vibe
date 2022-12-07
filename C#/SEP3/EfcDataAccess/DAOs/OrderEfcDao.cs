@@ -59,7 +59,7 @@ public class OrderEfcDao : IOrderDao
         try
         {
 
-            GrpcClient.Product productGrpc = await ClientOrder.OrderProduct(new ProductCreationDtoGrpc()
+            ProductGrpc productGrpc = await ClientOrder.OrderProduct(new ProductGrpc()
             {
                 Id = orderItems.product.id,
                 Name = orderItems.product.name,
