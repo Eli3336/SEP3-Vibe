@@ -80,9 +80,11 @@
 
             }
 @code {
-    private IEnumerable<OrderItem>? orderItems;
+    public static IEnumerable<OrderItem>? orderItems;
+    private static IEnumerable<OrderItem>? staticOrderItems;
     private OrderItem[]? list;
     private string msg = "";
+    private static string message = "";
     private OrderItemUpdateDto dto = null!;
     private OrderItem orderItem= null!;
 
@@ -125,17 +127,24 @@
     {
         msg = "";
         try
-        {   
+        {
             OrderItemCreationDto creationDto = await orderItemService.GetByIdAsync(id);
-            if(creationDto.quantity>1){
-            dto = new(id)
+            if (creationDto.quantity > 0)
             {
-                quantity = (creationDto.quantity - 1),
-                id = id
-            };
-            await orderItemService.UpdateAsync(dto);
-            navMgr.NavigateTo("/ShoppingCart");
-                }
+                dto = new(id)
+                {
+                    quantity = (creationDto.quantity - 1),
+                    id = id
+                };
+                await orderItemService.UpdateAsync(dto);
+                if (dto.quantity== 0 )
+                            {
+                                await orderItemService.DeleteAsync(id);
+                            }
+                navMgr.NavigateTo("/ShoppingCart");
+            }
+            
+            
         }
         catch (Exception e)
         {
@@ -160,6 +169,10 @@
                     id = id
                 };
                 await orderItemService.UpdateAsync(dto);
+                navMgr.NavigateTo("/ShoppingCart");
+            }
+            else if (creationDto.quantity==stock)
+            {
                 navMgr.NavigateTo("/ShoppingCart");
             }
 

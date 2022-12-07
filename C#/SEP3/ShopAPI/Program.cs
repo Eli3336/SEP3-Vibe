@@ -1,6 +1,8 @@
 using System.Text;
 using EfcDataAccess;
 using EfcDataAccess.DAOs;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using ShopApplication.DaoInterfaces;
 using ShopApplication.Logic;
 using ShopApplication.LogicInterfaces;
@@ -36,19 +38,20 @@ builder.Services.AddScoped<IOrderLogic, OrderLogic>();
 builder.Services.AddScoped<ICategoryDao, CategoryEfcDao>();
 builder.Services.AddScoped<ICategoryLogic, CategoryLogic>();
 
-//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-//{
-    // options.RequireHttpsMetadata = false;
-    // options.SaveToken = true;
-    // options.TokenValidationParameters = new TokenValidationParameters()
-    // {
-    //     ValidateIssuer = true,
-    //     ValidateAudience = true,
-    //     ValidAudience = builder.Configuration["Jwt:Audience"],
-    //     ValidIssuer = builder.Configuration["Jwt:Issuer"],
-    //     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-    // };
-//});
+/*builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+     options.RequireHttpsMetadata = false;
+     options.SaveToken = true;
+     options.TokenValidationParameters = new TokenValidationParameters()
+     {
+         ValidateIssuer = true,
+         ValidateAudience = true,
+         ValidAudience = builder.Configuration["Jwt:Audience"],
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+     };
+});
+*/
 
 AuthorizationPolicies.AddPolicies(builder.Services);
 
@@ -73,8 +76,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

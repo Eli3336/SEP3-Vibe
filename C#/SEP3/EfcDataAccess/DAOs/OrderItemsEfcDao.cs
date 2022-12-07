@@ -50,6 +50,14 @@ public class OrderItemsEfcDao : IOrderItemDao
             .SingleOrDefaultAsync(t => t.id == id);
         return existing;
     }
+    
+    public async  Task<OrderItem?> GetByIdToUpdateAsync(long id)
+    {
+        OrderItem? existing = await context.OrderItems
+            .AsNoTracking().Include(orderItem => orderItem.product)
+            .SingleOrDefaultAsync(t => t.id == id);
+        return existing;
+    }
 
     public async Task DeleteAsync(long id)
     {

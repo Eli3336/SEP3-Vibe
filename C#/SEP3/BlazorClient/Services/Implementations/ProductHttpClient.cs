@@ -16,7 +16,7 @@ public class ProductHttpClient : IProductService
     }
 
 
-    public async Task SaveEditAsync(long id, string? name, string? description, double? price, string? image, string? ingredients, string categoryName)
+    public async Task SaveEditAsync(long id, string? name, string? description, double? price, string? image, string? ingredients, string? categoryName)
     {
         ProductAdminUpdateDto product = new ProductAdminUpdateDto(id, name, description, price, image, ingredients, categoryName);
         string dtoAsJson = JsonSerializer.Serialize(product);
@@ -65,6 +65,21 @@ public class ProductHttpClient : IProductService
                 PropertyNameCaseInsensitive = true
             })!;
             return products;
+    }
+    public async Task<ICollection<ProductDto>> GetSearchAsync(string? search)
+    {
+        HttpResponseMessage response = await client.GetAsync($"/Product/{search}" );
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        ICollection<ProductDto> products = JsonSerializer.Deserialize<ICollection<ProductDto>>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return products;
     }
     
     public async Task<ProductDto> GetDtoByIdAsync(long? id)
@@ -128,14 +143,14 @@ public class ProductHttpClient : IProductService
         }
     }
     
-    private static string ConstructQuery( string? nameContains)
+    private static string ConstructQuery(string? nameContains)
     {
         string query = "";
         
         if (!string.IsNullOrEmpty(nameContains))
         {
             query += string.IsNullOrEmpty(query) ? "?" : "&";
-            query += $"titleContains={nameContains}";
+            query = $"toSearch={nameContains}";
         }
 
         return query;

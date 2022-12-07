@@ -7,6 +7,9 @@ public interface IProductService
 {
     //Task<Product> Create(ProductCreationDto dto);
     Task<ICollection<Product>> GetAsync(string? nameContains=null);
+    Task<ICollection<ProductDto>> GetSearchAsync(string? search);
+
+    
     Task<ProductCreationDto> GetByIdAsync(long? id);
     Task<ProductDto> GetDtoByIdAsync(long? id);
     Task<ProductAdminUpdateDto> GetUpdateDtoByIdAsync(long? id);

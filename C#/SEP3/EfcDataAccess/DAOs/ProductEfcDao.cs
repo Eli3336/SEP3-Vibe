@@ -1,3 +1,5 @@
+using Grpc.Net.Client;
+using GrpcClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Shared;
@@ -10,9 +12,14 @@ public class ProductEfcDao : IProductDao
 {
     
     private readonly ShopContext context;
+    
+    private readonly GrpcChannel Channel = GrpcChannel.ForAddress("http://localhost:8843");
+    private ShopGrpc.ShopGrpcClient ClientProduct;
     public ProductEfcDao(ShopContext context)
     {
         this.context = context;
+        ClientProduct = new(Channel);
+
     }
 
 
@@ -46,6 +53,23 @@ public class ProductEfcDao : IProductDao
 
         return found;
     }
+    
+    public async  Task<Product?> GetByIdToUpdateAsync(long? id)
+    {
+        Product? found = await context.Products
+            .AsNoTracking()
+            .SingleOrDefaultAsync(p => p.id == id);
+
+        return found;
+    }
+
+    public async Task<Product?> GetSearchAsync(string? search)
+    {
+        Product?  existing = await context.Products.FirstOrDefaultAsync(p =>
+            p.name.ToLower().Equals(search.ToLower())
+        );
+        return existing;
+    }
 
     public async Task DeleteAsync(long id)
     {
@@ -61,6 +85,20 @@ public class ProductEfcDao : IProductDao
 
     public async Task AdminUpdateAsync(Product product)
     {
+        ProductResponse productGrpc = await ClientProduct.EditProductAsync(new ProductGrpc()
+        {
+            Id = product.id,
+            Name = product.name,
+            Description = product.description,
+            Category = new CategoryGrpc()
+            {
+                Name = product.category.ToString()
+            },
+            Price = product.price
+            
+        });
+        
+        
         context.Products.Update(product);
         await context.SaveChangesAsync();    
     }

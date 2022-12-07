@@ -12,7 +12,7 @@ package greet;
 
 service ShopGrpc{
   rpc OrderProduct(ProductGrpc) returns(ProductResponse);
-  //rpc EditProduct(ProductGrpc) returns (ProductResponse);
+  rpc EditProduct(ProductGrpc) returns (ProductResponse);
 }
 
 message ProductGrpc{
