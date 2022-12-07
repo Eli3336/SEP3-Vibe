@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bab0368c-fa23-4c18-b44a-1ae90746dd6f" name="Changes" comment="" />
+    <list default="true" id="bab0368c-fa23-4c18-b44a-1ae90746dd6f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/C#/SEP3/GrpcClient/proto/contract.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SEP3-Vibe.dir/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SEP3-Vibe.dir/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SEP3-Vibe.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SEP3-Vibe.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/SEP3/SEP3.sln" beforeDir="false" afterPath="$PROJECT_DIR$/C#/SEP3/SEP3.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/SEP3/SupplierClient/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/SEP3/SupplierClient/Protos/greet.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/SEP3/SupplierClient/SupplierClient.csproj" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,14 +24,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -33,6 +41,8 @@
       <option name="presentableId" value="Default" />
       <updated>1667832230992</updated>
       <workItem from="1667832238312" duration="7000" />
+      <workItem from="1670244369614" duration="16000" />
+      <workItem from="1670248437359" duration="593000" />
     </task>
     <servers />
   </component>
