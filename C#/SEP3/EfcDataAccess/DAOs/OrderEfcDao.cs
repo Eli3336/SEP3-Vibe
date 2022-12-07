@@ -12,7 +12,7 @@ namespace EfcDataAccess.DAOs;
 public class OrderEfcDao : IOrderDao
 {
     private readonly ShopContext context;
-    private readonly GrpcChannel Channel = GrpcChannel.ForAddress("http://localhost:6566");
+    private readonly GrpcChannel Channel = GrpcChannel.ForAddress("http://localhost:8843");
     private ShopGrpc.ShopGrpcClient ClientOrder;
 
     public OrderEfcDao(ShopContext context)
