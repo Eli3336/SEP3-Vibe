@@ -9,6 +9,8 @@ public class ProductLogic : IProductLogic
 {
     private readonly IProductDao productDao;
     private readonly ICategoryDao categoryDao;
+    
+    
 
     public ProductLogic(IProductDao productDao, ICategoryDao categoryDao)
     {
@@ -114,6 +116,7 @@ public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchPro
         };
 
         ValidateProduct(updated);
+        
         await productDao.AdminUpdateAsync(updated);
     }
     

@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bab0368c-fa23-4c18-b44a-1ae90746dd6f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/C#/SEP3/GrpcClient/proto/contract.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SEP3-Vibe.dir/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SEP3-Vibe.dir/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SEP3-Vibe.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SEP3-Vibe.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/C#/SEP3/SEP3.sln" beforeDir="false" afterPath="$PROJECT_DIR$/C#/SEP3/SEP3.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/C#/SEP3/SupplierClient/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/C#/SEP3/SupplierClient/Protos/greet.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/C#/SEP3/SupplierClient/SupplierClient.csproj" beforeDir="false" />
-    </list>
+    <list default="true" id="bab0368c-fa23-4c18-b44a-1ae90746dd6f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,6 +35,7 @@
       <workItem from="1667832238312" duration="7000" />
       <workItem from="1670244369614" duration="16000" />
       <workItem from="1670248437359" duration="593000" />
+      <workItem from="1670420861782" duration="196000" />
     </task>
     <servers />
   </component>
