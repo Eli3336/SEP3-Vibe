@@ -11,4 +11,6 @@ public interface IOrderItemService
     Task UpdateAsync(OrderItemUpdateDto orderItem);
     Task<OrderItemCreationDto> GetByIdAsync(long id);
 
+    Task<List<OrderItem>> GetAll();
+
 }

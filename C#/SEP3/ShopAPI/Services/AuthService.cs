@@ -18,7 +18,7 @@ public class AuthService:IAuthService
     {
 
         User? existingUser = context.Users.FirstOrDefault(u => 
-            u.username.Equals(username, StringComparison.OrdinalIgnoreCase));
+            u.username.Equals(username));
         
         if (existingUser == null)
         {

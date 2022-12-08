@@ -80,9 +80,11 @@
 
             }
 @code {
-    private IEnumerable<OrderItem>? orderItems;
+    public static IEnumerable<OrderItem>? orderItems;
+    private static IEnumerable<OrderItem>? staticOrderItems;
     private OrderItem[]? list;
     private string msg = "";
+    private static string message = "";
     private OrderItemUpdateDto dto = null!;
     private OrderItem orderItem= null!;
 
