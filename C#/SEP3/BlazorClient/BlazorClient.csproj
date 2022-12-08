@@ -32,6 +32,9 @@
       <None Update="Pages\UIComponents\modal.css">
         <DependentUpon>Modal.razor</DependentUpon>
       </None>
+      <None Update="Pages\login.css">
+        <DependentUpon>Login.razor</DependentUpon>
+      </None>
     </ItemGroup>
 
     <ItemGroup>

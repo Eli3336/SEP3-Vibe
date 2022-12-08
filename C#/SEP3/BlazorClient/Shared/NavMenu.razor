@@ -55,18 +55,33 @@
                     </NavLink>
                 </li>
                 <li class="nav-item">
-                     <div class="nav-link" @onclick="()=>expandSubMenu= !expandSubMenu">
-                                                    <span class="oi oi-tags" aria-hidden="true"></span> Products
-                                                </div>
-                                                @if (expandSubMenu)
-                                                {
-                                                    <ul class="nav flex-column">
-                                                        <li class="nav-item ">
-                                                            <NavLink class="nav-link" href="ViewProducts" @onclick="()=>expandSubMenu= !expandSubMenu">
-                                                                All
-                                                            </NavLink>
-                                                        </li>
-                                                    </ul>
+                    <div class="nav-link" @onclick="()=>expandSubMenu= !expandSubMenu">
+                        <span class="oi oi-tags" aria-hidden="true"></span> Account
+                    </div>
+                    
+                    @if (expandSubMenu)
+                    {
+                        <ul class="nav flex-column">
+                            <li class="nav-item ">
+                                <NavLink class="nav-link" href="#" @onclick="() => expandSubMenu = !expandSubMenu">
+                                    Profile
+                                </NavLink>
+                            </li>
+                            
+                            <li class="nav-item ">
+                                <NavLink class="nav-link" href="#" @onclick="() => expandSubMenu = !expandSubMenu">
+                                    Purchase History
+                                </NavLink>
+                            </li>
+                            <li class="nav-item ">
+                                <NavLink class="nav-link" href="#" @onclick="() => expandSubMenu = !expandSubMenu">
+                                    Log Out
+                                </NavLink>
+                            </li>
+                            
+                        </ul>
+                    }
+                                                
                 </li>
                 <li class="nav-item">
                     <NavLink class="nav-link" href="about">
