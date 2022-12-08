@@ -18,28 +18,41 @@ public class ReceiptHttpClient : IReceiptService
     
     public async Task<Receipt> CreateAsync(ReceiptCreationDto receiptToCreate)
     {
-        string dtoAsJson = JsonSerializer.Serialize(receiptToCreate);
-        StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
-        HttpResponseMessage response = await client.PostAsJsonAsync("/Receipt", body);
+        //string dtoAsJson = JsonSerializer.Serialize(receiptToCreate);
+        //StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
+        HttpResponseMessage response = await client.PostAsJsonAsync("/Receipt", receiptToCreate);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(result);
         }
 
-        Receipt purchase= JsonSerializer.Deserialize<Receipt>(result, new JsonSerializerOptions
+        Receipt receipt= JsonSerializer.Deserialize<Receipt>(result, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;
-        return purchase;
+        return receipt;
     }
 
-    public Task<ReceiptCreationDto> GetByIdAsync(long id)
+    public async Task<ReceiptGetDto> GetByIdAsync(long id)
     {
-        throw new NotImplementedException();
+        HttpResponseMessage response = await client.GetAsync($"/Receipt/{id}");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        ReceiptGetDto receipt = JsonSerializer.Deserialize<ReceiptGetDto>(content, 
+            new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            }
+        )!;
+        return receipt;
     }
 
-    public async Task<ICollection<Receipt>> GetAsync(long? idContains = null)
+    public async Task<IEnumerable<Receipt>> GetAsync(long? idContains = null)
     {
         HttpResponseMessage response = await client.GetAsync($"/Receipt/{idContains}");
         string content = await response.Content.ReadAsStringAsync();

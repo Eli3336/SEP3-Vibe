@@ -2,14 +2,14 @@ namespace Shared.DTOs;
 
 public class ReceiptCreationDto
 {
-    public User user { get; set; }
+    public string userName { get; set; }
 
-    public Order order { get; set; }
+    public long orderId { get; set; }
 
-    public ReceiptCreationDto(User user, Order order)
+    public ReceiptCreationDto(string userName, long orderId)
     {
 
-        this.user = user;
-        this.order = order;
+        this.userName = userName;
+        this.orderId = orderId;
     }
 }

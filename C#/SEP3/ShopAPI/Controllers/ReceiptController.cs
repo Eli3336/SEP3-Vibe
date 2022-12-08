@@ -14,13 +14,34 @@ public class ReceiptController : ControllerBase
 {
     
     private readonly IReceiptLogic receiptLogic;
-
-    [HttpGet("{id:long}")]
-    public async Task<ActionResult<ReceiptCreationDto>> GetById([FromRoute] long id)
+    
+    public ReceiptController(IReceiptLogic receiptLogic)
+    {
+        this.receiptLogic = receiptLogic;
+    }
+    
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Receipt>>> GetAsync([FromQuery] long? id)
     {
         try
         {
-            ReceiptCreationDto result = await receiptLogic.GetByIdAsync(id);
+            SearchReceiptParametersDto parameters = new(id);
+            IEnumerable<Receipt> receipts = await receiptLogic.GetAsync(parameters);
+            return Ok(receipts);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+
+    [HttpGet("{id:long}")]
+    public async Task<ActionResult<ReceiptGetDto>> GetById([FromRoute] long id)
+    {
+        try
+        {
+            ReceiptGetDto result = await receiptLogic.GetByIdAsync(id);
             return Ok(result);
         }
         catch (Exception e)
@@ -36,7 +57,7 @@ public class ReceiptController : ControllerBase
         try
         {
             Receipt receipt = await receiptLogic.CreateAsync(dto);
-            return Created($"/Receipt/{receipt.id}", receipt.order);
+            return Created($"/Receipt/{receipt.id}", receipt);
         }
         catch (Exception e)
         {

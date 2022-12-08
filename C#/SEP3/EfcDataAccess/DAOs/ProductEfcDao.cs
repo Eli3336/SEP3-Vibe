@@ -48,7 +48,9 @@ public class ProductEfcDao : IProductDao
 
     public async  Task<Product?> GetByIdAsync(long id)
     {
-        Product? found = await context.Products.Include(product => product.category).FirstAsync(product => product.id == id);
+        Product? found = await context.Products
+            .Include(product => product.category)
+            .SingleOrDefaultAsync(product => product.id == id);
        //     .AsNoTracking().FirstOrDefaultAsync(p => p.id == id);
 
         return found;

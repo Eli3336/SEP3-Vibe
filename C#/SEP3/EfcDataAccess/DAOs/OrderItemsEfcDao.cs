@@ -25,7 +25,10 @@ public class OrderItemsEfcDao : IOrderItemDao
 
     public async Task<IEnumerable<OrderItem>> GetAsync(SearchOrderItemsParametersDto searchParameters)
     {
-        IQueryable<OrderItem> orderItems = context.OrderItems.Include(orderItem => orderItem.product).AsQueryable();
+        IQueryable<OrderItem> orderItems = context.OrderItems
+            .Include(orderItem => orderItem.product)
+            .Include(o=>o.product.category)
+            .AsQueryable();
         if (searchParameters.id != null)
         {
             orderItems = orderItems.Where(o => o.id == searchParameters.id);

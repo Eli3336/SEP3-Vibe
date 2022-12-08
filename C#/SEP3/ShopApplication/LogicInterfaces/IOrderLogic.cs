@@ -10,4 +10,5 @@ public interface IOrderLogic
     Task<Order> CreateAdminOrderAsync(OrderCreationDto orderToCreate);
 
     Task<IEnumerable<Order>> GetAsync(SearchOrderParametersDto? searchParameters);
+    Task<OrderGetDto> GetByIdAsync(long id);
 }
