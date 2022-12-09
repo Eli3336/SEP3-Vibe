@@ -155,6 +155,22 @@ public class ProductHttpClient : IProductService
 
         return query;
     }
+
+    public async Task<Product> GetProductById(long id)
+    {
+        HttpResponseMessage response = await client.GetAsync($"/Product/{id}");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        Product post = JsonSerializer.Deserialize<Product>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return post;
+    }
     
     
 }

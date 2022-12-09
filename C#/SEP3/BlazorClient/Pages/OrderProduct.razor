@@ -1,0 +1,61 @@
+@page "/OrderProduct/{id:long}"
+@using global::Shared.DTOs
+@using BlazorClient.Services.ClientInterfaces
+@using global::Shared
+@inject IProductService productService
+@inject NavigationManager navMgr
+
+
+<div class="d-flex justify-content-center mb-5"><h1>Edit Product</h1></div>
+
+<div class="form-group field">
+    <label>Quantity:</label>
+    <input type="text" @bind="quantity" @bind:event="oninput"/>
+</div>
+
+<div class="button-row">
+    <span>@msg</span>
+    <button @onclick="orderProduct">Order Product</button>
+</div>
+
+@code {
+    [Parameter]
+    public long id { get; set; }
+
+    public int quantity;
+    
+    
+    private string msg = "";
+    private ProductDto currentProduct = new ProductDto();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        msg = "";
+        try
+        {
+            currentProduct= await productService.GetDtoByIdAsync(id);
+           
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+    
+    private async void orderProduct()
+    {
+        try
+        {
+            String response = await productService.CreateAdminOrderAsync(productService.GetProductById(id));
+            if (response.Equals("Confirmed"))
+                currentProduct.stock += quantity;
+            navMgr.NavigateTo($"/ProductPage/{id}");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+}

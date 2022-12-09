@@ -19,5 +19,7 @@ public interface IProductDao
      Task AdminUpdateAsync(Product product);
 
      Task<Product?> GetByIdToUpdateAsync(long? id);
+     
+     Task<String> CreateAdminOrderAsync(Product product);
 
 }
