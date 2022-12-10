@@ -42,26 +42,8 @@ public class OrderLogic : IOrderLogic
 
     public async Task<Order> CreateAdminOrderAsync(OrderCreationDto orderToCreate)
     {
-        List<OrderItem> orderItems = new List<OrderItem>();
-        foreach (var itemId in orderToCreate.itemsId)
-        {
-            OrderItem? item = await orderItemDao.GetByIdAsync(itemId);
-            if (item==null)
-            {
-                throw new Exception($"Order with id: {itemId} was not found");
-            }
-            orderItems.Add(item);
-        }
-        double price = 0;
-        foreach (var order in orderItems)
-        {
-            price += order.price;
-        }
-        ValidateData(orderToCreate);
-        Order toCreate = new Order(DateTime.Today, price, orderToCreate.address, orderItems);
-        Order created = await orderDao.CreateAdminOrderAsync(toCreate);
-        return created;
-        
+        throw new NotImplementedException();
+
     }
 
     public Task<IEnumerable<Order>> GetAsync(SearchOrderParametersDto? searchParameters)
