@@ -19,10 +19,8 @@ public class ProductEfcDao : IProductDao
     {
         this.context = context;
         ClientProduct = new(Channel);
-
     }
-
-
+    
     public async Task<Product> CreateAsync(Product product)
     {
         EntityEntry<Product> newProduct = await context.Products.AddAsync(product);
@@ -127,6 +125,6 @@ public class ProductEfcDao : IProductDao
             Console.WriteLine(e.Message);
         }
 
-        return "" + productResponse;
+        return productResponse.Confirmed;
     }
 }

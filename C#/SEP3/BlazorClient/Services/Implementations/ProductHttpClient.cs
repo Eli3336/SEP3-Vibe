@@ -171,6 +171,22 @@ public class ProductHttpClient : IProductService
         })!;
         return post;
     }
-    
-    
+
+    public async Task<String> CreateAdminOrderAsync(Product product)
+    {
+        HttpResponseMessage response = await client.GetAsync($"/Product/");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        String post = JsonSerializer.Deserialize<String>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return post;
+    }
+
+
 }

@@ -110,6 +110,20 @@ public class ProductController : ControllerBase
              return StatusCode(500, e.Message);
          }
      }
-
+    
+     [HttpPost("/OrderAdminProduct")]
+     public async Task<ActionResult<String>> CreateAdminOrderAsync(Product product)
+     {
+         try
+         {
+             String response = await productLogic.CreateAdminOrderAsync(product);
+             return Created("Something: ", response);
+         }
+         catch (Exception e)
+         {
+             Console.WriteLine(e);
+             return StatusCode(500, e.Message);
+         }
+     }
 
 }

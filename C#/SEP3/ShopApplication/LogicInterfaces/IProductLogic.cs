@@ -14,4 +14,6 @@ public interface IProductLogic
     Task DeleteAsync(long id);
     Task AdminUpdateAsync(ProductAdminUpdateDto product);
 
+    Task<String> CreateAdminOrderAsync(Product product);
+
 }

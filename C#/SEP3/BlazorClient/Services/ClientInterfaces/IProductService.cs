@@ -9,7 +9,7 @@ public interface IProductService
     Task<ICollection<Product>> GetAsync(string? nameContains=null);
     Task<ICollection<ProductDto>> GetSearchAsync(string? search);
 
-    
+    Task UpdateAsync(ProductUpdateDto product);
     Task<ProductCreationDto> GetByIdAsync(long? id);
     Task<ProductDto> GetDtoByIdAsync(long? id);
     Task<ProductAdminUpdateDto> GetUpdateDtoByIdAsync(long? id);
@@ -18,5 +18,7 @@ public interface IProductService
     Task DeleteAsync(long id);
 
     Task<Product> GetProductById(long id);
+
+    Task<String> CreateAdminOrderAsync(Product product);
 
 }

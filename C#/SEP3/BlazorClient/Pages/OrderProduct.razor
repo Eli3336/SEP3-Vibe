@@ -6,7 +6,7 @@
 @inject NavigationManager navMgr
 
 
-<div class="d-flex justify-content-center mb-5"><h1>Edit Product</h1></div>
+<div class="d-flex justify-content-center mb-5"><h1>Order Product</h1></div>
 
 <div class="form-group field">
     <label>Quantity:</label>
@@ -47,9 +47,10 @@
     {
         try
         {
-            String response = await productService.CreateAdminOrderAsync(productService.GetProductById(id));
+            Product product = await productService.GetProductById(id);
+            String response = await productService.CreateAdminOrderAsync(product);
             if (response.Equals("Confirmed"))
-                currentProduct.stock += quantity;
+               await productService.UpdateAsync(new ProductUpdateDto(currentProduct.id, currentProduct.stock+quantity));
             navMgr.NavigateTo($"/ProductPage/{id}");
         }
         catch (Exception e)

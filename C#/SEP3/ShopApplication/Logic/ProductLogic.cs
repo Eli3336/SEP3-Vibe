@@ -129,4 +129,9 @@ public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchPro
         if (dto.price<=0) throw new Exception("Price cannot be lower or equal to 0.");
         if (dto.category == null) throw new Exception("Category cannot be null");
     }
+
+    public async Task<String> CreateAdminOrderAsync(Product product)
+    {
+        return await productDao.CreateAdminOrderAsync(product);
+    }
 }
