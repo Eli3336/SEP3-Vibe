@@ -39,7 +39,7 @@ public class OrderItemLogic : IOrderItemLogic
         double price = product.price;
         
         ValidateData(dto);
-        OrderItem orderItem = new OrderItem(product, dto.quantity, price*dto.quantity);
+        OrderItem orderItem = new OrderItem(product, dto.quantity, price*dto.quantity, false);
         OrderItem created = await orderItemDao.OrderProduct(orderItem);
         return created;
     }
@@ -57,9 +57,9 @@ public class OrderItemLogic : IOrderItemLogic
 
         Product productToUse = product ?? existing.product;
         int quantity = dto.quantity ?? existing.quantity;
-       
 
-        OrderItem updated = new ( productToUse, quantity, quantity*productToUse.price)
+
+        OrderItem updated = new ( productToUse, quantity, quantity*productToUse.price, existing.hasBeenBought)
         {
             id=existing.id
         };
@@ -98,6 +98,11 @@ public class OrderItemLogic : IOrderItemLogic
             throw new Exception($"OrderItem with id {id} not found");
         }
 
-        return new OrderItemGetDto(orderItem.product, orderItem.quantity, orderItem.price);
+        return new OrderItemGetDto(orderItem.product, orderItem.quantity, orderItem.price, orderItem.hasBeenBought);
+    }
+
+    public async Task<IEnumerable<OrderItem>> GetNotBoughtOrderItems()
+    {
+        return await orderItemDao.GetNotBoughtOrderItemsAsync();
     }
 }

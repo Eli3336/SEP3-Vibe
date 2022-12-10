@@ -23,11 +23,12 @@ public class OrderLogic : IOrderLogic
         foreach (var itemId in dto.itemsId)
         {
             OrderItem? item = await orderItemDao.GetByIdAsync(itemId);
-                    if (item==null)
-                    {
-                        throw new Exception($"Order with id: {itemId} was not found");
-                    }
-            orderItems.Add(item);
+            if (item==null)
+            {
+                throw new Exception($"OrderItem with id: {itemId} was not found");
+            }
+            if(item.hasBeenBought == false)
+                orderItems.Add(item);
         }
         double price = 0;
         foreach (var order in orderItems)

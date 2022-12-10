@@ -13,4 +13,6 @@ public interface IOrderItemService
 
     Task<List<OrderItem>> GetAll();
 
+    Task<IEnumerable<OrderItem>> GetNotBoughtOrderItems();
+
 }

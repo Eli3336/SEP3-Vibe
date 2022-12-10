@@ -20,7 +20,8 @@ public class ReceiptEfcDao : IReceiptDao
     {
         EntityEntry<Receipt> newReceipt = await context.Receipts.AddAsync(receipt);
         await context.SaveChangesAsync();
-        return newReceipt.Entity;    }
+        return newReceipt.Entity;    
+    }
 
     public async Task<Receipt?> GetByIdAsync(long id)
     {

@@ -6,11 +6,14 @@ public class OrderItemGetDto
     public int quantity{ get;  }
     public double price{ get; }
     
+    public bool hasBeenBought { get; }
+    
 
-    public OrderItemGetDto(Product product, int quantity, double price)
+    public OrderItemGetDto(Product product, int quantity, double price, bool hasBeenBought)
     {
         this.product = product;
         this.quantity = quantity;
         this.price = price;
+        this.hasBeenBought = hasBeenBought;
     }
 }

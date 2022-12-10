@@ -5,11 +5,6 @@ syntax = "proto3";
 option csharp_namespace = "GrpcClient";
 
 
-
-package greet;
-
-
-
 service ShopGrpc{
   rpc OrderProduct(ProductGrpc) returns(ProductResponse);
   rpc EditProduct(ProductGrpc) returns (ProductResponse);

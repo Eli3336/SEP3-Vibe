@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Shared;
 using Shared.DTOs;
 using ShopApplication.DaoInterfaces;
+using Grpc.Core;
 
 namespace EfcDataAccess.DAOs;
 
@@ -13,12 +14,13 @@ public class ProductEfcDao : IProductDao
     
     private readonly ShopContext context;
     
-    private readonly GrpcChannel Channel = GrpcChannel.ForAddress("http://localhost:8843");
+   // private readonly GrpcChannel Channel = GrpcChannel.ForAddress("http://localhost:8843");
     private ShopGrpc.ShopGrpcClient ClientProduct;
     public ProductEfcDao(ShopContext context)
     {
         this.context = context;
-        ClientProduct = new(Channel);
+        var grpcChannel = new Channel("localhost:8843", ChannelCredentials.Insecure);
+        ClientProduct = new(grpcChannel);
     }
     
     public async Task<Product> CreateAsync(Product product)
@@ -26,7 +28,6 @@ public class ProductEfcDao : IProductDao
         EntityEntry<Product> newProduct = await context.Products.AddAsync(product);
         await context.SaveChangesAsync();
         return newProduct.Entity;
-        //it can't create product bcs unique constraint on category name
     }
     
 

@@ -107,4 +107,19 @@ public class OrderItemsController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+    
+    [HttpGet("/NotBought")]
+    public async Task<ActionResult<IEnumerable<OrderItem>>> GetNotBoughtOrderItems()
+    {
+        try
+        {
+            IEnumerable<OrderItem> orderItems = await orderItemLogic.GetNotBoughtOrderItems();
+            return Ok(orderItems);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
 }

@@ -62,6 +62,18 @@ public class OrderItemsEfcDao : IOrderItemDao
         return existing;
     }
 
+    public async Task<IEnumerable<OrderItem>> GetNotBoughtOrderItemsAsync()
+    {
+        IQueryable<OrderItem> orderItems = context.OrderItems
+            .Include(orderItem => orderItem.product)
+            .Include(o => o.product.category)
+            .Where(o => o.hasBeenBought == false)
+            .AsQueryable();
+
+        IEnumerable<OrderItem> result = await orderItems.ToListAsync();
+        return result;
+    }
+
     public async Task DeleteAsync(long id)
     {
         OrderItem? existing = await GetByIdAsync(id);

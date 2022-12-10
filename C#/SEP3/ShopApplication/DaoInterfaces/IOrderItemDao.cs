@@ -14,4 +14,5 @@ public interface IOrderItemDao
 
     Task<OrderItem?> GetByIdToUpdateAsync(long id);
 
+    Task<IEnumerable<OrderItem>> GetNotBoughtOrderItemsAsync();
 }
