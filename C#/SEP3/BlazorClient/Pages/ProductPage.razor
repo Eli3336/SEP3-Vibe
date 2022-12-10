@@ -36,7 +36,11 @@
                     
                     <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Remove product"
                             @onclick="RemoveProduct">
-                    Remove product</button>
+                        Remove product</button>
+
+                    <button class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title="" data-original-title="Order product"
+                                                @onclick="@(() => navMgr.NavigateTo($"/OrderProduct/{id}"))">
+                                        Order product</button> 
                     <h3 class="box-title mt-5">whatever subtext</h3>
                     
                     <ul class="list-unstyled">

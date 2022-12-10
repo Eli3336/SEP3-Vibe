@@ -40,9 +40,26 @@ public class OrderLogic : IOrderLogic
         return created;
     }
 
+    public async Task<Order> CreateAdminOrderAsync(OrderCreationDto orderToCreate)
+    {
+        throw new NotImplementedException();
+
+    }
+
     public Task<IEnumerable<Order>> GetAsync(SearchOrderParametersDto? searchParameters)
     {
         return orderDao.GetAsync(searchParameters);
+    }
+
+    public async Task<OrderGetDto> GetByIdAsync(long id)
+    {
+        Order? order = await orderDao.GetByIdAsync(id);
+        if (order == null)
+        {
+            throw new Exception($"Order with id {id} not found");
+        }
+
+        return new OrderGetDto(order.orderDate, order.orderPrice,order.address,order.items);
     }
 
     private static void ValidateData(OrderCreationDto orderToCreate)
@@ -55,4 +72,5 @@ public class OrderLogic : IOrderLogic
         if (address.Length > 150)
             throw new Exception("Address must be less than 150 characters!");
     }
+    
 }

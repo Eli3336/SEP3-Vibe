@@ -29,7 +29,7 @@ builder.Services.AddScoped<IOrderItemLogic, OrderItemLogic>();
 builder.Services.AddScoped<IUserDao, UserEfcDao>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
 
-builder.Services.AddScoped<IReceiptDao, PurchaseEfcDao>();
+builder.Services.AddScoped<IReceiptDao, ReceiptEfcDao>();
 builder.Services.AddScoped<IReceiptLogic, ReceiptLogic>();
 
 builder.Services.AddScoped<IOrderDao, OrderEfcDao>();
@@ -38,7 +38,7 @@ builder.Services.AddScoped<IOrderLogic, OrderLogic>();
 builder.Services.AddScoped<ICategoryDao, CategoryEfcDao>();
 builder.Services.AddScoped<ICategoryLogic, CategoryLogic>();
 
-/*builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
      options.RequireHttpsMetadata = false;
      options.SaveToken = true;
@@ -51,7 +51,7 @@ builder.Services.AddScoped<ICategoryLogic, CategoryLogic>();
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
      };
 });
-*/
+
 
 AuthorizationPolicies.AddPolicies(builder.Services);
 

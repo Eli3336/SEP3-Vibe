@@ -1,10 +1,12 @@
 ﻿@page "/"
+@inject NavigationManager navMgr
 
 <PageTitle>Home</PageTitle>
 
 <div class="jumbotron text-center">
   <h1>Welcome to Vibe Shop✓</h1>
   <p>You have the ability to help sustainability!</p>
+  <button @onclick="@(() => navMgr.NavigateTo("/Login"))">Go to login</button>
 </div>
 
 

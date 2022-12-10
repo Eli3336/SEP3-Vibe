@@ -16,13 +16,13 @@
 						</tr>
 					</thead>
 					<tbody>
-					@foreach (var item in receipts)
+					@foreach (Receipt receipt in receipts)
                             {
                                 <tr>
-                                    <td>@item.id</td>
-                                    <td>@item.order.items.Count</td>
-                                    <td>@item.order.orderDate</td>
-                                    <td>@item.finalPrice</td>
+                                    <td>@receipt.id</td>
+                                    <td>@receipt.order.items.Count</td>
+                                    <td>@receipt.order.orderDate</td>
+                                    <td>@receipt.finalPrice</td>
                                 </tr>
                             }
 					</tbody>
@@ -47,9 +47,4 @@
 			msg = e.Message;
 		}
 	}
-	
-
-
-
-
 }

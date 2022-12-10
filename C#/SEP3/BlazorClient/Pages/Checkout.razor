@@ -98,7 +98,8 @@
     private Receipt receipt = null;
     private User userTest = new User()
     {
-        username = "Ana"
+        username = "Ana",
+        name = "Ana"
     };
     
     protected override async Task OnInitializedAsync()
@@ -109,7 +110,7 @@
             orderItems = await orderItemService.GetOrderItem();
             foreach (var order in orderItems)
             {
-                price = +order.price;
+                price =+ order.price;
             }
         }
         catch (Exception e)
@@ -133,7 +134,7 @@
 
             OrderCreationDto dto = new OrderCreationDto(address, items);
             order=await orderService.CreateAsync(dto);
-            ReceiptCreationDto receiptDto = new ReceiptCreationDto(userTest, order);//username should come from authentication not be 1 by default
+            ReceiptCreationDto receiptDto = new ReceiptCreationDto(userTest.username, order.Id);//username should come from authentication not be 1 by default
             receipt = await receiptService.CreateAsync(receiptDto);
         }
         catch (Exception e)
@@ -149,4 +150,4 @@
         navMgr.NavigateTo("/ViewProducts");
     }
     
-}}
+}

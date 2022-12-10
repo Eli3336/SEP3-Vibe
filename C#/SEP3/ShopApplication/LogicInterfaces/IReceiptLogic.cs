@@ -7,7 +7,7 @@ public interface IReceiptLogic
 {
     Task<Receipt> CreateAsync(ReceiptCreationDto receiptToCreate);
     
-    Task<ReceiptCreationDto> GetByIdAsync(long id);
-    Task<ICollection<Receipt>> GetAsync(string? nameContains=null);
+    Task<ReceiptGetDto> GetByIdAsync(long id);
+    Task<IEnumerable<Receipt>> GetAsync(SearchReceiptParametersDto parametersDto);
 
 }

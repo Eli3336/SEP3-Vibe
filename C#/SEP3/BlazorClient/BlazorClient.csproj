@@ -10,6 +10,7 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.11" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.8" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.8" PrivateAssets="all" />
+        <PackageReference Include="Syncfusion.Blazor.SplitButtons" Version="20.3.0.60" />
     </ItemGroup>
 
     <ItemGroup>
@@ -30,6 +31,9 @@
       </None>
       <None Update="Pages\UIComponents\modal.css">
         <DependentUpon>Modal.razor</DependentUpon>
+      </None>
+      <None Update="Pages\login.css">
+        <DependentUpon>Login.razor</DependentUpon>
       </None>
     </ItemGroup>
 
