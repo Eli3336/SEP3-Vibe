@@ -6,6 +6,7 @@ using BlazorClient.Services;
 using BlazorClient.Services.ClientInterfaces;
 using BlazorClient.Services.Http;
 using BlazorClient.Services.Implementations;
+using BlazorStrap;
 using Microsoft.AspNetCore.Components.Authorization;
 using Shared.Auth;
 
@@ -21,6 +22,7 @@ builder.Services.AddScoped<IUserService, UserHttpClient>();
 builder.Services.AddScoped<IOrderItemService, OrderItemHttpClient>();
 builder.Services.AddScoped<IOrderService, OrderHttpClient>();
 builder.Services.AddScoped<IReceiptService, ReceiptHttpClient>();
+builder.Services.AddBlazorStrap();
 
 builder.Services.AddScoped<IAuthService, JwtAuthService>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();

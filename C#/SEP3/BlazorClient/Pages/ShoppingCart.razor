@@ -161,7 +161,7 @@
         {
 
             OrderItemCreationDto creationDto = await orderItemService.GetByIdAsync(id);
-            if (creationDto.quantity < stock) //also need to update the stock somewhere idk where but created the update async in services
+            if (creationDto.quantity < stock) 
             {
                 dto = new(id)
                 {
