@@ -86,6 +86,19 @@ public class ProductEfcDao : IProductDao
         };
         await context.Products.AddAsync(toCreate3);
         await context.SaveChangesAsync();
+        Product toCreate4 = new Product()
+        {
+            id = 3,
+            name = "Dazzling Diamond Tennis Bracelet",
+            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
+            price = 40,
+            stock = 25,
+            image = images[3],
+            ingredients = "steel, diamond",
+            category = categoryDao.GetByName("Jewelry").Result
+        };
+        await context.Products.AddAsync(toCreate4);
+        await context.SaveChangesAsync();
 
 
         return "Ok";
