@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Shared;
 using Shared.DTOs;
 using ShopApplication.DaoInterfaces;
@@ -13,6 +14,44 @@ public class UserEfcDao : IUserDao
     public UserEfcDao(ShopContext context)
     {
         this.context = context;
+    }
+
+    public async Task<string> Seed()
+    {
+        List<User> users = context.Users.ToList();
+        for (int i = 0; i < users.Count; i++)
+        {
+            User? existing = users[i];
+            if (existing == null)
+            {
+                throw new Exception($"User with id {users[i].Id} not found");
+            }
+            context.Users.Remove(existing);
+            await context.SaveChangesAsync();    
+        }
+        await context.SaveChangesAsync();
+        User toCreate = new User
+        {
+            Id = 1,
+            name = "Ana Aninsen",
+            phoneNumber = "5012345678",
+            username = "Ana",
+            password = "banana"
+        };
+        await context.Users.AddAsync(toCreate);
+        await context.SaveChangesAsync();
+        User toCreate1 = new User
+        {
+            Id = 2,
+            name = "Admin Adminsen",
+            phoneNumber = "5087654321",
+            username = "admin",
+            password = "admin"
+        };
+       await context.Users.AddAsync(toCreate1);
+       await context.SaveChangesAsync();
+
+       return "Ok";
     }
 
     public async Task<User> CreateAsync(User user)

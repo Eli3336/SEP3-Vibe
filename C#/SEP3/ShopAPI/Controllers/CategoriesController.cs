@@ -18,6 +18,21 @@ public class CategoriesController : ControllerBase
         this.categoryLogic = categoryLogic;
     }
     
+    [HttpPatch]
+    public async Task<ActionResult> UpdateEverything()
+    {
+        try
+        {
+            string response = await categoryLogic.Seed();
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+    
 
      [HttpGet]
      public async Task<ActionResult<IEnumerable<Category>>> GetAsync([FromQuery] string? name)

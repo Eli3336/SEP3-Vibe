@@ -1,6 +1,7 @@
 using System.Text;
 using EfcDataAccess;
 using EfcDataAccess.DAOs;
+using EfcDataAccess.FileStorage;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using ShopApplication.DaoInterfaces;
@@ -20,6 +21,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ShopContext>();
+builder.Services.AddScoped<FileContext>();
 builder.Services.AddScoped<IProductDao, ProductEfcDao>();
 builder.Services.AddScoped<IProductLogic, ProductLogic>();
 
@@ -54,8 +56,6 @@ builder.Services.AddScoped<ICategoryLogic, CategoryLogic>();
 
 
 AuthorizationPolicies.AddPolicies(builder.Services);
-
-
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 

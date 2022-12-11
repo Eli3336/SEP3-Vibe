@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Shared;
@@ -37,6 +38,6 @@ public class ShopContext : DbContext
                 .WithOne()
                 .OnDelete(DeleteBehavior.Cascade);
         });
+        
     }
-
 }

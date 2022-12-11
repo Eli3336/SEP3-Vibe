@@ -21,5 +21,5 @@ public interface IProductDao
      Task<Product?> GetByIdToUpdateAsync(long? id);
      
      Task<String> CreateAdminOrderAsync(Product product);
-
+     Task<string> Seed();
 }

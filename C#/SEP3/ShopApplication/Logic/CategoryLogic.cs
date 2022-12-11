@@ -18,4 +18,9 @@ public class CategoryLogic : ICategoryLogic
     {
         return categoryDao.GetAsync(searchCategoryParametersDto);
     }
+
+    public async Task<string> Seed()
+    {
+        return await categoryDao.Seed();
+    }
 }

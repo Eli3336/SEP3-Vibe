@@ -18,6 +18,22 @@ public class ProductController : ControllerBase
         this.productLogic = productLogic;
     }
 
+    [HttpPatch("/Refresh")]
+    public async Task<ActionResult> UpdateEverything()
+    {
+        try
+        {
+            string response = await productLogic.Seed();
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+    
+    
        [HttpPost]
        public async Task<ActionResult<Product>> CreateAsync(ProductCreationDto dto)
        {

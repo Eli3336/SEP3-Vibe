@@ -16,6 +16,21 @@ public class UsersController : ControllerBase
         this.userLogic = userLogic;
     }
     
+    [HttpPatch]
+    public async Task<ActionResult> UpdateEverything()
+    {
+        try
+        {
+            string response = await userLogic.Seed();
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+    
     [HttpPost]
     public async Task<ActionResult<User>> CreateAsync(UserCreationDto dto)
     {

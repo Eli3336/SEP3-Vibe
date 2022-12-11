@@ -134,4 +134,9 @@ public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchPro
     {
         return await productDao.CreateAdminOrderAsync(product);
     }
+
+    public async Task<string> Seed()
+    {
+        return await productDao.Seed();
+    }
 }

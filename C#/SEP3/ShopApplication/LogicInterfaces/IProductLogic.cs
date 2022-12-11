@@ -15,5 +15,5 @@ public interface IProductLogic
     Task AdminUpdateAsync(ProductAdminUpdateDto product);
 
     Task<String> CreateAdminOrderAsync(Product product);
-
+    Task<string> Seed();
 }
