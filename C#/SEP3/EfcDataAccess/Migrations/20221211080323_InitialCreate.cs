@@ -112,6 +112,7 @@ namespace EfcDataAccess.Migrations
                     productid = table.Column<long>(type: "INTEGER", nullable: false),
                     quantity = table.Column<int>(type: "INTEGER", nullable: false),
                     price = table.Column<double>(type: "REAL", nullable: false),
+                    hasBeenBought = table.Column<bool>(type: "INTEGER", nullable: false),
                     OrderId = table.Column<long>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>

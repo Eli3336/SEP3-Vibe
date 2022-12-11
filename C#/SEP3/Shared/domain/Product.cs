@@ -8,7 +8,7 @@ public class Product
     public double price { get; set; }
     public int stock { get; set; }
     public string image { get; set; }
-    public string ingredients  { get; set; }
+    public string? ingredients  { get; set; }
     
     public Category category { get; set; }
    public Product(long id, string name, string description, double price, int stock, string image, string ingredients, Category category)

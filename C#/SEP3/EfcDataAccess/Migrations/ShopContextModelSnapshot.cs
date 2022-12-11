@@ -57,6 +57,9 @@ namespace EfcDataAccess.Migrations
                     b.Property<long?>("OrderId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("hasBeenBought")
+                        .HasColumnType("INTEGER");
+
                     b.Property<double>("price")
                         .HasColumnType("REAL");
 
