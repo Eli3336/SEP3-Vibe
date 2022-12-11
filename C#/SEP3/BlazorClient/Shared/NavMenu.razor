@@ -1,122 +1,55 @@
-﻿@using Syncfusion.Blazor.Popups
-@inject NavigationManager navMgr
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-    <div class="container-fluid">
-        <a class="navbar-brand"  href="">Vibe Shop✓</a>
-        <button class="navbar-toggler @NavButtonCssClass" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-label="Toggle navigation" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse @NavBarCssClass" id="navbarCollapse" @onclick="ToggleNavMenu ">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item ">
-                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                        <span class="oi oi-home" aria-hidden="true"></span> Home
-                    </NavLink>
-                </li>
-               
-                <li class="nav-item">
-                            <div class="nav-link" @onclick="()=>expandSubMenu= !expandSubMenu">
-                                <span class="oi oi-tags" aria-hidden="true"></span> Products
-                            </div>
-                            @if (expandSubMenu)
-                            {
-                                <ul class="nav flex-column">
-                                    <li class="nav-item ">
-                                        <NavLink class="nav-link" href="ViewProducts" @onclick="()=>expandSubMenu= !expandSubMenu">
-                                            All
-                                        </NavLink>
-                                    </li>
-                                    <li class="nav-item ">
-                                        <NavLink class="nav-link" href="Clothes" @onclick="()=>expandSubMenu= !expandSubMenu">
-                                            Clothes
-                                        </NavLink>
-                                        
-                                    </li><li class="nav-item ">
-                                        <NavLink class="nav-link" href="Cosmetics"  @onclick="()=>expandSubMenu= !expandSubMenu">
-                                            Cosmetics
-                                        </NavLink>
-                                    </li><li class="nav-item ">
-                                        <NavLink class="nav-link" href="Jewelry" @onclick="()=>expandSubMenu= !expandSubMenu">
-                                            Jewelry
-                                        </NavLink>
-                                    </li><li class="nav-item">
-                                        <NavLink class="nav-link" href="HomeDecor" @onclick="()=>expandSubMenu= !expandSubMenu">
-                                            Home Decor
-                                        </NavLink>
-                                    </li>
-                                </ul>
-                            }
-                        </li>
-                
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="ShoppingCart">
-                        <span class="oi oi-cart" aria-hidden="true"></span> Shopping Cart
-                    </NavLink>
-                </li>
-                <li class="nav-item">
-                    <div class="nav-link" @onclick="()=>expandSubMenu= !expandSubMenu">
-                        <span class="oi oi-tags" aria-hidden="true"></span> Account
-                    </div>
-                    
-                    @if (expandSubMenu)
-                    {
-                        <ul class="nav flex-column">
-                            <li class="nav-item ">
-                                <NavLink class="nav-link" href="#" @onclick="() => expandSubMenu = !expandSubMenu">
-                                    Profile
-                                </NavLink>
-                            </li>
-                            
-                            <li class="nav-item ">
-                                <NavLink class="nav-link" href="PurchaseHistory" @onclick="() => expandSubMenu = !expandSubMenu">
-                                    Purchase History
-                                </NavLink>
-                            </li>
-                            <li class="nav-item ">
-                                <NavLink class="nav-link" href="#" @onclick="() => expandSubMenu = !expandSubMenu">
-                                    Log Out
-                                </NavLink>
-                            </li>
-                            
-                        </ul>
-                    }
-                                                
-                </li>
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="about">
-                        <span class="oi oi-info" aria-hidden="true"></span> About
-                    </NavLink>
-                </li>
-            </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @bind="toSearch" @bind:event="oninput">
-                        <button class="btn btn-outline-success" @onclick="@(() => navMgr.NavigateTo($"/SearchPage/{toSearch}"))"  >Search</button>
-                    </form>
-                    
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+﻿@inject NavigationManager navMgr
+<BSNavbar Color="BSColor.Dark" IsDark="true" >
+    <BSContainer Container="Container.Fluid">
+        <BSNavbarBrand>Vibe Shop✓</BSNavbarBrand>
+        <BSCollapse IsInNavbar="true">
+            <Toggler>
+                <BSNavbarToggle/>
+            </Toggler>
+            <Content>
+                <BSNav MarginEnd="Margins.Auto" MarginBottom="Margins.Small" Class="mb-lg-0">
+                    <BSNavItem IsActive="true" Url="Index" Class="oi oi-home"> Home</BSNavItem>
+                    <BSNavItem IsDropdown="true">
+                        <BSDropdown IsDark="true">
+                            <Toggler><BSToggle IsNavLink="true" Class="oi oi-tags"> Products</BSToggle></Toggler>
+                            <Content >
+                                <BSDropdownItem Url="ViewProducts">All</BSDropdownItem>
+                                <BSDropdownItem Url="Clothes" Class="oi">Clothes</BSDropdownItem>
+                                <BSDropdownItem Url="Cosmetics">Cosmetics</BSDropdownItem>
+                                <BSDropdownItem Url="Jewelry">Jewelry</BSDropdownItem>
+                                <BSDropdownItem Url="HomeDecor">Home Decor</BSDropdownItem>
+                                
+                            </Content>
+                        </BSDropdown>
+                    </BSNavItem>
+                    <BSNavItem Url="ShoppingCart" Class="oi oi-cart"> Shopping Cart</BSNavItem>
+                    <BSNavItem IsDropdown="true">
+                        <BSDropdown>
+                            <Toggler><BSToggle IsNavLink="true" Class="oi oi-person"> Account</BSToggle></Toggler>
+                            <Content>
+                                <BSDropdownItem Url="ViewProducts">Profile</BSDropdownItem>
+                                <BSDropdownItem Url="Clothes">Purchase History</BSDropdownItem>
+                                
+                                <BSDropdownItem IsDivider="true"/>
+                                <BSDropdownItem Url="LogOut" Class="oi oi-account-logout">Log out</BSDropdownItem>
+                            </Content>
+                        </BSDropdown>
+                    </BSNavItem>
+                </BSNav>
+            </Content>
+        </BSCollapse>
+        <form class="d-flex">
+            <input class="form-control " type="search" placeholder="Search" aria-label="Search" @bind="toSearch" @bind:event="oninput">
+            <BSButton Color="BSColor.Light" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo($"/SearchPage/{toSearch}"))">Search</BSButton>
+        </form>
+    </BSContainer>
+</BSNavbar>
 
 @code {
-    private bool collapseNavMenu = true;
-    private string? NavBarCssClass => collapseNavMenu ? null : "show";
-    private string? NavButtonCssClass => collapseNavMenu ? "collapsed" : null;
+   
     private string toSearch = "";
-    private bool expandSubMenu;//add
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-    
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
 
-    
 }
 
 
