@@ -9,68 +9,147 @@
 @inject NavigationManager navMgr;
 
 
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+@using InputType = MudBlazor.InputType
 
-<h3></h3>
-<div class="toLine">
-<div class="card1">
-    <h3>Login</h3>
-    <div class="form-group field">
-        <label>User name:</label>
-        <input type="text" @bind="usernameLog" @bind:event="oninput"/>
-        <label>Password:</label>
-        <input type="password" @bind="passwordLog" @bind:event="oninput"/>
-        @if (!string.IsNullOrEmpty(msg))
-        {
-            <label style="color: @color">@msg</label>
-        }
-    </div>
-    <div class="button-row">
-        <button @onclick="LoginAsync" disabled="@(string.IsNullOrEmpty(usernameLog))" class="acceptbtn">Log in</button>
-    </div>
-</div>
-<div class="card2">
-    <h3>Create User</h3>
-    <div class="form-group field">
-        <label>Name:</label>
-        <input type="text" @bind="name" @bind:event="oninput"/>
-        <label>Phone Number:</label>
-        <input type="password" @bind="phoneNumber" @bind:event="oninput"/>
-        <label>User name:</label>
-        <input type="text" @bind="username" @bind:event="oninput"/>
-        <label>Password:</label>
-        <input type="password" @bind="password" @bind:event="oninput"/>
-        @if (!string.IsNullOrEmpty(resultMsg))
-        {
-            <label style="color: @color">@resultMsg</label>
-        }
-    </div>
-    <div class="button-row">
-        <button @onclick="Create" disabled="@(string.IsNullOrEmpty(username))" class="acceptbtn">Create</button>
-    </div>
-</div>
-</div>
+<MudGrid Class="d-flex align-content-center">
+    
+    <MudItem xs="12" sm="6" >
+        <MudPaper Class="pa-4" >
+            <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
+                <MudTextField T="string" Label="Name" Required="true" RequiredError="Name is required!" @bind-Value="name"/>
+                <MudTextField T="string" Label="Phone Number" Required="true" RequiredError="Phone Number is required!" @bind-Value="phoneNumber"/>
+                <MudTextField T="string" Label="Username" Required="true" RequiredError="User name is required!" @bind-Value="username"/>
+
+                <MudTextField T="string" Label="Password" HelperText="Choose a strong password" @ref="pwField1" @bind-Value="pw1"
+                              InputType="InputType.Password"
+                              Validation="@(new Func<string, IEnumerable<string>>(PasswordStrength))" Required="true"/>
+                <MudTextField T="string"
+                              Label="Password" HelperText="Repeat the password" InputType="InputType.Password" @ref="pwField2" @bind-Value="pw2"
+                              Validation="@(new Func<string, string>(PasswordMatch))"/>
+
+                <div class="d-flex align-center justify-space-between">
+                    <MudButton Variant="Variant.Filled" @onclick="Create" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto">Register</MudButton>
+                </div>
+            </MudForm>
+        </MudPaper>
+        <MudPaper>
+            <MudText Typo="Typo.subtitle2">@($"Errors ({errors.Length})")</MudText>
+            @foreach (var error in errors)
+            {
+                <MudText Color="@Color.Error">@error</MudText>
+            }
+
+            @if (!string.IsNullOrEmpty(resultMsg))
+            {
+                <label style="color: @color">@resultMsg</label>
+            }
+        </MudPaper>
+    </MudItem>
+
+    <MudItem xs="12" sm="6" >
+        <MudPaper Class="pa-4 " >
+            <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
+                <MudTextField T="string" Label="Username" Required="true" RequiredError="User name is required!" @bind-Value="usernameLog"/>
+                <MudTextField T="string" Label="Password" HelperText="Choose a strong password" @ref="pwLogField1" @bind-Value="passwordLog"
+                              InputType="InputType.Password"
+                              Validation="@(new Func<string, IEnumerable<string>>(PasswordStrength))" Required="true"/>
+                <MudTextField T="string"
+                              Label="Password" HelperText="Repeat the password" InputType="InputType.Password" @ref="pwLogField2" @bind-Value="passwordLog2"
+                              Validation="@(new Func<string, string>(PasswordMatchLog))"/>
+
+                <div class="d-flex align-center justify-space-between">
+                    <MudButton Variant="Variant.Filled" @onclick="LoginAsync" Color="Color.Primary" Disabled="@(!success)" Class="ml-auto">Login</MudButton>
+                </div>
+            </MudForm>
+        </MudPaper>
+        <MudPaper>
+            <MudText Typo="Typo.subtitle2">@($"Errors ({errors.Length})")</MudText>
+            @foreach (var error in errors)
+            {
+                <MudText Color="@Color.Error">@error</MudText>
+            }
+
+            @if (!string.IsNullOrEmpty(resultMsg))
+            {
+                <label style="color: @color">@resultMsg</label>
+            }
+        </MudPaper>
+    </MudItem>
+
+</MudGrid>
 @code {
-    private string name = "";
-    private string phoneNumber = "";
-    private string username = "";
-    private string password = "";
-    private string usernameLog = "";
-    private string passwordLog = "";
+    private bool success;
+    private string[] errors = { };
+    private string name;
+    private string phoneNumber;
+    private string username;
+    MudTextField<string>  pwField1;
+    MudTextField<string>  pwField2;
+    MudTextField<string>  pwLogField1;
+    MudTextField<string>  pwLogField2;
+    private string password;
+    private string usernameLog;
+    private string passwordLog;
+    private string passwordLog2;
+    private string pw1;
+    private string pw2;
     private string resultMsg = "";
     private string msg = "";
     private string color = "";
+    MudForm form;
+
+
     
+    private IEnumerable<string> PasswordStrength(string pw)
+    {
+        if (string.IsNullOrWhiteSpace(pw))
+        {
+            yield return "Password is required!";
+            yield break;
+        }
+        if (pw.Length < 8)
+            yield return "Password must be at least of length 8";
+        if (!Regex.IsMatch(pw, @"[A-Z]"))
+            yield return "Password must contain at least one capital letter";
+        if (!Regex.IsMatch(pw, @"[a-z]"))
+            yield return "Password must contain at least one lowercase letter";
+        if (!Regex.IsMatch(pw, @"[0-9]"))
+            yield return "Password must contain at least one digit";
+    }
+
+    private string PasswordMatch(string arg)
+    {
+        if (pwField1.Value != arg)
+            return "Passwords don't match";
+        return null;
+    }
+    private string PasswordMatchLog(string arg)
+    {
+        if (pwLogField1.Value != arg)
+            return "Passwords don't match";
+        return null;
+    }
+
     private async Task Create()
     {
         resultMsg = "";
+        password = pwField1.Value;
+        
 
         try
         {
             await userService.Create(new UserCreationDto(name, phoneNumber, username, password));
+            name = "";
+            phoneNumber = "";
             username = "";
             password = "";
+            pw1 = "";
+            pw2 = "";
             resultMsg = "User successfully created";
             color = "green";
+            
         }
         catch (Exception e)
         {
@@ -94,4 +173,7 @@
             msg = $"Error: {e.Message}";
         }
     }
+    
+    
 }
+
