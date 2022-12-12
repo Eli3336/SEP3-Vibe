@@ -3,13 +3,59 @@
 
 <PageTitle>Home</PageTitle>
 
-<div class="jumbotron text-center align-middle" id="homepage" >
-  <h1>Welcome to Vibe Shop✓</h1>
-  <p>You have the ability to help sustainability!</p>
-  
- 
-  <button @onclick="@(() => navMgr.NavigateTo("/Login"))">Go to login</button>
-</div>
+<BSCarousel HasControls="true" HasIndicators="true" Class="mt-5">
+    <BSCarouselItem>
+        <BSImage class=" d-block w-100" width="800" height="500"preserveAspectRatio="xMidYMid slice" focusable="false" Source="/img/sl1.jpg"></BSImage>
+        <BSCarouselCaption Class="d-none d-md-block">
+            <h3 class="fw-bold">You have the ability to help sustainability!</h3>
+            <BSButton Color="BSColor.Success" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo("/Login"))">Go to login</BSButton>
+            
+        </BSCarouselCaption>
+    </BSCarouselItem>
+    <BSCarouselItem>
+        <BSImage class="d-block w-100" width="800" height="500"preserveAspectRatio="xMidYMid slice" focusable="false" Source="/img/sl2.jpg"></BSImage>
+        <BSCarouselCaption Class="d-none d-md-block">
+            <h3 class="fw-bold">Clothes</h3>
+            <p>Dress to impress mother nature!</p>
+            <p class="fst-italic">“Ethical Fashion Is The Recognition That There Are Human Beings Behind The Clothes That We Wear” - Elizabeth Joy</p>
+            <BSButton Color="BSColor.Warning" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo("/Clothes"))">Browse</BSButton>
+            
+        </BSCarouselCaption>
+    </BSCarouselItem>
+    <BSCarouselItem>
+        <BSImage class="d-block w-100" width="800" height="500"preserveAspectRatio="xMidYMid slice" focusable="false" Source="/img/sl3.jpg"></BSImage>
+        <BSCarouselCaption Class="d-none d-md-block">
+            <h3 class="fw-bold">Cosmetics</h3>
+            <p></p>
+            <p class="fst-italic">"Make-up" for your waste with our eco-friendly cosmetic products and give our planet a brand new look!</p>
+            <p class="fst-italic">“I like my products like I like my people. Non-toxic.” - old tumblr post</p>
+            <BSButton Color="BSColor.Light" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo("/Cosmetics"))">Browse</BSButton>
+            
+        </BSCarouselCaption>
+    </BSCarouselItem>
+    <BSCarouselItem>
+            <BSImage class="d-block w-100" width="800" height="500"preserveAspectRatio="xMidYMid slice" focusable="false" Source="/img/sl4.jpg"></BSImage>
+            <BSCarouselCaption Class="d-none d-md-block">
+                <h3 class="fw-bold">Jewelry</h3>
+                <p>You're never fully dressed without a smile!</p>
+                <p>And our selection of sustainable jewelry is sure to put a smile on your face.</p>
+                <BSButton Color="BSColor.Info" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo("/Jewelry"))">Browse</BSButton>
+                
+            </BSCarouselCaption>
+        </BSCarouselItem>
+    <BSCarouselItem>
+        <BSImage class="d-block w-100" width="800" height="500"preserveAspectRatio="xMidYMid slice" focusable="false" Source="/img/sl5.jpg"></BSImage>
+        <BSCarouselCaption Class="d-none d-md-block">
+            <h3 class="fw-bold">Home Decor</h3>
+            <p class="fst-italic">"As we evolve, our homes should too." - Suzanne Tucker</p>
+            <p >Keeping a green house will eventually help protect our Home, the planet. And it can start with an adorable Whale vase made out of recycled Material! </p>
+            <BSButton Color="BSColor.Danger" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo("/HomeDecor"))">Browse</BSButton>
+            
+        </BSCarouselCaption>
+    </BSCarouselItem>
+    
+</BSCarousel>
+
 
 
 

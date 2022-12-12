@@ -36,8 +36,13 @@
       <None Update="Pages\login.css">
         <DependentUpon>Login.razor</DependentUpon>
       </None>
-      <None Update="Pages\bg-home.jpg">
-        <DependentUpon>Index.razor</DependentUpon>
+      <None Include="wwwroot\img\bg-home.jpg" />
+      <None Include="wwwroot\img\sl1.jpg" />
+      <None Update="Pages\profile.css">
+        <DependentUpon>Profile.razor</DependentUpon>
+      </None>
+      <None Update="Shared\MainLayout.css">
+        <DependentUpon>MainLayout.razor</DependentUpon>
       </None>
     </ItemGroup>
 

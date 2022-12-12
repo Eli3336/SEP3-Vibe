@@ -8,13 +8,13 @@
             </Toggler>
             <Content>
                 <BSNav MarginEnd="Margins.Auto" MarginBottom="Margins.Small" Class="mb-lg-0">
-                    <BSNavItem IsActive="true" Url="Index" Class="oi oi-home"> Home</BSNavItem>
+                    <BSNavItem IsActive="true" Url="/" Class="oi oi-home"> Home</BSNavItem>
                     <BSNavItem IsDropdown="true">
                         <BSDropdown IsDark="true">
                             <Toggler><BSToggle IsNavLink="true" Class="oi oi-tags"> Products</BSToggle></Toggler>
                             <Content >
                                 <BSDropdownItem Url="ViewProducts">All</BSDropdownItem>
-                                <BSDropdownItem Url="Clothes" Class="oi">Clothes</BSDropdownItem>
+                                <BSDropdownItem Url="Clothes" >Clothes</BSDropdownItem>
                                 <BSDropdownItem Url="Cosmetics">Cosmetics</BSDropdownItem>
                                 <BSDropdownItem Url="Jewelry">Jewelry</BSDropdownItem>
                                 <BSDropdownItem Url="HomeDecor">Home Decor</BSDropdownItem>
@@ -24,14 +24,14 @@
                     </BSNavItem>
                     <BSNavItem Url="ShoppingCart" Class="oi oi-cart"> Shopping Cart</BSNavItem>
                     <BSNavItem IsDropdown="true">
-                        <BSDropdown>
+                        <BSDropdown IsDark="true">
                             <Toggler><BSToggle IsNavLink="true" Class="oi oi-person"> Account</BSToggle></Toggler>
                             <Content>
-                                <BSDropdownItem Url="ViewProducts">Profile</BSDropdownItem>
-                                <BSDropdownItem Url="Clothes">Purchase History</BSDropdownItem>
+                                <BSDropdownItem Url="Profile"> Profile</BSDropdownItem>
+                                <BSDropdownItem Url="PurchaseHistory"> Purchase History</BSDropdownItem>
                                 
                                 <BSDropdownItem IsDivider="true"/>
-                                <BSDropdownItem Url="LogOut" Class="oi oi-account-logout">Log out</BSDropdownItem>
+                                <BSDropdownItem Url="LogOut" Class="oi oi-account-logout"> Log out</BSDropdownItem>
                             </Content>
                         </BSDropdown>
                     </BSNavItem>
@@ -48,8 +48,6 @@
 @code {
    
     private string toSearch = "";
-
-
 }
 
 
