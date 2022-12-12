@@ -12,6 +12,7 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.8" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.8" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.8" PrivateAssets="all" />
+        <PackageReference Include="MudBlazor" Version="6.0.8" />
     </ItemGroup>
 
     <ItemGroup>
@@ -20,9 +21,6 @@
       </None>
       <None Update="Shared\navbar.css">
         <DependentUpon>NavMenu.razor</DependentUpon>
-      </None>
-      <None Update="Pages\index.css">
-        <DependentUpon>Index.razor</DependentUpon>
       </None>
       <None Update="Pages\productPage.css">
         <DependentUpon>ProductPage.razor</DependentUpon>
@@ -36,8 +34,12 @@
       <None Update="Pages\login.css">
         <DependentUpon>Login.razor</DependentUpon>
       </None>
-      <None Update="Pages\bg-home.jpg">
-        <DependentUpon>Index.razor</DependentUpon>
+      <None Include="wwwroot\img\sl1.jpg" />
+      <None Update="Pages\profile.css">
+        <DependentUpon>Profile.razor</DependentUpon>
+      </None>
+      <None Update="Shared\MainLayout.css">
+        <DependentUpon>MainLayout.razor</DependentUpon>
       </None>
     </ItemGroup>
 

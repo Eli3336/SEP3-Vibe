@@ -1,0 +1,63 @@
+@page "/Profile"
+@using Align = BlazorStrap.Align
+@inject NavigationManager navMgr;
+<BSContainer >
+    <BSCard>
+                <BSCard CardType="CardType.Image" src="/img/bg-profile.jpg" Class="img-fluid"/>
+                <BSCard CardType="CardType.ImageOverlay">
+                <BSRow Align="Align.Start">
+                    
+                        <BSCol Column="4">
+                                <BSCard CardType="CardType.Card">
+                                    <BSCard CardType="CardType.Image" src="/img/profile.jpg" alt="Card image cap" width="150" height="400"/>
+                                    <BSCard CardType="CardType.Body">
+                                        <BSCard CardType="CardType.Title">User name</BSCard>
+                                        <BSCard CardType="CardType.Text">some things about users idk</BSCard>
+                                        <BSCard CardType="CardType.Text">some things about users idksfsaffffffffsdfs</BSCard>
+                                    </BSCard>
+                                </BSCard>
+                            </BSCol>
+                            <BSCol Column="8">
+                                <BSTable Color="BSColor.Dark" IsBordered="true" IsBorderLess="true" IsCaptionTop="true" IsStriped="true">
+                                    <caption class="fw-bolder"><h3>Purchase History</h3></caption>
+                                    <BSTHead>
+                                        <BSTR>
+                                            <BSTD>#Order</BSTD>
+                                            <BSTD>Number of Products</BSTD>
+                                            <BSTD>Date</BSTD>
+                                            <BSTD>Total</BSTD>
+                                        </BSTR>
+                                    </BSTHead>
+                                    <BSTBody>
+                                        <BSTR AlignRow="AlignRow.Middle" Color="BSColor.Secondary">
+                                            <BSTD>1</BSTD>
+                                            <BSTD>John</BSTD>
+                                            <BSTD>Doe</BSTD>
+                                            <BSTD>JohnDoe <br/>media.com</BSTD>
+                                        </BSTR>
+                                        <BSTR AlignRow="AlignRow.Middle">
+                                            <BSTD>2</BSTD>
+                                            <BSTD>Jane</BSTD>
+                                            <BSTD>Doe</BSTD>
+                                            <BSTD>JaneDoe <br/>media.com</BSTD>
+                                        </BSTR>
+                                    </BSTBody>
+                                    <BSTFoot>
+                                        <BSTR>
+                                            <BSTD ColSpan="4">Spanned Table Footer Here</BSTD>
+                                        </BSTR>
+
+                                    </BSTFoot>
+                                </BSTable>
+                                <BSButton Class="oi oi-account-logout" Color="BSColor.Dark"  @onclick="@(() => navMgr.NavigateTo("/Logout"))"> Log Out
+                                </BSButton>
+
+                            </BSCol>
+                        
+                </BSRow>
+                </BSCard>
+                        </BSCard>
+</BSContainer>
+@code {
+    
+}

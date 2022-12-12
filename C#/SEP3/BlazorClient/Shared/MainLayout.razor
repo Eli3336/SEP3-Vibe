@@ -1,7 +1,24 @@
-﻿@inherits LayoutComponentBase
+﻿@using Align = MudBlazor.Align
+@inherits LayoutComponentBase
+<MudThemeProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+<NavMenu/>
 
-<NavMenu />
+<MudLayout>
+   <MudMainContent Class="d-flex flex-column mt-o pt-0" >
+           @Body
+           <MudContainer Class="mt-auto">
+               <MudText Align="Align.Center">Powered by MudBlazor</MudText>
+               <MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme"/>
+               <MudSwitch Class="ma-4 d-flex flex-row-reverse " @bind-Checked="@_isDarkMode" Color="Color.Primary"  T="bool" Label="☀/☽"/>
+           </MudContainer>
+       </MudMainContent>
+</MudLayout>
 
-<main class="container">
-    @Body
-</main>
+
+@code
+{
+    private MudTheme _theme = new();
+    private bool _isDarkMode;
+}
