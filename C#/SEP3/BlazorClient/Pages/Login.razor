@@ -12,10 +12,11 @@
 @using InputType = MudBlazor.InputType
 
 <BSRow MarginTop="Margins.Small" MarginLeftAndRight="Margins.Small">
-    <BSCol Column="6" ><BSCard Color="BSColor.Dark" Alignment="Alignment.Center">
+    <BSCol Column="6">
+        <BSCard Color="BSColor.Dark" Alignment="Alignment.Center">
             <BSCard CardType="CardType.Title" class="fw-bolder" style="color: white"><h3>Register</h3></BSCard>
-            <MudPaper Class="border-solid border-2 border-dark " >
-                <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors" Style="color: whitesmoke" >
+            <MudPaper Class="border-solid border-2 border-dark ">
+                <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors" Style="color: whitesmoke">
                     <MudTextField T="string" Label="Name" Required="true" RequiredError="Name is required!" @bind-Value="name"/>
                     <MudTextField T="string" Label="Phone Number" Required="true" RequiredError="Phone Number is required!" @bind-Value="phoneNumber"/>
                     <MudTextField T="string" Label="Username" Required="true" RequiredError="User name is required!" @bind-Value="username"/>
@@ -49,12 +50,14 @@
     
     
     
-    <BSCol Column="6"><BSCard Color="BSColor.Dark"  >
-            <BSCard CardType="CardType.Title" Class="fw-bolder" style="color: white" Alignment="Alignment.Center"><h3>Log-in</h3></BSCard>
-            <MudPaper Class="border-solid border-2 border-dark" >
+    <BSCol Column="6">
+        
+        <BSCard Color="BSColor.Dark" Alignment="Alignment.Center">
+        <BSCard CardType="CardType.Title" class="fw-bolder" style="color: white"><h3>Log in</h3></BSCard>
+            <MudPaper Class="border-solid border-2 border-dark">
                 <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors" Style="color: whitesmoke">
                     <MudTextField T="string" Label="Username" Required="true" RequiredError="User name is required!" @bind-Value="usernameLog"/>
-                    <MudTextField T="string" Label="Password"   @bind-Value="passwordLog"
+                    <MudTextField T="string" Label="Password" @bind-Value="passwordLog"
                                   InputType="InputType.Password"
                                   Validation="@(new Func<string, IEnumerable<string>>(PasswordStrength))" Required="true"/>
 

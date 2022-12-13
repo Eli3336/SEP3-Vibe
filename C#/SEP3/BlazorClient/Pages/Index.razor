@@ -1,29 +1,38 @@
 ﻿@page "/"
 @inject NavigationManager navMgr
 
-<PageTitle>Home</PageTitle>
 
-<BSCarousel HasControls="true" HasIndicators="true">
+
+
+
+<div style="margin-bottom: auto; padding-bottom:10%"  >
+
+    <BSCarousel HasControls="true" HasIndicators="true" MarginBottom="Margins.Small">
+        <BSCarouselItem >
+            <div class="d-flex justify-center">
+            <MudImage ObjectFit="ObjectFit.Fill" Height="600"  src="/img/sl1.jpg"></MudImage>
+                <BSCarouselCaption Class="d-none d-md-block">
+                    <h3 class="fw-bold">You have the ability to help sustainability!</h3>
+                    <BSButton Color="BSColor.Success" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo("/Login"))">Go to login</BSButton>
+
+                </BSCarouselCaption>
+                </div>
+        </BSCarouselItem>
     <BSCarouselItem>
-        <BSImage class=" d-block w-100" width="800" height="600"preserveAspectRatio="xMidYMid slice" focusable="false" Source="/img/sl1.jpg"></BSImage>
-        <BSCarouselCaption Class="d-none d-md-block">
-            <h3 class="fw-bold">You have the ability to help sustainability!</h3>
-            <BSButton Color="BSColor.Success" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo("/Login"))">Go to login</BSButton>
+        <div class="d-flex justify-center">
+                    <MudImage ObjectFit="ObjectFit.Cover" Height="600" src="/img/sl2.jpg"></MudImage>
+                    <BSCarouselCaption Class="d-none d-md-block">
+                        <h3 class="fw-bold">Clothes</h3>
+                        <p>Dress to impress mother nature!</p>
+                        <p class="fst-italic">“Ethical Fashion Is The Recognition That There Are Human Beings Behind The Clothes That We Wear” - Elizabeth Joy</p>
+                        <BSButton Color="BSColor.Warning" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo("/Clothes"))">Browse</BSButton>
             
-        </BSCarouselCaption>
+                    </BSCarouselCaption>
+                    </div>
     </BSCarouselItem>
     <BSCarouselItem>
-        <BSImage class="d-block w-100" width="800" height="600"  preserveAspectRatio="xMidYMid slice" focusable="false" Source="/img/sl2.jpg"></BSImage>
-        <BSCarouselCaption Class="d-none d-md-block">
-            <h3 class="fw-bold">Clothes</h3>
-            <p>Dress to impress mother nature!</p>
-            <p class="fst-italic">“Ethical Fashion Is The Recognition That There Are Human Beings Behind The Clothes That We Wear” - Elizabeth Joy</p>
-            <BSButton Color="BSColor.Warning" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo("/Clothes"))">Browse</BSButton>
-            
-        </BSCarouselCaption>
-    </BSCarouselItem>
-    <BSCarouselItem>
-        <BSImage class="d-block w-100" width="800" height="600"preserveAspectRatio="xMidYMid slice" focusable="false" Source="/img/sl3.jpg"></BSImage>
+        <div class="d-flex justify-center">
+                    <MudImage ObjectFit="ObjectFit.Cover" Height="600" src="/img/sl3.jpg"></MudImage>
         <BSCarouselCaption Class="d-none d-md-block">
             <h3 class="fw-bold">Cosmetics</h3>
             <p></p>
@@ -32,30 +41,36 @@
             <BSButton Color="BSColor.Light" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo("/Cosmetics"))">Browse</BSButton>
             
         </BSCarouselCaption>
+        </div>
+    </BSCarouselItem>
+    <BSCarouselItem >
+        <div class="d-flex justify-center">
+                    <MudImage ObjectFit="ObjectFit.Cover" Height="600" src="/img/sl4.jpg"></MudImage>
+                    <BSCarouselCaption Class="d-none d-md-block">
+                        <h3 class="fw-bold">Jewelry</h3>
+                        <p>You're never fully dressed without a smile!</p>
+                        <p>And our selection of sustainable jewelry is sure to put a smile on your face.</p>
+                        <BSButton Color="BSColor.Info" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo("/Jewelry"))">Browse</BSButton>
+                
+                    </BSCarouselCaption>
+                    </div>
     </BSCarouselItem>
     <BSCarouselItem>
-            <BSImage class="d-block w-100" width="800" height="600"preserveAspectRatio="xMidYMid slice" focusable="false" Source="/img/sl4.jpg"></BSImage>
-            <BSCarouselCaption Class="d-none d-md-block">
-                <h3 class="fw-bold">Jewelry</h3>
-                <p>You're never fully dressed without a smile!</p>
-                <p>And our selection of sustainable jewelry is sure to put a smile on your face.</p>
-                <BSButton Color="BSColor.Info" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo("/Jewelry"))">Browse</BSButton>
-                
-            </BSCarouselCaption>
-        </BSCarouselItem>
-    <BSCarouselItem>
-        <BSImage class="d-block w-100" width="800" height="600"preserveAspectRatio="xMidYMid slice" focusable="false" Source="/img/sl5.jpg"></BSImage>
-        <BSCarouselCaption Class="d-none d-md-block">
-            <h3 class="fw-bold">Home Decor</h3>
-            <p class="fst-italic">"As we evolve, our homes should too." - Suzanne Tucker</p>
-            <p >Keeping a green house will eventually help protect our Home, the planet. And it can start with an adorable Whale vase made out of recycled Material! </p>
-            <BSButton Color="BSColor.Danger" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo("/HomeDecor"))">Browse</BSButton>
+        <div class="d-flex justify-center">
+                    <MudImage ObjectFit="ObjectFit.Cover" Height="600" src="/img/sl5.jpg"></MudImage>
+                    <BSCarouselCaption Class="d-none d-md-block">
+                        <h3 class="fw-bold">Home Decor</h3>
+                        <p class="fst-italic">"As we evolve, our homes should too." - Suzanne Tucker</p>
+                        <p >Keeping a green house will eventually help protect our Home, the planet. And it can start with an adorable Whale vase made out of recycled Material! </p>
+                        <BSButton Color="BSColor.Danger" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo("/HomeDecor"))">Browse</BSButton>
             
-        </BSCarouselCaption>
+                    </BSCarouselCaption>
+                    </div>
     </BSCarouselItem>
     
-</BSCarousel>
+    
+    </BSCarousel>
+    
 
-
-
+</div>
 
