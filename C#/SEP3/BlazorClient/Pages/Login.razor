@@ -54,7 +54,7 @@
             <MudPaper Class="border-solid border-2 border-dark" >
                 <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors" Style="color: whitesmoke">
                     <MudTextField T="string" Label="Username" Required="true" RequiredError="User name is required!" @bind-Value="usernameLog"/>
-                    <MudTextField T="string" Label="Password" HelperText="Choose a strong password"  @bind-Value="passwordLog"
+                    <MudTextField T="string" Label="Password"   @bind-Value="passwordLog"
                                   InputType="InputType.Password"
                                   Validation="@(new Func<string, IEnumerable<string>>(PasswordStrength))" Required="true"/>
 
