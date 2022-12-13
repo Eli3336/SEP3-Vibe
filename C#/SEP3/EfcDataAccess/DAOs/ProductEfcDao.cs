@@ -86,19 +86,6 @@ public class ProductEfcDao : IProductDao
         };
         await context.Products.AddAsync(toCreate3);
         await context.SaveChangesAsync();
-        Product toCreate4 = new Product()
-        {
-            id = 3,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
-            price = 40,
-            stock = 25,
-            image = images[3],
-            ingredients = "steel, diamond",
-            category = categoryDao.GetByName("Jewelry").Result
-        };
-        await context.Products.AddAsync(toCreate4);
-        await context.SaveChangesAsync();
 
 
         return "Ok";
@@ -126,7 +113,7 @@ public class ProductEfcDao : IProductDao
         return result;
     }
 
-    public async  Task<Product?> GetByIdAsync(long id)
+    public async Task<Product?> GetByIdAsync(long id)
     {
         Product? found = await context.Products
             .Include(product => product.category)
@@ -135,10 +122,26 @@ public class ProductEfcDao : IProductDao
 
         return found;
     }
-    
+
+    public async Task UpdateAsync(Product product)
+    {
+        context.Products.Update(product);
+        await context.SaveChangesAsync(); 
+    }
+
     public async  Task<Product?> GetByIdToUpdateAsync(long? id)
     {
         Product? found = await context.Products
+            .AsNoTracking()
+            .SingleOrDefaultAsync(p => p.id == id);
+
+        return found;
+    }
+    
+    public async Task<Product?> GetByIdToUpdateAsyncWithCategory(long? id)
+    {
+        Product? found = await context.Products
+            .Include(product => product.category)
             .AsNoTracking()
             .SingleOrDefaultAsync(p => p.id == id);
 
@@ -195,11 +198,11 @@ public class ProductEfcDao : IProductDao
                 Id = product.id,
                 Name = product.name,
                 Description = product.description,
+                Price = product.price,
                 Category = new CategoryGrpc()
                 {
                     Name = product.category.ToString()
-                },
-                Price = product.price
+                }
             });
         }
         catch (Exception e)

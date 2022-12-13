@@ -8,7 +8,7 @@ public class OrderItemGetDto
     
     public bool hasBeenBought { get; }
     
-
+    public OrderItemGetDto(){}
     public OrderItemGetDto(Product product, int quantity, double price, bool hasBeenBought)
     {
         this.product = product;

@@ -60,17 +60,17 @@
                             <hr>
                             <div class="row">
                                 <div class="col" style="padding-left:0;">ITEMS @orderItems.Count()</div>
-                                <div class="col text-right">&euro; 132.00</div>
+                                <div class="col text-right">&euro; @price</div>
                             </div>
                             <form>
                                 <p>SHIPPING</p>
-                                <select><option class="text-muted">Standard-Delivery- &euro;5.00</option></select>
-                                <p>GIVE CODE</p>
-                                <input id="code" placeholder="Enter your code">
+                                <select><option class="text-muted">Standard-Delivery- &euro;@delivery</option></select>
+                                @*<p>GIVE CODE</p>
+                                <input id="code" placeholder="Enter your code">*@
                             </form>
                             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                                 <div class="col">TOTAL PRICE</div>
-                                <div class="col text-right">&euro; 137.00</div>
+                                <div class="col text-right">&euro; @TotalPrice</div>
                             </div>
                             <button class="btn"  @onclick="@(() => navMgr.NavigateTo("/Checkout"))">CHECKOUT</button>
                         </div>
@@ -81,12 +81,12 @@
             }
 @code {
     public static IEnumerable<OrderItem>? orderItems;
-    private static IEnumerable<OrderItem>? staticOrderItems;
-    private OrderItem[]? list;
     private string msg = "";
-    private static string message = "";
     private OrderItemUpdateDto dto = null!;
     private OrderItem orderItem= null!;
+    private double price = 0;
+    public static double TotalPrice = 0;
+    private double delivery = 5;
 
     protected override async Task OnInitializedAsync()
     {
@@ -94,15 +94,24 @@
         try
         {
             orderItems = await orderItemService.GetNotBoughtOrderItems();
+            UpdatePrice();
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             msg = e.Message;
         }
-
-        
-        
+    }
+    
+    private void UpdatePrice()
+    {
+        price = 0;
+        List<OrderItem> orderItemsList = orderItems.ToList();
+        for (int i = 0; i < orderItemsList.Count; i++)
+        {
+            price += orderItemsList[i].price;
+        }
+        TotalPrice = price + delivery;
     }
     
     private async Task removeItem(long id)
@@ -111,10 +120,10 @@
         try
         {
             await orderItemService.DeleteAsync(id);
-        
             var list1 = new List<OrderItem>(orderItems!);
             list1.RemoveAll(orderItem => orderItem.id == id);
             orderItems = list1.AsEnumerable();
+            UpdatePrice();
         }
         catch (Exception e)
         {
@@ -141,6 +150,7 @@
                             {
                                 await orderItemService.DeleteAsync(id);
                             }
+                UpdatePrice();
                 navMgr.NavigateTo("/ShoppingCart");
             }
             
@@ -159,7 +169,6 @@
         msg = "";
         try
         {
-
             OrderItemCreationDto creationDto = await orderItemService.GetByIdAsync(id);
             if (creationDto.quantity < stock) 
             {
@@ -169,10 +178,13 @@
                     id = id
                 };
                 await orderItemService.UpdateAsync(dto);
+                UpdatePrice();
                 navMgr.NavigateTo("/ShoppingCart");
             }
             else if (creationDto.quantity==stock)
             {
+                msg = "There is no more stock!";
+                UpdatePrice();
                 navMgr.NavigateTo("/ShoppingCart");
             }
 

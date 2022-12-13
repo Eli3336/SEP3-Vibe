@@ -8,7 +8,7 @@ public class OrderGetDto
     
     public List<OrderItem> items { get; set; }
     
-
+    public OrderGetDto(){}
     public OrderGetDto(DateTime orderDate, double orderPrice,string address, List<OrderItem> items)
     {
         this.orderDate = orderDate;

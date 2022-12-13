@@ -24,6 +24,33 @@ public class ProductLogic : IProductLogic
         return await productDao.GetAsync(searchDto);
     }
 
+    public async Task UpdateAsync(ProductUpdateDto dto)
+    {
+        Product? existing = await productDao.GetByIdToUpdateAsyncWithCategory(dto.id);
+
+        if (existing == null)
+        {
+            throw new Exception($"Product with ID {dto.id} not found!");
+        }
+        
+        int stockToUse = dto.stock ?? existing.stock;
+
+        Product updated = new (stockToUse)
+        {
+            id = existing.id,
+            category = existing.category,
+            description = existing.description,
+            image = existing.image,
+            ingredients = existing.ingredients,
+            name = existing.name,
+            price = existing.price
+        };
+
+        ValidateProduct(updated);
+        
+        await productDao.UpdateAsync(updated);
+    }
+
     public async Task DeleteAsync(long id)
     {
         Product? product = await productDao.GetByIdAsync(id);

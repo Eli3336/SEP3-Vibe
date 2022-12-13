@@ -5,6 +5,7 @@
 @inject IOrderItemService orderItemService
 @inject IOrderService orderService
 @inject IReceiptService receiptService
+@inject IProductService productService;
 @using UIComponents
 @inject NavigationManager navMgr
 
@@ -107,11 +108,12 @@
         msg = "";
         try
         {
-            orderItems = await orderItemService.GetOrderItem();
+            orderItems = await orderItemService.GetNotBoughtOrderItems();
             foreach (var order in orderItems)
             {
                 price += order.price;
             }
+            price = ShoppingCart.TotalPrice;
         }
         catch (Exception e)
         {
@@ -132,10 +134,11 @@
             }
             address = street + " " + city + " " + zip;
 
-            OrderCreationDto dto = new OrderCreationDto(address, items);
+            OrderCreationDto dto = new OrderCreationDto(address, items, ShoppingCart.TotalPrice);
             order=await orderService.CreateAsync(dto);
             ReceiptCreationDto receiptDto = new ReceiptCreationDto(userTest.username, order.Id);//username should come from authentication not be 1 by default
             receipt = await receiptService.CreateAsync(receiptDto);
+            await DeleteShoppingCartAndUpdateStock();
             navMgr.NavigateTo("/PurchaseHistory");
         }
         catch (Exception e)
@@ -143,6 +146,20 @@
             Console.WriteLine(e);
             throw;
         }
+    }
+
+    private async Task DeleteShoppingCartAndUpdateStock()
+    {
+        List<OrderItem> orderItemsList = ShoppingCart.orderItems.ToList();
+        for (int i = 0; i < orderItemsList.Count; i++)
+        {
+            int stock = orderItemsList[i].product.stock - orderItemsList[i].quantity;
+            ProductUpdateDto dtoProduct = new ProductUpdateDto(orderItemsList[i].product.id, stock);
+            await productService.UpdateAsync(dtoProduct);
+            OrderItemUpdateDto dto = new OrderItemUpdateDto(orderItemsList[i].id, orderItemsList[i].quantity, true);
+            await orderItemService.SetOrderItemToBought(dto);
+        }
+        ShoppingCart.orderItems = new List<OrderItem>();
     }
 
     private void Proceed()

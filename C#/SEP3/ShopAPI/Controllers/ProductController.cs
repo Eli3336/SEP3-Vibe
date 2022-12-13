@@ -112,6 +112,21 @@ public class ProductController : ControllerBase
          }
      }
      
+     [HttpPatch("/Stock")]
+     public async Task<ActionResult> UpdateAsync([FromBody] ProductUpdateDto dto)
+     {
+         try
+         {
+             await productLogic.UpdateAsync(dto);
+             return Ok();
+         }
+         catch (Exception e)
+         {
+             Console.WriteLine(e);
+             return StatusCode(500, e.Message);
+         }
+     }
+     
      [HttpPatch]
      public async Task<ActionResult> AdminUpdateAsync([FromBody] ProductAdminUpdateDto dto)
      {

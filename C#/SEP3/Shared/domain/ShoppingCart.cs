@@ -12,4 +12,5 @@ public class ShoppingCart
         this.size = size;
         this.totalPrice = totalPrice;
     }
+    public ShoppingCart(){}
 }

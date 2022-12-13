@@ -10,7 +10,7 @@ public interface IProductLogic
     Task<ProductCreationDto> GetByIdAsync(long id);
     Task<IEnumerable<Product>> GetSearchAsync(string search);
 
-    
+    Task UpdateAsync(ProductUpdateDto dto);
     Task DeleteAsync(long id);
     Task AdminUpdateAsync(ProductAdminUpdateDto product);
 

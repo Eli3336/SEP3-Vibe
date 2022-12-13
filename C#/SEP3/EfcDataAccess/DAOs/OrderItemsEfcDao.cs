@@ -44,6 +44,12 @@ public class OrderItemsEfcDao : IOrderItemDao
         await context.SaveChangesAsync();
     }
 
+    public async Task BuyAsync(OrderItem orderItem)
+    {
+        context.OrderItems.Update(orderItem);
+        await context.SaveChangesAsync();
+    }
+
     public async  Task<OrderItem?> GetByIdAsync(long id)
     {
         OrderItem? existing = await context.OrderItems

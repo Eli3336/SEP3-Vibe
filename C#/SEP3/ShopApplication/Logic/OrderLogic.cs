@@ -30,21 +30,10 @@ public class OrderLogic : IOrderLogic
             if(item.hasBeenBought == false)
                 orderItems.Add(item);
         }
-        double price = 0;
-        foreach (var order in orderItems)
-        {
-            price += order.price;
-        }
         ValidateData(dto);
-        Order toCreate = new Order(DateTime.Today, price, dto.address, orderItems);
+        Order toCreate = new Order(DateTime.Today, dto.totalPrice, dto.address, orderItems);
         Order created = await orderDao.CreateAsync(toCreate);
         return created;
-    }
-
-    public async Task<Order> CreateAdminOrderAsync(OrderCreationDto orderToCreate)
-    {
-        throw new NotImplementedException();
-
     }
 
     public Task<IEnumerable<Order>> GetAsync(SearchOrderParametersDto? searchParameters)

@@ -66,7 +66,24 @@ public class OrderItemLogic : IOrderItemLogic
         
         await orderItemDao.UpdateAsync(updated);
     }
-    
+
+    public async Task BuyAsync(OrderItemUpdateDto dto)
+    {
+        OrderItem? existing = await orderItemDao.GetByIdToUpdateAsync(dto.id);
+
+        if (existing == null)
+        {
+            throw new Exception($"Order with ID {dto.id} not found!");
+        }
+
+        OrderItem updated = new (dto.hasBeenBought)
+        {
+            id=existing.id,
+            quantity = existing.quantity
+        };
+        
+        await orderItemDao.BuyAsync(updated);
+    }
 
 
     private static void ValidateData(OrderItemCreationDto orderToCreate)

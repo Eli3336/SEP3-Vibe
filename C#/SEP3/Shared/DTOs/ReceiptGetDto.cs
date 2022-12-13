@@ -6,6 +6,7 @@ public class ReceiptGetDto
 
     public Order order { get; set; }
 
+    public ReceiptGetDto(){}
     public ReceiptGetDto(User user, Order order)
     {
 
