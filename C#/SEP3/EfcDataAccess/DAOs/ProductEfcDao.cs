@@ -851,7 +851,7 @@ public class ProductEfcDao : IProductDao
             price = 16.5,
             stock = 25,
             image = images[57],
-            ingredients = "Ingredients: Ricinus Communis (Castor) Seed Oil, Jojoba Esters, Helianthus Annuus (Sunflower) Seed Oil, Butyrospermum Parkii (Shea Butter), Euphorbia Cerifera (Candelilla) Wax\Candelilla Cera\Cire De Candelilla, Copernicia Cerifera (Carnauba) Wax\ Copernicia Cerifera Cera \Cire De Carnauba, Helianthus Annuus (Sunflower) Seed Wax, Hydrogenated Castor Oil, Tocopherol, Flavor (Aroma), Coumarin, Geraniol, Eugenol, Cinnamal, Citronellol, Linalool, Limonene, Benzyl Benzoate <ILN45755> Please be aware that ingredient lists may change or vary from time to time. Please refer to the ingredient list on the product package you receive for the most up to date list of ingredients.",
+            ingredients = "Ingredients: Ricinus Communis (Castor) Seed Oil, Jojoba Esters, Helianthus Annuus (Sunflower) Seed Oil, Butyrospermum Parkii (Shea Butter), Euphorbia Cerifera (Candelilla) Wax Candelilla CeraCire De Candelilla, Copernicia Cerifera (Carnauba) Wax Copernicia Cerifera Cera Cire De Carnauba, Helianthus Annuus (Sunflower) Seed Wax, Hydrogenated Castor Oil, Tocopherol, Flavor (Aroma), Coumarin, Geraniol, Eugenol, Cinnamal, Citronellol, Linalool, Limonene, Benzyl Benzoate <ILN45755> Please be aware that ingredient lists may change or vary from time to time. Please refer to the ingredient list on the product package you receive for the most up to date list of ingredients.",
             category = categoryDao.GetByName("Cosmetics").Result
         };
         await context.Products.AddAsync(toCreate58);
