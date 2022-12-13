@@ -10,9 +10,6 @@ public static class AuthorizationPolicies
         {
             options.AddPolicy("MustBeLoggedIn", a =>
                a.RequireAuthenticatedUser());
-    
-            
-                
         });
     }   
 }

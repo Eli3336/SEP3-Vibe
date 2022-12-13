@@ -133,7 +133,7 @@
 
         try
         {
-            await userService.Create(new UserCreationDto(name, phoneNumber, username, password));
+            await authService.RegisterAsync(new UserCreationDto(name, phoneNumber, username, password));
             name = "";
             phoneNumber = "";
             username = "";
