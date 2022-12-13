@@ -21,15 +21,15 @@
             }
             else
             {
-                <div class="card">
-                    <div class="row">
-                        <div class="col-md-8 cart">
-                            <div class="title">
+                <MudCard style="color: black">
+                    <div class="row ">
+                        <div class="col-md-8 cart border-2 border-dark">
+                            <CardHeaderContent class="title">
                                 <div class="row">
                                     <div class="col"><h4><b>Shopping Cart</b></h4></div>
                                     <div class="col align-self-center text-right text-muted">@orderItems.Count() items</div>
                                 </div>
-                            </div>
+                            </CardHeaderContent>
 
 
 
@@ -42,12 +42,11 @@
                                             <div class="col-2"><img class="card-img-top img-thumbnail"  src=@orderItem.product.image alt="Card image cap"></div>
                                             <div class="col">
                                                 <div class="row text-muted">@orderItem.product.name</div>
-                                                <div class="row">@orderItem.product.description</div>
                                             </div>
                                             <div class="col">
-                                                <a href="#" @onclick="@(() => decrease(orderItem.id))">-</a><a href="#" class="border">@orderItem.quantity</a><a href="#" @onclick="@(() => increase(orderItem.id, orderItem.product.stock))">+</a>
+                                                <a href="#" @onclick="@(() => decrease(orderItem.id))" >-</a><a href="#" class="border">@orderItem.quantity</a><a href="#" @onclick="@(() => increase(orderItem.id, orderItem.product.stock))">+</a>
                                             </div>
-                                            <div class="col">&euro; @orderItem.price <Button class="oi oi-x" @onclick="@(() => removeItem(orderItem.id))"></Button></div>
+                                            <div class="col" >&euro; @orderItem.price </div><Button class="col oi oi-x d-flex flex-row-reverse" @onclick="@(() => removeItem(orderItem.id))"></Button>
                                         </div>
                                     </div>
                                 }
@@ -55,30 +54,30 @@
 
                         </div>
 
-                        <div class="col-md-4 summary">
+                        <div class="col-md-4 summary border-2 border-dark">
                             <div><h5><b>Summary</b></h5></div>
                             <hr>
                             <div class="row">
-                                <div class="col" style="padding-left:0;">ITEMS @orderItems.Count()</div>
+                                <div class="col"> ITEMS @orderItems.Count()</div>
                                 <div class="col text-right">&euro; @price</div>
                             </div>
                             <form>
-                                <p>SHIPPING</p>
+                                <p> SHIPPING</p>
                                 <select><option class="text-muted">Standard-Delivery- &euro;@delivery</option></select>
-                                @*<p>GIVE CODE</p>
-                                <input id="code" placeholder="Enter your code">*@
+                                
                             </form>
                             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                                 <div class="col">TOTAL PRICE</div>
                                 <div class="col text-right">&euro; @TotalPrice</div>
                             </div>
-                            <button class="btn"  @onclick="@(() => navMgr.NavigateTo("/Checkout"))">CHECKOUT</button>
+                            <button class="btn btn-dark"  @onclick="@(() => navMgr.NavigateTo("/Checkout"))">CHECKOUT</button>
                         </div>
                     </div>
 
-                </div>
+                </MudCard>
 
             }
+
 @code {
     public static IEnumerable<OrderItem>? orderItems;
     private string msg = "";

@@ -11,30 +11,35 @@
 else
 {
 	<div>
-		<div class="table-responsive pb-5">
-			<table id="tbOrderHistory" class="table border ps-table w-100 mb-3">
-				<thead>
-				<tr>
-					<th class="font-weight-bold py-2 border-0">#Order</th>
-					<th class="font-weight-bold py-2 border-0 quantity">Number of Products</th>
-					<th class="font-weight-bold py-2 border-0 ">Date</th>
-					<th class="font-weight-bold py-2 border-0 ">Total</th>
-				</tr>
-				</thead>
-				<tbody>
+		<BSTable Color="BSColor.Light" IsBordered="true" IsBorderLess="true" IsCaptionTop="true" IsStriped="true">
+			<BSTHead>
+				<BSTR>
+					<BSTD>#Order</BSTD>
+					<BSTD>Number of Products</BSTD>
+					<BSTD>Date</BSTD>
+					<BSTD>Total</BSTD>
+				</BSTR>
+			</BSTHead>
+			<BSTBody>
 				@foreach (Receipt receipt in receipts)
 				{
-					<tr>
-						<td>@receipt.id</td>
-						<td>@receipt.order.items.Count</td>
-						<td>@receipt.order.orderDate</td>
-						<td>@receipt.finalPrice</td>
-					</tr>
+					<BSTR AlignRow="AlignRow.Middle">
+						<BSTD>@receipt.id</BSTD>
+						<BSTD>@receipt.order.items.Count</BSTD>
+						<BSTD>@receipt.order.orderDate</BSTD>
+						<BSTD>@receipt.finalPrice</BSTD>
+					</BSTR>
 				}
-				</tbody>
-			</table>
+			</BSTBody>
+			<BSTFoot>
+				<BSTR>
+					<BSTD ColSpan="4">Record of past purchases</BSTD>
+				</BSTR>
+        
+			</BSTFoot>
+		</BSTable>
+		
 		</div>
-	</div>
 }
 @code {
 	private IEnumerable<Receipt>? receipts;
