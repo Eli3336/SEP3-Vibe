@@ -23,10 +23,11 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost, Route("register")]
-    public async Task<ActionResult> Register([FromBody] User user)
+    public async Task<ActionResult> Register([FromBody] UserCreationDto dto)
     {
-        await authService.RegisterUser(user);
-        return Ok();
+        User userToCreate = await authService.RegisterUser(dto);
+        string token = GenerateJwt(userToCreate);
+        return Ok(token);
     }
 
     [HttpPost, Route("login")]

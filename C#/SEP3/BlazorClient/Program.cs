@@ -15,22 +15,20 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped(sp => new HttpClient { 
-    BaseAddress = new Uri("https://localhost:7043") 
-});
 builder.Services.AddScoped<IProductService, ProductHttpClient>();
 builder.Services.AddScoped<IUserService, UserHttpClient>();
 builder.Services.AddScoped<IOrderItemService, OrderItemHttpClient>();
 builder.Services.AddScoped<IOrderService, OrderHttpClient>();
 builder.Services.AddScoped<IReceiptService, ReceiptHttpClient>();
-builder.Services.AddBlazorStrap();
-builder.Services.AddMudServices();
-
 builder.Services.AddScoped<IAuthService, JwtAuthService>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
 
-
 AuthorizationPolicies.AddPolicies(builder.Services);
+builder.Services.AddScoped(sp => new HttpClient { 
+    BaseAddress = new Uri("https://localhost:7043") 
+});
+builder.Services.AddBlazorStrap();
+builder.Services.AddMudServices();
 
 await builder.Build().RunAsync();
 

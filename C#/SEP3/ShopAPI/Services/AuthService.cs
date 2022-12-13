@@ -1,6 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using EfcDataAccess;
 using Shared;
+using Shared.DTOs;
+using ShopApplication.DaoInterfaces;
 
 namespace Shop.Services;
 
@@ -8,17 +10,21 @@ namespace Shop.Services;
 public class AuthService:IAuthService
 {
 
-    public ShopContext context = new ShopContext();
+    private readonly IUserDao userDao;
+
+    public AuthService(IUserDao userDao)
+    {
+        this.userDao = userDao;
+    }
 
     private readonly IList<User> users = new List<User>
     {
         
     };
-    public Task<User> ValidateUser(string username, string password)
+    public async Task<User> ValidateUser(string username, string password)
     {
 
-        User? existingUser = context.Users.FirstOrDefault(u => 
-            u.username.Equals(username));
+        User? existingUser = await userDao.GetByUsernameAsync(username);
         
         if (existingUser == null)
         {
@@ -30,25 +36,25 @@ public class AuthService:IAuthService
             throw new Exception("Password mismatch");
         }
 
-        return Task.FromResult(existingUser);
+        return existingUser;
     }
 
-    public Task RegisterUser(User user)
+    public async Task<User> RegisterUser(UserCreationDto dto)
     {
-
-        if (string.IsNullOrEmpty(user.username))
+        
+        if (string.IsNullOrEmpty(dto.UserName))
         {
             throw new ValidationException("Username cannot be null");
         }
 
-        if (string.IsNullOrEmpty(user.password))
+        if (string.IsNullOrEmpty(dto.Password))
         {
             throw new ValidationException("Password cannot be null");
         }
-        
-        
+
+        User user = new User(dto.Name, dto.PhoneNumber, dto.UserName, dto.Password, new ShoppingCart());
         users.Add(user);
-        context.Users.Add(user);
-        return Task.CompletedTask;
+        User userToCreate = await userDao.CreateAsync(user);
+        return userToCreate;
     }
 }

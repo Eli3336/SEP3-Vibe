@@ -40,7 +40,9 @@ builder.Services.AddScoped<IOrderLogic, OrderLogic>();
 builder.Services.AddScoped<ICategoryDao, CategoryEfcDao>();
 builder.Services.AddScoped<ICategoryLogic, CategoryLogic>();
 
-/*builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+builder.Services.AddScoped<IAuthService, AuthService>();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
      options.RequireHttpsMetadata = false;
      options.SaveToken = true;
@@ -52,12 +54,9 @@ builder.Services.AddScoped<ICategoryLogic, CategoryLogic>();
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
      };
-});*/
-
+});
 
 AuthorizationPolicies.AddPolicies(builder.Services);
-
-builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 
