@@ -3,17 +3,20 @@
 <MudThemeProvider/>
 <MudDialogProvider/>
 <MudSnackbarProvider/>
-<NavMenu/>
 
+<NavMenu/>
 <MudLayout>
-   <MudMainContent Class="d-flex flex-column mt-o pt-0" >
-           @Body
-           <MudContainer Class="mt-auto">
-               <MudText Align="Align.Center">Powered by MudBlazor</MudText>
-               <MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme"/>
-               <MudSwitch Class="ma-4 d-flex flex-row-reverse " @bind-Checked="@_isDarkMode" Color="Color.Primary"   T="bool" Label="☀/☽"/>
-           </MudContainer>
-       </MudMainContent>
+    
+    <MudMainContent Class="mt-o pt-0" >
+        <MudContainer Class="mt-0 pt-0 mx-0 px-0" Style="position: relative;" MaxWidth="MaxWidth.ExtraExtraLarge">
+            @Body
+        </MudContainer>
+        <MudContainer Style="position: fixed; bottom: 0;margin-top: 5px; left: 0; height: 10%; padding-top: 10px; text-align: center; background: #212529; color: #ffffff" MaxWidth="MaxWidth.ExtraExtraLarge">
+            <MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme"/>
+            <MudText >&copy 2022 VibeShop✓ powered by Vibe✓ </MudText> <MudSwitch @bind-Checked="@_isDarkMode" Color="Color.Primary" Style="align-content: flex-end;  background: #212529; color: #ffffff" T="bool" Label="☀/☽"/>
+            
+        </MudContainer>
+    </MudMainContent>
 </MudLayout>
 
 

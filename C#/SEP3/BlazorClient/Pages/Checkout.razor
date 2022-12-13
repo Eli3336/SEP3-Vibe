@@ -2,14 +2,15 @@
 @using global::Shared
 @using BlazorClient.Services.ClientInterfaces
 @using global::Shared.DTOs
+@using Size = MudBlazor.Size
+@using Align = MudBlazor.Align
+@using Justify = MudBlazor.Justify
 @inject IOrderItemService orderItemService
 @inject IOrderService orderService
 @inject IReceiptService receiptService
 @inject IProductService productService;
-@using UIComponents
 @inject NavigationManager navMgr
 
-<h3>Checkout</h3>
 @if (!string.IsNullOrEmpty(msg))
             {
                 <div>
@@ -26,63 +27,75 @@
             }
             else
             {
-                <div class="container">
-                <form action="">
-                    <h1>
-                        <i class="fas fa-shipping-fast"></i>
-                        Shipping Details
-                    </h1>
-                    <div class="street">
-                        <label for="address">Street</label>
-                        <input type="text" name="address" @bind="street" @bind:event="oninput">
-                    </div>
-                    <div class="address-info">
-                        <div>
-                            <label for="city">City</label>
-                            <input type="text" name="city" @bind="city" @bind:event="oninput">
-                        </div>
-                        <div>
-                            <label for="zip">Zip</label>
-                            <input type="text" name="zip" @bind="zip" @bind:event="oninput">
-                        </div>
-                    </div>
-                </form>
-                </div>
-                <div class="order-container">
-                    @foreach (OrderItem orderItem in orderItems)
-                    {
-                        <div class="row border-top border-bottom">
-                            <div class="row main align-items-center">
-                                <div class="col-2"><img class="card-img-top img-thumbnail"  src=@orderItem.product.image alt="Card image cap"></div>
-                                <div class="col">
-                                    <div class="row text-muted">@orderItem.product.name</div>
-                                    <div class="row">@orderItem.product.description</div>
+                <MudContainer Class="mt-5 d-flex" MaxWidth="MaxWidth.Medium">
+                    <MudGrid Spacing="10" Justify="Justify.Center" Class="mt-5 ">
+                        
+                        <MudItem xs="6">
+                            <MudText Typo="Typo.h5" GutterBottom="true">Billing address</MudText>
+                            <MudGrid>
+                                <MudItem xs="12">
+                                    <MudItem>
+                                        <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
+                                            <MudTextField T="string" Label="street" Required="true" RequiredError="Street is required!" @bind-Value="@street"/>
+                                            <MudTextField T="string" Label="city" Required="true" RequiredError="City is required!" @bind-Value="@city"/>
+                                            <MudTextField T="string" Label="zip" Required="true" RequiredError="Zip code is required!" @bind-Value="@zip"/>
+
+
+
+                                            <div class="d-flex align-center justify-space-between">
+                                                <MudButton @onclick="MakeOrder" Variant="Variant.Filled" Color="Color.Dark" Disabled="@(!success)" Class="ml-auto">Register</MudButton>
+
+                                            </div>
+                                        </MudForm>
+                                    </MudItem>
+                                    <MudPaper Class="pa-4 mt-4">
+                                        <MudButton Variant="Variant.Filled" Color="Color.Dark" DisableElevation="true" OnClick="@(() => form.Reset())" Class="mx-2">Reset</MudButton>
+                                    </MudPaper>
+                                </MudItem>
+                                <MudItem xs="12" sm="5">
+                                    <MudPaper Class="pa-4 mud-height-full">
+                                        <MudText Typo="Typo.subtitle2">@($"Errors ({errors.Length})")</MudText>
+                                        @foreach (var error in errors)
+                                        {
+                                            <MudText Color="@Color.Error">@error</MudText>
+                                        }
+                                    </MudPaper>
+                                </MudItem>
+                                
+                            </MudGrid>
+                        </MudItem>
+                        
+                        
+                        <MudItem xs="6">
+                            <MudText Typo="Typo.h5" GutterBottom="true">Cart</MudText>
+                            <MudPaper Class="d-flex flex-column" Style="height:70%;" Outlined="true">
+                                <MudText>ITEMS: @orderItems.Count()</MudText>
+                                <MudList>
+                                    @foreach (OrderItem orderItem in orderItems)
+                                    {
+                                        <MudListItem>
+                                            <div class="d-flex">
+                                                <MudAvatar Image="@orderItem.product.image"/>
+                                                <MudText Class="mx-1">@orderItem.product.name</MudText>
+                                                <MudText Class="mx-2" Inline="true"> x @orderItem.quantity</MudText>
+                                                <MudText class="mx-1" Inline="true">&euro; @orderItem.price</MudText>
+                                            </div>
+                                        </MudListItem>
+                                    }
+
+                                </MudList>
+                                <div class="mt-auto">
+                                    <MudDivider/>
+                                    <div class="d-flex pa-4">
+                                        <MudText>Total:</MudText>
+                                        <MudText Class="ml-auto"><b>&euro; @price</b></MudText>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <a href="#" class="border">@orderItem.quantity</a>
-                                </div>
-                                <div class="col">&euro; @orderItem.price</div>
-                            </div>
-                        </div>
-                    }
-                </div>
-                <div class="col-md-4 summary">
-                    <div><h5><b>Summary</b></h5></div>
-                    <hr>
-                    <div class="row">
-                        <div class="col" style="padding-left:0;">ITEMS @orderItems.Count()</div>
-                    </div>
-                    <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                        <div class="col">TOTAL PRICE</div>
-                        <div class="col text-right">&euro; @price</div>
-                    </div>
-                    <button class="btn" @onclick="MakeOrder">Buy</button>
-                </div>
-                
-                <Modal ShowModal="showModal">
-                    <p>A receipt of your order has been created! You can view all your receipts in your profile!</p>
-                    <button @onclick="@Proceed">Wonderful</button>
-                </Modal>
+                            </MudPaper>
+                        </MudItem>
+                    </MudGrid>
+                </MudContainer>
+
             }
 
 @code {
@@ -97,6 +110,10 @@
     private bool showModal;
     private Order order = null;
     private Receipt receipt = null;
+    private bool success;
+    private string[] errors = { };
+    MudForm form;
+    
     private User userTest = new User()
     {
         username = "Ana",
@@ -136,7 +153,7 @@
 
             OrderCreationDto dto = new OrderCreationDto(address, items, ShoppingCart.TotalPrice);
             order=await orderService.CreateAsync(dto);
-            ReceiptCreationDto receiptDto = new ReceiptCreationDto(userTest.username, order.Id);//username should come from authentication not be 1 by default
+            ReceiptCreationDto receiptDto = new ReceiptCreationDto(userTest.username, order.Id);
             receipt = await receiptService.CreateAsync(receiptDto);
             await DeleteShoppingCartAndUpdateStock();
             navMgr.NavigateTo("/PurchaseHistory");
@@ -162,10 +179,6 @@
         ShoppingCart.orderItems = new List<OrderItem>();
     }
 
-    private void Proceed()
-    {
-        showModal = false;
-        navMgr.NavigateTo("/ViewProducts");
-    }
+    
     
 }
