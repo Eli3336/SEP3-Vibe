@@ -7,10 +7,13 @@ public class OrderCreationDto
     
     public List<long> itemsId { get; }
 
-    public OrderCreationDto( string address, List<long> itemsId)
+    public double totalPrice { get; }
+
+    public OrderCreationDto( string address, List<long> itemsId, double totalPrice)
     {
         
         this.address = address;
         this.itemsId = itemsId;
+        this.totalPrice = totalPrice;
     }
 }

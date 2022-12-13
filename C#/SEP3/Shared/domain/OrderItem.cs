@@ -21,8 +21,11 @@ public class OrderItem
         this.hasBeenBought = hasBeenBought;
     }
     
-    public OrderItem()
+    public OrderItem() { }
+
+    public OrderItem(bool hasBeenBought)
     {
+        this.hasBeenBought = hasBeenBought;
     }
 
 

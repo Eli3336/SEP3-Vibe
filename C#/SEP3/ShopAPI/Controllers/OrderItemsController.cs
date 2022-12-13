@@ -77,6 +77,20 @@ public class OrderItemsController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+    [HttpPatch("/Buy")]
+    public async Task<ActionResult> BuyAsync([FromBody] OrderItemUpdateDto dto)
+    {
+        try
+        {
+            await orderItemLogic.BuyAsync(dto);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
     
     [HttpDelete("{id:long}")]
     public async Task<ActionResult> DeleteAsync([FromRoute] long id)

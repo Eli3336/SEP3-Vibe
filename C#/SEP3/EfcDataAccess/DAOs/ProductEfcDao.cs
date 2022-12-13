@@ -86,6 +86,7 @@ public class ProductEfcDao : IProductDao
         };
         await context.Products.AddAsync(toCreate3);
         await context.SaveChangesAsync();
+
         Product toCreate4 = new Product()
         {
             id = 4,
@@ -885,6 +886,7 @@ public class ProductEfcDao : IProductDao
         await context.SaveChangesAsync();
 
 
+
         return "Ok";
     }
 
@@ -910,7 +912,7 @@ public class ProductEfcDao : IProductDao
         return result;
     }
 
-    public async  Task<Product?> GetByIdAsync(long id)
+    public async Task<Product?> GetByIdAsync(long id)
     {
         Product? found = await context.Products
             .Include(product => product.category)
@@ -919,10 +921,26 @@ public class ProductEfcDao : IProductDao
 
         return found;
     }
-    
+
+    public async Task UpdateAsync(Product product)
+    {
+        context.Products.Update(product);
+        await context.SaveChangesAsync(); 
+    }
+
     public async  Task<Product?> GetByIdToUpdateAsync(long? id)
     {
         Product? found = await context.Products
+            .AsNoTracking()
+            .SingleOrDefaultAsync(p => p.id == id);
+
+        return found;
+    }
+    
+    public async Task<Product?> GetByIdToUpdateAsyncWithCategory(long? id)
+    {
+        Product? found = await context.Products
+            .Include(product => product.category)
             .AsNoTracking()
             .SingleOrDefaultAsync(p => p.id == id);
 
@@ -979,11 +997,11 @@ public class ProductEfcDao : IProductDao
                 Id = product.id,
                 Name = product.name,
                 Description = product.description,
+                Price = product.price,
                 Category = new CategoryGrpc()
                 {
                     Name = product.category.ToString()
-                },
-                Price = product.price
+                }
             });
         }
         catch (Exception e)

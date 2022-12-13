@@ -44,4 +44,9 @@ public class Product
        this.ingredients = ingredients;
        this.category = category;
    }
+
+   public Product(int stock)
+   {
+       this.stock = stock;
+   }
 }

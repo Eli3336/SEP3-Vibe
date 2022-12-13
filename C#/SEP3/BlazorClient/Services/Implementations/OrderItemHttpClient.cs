@@ -115,16 +115,29 @@ public class OrderItemHttpClient : IOrderItemService
         return orderItems.ToList();
     }
 
+    public async Task SetOrderItemToBought(OrderItemUpdateDto dto)
+    {
+        string dtoAsJson = JsonSerializer.Serialize(dto);
+        StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
+        
+        HttpResponseMessage response = await client.PatchAsync("/Buy", body);
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+    }
+
     public async Task<IEnumerable<OrderItem>> GetNotBoughtOrderItems()
     {
-        string uri = "/OrderItems/NotBought";
+        string uri = "/NotBought";
         HttpResponseMessage response = await client.GetAsync(uri);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(result);
         }
-
+        
         Console.WriteLine(result);
         IEnumerable<OrderItem> orderItems = JsonSerializer.Deserialize<IEnumerable<OrderItem>>(result, new JsonSerializerOptions
         {

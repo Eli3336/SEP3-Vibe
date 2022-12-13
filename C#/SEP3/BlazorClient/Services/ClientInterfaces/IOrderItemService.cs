@@ -12,7 +12,7 @@ public interface IOrderItemService
     Task<OrderItemCreationDto> GetByIdAsync(long id);
 
     Task<List<OrderItem>> GetAll();
-
+    Task SetOrderItemToBought(OrderItemUpdateDto dto);
     Task<IEnumerable<OrderItem>> GetNotBoughtOrderItems();
 
 }

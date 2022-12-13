@@ -1,3 +1,4 @@
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using BlazorClient.Services.ClientInterfaces;
@@ -135,7 +136,7 @@ public class ProductHttpClient : IProductService
         string dtoAsJson = JsonSerializer.Serialize(product);
         StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
 
-        HttpResponseMessage response = await client.PatchAsync("/Product", body);
+        HttpResponseMessage response = await client.PatchAsync("/Stock", body);
         if (!response.IsSuccessStatusCode)
         {
             string content = await response.Content.ReadAsStringAsync();
@@ -174,7 +175,7 @@ public class ProductHttpClient : IProductService
 
     public async Task<String> CreateAdminOrderAsync(Product product)
     {
-        HttpResponseMessage response = await client.GetAsync($"/Product/");
+        HttpResponseMessage response = await client.PostAsJsonAsync("/OrderAdminProduct", product);
         string content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {

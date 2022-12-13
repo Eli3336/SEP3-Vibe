@@ -106,9 +106,12 @@
     {
         try
         {
-            bool ok = false;
-            List<OrderItem> orderItems = ShoppingCart.orderItems.ToList();
-            for (int i = 0; i < orderItems.Count && ok == false; i++)
+            ShoppingCart.orderItems = await orderItemService.GetNotBoughtOrderItems();
+            bool alreadyInShoppingCart = false;
+            List<OrderItem> orderItems = new List<OrderItem>();
+            if(ShoppingCart.orderItems != null)
+                orderItems = ShoppingCart.orderItems.ToList();
+            for (int i = 0; i < orderItems.Count && alreadyInShoppingCart == false; i++)
             {
                 if (orderItems[i].product.id == id)
                 {
@@ -121,11 +124,11 @@
                             id = orderItems[i].id
                         };
                         await orderItemService.UpdateAsync(dto);
-                        ok = true;
                     }
+                    alreadyInShoppingCart = true;
                 }
             }
-            if (ok == false)
+            if (alreadyInShoppingCart == false)
                 {
                     OrderItemCreationDto dto = new OrderItemCreationDto(id, 1);
                     await orderItemService.OrderProduct(dto);
@@ -139,7 +142,7 @@
     }
 
 
-        private async void RemoveProduct()
+    private async void RemoveProduct()
     {
 
         try
@@ -151,11 +154,13 @@
                 if(orderItems[i].product.id == id)
                     await orderItemService.DeleteAsync(orderItems[i].id);
             }
+            if (ShoppingCart.orderItems != null)
+            {
+                var list1 = new List<OrderItem>(ShoppingCart.orderItems!);
+                list1.RemoveAll(orderItem => orderItem.id == id);
+                ShoppingCart.orderItems = list1.AsEnumerable();
+            }
 
-            var list1 = new List<OrderItem>(ShoppingCart.orderItems!);
-            list1.RemoveAll(orderItem => orderItem.id == id);
-            ShoppingCart.orderItems = list1.AsEnumerable();
-            
             navMgr.NavigateTo("/ViewProducts");
         }
         catch (Exception e)
