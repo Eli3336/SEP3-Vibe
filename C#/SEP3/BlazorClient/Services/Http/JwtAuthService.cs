@@ -8,13 +8,16 @@ namespace BlazorClient.Services.Http;
 
 public class JwtAuthService : IAuthService
 {
-    private readonly HttpClient client = new ();
-
+    private readonly HttpClient client;
     // this private variable for simple caching
     public static string? Jwt { get; private set; } = "";
-
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; } = null!;
-
+    
+    public JwtAuthService(HttpClient client)
+    {
+        this.client = client;
+    }
+   
     public async Task LoginAsync(string username, string password)
     {
         UserLoginDto customerLoginDto = new()
@@ -26,9 +29,9 @@ public class JwtAuthService : IAuthService
         string userAsJson = JsonSerializer.Serialize(customerLoginDto);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
 
-        HttpResponseMessage response = await client.PostAsync("https://localhost:7043/Auth/login", content);
+        HttpResponseMessage response = await client.PostAsync("/Auth/login", content);
         string responseContent = await response.Content.ReadAsStringAsync();
-
+        Console.WriteLine(responseContent);
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(responseContent);
@@ -38,8 +41,7 @@ public class JwtAuthService : IAuthService
         Jwt = token;
 
         ClaimsPrincipal principal = CreateClaimsPrincipal();
-
-        OnAuthStateChanged.Invoke(principal);
+        OnAuthStateChanged.Invoke(principal); 
     }
 
     private static ClaimsPrincipal CreateClaimsPrincipal()
@@ -49,7 +51,7 @@ public class JwtAuthService : IAuthService
             return new ClaimsPrincipal();
         }
 
-        IEnumerable<Claim> claims = ParseClaimsFromJwt(Jwt);
+        IEnumerable<Claim>? claims = ParseClaimsFromJwt(Jwt);
         
         ClaimsIdentity identity = new(claims, "jwt");
 
@@ -65,11 +67,11 @@ public class JwtAuthService : IAuthService
         return Task.CompletedTask;
     }
 
-    public async Task RegisterAsync(User user)  
+    public async Task RegisterAsync(UserCreationDto dto)  
     {
-        string userAsJson = JsonSerializer.Serialize(user);
+        string userAsJson = JsonSerializer.Serialize(dto);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
-        HttpResponseMessage response = await client.PostAsync("https://localhost:7130/Auth/register", content);
+        HttpResponseMessage response = await client.PostAsync("/Auth/register", content);
         string responseContent = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
