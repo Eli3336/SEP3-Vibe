@@ -66,5 +66,20 @@ public class ReceiptController : ControllerBase
         }
         
     }
+    
+    [HttpGet("/User/{id:long}")]
+    public async Task<ActionResult<IEnumerable<Receipt>>> GetByUserIdAsync([FromRoute] long id)
+    {
+        try
+        {
+            IEnumerable<Receipt> receipts = await receiptLogic.GetByUserIdAsync(id);
+            return Ok(receipts);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
    
 }

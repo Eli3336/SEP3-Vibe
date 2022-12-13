@@ -9,4 +9,5 @@ public interface IReceiptService
     
     Task<ReceiptGetDto> GetByIdAsync(long id);
     Task<IEnumerable<Receipt>> GetAsync(long? idContains=null);
+    Task<IEnumerable<Receipt>> GetByUserIdAsync(long id);
 }

@@ -9,5 +9,5 @@ public interface IReceiptLogic
     
     Task<ReceiptGetDto> GetByIdAsync(long id);
     Task<IEnumerable<Receipt>> GetAsync(SearchReceiptParametersDto parametersDto);
-
+    Task<IEnumerable<Receipt>> GetByUserIdAsync(long id);
 }

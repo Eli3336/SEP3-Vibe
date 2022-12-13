@@ -4,6 +4,7 @@
 @using global::Shared
 @inject IProductService productService
 @inject NavigationManager navMgr
+@attribute [Authorize(Policy="SecurityLevel2OrAbove")]
 
 
 <div class="d-flex justify-content-center mb-5"><h1>Order Product</h1></div>

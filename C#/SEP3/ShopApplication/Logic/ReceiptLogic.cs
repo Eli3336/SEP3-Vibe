@@ -49,8 +49,13 @@ public class ReceiptLogic : IReceiptLogic
         return new ReceiptGetDto(receipt.user, receipt.order);
     }
 
-    public Task<IEnumerable<Receipt>> GetAsync(SearchReceiptParametersDto parametersDto)
+    public async Task<IEnumerable<Receipt>> GetAsync(SearchReceiptParametersDto parametersDto)
     {
-        return receiptDao.GetAsync(parametersDto);
+        return await receiptDao.GetAsync(parametersDto);
+    }
+
+    public async Task<IEnumerable<Receipt>> GetByUserIdAsync(long id)
+    {
+        return await receiptDao.GetByUserIdAsync(id);
     }
 }

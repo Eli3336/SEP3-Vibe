@@ -30,8 +30,22 @@ public class UserHttpClient : IUserService
         })!;
         return user;
     }
-    
-    
 
+    public async Task<User> GetByUsername(string username)
+    {
+        HttpResponseMessage response = await client.GetAsync($"/Users?username={username}");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
 
+        User user = JsonSerializer.Deserialize<User>(content, 
+            new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            }
+        )!;
+        return user;
+    }
 }

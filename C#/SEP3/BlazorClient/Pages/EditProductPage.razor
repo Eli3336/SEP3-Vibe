@@ -4,6 +4,7 @@
 @inject IProductService productService
 @inject NavigationManager navMgr
 <div class="d-flex justify-content-center mb-5"><h1>Edit Product</h1></div>
+@attribute [Authorize(Policy="SecurityLevel2OrAbove")]
 
 <div class="form-group field">
     <label>Name:</label>

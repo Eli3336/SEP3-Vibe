@@ -1,89 +1,123 @@
 @page "/Profile"
 @using Align = BlazorStrap.Align
 @using global::Shared
-@inject NavigationManager navMgr;
+@inject NavigationManager navMgr
 @inject IReceiptService receiptService
+@inject IAuthService authService
+@inject IUserService userService
 @using BlazorClient.Services.ClientInterfaces
-@if (receipts == null)
-            {
-                <span>Loading..</span>
-            }
-else
-{
-    <BSContainer >
-        <BSCard>
-            <BSCard CardType="CardType.Image" src="/img/bg-profile.jpg" Class="img-fluid"/>
-            <BSCard CardType="CardType.ImageOverlay">
-                <BSRow Align="Align.Start">
+@using Microsoft.AspNetCore.Components
+@using BlazorClient.Services
+@using System.Security.Claims
 
-                    <BSCol Column="4" Style="color: #1a1e21">
-                        <BSCard CardType="CardType.Card">
-                            <BSCard CardType="CardType.Image" src="/img/profile.jpg" alt="Card image cap" width="150" height="400"/>
-                            <BSCard CardType="CardType.Body">
-                                <BSCard CardType="CardType.Title">User name</BSCard>
-                                <BSCard CardType="CardType.Text">some things about users idk</BSCard>
-                                <BSCard CardType="CardType.Text">some things about users idksfsaffffffffsdfs</BSCard>
-                            </BSCard>
+<AuthorizeView>
+        <NotAuthorized>
+            <div class="card">
+                <h3>Hello! Please login to see your account.</h3>
+            <button @onclick="@login">Log in</button>
+                </div>
+        </NotAuthorized>
+        <Authorized>
+            <BSContainer >
+                    <BSCard>
+                        <BSCard CardType="CardType.Image" src="/img/bg-profile.jpg" Class="img-fluid"/>
+                        <BSCard CardType="CardType.ImageOverlay">
+                            <BSRow Align="Align.Start">
+            
+                                <BSCol Column="4" Style="color: #1a1e21">
+                                    <BSCard CardType="CardType.Card">
+                                        <BSCard CardType="CardType.Image" src="/img/profile.jpg" alt="Card image cap" width="150" height="400"/>
+                                        <BSCard CardType="CardType.Body">
+                                            <BSCard CardType="CardType.Title">@currentUser.name</BSCard>
+                                            <BSCard CardType="CardType.Text">@currentUser.username</BSCard>
+                                            <BSCard CardType="CardType.Text">@currentUser.phoneNumber</BSCard>
+                                        </BSCard>
+                                    </BSCard>
+                                </BSCol>
+                                <BSCol Column="8">
+                                    <BSTable Color="BSColor.Dark" IsBordered="true" IsBorderLess="true" IsCaptionTop="true" IsStriped="true">
+                                        <caption class="fw-bolder" style="color: #8898aa">
+                                            <h3>Purchase History</h3></caption>
+                                        <BSTHead>
+                                            <BSTR>
+                                                <BSTD>#Order</BSTD>
+                                                <BSTD>Number of Products</BSTD>
+                                                <BSTD>Date</BSTD>
+                                                <BSTD>Total</BSTD>
+                                            </BSTR>
+                                        </BSTHead>
+                                        <BSTBody>
+                                            @foreach (Receipt receipt in receipts)
+                                            {
+                                                <BSTR AlignRow="AlignRow.Middle">
+                                                    <BSTD>@receipt.id</BSTD>
+                                                    <BSTD>@receipt.order.items.Count</BSTD>
+                                                    <BSTD>@receipt.order.orderDate</BSTD>
+                                                    <BSTD>@receipt.finalPrice</BSTD>
+                                                </BSTR>
+                                            }
+                                        </BSTBody>
+                                        <BSTFoot>
+                                            <BSTR>
+                                                <BSTD ColSpan="4">Record of past purchases</BSTD>
+                                            </BSTR>
+            
+                                        </BSTFoot>
+                                    </BSTable>
+                                    <BSButton Class="oi oi-account-logout" Color="BSColor.Dark" @onclick="@(() => navMgr.NavigateTo("/Logout"))"> Log Out
+                                    </BSButton>
+            
+                                </BSCol>
+            
+                            </BSRow>
                         </BSCard>
-                    </BSCol>
-                    <BSCol Column="8">
-                        <BSTable Color="BSColor.Dark" IsBordered="true" IsBorderLess="true" IsCaptionTop="true" IsStriped="true">
-                            <caption class="fw-bolder" style="color: #8898aa">
-                                <h3>Purchase History</h3></caption>
-                            <BSTHead>
-                                <BSTR>
-                                    <BSTD>#Order</BSTD>
-                                    <BSTD>Number of Products</BSTD>
-                                    <BSTD>Date</BSTD>
-                                    <BSTD>Total</BSTD>
-                                </BSTR>
-                            </BSTHead>
-                            <BSTBody>
-                                @foreach (Receipt receipt in receipts)
-                                {
-                                    <BSTR AlignRow="AlignRow.Middle">
-                                        <BSTD>@receipt.id</BSTD>
-                                        <BSTD>@receipt.order.items.Count</BSTD>
-                                        <BSTD>@receipt.order.orderDate</BSTD>
-                                        <BSTD>@receipt.finalPrice</BSTD>
-                                    </BSTR>
-                                }
-                            </BSTBody>
-                            <BSTFoot>
-                                <BSTR>
-                                    <BSTD ColSpan="4">Record of past purchases</BSTD>
-                                </BSTR>
+                    </BSCard>
+                </BSContainer>
+        </Authorized>
+    </AuthorizeView>
 
-                            </BSTFoot>
-                        </BSTable>
-                        <BSButton Class="oi oi-account-logout" Color="BSColor.Dark" @onclick="@(() => navMgr.NavigateTo("/Logout"))"> Log Out
-                        </BSButton>
-
-                    </BSCol>
-
-                </BSRow>
-            </BSCard>
-        </BSCard>
-    </BSContainer>
-}
 @code {
     
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+
+    private string? currentUsername;
+    private IEnumerable<Claim>? userClaims;
+    private bool isLoggedIn;
     private IEnumerable<Receipt>? receipts;
     private string msg = "";
     private long? id= null;
-
+    private User currentUser;
+    
     protected override async Task OnInitializedAsync()
     {
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal user = authState.User;
+        isLoggedIn = user.Identity != null;
+        
+        if (!isLoggedIn) return;
+        
+        userClaims = user.Claims;
+        currentUsername = user.Identity!.Name!;
+
+        currentUser = await userService.GetByUsername(currentUsername);
+        
         msg = "";
-        try
-        {
-            receipts = await receiptService.GetAsync();
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            msg = e.Message;
-        }
+                try
+                {
+                    receipts = await receiptService.GetByUserIdAsync(currentUser.Id);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    msg = e.Message;
+                }
     }
+
+    private void login()
+    {
+        navMgr.NavigateTo("/login");
+    }
+    
     
 }

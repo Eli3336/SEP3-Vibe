@@ -48,4 +48,21 @@ public class ReceiptEfcDao : IReceiptDao
         IEnumerable<Receipt> result = await receipts.ToListAsync();
         return result;
     }
+
+    public async Task<IEnumerable<Receipt>> GetByUserIdAsync(long id)
+    {
+        IQueryable<Receipt> receipts= context.Receipts
+            .Include(r => r.order)
+            .ThenInclude(o=>o.items)
+            .ThenInclude(i=>i.product)
+            .ThenInclude(p=>p.category)
+            .Include(r=>r.user)
+            .AsQueryable();
+        
+        
+        receipts = receipts.Where(r => r.user.Id == id);
+        
+        IEnumerable<Receipt> result = await receipts.ToListAsync();
+        return result;
+    }
 }

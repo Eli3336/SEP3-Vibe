@@ -10,15 +10,18 @@ public class User
 
     public ShoppingCart shoppingCart;
     
+    public int SecurityLevel { get; set; }
+    
     public User(){}
 
-    public User(string name, string phoneNumber, string username, string password, ShoppingCart shoppingCart)
+    public User(string name, string phoneNumber, string username, string password, ShoppingCart shoppingCart, int securityLevel)
     {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.username = username;
         this.password = password;
         this.shoppingCart = shoppingCart;
+        this.SecurityLevel = securityLevel;
     }
     
     

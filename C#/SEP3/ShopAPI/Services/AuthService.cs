@@ -52,7 +52,12 @@ public class AuthService:IAuthService
             throw new ValidationException("Password cannot be null");
         }
 
-        User user = new User(dto.Name, dto.PhoneNumber, dto.UserName, dto.Password, new ShoppingCart());
+        User user;
+        if(dto.UserName.Equals("admin"))
+            user = new User(dto.Name, dto.PhoneNumber, dto.UserName, dto.Password, new ShoppingCart(), 2);
+        else
+            user = new User(dto.Name, dto.PhoneNumber, dto.UserName, dto.Password, new ShoppingCart(), 1);
+        
         users.Add(user);
         User userToCreate = await userDao.CreateAsync(user);
         return userToCreate;

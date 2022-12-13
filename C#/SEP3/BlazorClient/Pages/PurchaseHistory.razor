@@ -1,8 +1,13 @@
 @page "/PurchaseHistory"
 @inject IReceiptService receiptService
+@inject IUserService userService
 @using global::Shared.DTOs
 @using BlazorClient.Services.ClientInterfaces
 @using global::Shared
+@using System.Security.Claims
+@inject NavigationManager navMgr
+@attribute [Authorize(Policy="MustBeLoggedIn")]
+
 <h3>PurchaseHistory</h3>
 @if (receipts == null)
             {
@@ -10,53 +15,89 @@
             }
 else
 {
-	<div>
-		<BSTable Color="BSColor.Light" IsBordered="true" IsBorderLess="true" IsCaptionTop="true" IsStriped="true">
-			<BSTHead>
-				<BSTR>
-					<BSTD>#Order</BSTD>
-					<BSTD>Number of Products</BSTD>
-					<BSTD>Date</BSTD>
-					<BSTD>Total</BSTD>
-				</BSTR>
-			</BSTHead>
-			<BSTBody>
-				@foreach (Receipt receipt in receipts)
-				{
-					<BSTR AlignRow="AlignRow.Middle">
-						<BSTD>@receipt.id</BSTD>
-						<BSTD>@receipt.order.items.Count</BSTD>
-						<BSTD>@receipt.order.orderDate</BSTD>
-						<BSTD>@receipt.finalPrice</BSTD>
-					</BSTR>
-				}
-			</BSTBody>
-			<BSTFoot>
-				<BSTR>
-					<BSTD ColSpan="4">Record of past purchases</BSTD>
-				</BSTR>
-        
-			</BSTFoot>
-		</BSTable>
-		
-		</div>
+	
+	<AuthorizeView >
+        <NotAuthorized>
+            <div>
+	            <h3>Hello! Please login to see your history.</h3>
+	            <button @onclick="@login">Log in</button>
+	            </div>
+        </NotAuthorized>
+        <Authorized>
+            <div>
+	            <BSTable Color="BSColor.Light" IsBordered="true" IsBorderLess="true" IsCaptionTop="true" IsStriped="true">
+		            <BSTHead>
+			            <BSTR>
+				            <BSTD>#Order</BSTD>
+				            <BSTD>Number of Products</BSTD>
+				            <BSTD>Date</BSTD>
+				            <BSTD>Total</BSTD>
+			            </BSTR>
+		            </BSTHead>
+		            <BSTBody>
+			            @foreach (Receipt receipt in receipts)
+			            {
+				            <BSTR AlignRow="AlignRow.Middle">
+					            <BSTD>@receipt.id</BSTD>
+					            <BSTD>@receipt.order.items.Count</BSTD>
+					            <BSTD>@receipt.order.orderDate</BSTD>
+					            <BSTD>@receipt.finalPrice</BSTD>
+				            </BSTR>
+			            }
+		            </BSTBody>
+		            <BSTFoot>
+			            <BSTR>
+				            <BSTD ColSpan="4">Record of past purchases</BSTD>
+			            </BSTR>
+                    
+		            </BSTFoot>
+	            </BSTable>
+            </div>
+        </Authorized>
+    </AuthorizeView>
+	
 }
 @code {
+	
+	
+	[CascadingParameter]
+	public Task<AuthenticationState> AuthState { get; set; } = null!;
+
+	private string? currentUsername;
+	private IEnumerable<Claim>? userClaims;
+	private bool isLoggedIn;
 	private IEnumerable<Receipt>? receipts;
 	private string msg = "";
 	private long? id= null;
-
+	private User currentUser;
+    
 	protected override async Task OnInitializedAsync()
 	{
+		AuthenticationState authState = await AuthState;
+		ClaimsPrincipal user = authState.User;
+		isLoggedIn = user.Identity != null;
+        
+		if (!isLoggedIn) return;
+        
+		userClaims = user.Claims;
+		currentUsername = user.Identity!.Name!;
+
+		currentUser = await userService.GetByUsername(currentUsername);
+        
 		msg = "";
 		try
 		{
-			receipts = await receiptService.GetAsync();
+			receipts = await receiptService.GetByUserIdAsync(currentUser.Id);
 		}
 		catch (Exception e)
 		{
 			Console.WriteLine(e);
 			msg = e.Message;
 		}
+	}
+	
+	private void login()
+	{
+		navMgr.NavigateTo("/login");
 	}
 }

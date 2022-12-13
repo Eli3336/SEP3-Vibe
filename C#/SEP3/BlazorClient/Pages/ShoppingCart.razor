@@ -4,6 +4,7 @@
 @using global::Shared.DTOs
 @inject IOrderItemService orderItemService
 @inject NavigationManager navMgr;
+@attribute [Authorize(Policy="MustBeLoggedIn")]
 
 @if (!string.IsNullOrEmpty(msg))
             {
