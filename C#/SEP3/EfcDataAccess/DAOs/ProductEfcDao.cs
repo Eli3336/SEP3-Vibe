@@ -665,7 +665,7 @@ public class ProductEfcDao : IProductDao
         {
             id = 45,
             name = "Ocean Bottle - Forest Green",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
+            description = "This gorgeous forest green reusable water bottle reflects the colours of nature whilst also protecting it. Made with recycled, double-walled vacuum-insulated stainless steel keeping cold drinks cold, and hot drinks hot. This award-winning Ocean Bottle has an anti-leak dual opening lid, either drink from the bottle or use the lid as a handy drinking cup! Size - 500ml.",
             price = 40,
             stock = 25,
             image = images[44],
@@ -692,197 +692,197 @@ public class ProductEfcDao : IProductDao
         Product toCreate47 = new Product()
         {
             id = 47,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
-            price = 40,
+            name = "Supernatural Stick Multi-Use Blush",
+            description = "Creamy, hydrating blush stick for a pop of color",
+            price = 22,
             stock = 25,
             image = images[46],
-            ingredients = "steel, diamond",
+            ingredients = "Supernatural Stick Multi-Use Blush Net Wt. 0.15 oz. (4.5 g) Ingredients: helianthus annuus (sunflower) seed oil/helianthus annuus seed oil, ricinus communis (castor) seed oil/ricinus communis seed oil, mica, carthamus tinctorius (safflower) seed oil/carthamus tinctorius seed oil, copernicia cerifera (carnauba) wax/copernicia cerifera cera, synthetic beeswax, castor isostearate succinate, tocopherol, polyhydroxystearic acid, caprylic/capric triglyceride, simmondsia chinensis (jojoba) seed oil/simmondsia chinensis seed oil, rosa rubiginosa seed oil, crambe abyssinica seed oil, isostearic acid, tin oxide, calendula officinalis flower extract, lecithin, polyglyceryl-3 polyricinoleate, camellia sinensis(green tea)seed oil/camellia sinensis seed oil, aloe barbadensis leaf juice, maltodextrin, potassium sorbate, sodium benzoate. May Contain titanium dioxide (ci 77891), iron oxides(ci 77491, ci 77492), red 6 lake (ci 15850), red 7 lake (ci 15850).",
             category = categoryDao.GetByName("Cosmetics").Result
         };
-        await context.Products.AddAsync(toCreate4);
+        await context.Products.AddAsync(toCreate47);
         await context.SaveChangesAsync();
         
         Product toCreate48 = new Product()
         {
             id = 48,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
-            price = 40,
+            name = "Bio Stick Foundation",
+            description = "Creamy, multi-use hydrating foundation stick",
+            price = 27,
             stock = 25,
             image = images[47],
-            ingredients = "steel, diamond",
+            ingredients = "Bio Stick Foundation Net Wt. - 0.35 oz. (10g) Ingredients: helianthus annuus seed oil/helianthus annuus (sunflower) seed oil, ricinus communis seed oil/ricinus communis(castor) seed oil, carthamus tinctorius seed oil/carthamus tinctorius (safflower) seed oil, copernicia cerifera cera/copernicia cerifera (carnauba) wax, synthetic beeswax, castor isostearate succinate, mica, tocopherol, polyhydroxystearic acid, caprylic/caprictriglyceride, simmondsia chinensisseed oil/simmondsia chinensis(jojoba) seed oil, rosa rubiginosa seed oil, crambe abyssinica seed oil, isostearic acid, lecithin, polyglyceryl-3 polyricinoleate, calendula officinalis flower extract, camellia sinensis seed oil/camellia sinensis (green tea) seed oil, aloe barbadensis leaf juice, maltodextrin, sodium benzoate, potassium sorbate. May Contain titanium dioxide (ci 77891), iron oxides (ci 77491,ci 77492,ci 77499).",
             category = categoryDao.GetByName("Cosmetics").Result
         };
-        await context.Products.AddAsync(toCreate4);
+        await context.Products.AddAsync(toCreate48);
         await context.SaveChangesAsync();
         
         Product toCreate49 = new Product()
         {
             id = 49,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
-            price = 40,
+            name = "Optimist Lipstick",
+            description = "Hydrating, high-pigment lipstick for long-lasting color",
+            price = 16,
             stock = 25,
             image = images[48],
-            ingredients = "steel, diamond",
+            ingredients = "Optimist Lipstick Net Wt. 0.12 oz. (3.5 g) Ingredients: ricinus communis seed oil/ricinus communis (castor) seed oil, jojoba esters, isostearyl isostearate, ethylhexyl palmitate, oleyl alcohol, bis-diglyceryl polyacyladipate-2, copernicia cerifera cera/copernicia cerifera (carnauba) wax, candelilla cera/euphorbia cerifera (candelilla) wax, polyglyceryl-2 triisostearate, synthetic beeswax, helianthus annuus seed wax/helianthus annuus(sunflower) seed wax, mica, tocopherol, theobroma grandiflorum seed butter, carthamus tinctoriusseed oil/carthamus tinctorius(safflower) seed oil, helianthus annus seed oil/helianthus annuus (sunflower) seed oil, acacia decurrens flower wax, polyglycerin-3, aloe barbadensis leaf juice, maltodextrin, potassium sorbate, sodium benzoate. May Contain titanium dioxide (ci 77891), iron oxides (ci 77491,ci 77492,ci 77499), red 40 lake (ci 16035), red 6 lake (ci 15850), red 7 lake (ci 15850), blue 1 lake (ci 42090), yellow 6 lake (ci 15985).",
             category = categoryDao.GetByName("Cosmetics").Result
         };
-        await context.Products.AddAsync(toCreate4);
+        await context.Products.AddAsync(toCreate49);
         await context.SaveChangesAsync();
         
         Product toCreate50 = new Product()
         {
             id = 50,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
-            price = 40,
+            name = "Power Palette Eyeshadow",
+            description = "Long-wear neutral powder eyeshadow palettes",
+            price = 22,
             stock = 25,
             image = images[49],
-            ingredients = "steel, diamond",
+            ingredients = "Power Palette Eyeshadow Net Wt. 0.26 oz. (7.5 g) Ingredients: mica, simmondsia chinensis seed oil/simmondsia chinensis(jojoba) seed oil, synthetic fluorphlogopite, calcium aluminum borosilicate, silica, copernicia cerifera cera/copernicia cerifera (carnauba) wax, boron nitride, sodium dehydroacetate, lauroyl lysine, vitis vinifera seed oil/vitis vinifera(grape) seed oil, tocopherol, ricinus communis seed oil/ricinus communis (castor) seed oil, olea europaea fruit oil/olea europaea(olive) fruit oil, tin oxide. May Contain iron oxides (ci 77491, ci 77499), ferric ferrocyanide (ci 77510), titanium dioxide (ci 77891), bronze powder (ci 77400), yellow 5 lake (ci 19140), red 40 lake (ci 16035), manganese violet (ci 77742), blue 1 lake (ci 42090).",
             category = categoryDao.GetByName("Cosmetics").Result
         };
-        await context.Products.AddAsync(toCreate4);
+        await context.Products.AddAsync(toCreate50);
         await context.SaveChangesAsync();
         
         Product toCreate51 = new Product()
         {
             id = 51,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
-            price = 40,
+            name = "Evercalm™ Ultra Comforting Rescue Mask",
+            description = "Fast-acting calming and intensively hydrating face mask.",
+            price = 50,
             stock = 25,
             image = images[50],
-            ingredients = "steel, diamond",
+            ingredients = "aqua (water),glycerin,cetearyl alcohol,caprylyl caprylate/caprate,olus oil,lactobacillus ferment,butyrospermum,parkii (shea) butter,helianthus annus (sunflower) seed wax,simmondsia chinesis (jojoba) seed oil,cetearyl glucoside,propanediol,algae extract,cetyl alcohol,lactobacillus,alpha-glucan oligosaccharide,parfum (fragrance),tocopheryl acetate,caprylic/capric triglyceride,panthenol,carbomer,vaccinium vitas-idaea (lingonberry) seed oil,xanthan gum,arnica montana flower extract,camelina sativa seed oil,cocus nucifera (coconut) fruit extract,tocopherol,magnesium carboxymethyl beta-glucan,malachite extract,albatrellus ovinus extract,laminaria ochroleuca extract,glucose,phenoxyethanol,helianthus annuus (sunflower) seed oil,citric acid,sodium hydroxide,rosmarinus officinalis leat extract,citronellol,geraniol,limonene,linalool",
             category = categoryDao.GetByName("Cosmetics").Result
         };
-        await context.Products.AddAsync(toCreate4);
+        await context.Products.AddAsync(toCreate51);
         await context.SaveChangesAsync();
         
         Product toCreate52 = new Product()
         {
             id = 52,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
-            price = 40,
+            name = "Evercalm™ Global Protection Day Cream",
+            description = "Future-proofing day cream to immediately calm and soothe sensitive skin.",
+            price = 50,
             stock = 25,
             image = images[51],
-            ingredients = "steel, diamond",
+            ingredients = "aqua (water),cetearyl alcohol,camellia oleifera seed oil,cetearyl ethylhexanoate,myristyl myristate,sesamum indicum (sesame) seed oil,glycerin,butyrospermum parkii (shea) butter,caprylic/capric triglyceride,triheptanoin,cetearyl glucoside,myristyl laurate,oryzanol,helianthus annuus (sunflower) seed oil,ethylhexylglycerin,vaccinium macrocarpon (cranberry) seed oil,bisabolol,ribes nigrum (black currant) seed oil,carbomer,hippophae rhamnoides fruit extract,citrus nobilis (mandarin orange) peel oil,tocopherol,anthemis nobilis flower oil,cinnamomum camphora linalloliferum (ho wood) leaf oil,pelargonium graveolens flower oil,phenoxyethanol,sodium dehydroacetate,pueraria lobata (kudzu) symbiosome extract,laminaria ochroleuca extract,cassia alata leaf extract,calendula officinalis flower extract,glucose,parfum (fragrance),rosmarinus officinalis (rosemary) leaf extract,lactic acid,sodium hydroxide,citronellol,geraniol,limonene,linalool",
             category = categoryDao.GetByName("Cosmetics").Result
         };
-        await context.Products.AddAsync(toCreate4);
+        await context.Products.AddAsync(toCreate52);
         await context.SaveChangesAsync();
         
         Product toCreate53 = new Product()
         {
             id = 53,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
-            price = 40,
+            name = "Evercalm™ Gentle Cleansing Gel",
+            description = "Non-drying cleanser for stressed & sensitive skin.",
+            price = 37,
             stock = 25,
             image = images[52],
-            ingredients = "steel, diamond",
+            ingredients = "aqua (water),glycerin,coco-glucoside,polysorbate 20,xanthan gum,panthenol,sodium lauroyl oat amino acids,inulin,citrus aurantium amara (bitter orange) flower water extract,alpha-glucan oligosaccharide,sodium carboxymethyl betaglucan,phenoxyethanol,sodium benzoate,parfum (fragrance),lactic acid,linalool",
             category = categoryDao.GetByName("Cosmetics").Result
         };
-        await context.Products.AddAsync(toCreate4);
+        await context.Products.AddAsync(toCreate53);
         await context.SaveChangesAsync();
         
         Product toCreate54 = new Product()
         {
             id = 54,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
-            price = 40,
+            name = "Keep Young And Beautiful™ Instant Firming Beauty Shot",
+            description = "Anti-aging gel serum to instantly plump and lift.",
+            price = 62,
             stock = 25,
             image = images[53],
-            ingredients = "steel, diamond",
+            ingredients = "Aqua (Water), Sodium Hyaluronate, Hydroxypropyl Methylcellulose, Hydroxyacetophenone, Pullulan, Carbomer, Porphyridium Cruentum Extract, Rosa Damascena Flower Oil, Phenoxyethanol, Rosa Damascena Extract, Sodium Hydroxide, Citronellol, Geraniol",
             category = categoryDao.GetByName("Cosmetics").Result
         };
-        await context.Products.AddAsync(toCreate4);
+        await context.Products.AddAsync(toCreate54);
         await context.SaveChangesAsync();
         
         Product toCreate55 = new Product()
         {
             id = 55,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
+            name = "Clean Screen Mineral SPF 30 Mattifying Face Sunscreen",
+            description = "Silicone-free, 22% zinc oxide SPF.",
             price = 40,
             stock = 25,
             image = images[54],
-            ingredients = "steel, diamond",
+            ingredients = "aqua (water),zinc oxide,caprylic/capric triglyceride,aloe barbadensis leaf juice,glycerin,caprylyl caprylate/caprate,propanediol,arachidyl alcohol,cetearyl alcohol,coco-glucoside,oryza sativa starch,pongamia glabra seed oil,microcrystalline cellulose,behenyl alcohol,phenoxyethanol,arachidyl glucoside,isostearic acid,lecithin,polyglyceryl-3 polyricinoleate,polyhydroxystearic acid,passiflora edulis fruit extract,ethylhexylglycerin,glyceryl oleate,vaccinium macrocarpon (cranberry) seed oil,xanthan gum,cellulose gum,sodium chloride,hippophae rhamnoides oil,citrus nobilis (mandarin orange) peel oil,anthemis nobilis flower oil,cinnamomum camphora linalloliferum (ho wood) leaf oil,pelargonium graveolens flower oil,glucose,parfum (fragrance),helianthus annuus (sunflower) seed oil,tocopherol,rosmarinus officinalis (rosmary) leaf extract,hydrogenated palm glycerides citrate,citric acid,sodium hydroxide,citronellol,geraniol,limonene,linalool",
             category = categoryDao.GetByName("Cosmetics").Result
         };
-        await context.Products.AddAsync(toCreate4);
+        await context.Products.AddAsync(toCreate55);
         await context.SaveChangesAsync();
         
         Product toCreate56 = new Product()
         {
             id = 56,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
-            price = 40,
+            name = "rosemary mint hand and body wash",
+            description = "Gentle cleansing formula. Awakens the senses with an invigorating aroma of certified organic rosemary and peppermint with other pure flower and plant essences.",
+            price = 26,
             stock = 25,
             image = images[55],
-            ingredients = "steel, diamond",
+            ingredients = "Ingredients: Water Aqua, Ammonium Lauryl Sulfate, Propanediol, Decyl Glucoside, Sodium Hydroxypropylsulfonate Laurylglucoside Crosspolymer, Babassuamidopropyl Betaine, Sodium Chloride, Aloe Barbadensis Leaf, Rosmarinus Officinalis (Rosemary) Leaf Oil, Mentha Piperita (Peppermint) Oil, Lavandula Angustifolia (Lavender) Oil, Origanum Majorana Leaf Oil, Menthol, Alpha-Glucan Oligosaccharide, Glycerin, Tocopherol, Glycine Soja (Soybean) Oil, Glycol Distearate, Acrylates Copolymer, Citric Acid, Sodium Hydroxide, Fragrance (Parfum), Linalool, Limonene, Isoeugenol, Sodium Phytate, Phenoxyethanol, Sodium Benzoate, Potassium Sorbate <ILN43582> Please be aware that ingredient lists may change or vary from time to time. Please refer to the ingredient list on the product package you receive for the most up to date list of ingredients.",
             category = categoryDao.GetByName("Cosmetics").Result
         };
-        await context.Products.AddAsync(toCreate4);
+        await context.Products.AddAsync(toCreate56);
         await context.SaveChangesAsync();
         
         Product toCreate57 = new Product()
         {
             id = 57,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
-            price = 40,
+            name = "rosemary mint body lotion",
+            description = "A lightweight lotion with certified organic peppermint cools and revitalizes skin. Awakens the senses with an invigorating aroma of certified organic rosemary and peppermint with other pure flower and plant essences.",
+            price = 32.5,
             stock = 25,
             image = images[56],
-            ingredients = "steel, diamond",
+            ingredients = "Ingredients: Water Aqua, Coco-Caprylate/Caprate, Caprylic/Capric Triglyceride, Polyglyceryl-10 Oleate, Glyceryl Stearate, Cetyl Alcohol, Hydroxypropyl Starch Phosphate, Glycerin, Aloe Barbadensis Leaf, Alpha-Glucan Oligosaccharide, Tocopherol, Helianthus Annuus (Sunflower) Seed Oil, Sodium Pca, Capryloyl Glycine, Xanthan Gum, Menthol, Dimethicone, Peg-100 Stearate, Fragrance (Parfum), Limonene, Linalool, Isoeugenol, Sodium Gluconate, Phenoxyethanol, Sodium Benzoate <ILN43960> Please be aware that ingredient lists may change or vary from time to time. Please refer to the ingredient list on the product package you receive for the most up to date list of ingredients.",
             category = categoryDao.GetByName("Cosmetics").Result
         };
-        await context.Products.AddAsync(toCreate4);
+        await context.Products.AddAsync(toCreate57);
         await context.SaveChangesAsync();
         
         Product toCreate58 = new Product()
         {
             id = 58,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
-            price = 40,
+            name = "lip saver™",
+            description = "Nurture your lips with our soothing, moisturizing, balm containing naturally derived waxes. Delivers moisture relief to dry lips. refreshes with cinnamon leaf, clove and anise oils",
+            price = 16.5,
             stock = 25,
             image = images[57],
-            ingredients = "steel, diamond",
+            ingredients = "Ingredients: Ricinus Communis (Castor) Seed Oil, Jojoba Esters, Helianthus Annuus (Sunflower) Seed Oil, Butyrospermum Parkii (Shea Butter), Euphorbia Cerifera (Candelilla) Wax\Candelilla Cera\Cire De Candelilla, Copernicia Cerifera (Carnauba) Wax\ Copernicia Cerifera Cera \Cire De Carnauba, Helianthus Annuus (Sunflower) Seed Wax, Hydrogenated Castor Oil, Tocopherol, Flavor (Aroma), Coumarin, Geraniol, Eugenol, Cinnamal, Citronellol, Linalool, Limonene, Benzyl Benzoate <ILN45755> Please be aware that ingredient lists may change or vary from time to time. Please refer to the ingredient list on the product package you receive for the most up to date list of ingredients.",
             category = categoryDao.GetByName("Cosmetics").Result
         };
-        await context.Products.AddAsync(toCreate4);
+        await context.Products.AddAsync(toCreate58);
         await context.SaveChangesAsync();
         
         Product toCreate59 = new Product()
         {
             id = 59,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
-            price = 40,
+            name = "aveda men pure-formance™ aroma spray",
+            description = "A rich, spicy, refreshing aroma comprised of kunzea, citrus and certified organic essential oils of spearmint, vetiver and lavender.",
+            price = 52,
             stock = 25,
             image = images[58],
-            ingredients = "steel, diamond",
+            ingredients = "Ingredients: Alcohol Denat., Cetearyl Isononanoate, Fragrance (Parfum), Limonene, Farnesol, Eugenol, Linalool, Citronellol, Benzyl Alcohol, Citral, Benzyl Benzoate, Coumarin, Geraniol, Isoeugenol, Tocopherol <ILN40786> Please be aware that ingredient lists may change or vary from time to time. Please refer to the ingredient list on the product package you receive for the most up to date list of ingredients.",
             category = categoryDao.GetByName("Cosmetics").Result
         };
-        await context.Products.AddAsync(toCreate4);
+        await context.Products.AddAsync(toCreate59);
         await context.SaveChangesAsync();
         
         Product toCreate60 = new Product()
         {
             id = 60,
-            name = "Dazzling Diamond Tennis Bracelet",
-            description = "AU4002, AU4003, AU4004, AU4117, round diamonds, 10g, box clasp closure",
-            price = 40,
+            name = "botanical repair™ strengthening shampoo",
+            description = "Luxuriously cleanses while helping strengthen and repair damaged hair with the power of plants*. Gently removes excess sebum, product build-up and pollution.",
+            price = 36,
             stock = 25,
             image = images[59],
-            ingredients = "steel, diamond",
+            ingredients = "Ingredients: Water Aqua, Sodium Cocoyl Isethionate, Sodium Methyl Cocoyl Taurate, Sodium Lauryl Sulfoacetate, Propanediol, Babassuamidopropyl Betaine, Sodium Hydroxypropylsulfonate Laurylglucoside Crosspolymer, Sodium Chloride, Persea Gratissima (Avocado) Oil, Plukenetia Volubilis (Sacha Inchi) Seed Oil, Camellia Oleifera (Green Tea) Seed Oil, Octyldodecyl Citrate Crosspolymer, Hydroxypropylgluconamide, Hydroxypropylammonium Gluconate, Bis-Ethyl(Isostearylimidazoline) Isostearamide, Acrylates Copolymer, Glycol Distearate, Hydroxypropyl Guar Hydroxypropyltrimonium Chloride, Benzyl Alcohol, Fragrance (Parfum), Linalool, Eugenol, Geraniol, Amyl Cinnamal, Benzyl Salicylate, Citronellol, Hydroxycitronellal, Citral, Benzyl Benzoate, Limonene, Sodium Hydroxide, Tartaric Acid, Citric Acid, Sodium Phytate, Sodium Benzoate, Potassium Sorbate, Phenoxyethanol <ILN47712> Please be aware that ingredient lists may change or vary from time to time. Please refer to the ingredient list on the product package you receive for the most up to date list of ingredients.",
             category = categoryDao.GetByName("Cosmetics").Result
         };
-        await context.Products.AddAsync(toCreate4);
+        await context.Products.AddAsync(toCreate60);
         await context.SaveChangesAsync();
 
 
