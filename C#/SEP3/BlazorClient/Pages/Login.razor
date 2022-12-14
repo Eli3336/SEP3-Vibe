@@ -47,25 +47,28 @@
                         </MudPaper>
                     </BSCard>
                 </BSCol>
+                
+                
+                
                 <BSCol Column="6">
                     
                     <BSCard Color="BSColor.Dark" Alignment="Alignment.Center">
                     <BSCard CardType="CardType.Title" class="fw-bolder" style="color: white"><h3>Log in</h3></BSCard>
                         <MudPaper Class="border-solid border-2 border-dark">
-                            <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors" Style="color: whitesmoke">
+                            <MudForm @ref="form" @bind-IsValid="@success2" @bind-Errors="@errors2" Style="color: whitesmoke">
                                 <MudTextField T="string" Label="Username" Required="true" RequiredError="User name is required!" @bind-Value="usernameLog"/>
                                 <MudTextField T="string" Label="Password" @bind-Value="passwordLog"
                                               InputType="InputType.Password"
                                               Validation="@(new Func<string, IEnumerable<string>>(PasswordStrength))" Required="true"/>
             
                                 <div class="d-flex align-center justify-space-between">
-                                    <MudButton Variant="Variant.Filled" @onclick="LoginAsync" Color="Color.Dark" Disabled="@(!success)" Class="ml-auto">Login</MudButton>
+                                    <MudButton Variant="Variant.Filled" @onclick="LoginAsync" Color="Color.Dark" Disabled="@(!success2)" Class="ml-auto">Login</MudButton>
                                 </div>
                             </MudForm>
                         </MudPaper>
                         <MudPaper>
-                            <MudText Typo="Typo.subtitle2">@($"Errors ({errors.Length})")</MudText>
-                            @foreach (var error in errors)
+                            <MudText Typo="Typo.subtitle2">@($"Errors ({errors2.Length})")</MudText>
+                            @foreach (var error in errors2)
                             {
                                 <MudText Color="@Color.Error">@error</MudText>
                             }
@@ -89,7 +92,9 @@
 
 @code {
     private bool success;
+    private bool success2;
     private string[] errors = { };
+    private string[] errors2 = { };
     private string name;
     private string phoneNumber;
     private string username;

@@ -12,10 +12,10 @@
 
 <AuthorizeView>
         <NotAuthorized>
-            <div class="card">
-                <h3>Hello! Please login to see your account.</h3>
-            <button @onclick="@login">Log in</button>
-                </div>
+            <BSCard style="color: black" PaddingTop="Padding.Large" Alignment="Alignment.Center" CardType="CardType.Card">
+                <BSCard CardType="CardType.Title">Hello! Please login to see your account.</BSCard>
+            <BSButton Color="BSColor.Dark" @onclick="@login">Log in</BSButton>
+                </BSCard>
         </NotAuthorized>
         <Authorized>
             <BSContainer >
