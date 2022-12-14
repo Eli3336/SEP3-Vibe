@@ -31,7 +31,6 @@ public class JwtAuthService : IAuthService
 
         HttpResponseMessage response = await client.PostAsync("/Auth/login", content);
         string responseContent = await response.Content.ReadAsStringAsync();
-        Console.WriteLine(responseContent);
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(responseContent);

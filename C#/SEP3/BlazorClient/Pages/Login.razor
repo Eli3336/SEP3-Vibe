@@ -73,9 +73,9 @@
                                 <MudText Color="@Color.Error">@error</MudText>
                             }
             
-                            @if (!string.IsNullOrEmpty(resultMsg))
+                            @if (!string.IsNullOrEmpty(resultMsg2))
                             {
-                                <label style="color: @color">@resultMsg</label>
+                                <label style="color: @color">@resultMsg2</label>
                             }
                         </MudPaper>
                     </BSCard>
@@ -107,6 +107,7 @@
     private string pw1;
     private string pw2;
     private string resultMsg = "";
+    private string resultMsg2 = "";
     private string msg = "";
     private string color = "";
     MudForm form;
@@ -159,7 +160,7 @@
         catch (Exception e)
         {
             Console.WriteLine(e);
-            resultMsg = e.Message;
+            resultMsg = "Cannot register";
             color = "red";
         }
     }
@@ -175,7 +176,7 @@
         catch (Exception e)
         {
             Console.WriteLine(e);
-            msg = $"Error: {e.Message}";
+            resultMsg2 = "Cannot login";
         }
     }
 

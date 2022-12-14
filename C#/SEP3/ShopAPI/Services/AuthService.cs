@@ -41,6 +41,11 @@ public class AuthService:IAuthService
 
     public async Task<User> RegisterUser(UserCreationDto dto)
     {
+
+        if (await userDao.GetByUsernameAsync(dto.UserName) != null)
+        {
+            throw new ValidationException("Username already exists");
+        }
         
         if (string.IsNullOrEmpty(dto.UserName))
         {
