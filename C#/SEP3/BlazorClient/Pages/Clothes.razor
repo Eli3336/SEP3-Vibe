@@ -25,18 +25,19 @@ else if (!products.Any())
 }
 else
 {
-    <div class="container px-4">
+
+    <div class="container px-4 " style="color: black">
         <div class="row justify-content-center g-5">
             @foreach (Product product in products)
             {
                 @if (product.stock > 0 && product.category.name.Equals("Clothes"))
                 {
                     <div class="card col-sm-3" @onclick="@(() => navMgr.NavigateTo($"/ProductPage/{product.id}"))">
-                        <img class="card-img-top img-thumbnail" src=@product.image alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><label>@product.name</label></h5>
-                            <p class="card-text text-truncate"><label>@product.description</label></p>
-                        </div>
+                         <img class="card-img-top d-flex mx-auto" style="height: 200px; width: 200px; "  src=@product.image alt="Card image cap">
+                         <div class="card-body">
+                             <h5 class="card-title"><label>@product.name</label></h5>
+                             <p class="card-text text-truncate"><label>@product.description</label></p>
+                         </div>
                     </div>
                 }
 
