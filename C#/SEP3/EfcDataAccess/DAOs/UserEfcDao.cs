@@ -36,7 +36,8 @@ public class UserEfcDao : IUserDao
             name = "Ana Aninsen",
             phoneNumber = "5012345678",
             username = "Ana",
-            password = "banana"
+            password = "Banana1234",
+            SecurityLevel = 1
         };
         await context.Users.AddAsync(toCreate);
         await context.SaveChangesAsync();
@@ -46,7 +47,8 @@ public class UserEfcDao : IUserDao
             name = "Admin Adminsen",
             phoneNumber = "5087654321",
             username = "admin",
-            password = "admin"
+            password = "Admin1234",
+            SecurityLevel = 2
         };
        await context.Users.AddAsync(toCreate1);
        await context.SaveChangesAsync();

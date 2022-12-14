@@ -5,10 +5,12 @@
 @using Size = MudBlazor.Size
 @using Align = MudBlazor.Align
 @using Justify = MudBlazor.Justify
+@using System.Security.Claims
 @inject IOrderItemService orderItemService
 @inject IOrderService orderService
 @inject IReceiptService receiptService
-@inject IProductService productService;
+@inject IProductService productService
+@inject IUserService userService
 @inject NavigationManager navMgr
 
 @if (!string.IsNullOrEmpty(msg))
@@ -114,14 +116,27 @@
     private string[] errors = { };
     MudForm form;
     
-    private User userTest = new User()
-    {
-        username = "Ana",
-        name = "Ana"
-    };
-    
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+
+    private string? currentUsername;
+    private IEnumerable<Claim>? userClaims;
+    private bool isLoggedIn;
+    private long? id= null;
+    private User currentUser;
+
     protected override async Task OnInitializedAsync()
     {
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal user = authState.User;
+        isLoggedIn = user.Identity != null;
+        
+        if (!isLoggedIn) return;
+        
+        userClaims = user.Claims;
+        currentUsername = user.Identity!.Name!;
+
+        currentUser = await userService.GetByUsername(currentUsername);
         msg = "";
         try
         {
@@ -153,7 +168,7 @@
 
             OrderCreationDto dto = new OrderCreationDto(address, items, ShoppingCart.TotalPrice);
             order=await orderService.CreateAsync(dto);
-            ReceiptCreationDto receiptDto = new ReceiptCreationDto(userTest.username, order.Id);
+            ReceiptCreationDto receiptDto = new ReceiptCreationDto(currentUser.username, order.Id);
             receipt = await receiptService.CreateAsync(receiptDto);
             await DeleteShoppingCartAndUpdateStock();
             navMgr.NavigateTo("/PurchaseHistory");
