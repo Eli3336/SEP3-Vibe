@@ -918,8 +918,7 @@ public class ProductEfcDao : IProductDao
             .Include(product => product.category)
             .SingleOrDefaultAsync(product => product.id == id);
        //     .AsNoTracking().FirstOrDefaultAsync(p => p.id == id);
-
-        return found;
+       return found;
     }
 
     public async Task UpdateAsync(Product product)

@@ -19,7 +19,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title">@currentProduct.name </h3>
-                        <h6 class="card-subtitle">@currentProduct.categoryName</h6>
+                        <h6 class="card-subtitle">@currentProduct.category.name</h6>
                         <div class="row">
                             <div class="col-lg-5 col-md-5 col-sm-6">
                                 <div class="white-box text-center"><img alt="here's a picture" src=@currentProduct.image class="img-responsive"></div>
@@ -68,7 +68,7 @@
                                         </tr>
                                         <tr>
                                             <td>Category:</td>
-                                            <td>@currentProduct.categoryName</td>
+                                            <td>@currentProduct.category.name</td>
                                         </tr>
                                         
                                         <tr>
@@ -94,7 +94,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <h3 class="card-title">@currentProduct.name </h3>
-                                            <h6 class="card-subtitle">@currentProduct.categoryName</h6>
+                                            <h6 class="card-subtitle">@currentProduct.category.name</h6>
                                             <div class="row">
                                                 <div class="col-lg-5 col-md-5 col-sm-6">
                                                     <div class="white-box text-center"><img alt="here's a picture" src=@currentProduct.image class="img-responsive"></div>
@@ -125,7 +125,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Category:</td>
-                                                                    <td>@currentProduct.categoryName</td>
+                                                                    <td>@currentProduct.category.name</td>
                                                                 </tr>
                                                             
                                                                 <tr>
@@ -154,7 +154,7 @@
     
     
     private string msg = "";
-    private ProductCreationDto currentProduct;
+    private Product currentProduct;
     private OrderItemUpdateDto dto = null!;
     
     [CascadingParameter]

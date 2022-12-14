@@ -68,11 +68,11 @@ public class ProductController : ControllerBase
      }
      
      [HttpGet("{id:long}")]
-     public async Task<ActionResult<ProductCreationDto>> GetById([FromRoute] long id)
+     public async Task<ActionResult<Product>> GetById([FromRoute] long id)
      {
          try
          {
-             ProductCreationDto result = await productLogic.GetByIdAsync(id);
+             Product result = await productLogic.GetByIdAsync(id);
              return Ok(result);
          }
          catch (Exception e)

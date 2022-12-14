@@ -109,7 +109,7 @@ public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchPro
         return productDao.GetAsync(searchProductsParametersDto);
     }
 
-    public async Task<ProductCreationDto> GetByIdAsync(long id)
+    public async Task<Product> GetByIdAsync(long id)
     {
         Product? product = await productDao.GetByIdAsync(id);
         if (product == null)
@@ -117,7 +117,7 @@ public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchPro
             throw new Exception(
                 $"Product with id {id} not found!");
         }
-        return new ProductCreationDto( product.name, product.description, product.price, product.stock, product.image, product.ingredients, product.category.name);
+        return product;
     }
     
     public async Task AdminUpdateAsync(ProductAdminUpdateDto dto)

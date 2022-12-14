@@ -10,7 +10,7 @@ public interface IProductService
     Task<ICollection<ProductDto>> GetSearchAsync(string? search);
 
     Task UpdateAsync(ProductUpdateDto product);
-    Task<ProductCreationDto> GetByIdAsync(long? id);
+    Task<Product> GetByIdAsync(long? id);
     Task<ProductDto> GetDtoByIdAsync(long? id);
     Task<ProductAdminUpdateDto> GetUpdateDtoByIdAsync(long? id);
     Task SaveEditAsync(long id, string? name, string? description, double? price, string? image, string? ingredients, string? categoryName);

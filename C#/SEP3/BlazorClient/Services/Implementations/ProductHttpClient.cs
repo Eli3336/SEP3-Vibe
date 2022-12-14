@@ -115,7 +115,7 @@ public class ProductHttpClient : IProductService
         return post;
     }
 
-    public async Task<ProductCreationDto> GetByIdAsync(long? id)
+    public async Task<Product> GetByIdAsync(long? id)
     {
         HttpResponseMessage response = await client.GetAsync($"/Product/{id}");
             string content = await response.Content.ReadAsStringAsync();
@@ -124,7 +124,7 @@ public class ProductHttpClient : IProductService
                 throw new Exception(content);
             }
 
-            ProductCreationDto post = JsonSerializer.Deserialize<ProductCreationDto>(content, new JsonSerializerOptions
+            Product post = JsonSerializer.Deserialize<Product>(content, new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
             })!;
@@ -181,12 +181,7 @@ public class ProductHttpClient : IProductService
         {
             throw new Exception(content);
         }
-
-        String post = JsonSerializer.Deserialize<String>(content, new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        })!;
-        return post;
+        return content;
     }
 
 
