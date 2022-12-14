@@ -80,7 +80,7 @@ public class OrderItemsEfcDao : IOrderItemDao
         if (username != null)
         {
             orderItems = orderItems.Where(o =>
-                o.username.Contains(username));
+                o.username.ToLower().Equals(username.ToLower()));
         }
         IEnumerable<OrderItem> result = await orderItems.ToListAsync();
         return result;

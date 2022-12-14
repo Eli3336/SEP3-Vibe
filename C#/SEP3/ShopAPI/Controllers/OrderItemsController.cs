@@ -108,11 +108,11 @@ public class OrderItemsController : ControllerBase
     }
     
     [HttpGet("{id:long}")]
-    public async Task<ActionResult<OrderItemGetDto>> GetById([FromRoute] long id)
+    public async Task<ActionResult<OrderItemGetWithProductIdDto>> GetById([FromRoute] long id)
     {
         try
         {
-            OrderItemGetDto result = await orderItemLogic.GetByIdAsync(id);
+            OrderItemGetWithProductIdDto result = await orderItemLogic.GetByIdAsync(id);
             return Ok(result);
         }
         catch (Exception e)

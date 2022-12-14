@@ -44,7 +44,9 @@
                                                 <div class="row text-muted">@orderItem.product.name</div>
                                             </div>
                                             <div class="col">
-                                                <div @onclick="@(() => decrease(orderItem.id, currentUser.username))" >-</div><div class="border">@orderItem.quantity</div><div @onclick="@(() => increase(orderItem.id, orderItem.product.stock, currentUser.username))">+</div>
+                                                <button @onclick="@(() => decrease(orderItem.id, currentUser.username))">-</button>
+                                                <div class="border">@orderItem.quantity</div>
+                                                <button @onclick="@(() => increase(orderItem.id, orderItem.product.stock))">+</button>
                                             </div>
                                             <div class="col" >&euro; @orderItem.price </div><Button class="col oi oi-x d-flex flex-row-reverse" @onclick="@(() => removeItem(orderItem.id))"></Button>
                                         </div>
@@ -79,7 +81,7 @@
             }
 
 @code {
-    public static IEnumerable<OrderItem>? orderItems;
+    public static IEnumerable<OrderItem>? orderItems = null;
     private string msg = "";
     private OrderItemUpdateDto dto = null!;
     private OrderItem orderItem= null!;
@@ -154,7 +156,7 @@
         msg = "";
         try
         {
-            OrderItemGetDto creationDto = await orderItemService.GetByIdAsync(id);
+            OrderItemGetWithProductIdDto creationDto = await orderItemService.GetByIdAsync(id);
             if (creationDto.quantity > 0)
             {
                 dto = new(id, username)
@@ -180,19 +182,22 @@
         }
     }
 
-    private async Task increase(long id, int stock, string username)
+    private async Task increase(long id, int stock)
     {
      
-        msg = "";
+        msg= "";
         try
         {
-            OrderItemGetDto creationDto = await orderItemService.GetByIdAsync(id);
+            OrderItemGetWithProductIdDto creationDto = await orderItemService.GetByIdAsync(id);
             if (creationDto.quantity < stock) 
             {
-                dto = new(id, username)
+                Console.WriteLine((creationDto.quantity));
+                Console.WriteLine((creationDto.productId));
+                dto = new(id)
                 {
-                    quantity = (creationDto.quantity + 1),
-                    hasBeenBought = false
+                    quantity = creationDto.quantity + 1,
+                    hasBeenBought = false,
+                    username = currentUser.username
                 };
                 await orderItemService.UpdateAsync(dto);
                 UpdatePrice();

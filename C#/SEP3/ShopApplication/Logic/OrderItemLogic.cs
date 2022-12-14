@@ -79,7 +79,8 @@ public class OrderItemLogic : IOrderItemLogic
         OrderItem updated = new (dto.hasBeenBought)
         {
             id=existing.id,
-            quantity = existing.quantity
+            quantity = existing.quantity,
+            username = existing.username
         };
         
         await orderItemDao.BuyAsync(updated);
@@ -107,7 +108,7 @@ public class OrderItemLogic : IOrderItemLogic
         await orderItemDao.DeleteAsync(id);
     }
     
-    public async Task<OrderItemGetDto> GetByIdAsync(long id)
+    public async Task<OrderItemGetWithProductIdDto> GetByIdAsync(long id)
     {
         OrderItem? orderItem = await orderItemDao.GetByIdAsync(id);
         if (orderItem == null)
@@ -115,7 +116,7 @@ public class OrderItemLogic : IOrderItemLogic
             throw new Exception($"OrderItem with id {id} not found");
         }
 
-        return new OrderItemGetDto(orderItem.product, orderItem.quantity, orderItem.price, orderItem.hasBeenBought, orderItem.username);
+        return new OrderItemGetWithProductIdDto(orderItem.product.id, orderItem.quantity, orderItem.price, orderItem.hasBeenBought, orderItem.username);
     }
 
     public async Task<IEnumerable<OrderItem>> GetNotBoughtOrderItemsByUsername(string username)

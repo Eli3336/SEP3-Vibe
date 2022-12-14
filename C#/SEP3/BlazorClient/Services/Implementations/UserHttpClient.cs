@@ -39,6 +39,8 @@ public class UserHttpClient : IUserService
         {
             throw new Exception(content);
         }
+        
+        Console.WriteLine("User: " + content);
 
         User user = JsonSerializer.Deserialize<User>(content, 
             new JsonSerializerOptions
@@ -46,6 +48,8 @@ public class UserHttpClient : IUserService
                 PropertyNameCaseInsensitive = true
             }
         )!;
+        
+        Console.WriteLine("User: " + user.username);
         return user;
     }
     

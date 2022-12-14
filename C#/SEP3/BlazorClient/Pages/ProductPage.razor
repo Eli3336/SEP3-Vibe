@@ -204,13 +204,14 @@
             {
                 if (orderItems[i].product.id == id)
                 {
-                    OrderItemGetDto creationDto = await orderItemService.GetByIdAsync(orderItems[i].id);
+                    OrderItemGetWithProductIdDto creationDto = await orderItemService.GetByIdAsync(orderItems[i].id);
                     if (creationDto.quantity < orderItems[i].product.stock)
                     {
-                        dto = new(orderItems[i].id, orderItems[i].username)
+                        dto = new(orderItems[i].id)
                         {
-                            quantity = (creationDto.quantity + 1),
-                            hasBeenBought = false
+                            quantity = creationDto.quantity + 1,
+                            hasBeenBought = false,
+                            username = currentUser.username
                         };
                         await orderItemService.UpdateAsync(dto);
                     }

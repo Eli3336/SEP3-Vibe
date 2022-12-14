@@ -101,7 +101,7 @@
             }
 
 @code {
-    private IEnumerable<OrderItem>? orderItems;
+    private IEnumerable<OrderItem>? orderItems = null;
     private OrderItem[]? list;
     private string msg = "";
     private string street = "";
@@ -123,10 +123,20 @@
     private IEnumerable<Claim>? userClaims;
     private bool isLoggedIn;
     private long? id= null;
-    private User currentUser;
+    private User currentUser = null;
 
     protected override async Task OnInitializedAsync()
     {
+        AuthenticationState authState = await AuthState;
+          ClaimsPrincipal user = authState.User;
+          isLoggedIn = user.Identity != null;
+          
+        if (isLoggedIn)
+        {
+            userClaims = user.Claims;
+            currentUsername = user.Identity!.Name!;
+            currentUser = await userService.GetByUsername(currentUsername);
+        }
         msg = "";
         try
         {
@@ -142,16 +152,7 @@
             Console.WriteLine(e);
             msg = e.Message;
         }
-        AuthenticationState authState = await AuthState;
-                 ClaimsPrincipal user = authState.User;
-                 isLoggedIn = user.Identity != null;
-                 
-                 if (!isLoggedIn) return;
-                 
-                 userClaims = user.Claims;
-                 currentUsername = user.Identity!.Name!;
-         
-                 currentUser = await userService.GetByUsername(currentUsername);
+        
     }
 
     public async Task MakeOrder()

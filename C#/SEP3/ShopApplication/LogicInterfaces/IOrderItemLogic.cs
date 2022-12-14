@@ -11,6 +11,6 @@ public interface IOrderItemLogic
     Task UpdateAsync(OrderItemUpdateDto orderItem);
     Task BuyAsync(OrderItemUpdateDto dto);
     Task DeleteAsync(long id);
-    Task<OrderItemGetDto> GetByIdAsync(long id);
+    Task<OrderItemGetWithProductIdDto> GetByIdAsync(long id);
     Task<IEnumerable<OrderItem>> GetNotBoughtOrderItemsByUsername(string username);
 }
