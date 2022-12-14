@@ -1,7 +1,9 @@
 @page "/ViewProducts"
 @using BlazorClient.Services.ClientInterfaces
 @using global::Shared
+@using System.Security.Claims
 @inject IProductService productService
+@inject IUserService userService
 @inject NavigationManager navMgr
 <div class="d-flex justify-content-center mb-5"><h1>Our Products</h1></div>
 
@@ -27,7 +29,20 @@ else
         <div class="row justify-content-center g-5">
         @foreach (Product product in products)
         {
-            @if (product.stock > 0)
+            @if (currentUser == null)
+             {
+                 if (product.stock > 0)
+                 {
+                     <div class="card col-sm-3" @onclick="@(() => navMgr.NavigateTo($"/ProductPage/{product.id}"))">
+                     <img class="card-img-top d-flex mx-auto" style="height: 200px; width: 200px; "  src=@product.image alt="Card image cap">
+                      <div class="card-body">
+                          <h5 class="card-title"><label>@product.name</label></h5>
+                          <p class="card-text text-truncate"><label>@product.description</label></p>
+                      </div>
+                     </div>
+                 }
+             }
+            else if (product.stock > 0 && !currentUser.username.Equals("admin"))
             {
                 <div class="card col-sm-3" @onclick="@(() => navMgr.NavigateTo($"/ProductPage/{product.id}"))">
                     <img class="card-img-top d-flex mx-auto" style="height: 200px; width: 200px; "  src=@product.image alt="Card image cap">
@@ -37,7 +52,18 @@ else
                     </div>
                 </div>
             }
-
+            else if (currentUser.username.Equals("admin"))
+            {
+                <div class="card col-sm-3" @onclick="@(() => navMgr.NavigateTo($"/ProductPage/{product.id}"))">
+                    <img class="card-img-top d-flex mx-auto" style="height: 200px; width: 200px; "  src=@product.image alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><label>@product.name</label></h5>
+                        <p class="card-text text-truncate"><label>@product.description</label></p>
+                        <p class="card-text text-truncate"><label>@product.stock</label></p>
+                    </div>
+                </div>
+            }
+            
         }
         </div>
     </div>
@@ -49,15 +75,33 @@ else
     private string? titleContains = "";
 
     private string msg = "";
+    
+    
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+
+    private string? currentUsername;
+    private IEnumerable<Claim>? userClaims;
+    private bool isLoggedIn;
+    private User currentUser = null;
 
     protected override async Task OnInitializedAsync()
     {
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal user = authState.User;
+        isLoggedIn = user.Identity != null;
+
+        if (isLoggedIn)
+        {
+            userClaims = user.Claims;
+            currentUsername = user.Identity!.Name!;
+            currentUser = await userService.GetByUsername(currentUsername);
+        }
+
         msg = "";
         try
         {
             products = await productService.GetAsync(titleContains);
-            
-            
         }
         catch (Exception e)
         {
