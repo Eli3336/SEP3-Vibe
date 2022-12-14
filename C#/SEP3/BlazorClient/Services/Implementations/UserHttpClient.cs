@@ -33,7 +33,7 @@ public class UserHttpClient : IUserService
 
     public async Task<User> GetByUsername(string username)
     {
-        HttpResponseMessage response = await client.GetAsync($"/Users?username={username}");
+        HttpResponseMessage response = await client.GetAsync($"/Users/{username}");
         string content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
@@ -48,4 +48,5 @@ public class UserHttpClient : IUserService
         )!;
         return user;
     }
+    
 }

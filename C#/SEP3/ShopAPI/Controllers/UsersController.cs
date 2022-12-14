@@ -61,4 +61,19 @@ public class UsersController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+    
+    [HttpGet("{username}")]
+    public async Task<ActionResult<User>> GetById([FromRoute] string username)
+    {
+        try
+        {
+            User result = await userLogic.GetByUsernameAsync(username);
+            return Ok(result);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
 }

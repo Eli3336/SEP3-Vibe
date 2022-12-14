@@ -83,7 +83,7 @@ public class UserLogic : IUserLogic
             throw new Exception("Password must be less than 20 characters!");
     }
    
-    public async Task<UserCreationDto> GetByUsernameAsync(string userName)
+    public async Task<User> GetByUsernameAsync(string userName)
     {
         User? user = await userDao.GetByUsernameAsync(userName);
         if (user == null)
@@ -92,6 +92,6 @@ public class UserLogic : IUserLogic
                 $"User with id {userName} not found!");
         }
 
-        return new UserCreationDto( user.name,user.phoneNumber,user.username,user.password);
+        return user;
     }
 }
