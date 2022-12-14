@@ -44,7 +44,8 @@ namespace EfcDataAccess.Migrations
                     name = table.Column<string>(type: "TEXT", nullable: false),
                     phoneNumber = table.Column<string>(type: "TEXT", nullable: false),
                     username = table.Column<string>(type: "TEXT", nullable: false),
-                    password = table.Column<string>(type: "TEXT", nullable: false)
+                    password = table.Column<string>(type: "TEXT", nullable: false),
+                    SecurityLevel = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,7 +63,7 @@ namespace EfcDataAccess.Migrations
                     price = table.Column<double>(type: "REAL", nullable: false),
                     stock = table.Column<int>(type: "INTEGER", nullable: false),
                     image = table.Column<string>(type: "TEXT", nullable: false),
-                    ingredients = table.Column<string>(type: "TEXT", nullable: false),
+                    ingredients = table.Column<string>(type: "TEXT", nullable: true),
                     categoryname = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>

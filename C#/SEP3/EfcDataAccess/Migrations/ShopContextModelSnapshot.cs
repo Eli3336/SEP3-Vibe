@@ -97,7 +97,6 @@ namespace EfcDataAccess.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ingredients")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("name")
@@ -145,6 +144,9 @@ namespace EfcDataAccess.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SecurityLevel")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("name")

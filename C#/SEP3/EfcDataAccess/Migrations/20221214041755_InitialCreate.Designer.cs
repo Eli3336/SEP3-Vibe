@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfcDataAccess.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    [Migration("20221211080323_InitialCreate")]
+    [Migration("20221214041755_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -99,7 +99,6 @@ namespace EfcDataAccess.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ingredients")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("name")
@@ -147,6 +146,9 @@ namespace EfcDataAccess.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SecurityLevel")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("name")
