@@ -68,9 +68,9 @@
                         
                         <MudItem xs="6">
                             <MudText Typo="Typo.h5" GutterBottom="true">Cart</MudText>
-                            <MudPaper Class="d-flex flex-column" Style="height:70%;" Outlined="true">
+                            <MudPaper Class="d-flex flex-column" Style="height:50%;" Outlined="true">
                                 <MudText>ITEMS: @orderItems.Count()</MudText>
-                                <MudList>
+                                <MudList Style="overflow-y: scroll">
                                     @foreach (OrderItem orderItem in orderItems)
                                     {
                                         <MudListItem>
