@@ -30,7 +30,7 @@ else
             @if (product.stock > 0)
             {
                 <div class="card col-sm-3" @onclick="@(() => navMgr.NavigateTo($"/ProductPage/{product.id}"))">
-                    <img class="card-img-top img-thumbnail" src=@product.image alt="Card image cap">
+                    <img class="card-img-top d-flex mx-auto" style="height: 200px; width: 200px; "  src=@product.image alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title"><label>@product.name</label></h5>
                         <p class="card-text text-truncate"><label>@product.description</label></p>
