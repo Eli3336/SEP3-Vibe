@@ -3,30 +3,50 @@
 @using BlazorClient.Services.ClientInterfaces
 @inject IProductService productService
 @inject NavigationManager navMgr
-<div class="d-flex justify-content-center mb-5"><h1>Edit Product</h1></div>
 
-<div class="form-group field">
-    <label>Name:</label>
-    <input type="text" @bind="currentProduct.name" @bind:event="oninput"/>
-    <label>Description:</label>
-    <input type="text" @bind="currentProduct.description" @bind:event="oninput"/>
-    <label>Price:</label>
-    <input type="text" @bind="currentProduct.price" @bind:event="oninput"/>
-    <label>Ingredients:</label>
-    <input type="text" @bind="currentProduct.ingredients" @bind:event="oninput"/>
-     <label>Category:</label>
-     <input type="text" @bind="currentProduct.categoryName" @bind:event="oninput"/>
-</div>
+<BSCard Color="BSColor.Dark" Alignment="Alignment.Center">
+    <BSCard CardType="CardType.Title" class="fw-bolder" style="color: white"><h3>Edit Product</h3></BSCard>
+    <MudPaper Class="border-solid border-2 border-dark">
+        <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors" Style="
+        color: whitesmoke">
+            <MudTextField T="string" Label="name" Required="true" RequiredError="Name is required!" @bind-Value="currentProduct.name"/>
+            <MudTextField T="string" Label="description" Required="true" RequiredError="Description is required!" @bind-Value="currentProduct.description"/>
+            <MudTextField T="double?" Label="price" Required="true" RequiredError="Price is required!" @bind-Value="currentProduct.price"/>
+            <MudTextField T="string" Label="ingredients" Required="true" RequiredError="Ingredients are required!" @bind-Value="currentProduct.ingredients"/>
+            <MudTextField T="string" Label="categoryName" Required="true" RequiredError="Category is required!" @bind-Value="currentProduct.categoryName"/>
+            
+            
+            <div class="d-flex align-center justify-space-between">
+                <MudButton Variant="Variant.Filled" @onclick="EditProduct" Color="Color.Dark" Disabled="@(!success)" Class="ml-auto">Save Changes</MudButton>
+            </div>
+        </MudForm>
+    </MudPaper>
+    <MudPaper>
+        <MudText Typo="Typo.subtitle2">@($"Errors ({errors.Length})")</MudText>
+        @foreach (var error in errors)
+        {
+            <MudText Color="@Color.Error">@error</MudText>
+        }
+            
+        @if (!string.IsNullOrEmpty(resultMsg))
+        {
+            <label style="color: @color">@resultMsg</label>
+        }
+    </MudPaper>
+</BSCard>
 
-<div class="button-row">
-    <span>@msg</span>
-    <button @onclick="EditProduct">Save Changes</button>
-</div>
+
+
+
 
 @code {
     [Parameter]
     public long id { get; set; }
-    
+    private bool success;
+    private string[] errors = { };
+    private string resultMsg = "";
+    private string color = "";
+    MudForm form;
     
     private string msg = "";
     private ProductAdminUpdateDto currentProduct = new ProductAdminUpdateDto();
@@ -59,42 +79,19 @@
         catch (Exception e)
         {
             Console.WriteLine(e);
-            msg = e.Message;
+            resultMsg = e.Message;
+            color = "red";
         }
     }
 
     private bool ValidateData()
     {
-        if (string.IsNullOrEmpty(currentProduct.name))
+        if(currentProduct.price < 1 || currentProduct.price == null)
         {
-            msg = "The name cannot be empty!";
+            resultMsg = "The price is not valid!";
             return false;
         }
-        else if(string.IsNullOrEmpty(currentProduct.description))
-        {
-            msg = "The description cannot be empty!";
-            return false;
-        }
-        else if(currentProduct.price < 1 || currentProduct.price == null)
-        {
-            msg = "The price is not valid!";
-            return false;
-        }
-        else if(string.IsNullOrEmpty(currentProduct.image))
-        {
-            msg = "The image field cannot be empty!";
-            return false;
-        }
-        else if(string.IsNullOrEmpty(currentProduct.ingredients))
-        {
-            msg = "The ingredients field cannot be empty!";
-            return false;
-        }
-        else if(string.IsNullOrEmpty(currentProduct.categoryName))
-        {
-            msg = "The category field cannot be empty!";
-            return false;
-        }
+        
         return true;
     }
 }

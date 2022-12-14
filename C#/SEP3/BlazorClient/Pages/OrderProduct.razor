@@ -6,22 +6,44 @@
 @inject NavigationManager navMgr
 
 
-<div class="d-flex justify-content-center mb-5"><h1>Order Product</h1></div>
 
-<div class="form-group field">
-    <label>Quantity:</label>
-    <input type="text" @bind="quantity" @bind:event="oninput"/>
-</div>
-
-<div class="button-row">
-    <span>@msg</span>
-    <button @onclick="orderProduct">Order Product</button>
-</div>
+<BSCard Color="BSColor.Dark" Alignment="Alignment.Center">
+    <BSCard CardType="CardType.Title" class="fw-bolder" style="color: white"><h3>Order Product</h3></BSCard>
+    <MudPaper Class="border-solid border-2 border-dark">
+        <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors" Style="
+        color: whitesmoke">
+            <MudTextField T="int" Label="Quantity" Required="true" RequiredError="Quantity is required!" @bind-Value="quantity" />
+            
+            <div class="d-flex align-center justify-space-between">
+                <MudButton Variant="Variant.Filled" @onclick="orderProduct" Color="Color.Dark" Disabled="@(!success)" Class="ml-auto">Order Product</MudButton>
+            </div>
+        </MudForm>
+    </MudPaper>
+    <MudPaper>
+        <MudText Typo="Typo.subtitle2">@($"Errors ({errors.Length})")</MudText>
+        @foreach (var error in errors)
+        {
+            <MudText Color="@Color.Error">@error</MudText>
+        }
+            
+        @if (!string.IsNullOrEmpty(resultMsg))
+        {
+            <label style="color: @color">@resultMsg</label>
+        }
+    </MudPaper>
+</BSCard>
 
 @code {
     [Parameter]
     public long id { get; set; }
+    private bool success;
+    private string[] errors = { };
+    private string resultMsg = "";
+    private string color = "";
+    MudForm form;
 
+    
+    
     public int quantity;
     
     
@@ -42,21 +64,37 @@
             msg = e.Message;
         }
     }
+
+    private bool ValidateData()
+    {
+        if(quantity < 1)
+        {
+            resultMsg = "The quantity is not valid!";
+            return false;
+        }
+        
+        return true;
+    }
     
     private async void orderProduct()
     {
         try
         {
-            Product product = await productService.GetProductById(id);
-            String response = await productService.CreateAdminOrderAsync(product);
-            if (response.Equals("Confirmed"))
-               await productService.UpdateAsync(new ProductUpdateDto(currentProduct.id, currentProduct.stock+quantity));
-            navMgr.NavigateTo($"/ProductPage/{id}");
+            if (ValidateData())
+            {
+                Product product = await productService.GetProductById(id);
+                String response = await productService.CreateAdminOrderAsync(product);
+                if (response.Equals("Confirmed"))
+                    await productService.UpdateAsync(new ProductUpdateDto(currentProduct.id, currentProduct.stock + quantity));
+                navMgr.NavigateTo($"/ProductPage/{id}");
+            }
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            msg = e.Message;
+            resultMsg = e.Message;
+            color = "red";
         }
+        
     }
 }
