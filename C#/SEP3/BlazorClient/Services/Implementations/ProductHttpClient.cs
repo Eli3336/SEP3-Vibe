@@ -107,11 +107,14 @@ public class ProductHttpClient : IProductService
         {
             throw new Exception(content);
         }
-
-        ProductAdminUpdateDto post = JsonSerializer.Deserialize<ProductAdminUpdateDto>(content, new JsonSerializerOptions
+        
+        Product product = JsonSerializer.Deserialize<Product>(content, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;
+
+        ProductAdminUpdateDto post = new ProductAdminUpdateDto(product.id, product.name, product.description,
+            product.price, product.image, product.ingredients, product.category.name);
         return post;
     }
 

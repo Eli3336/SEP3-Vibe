@@ -12,13 +12,16 @@ public class OrderItem
     
     public bool hasBeenBought { get; set; }
     
+    public string username { get; set; }
+    
 
-    public OrderItem(Product product, int quantity, double price, bool hasBeenBought)
+    public OrderItem(Product product, int quantity, double price, bool hasBeenBought, string username)
     {
         this.product = product;
         this.quantity = quantity;
         this.price = price;
         this.hasBeenBought = hasBeenBought;
+        this.username = username;
     }
     
     public OrderItem() { }

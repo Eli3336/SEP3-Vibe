@@ -2,8 +2,10 @@
 @using global::Shared
 @using BlazorClient.Services.ClientInterfaces
 @using global::Shared.DTOs
+@using System.Security.Claims
 @inject IOrderItemService orderItemService
-@inject NavigationManager navMgr;
+@inject IUserService userService
+@inject NavigationManager navMgr
 @attribute [Authorize(Policy="MustBeLoggedIn")]
 
 @if (!string.IsNullOrEmpty(msg))
@@ -87,13 +89,31 @@
     private double price = 0;
     public static double TotalPrice = 0;
     private double delivery = 5;
+    
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+
+    private string? currentUsername;
+    private IEnumerable<Claim>? userClaims;
+    private bool isLoggedIn;
+    private User currentUser = null;
 
     protected override async Task OnInitializedAsync()
     {
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal user = authState.User;
+        isLoggedIn = user.Identity != null;
+
+        if (isLoggedIn)
+        {
+            userClaims = user.Claims;
+            currentUsername = user.Identity!.Name!;
+            currentUser = await userService.GetByUsername(currentUsername);
+        }
         msg = "";
         try
         {
-            orderItems = await orderItemService.GetNotBoughtOrderItems();
+            orderItems = await orderItemService.GetNotBoughtOrderItemsByUsername(currentUser.username);
             UpdatePrice();
         }
         catch (Exception e)

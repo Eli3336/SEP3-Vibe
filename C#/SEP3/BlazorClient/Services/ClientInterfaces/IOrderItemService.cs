@@ -13,6 +13,6 @@ public interface IOrderItemService
 
     Task<List<OrderItem>> GetAll();
     Task SetOrderItemToBought(OrderItemUpdateDto dto);
-    Task<IEnumerable<OrderItem>> GetNotBoughtOrderItems();
+    Task<IEnumerable<OrderItem>> GetNotBoughtOrderItemsByUsername(string username);
 
 }

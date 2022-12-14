@@ -194,7 +194,7 @@
     {
         try
         {
-            ShoppingCart.orderItems = await orderItemService.GetNotBoughtOrderItems();
+            ShoppingCart.orderItems = await orderItemService.GetNotBoughtOrderItemsByUsername(currentUser.username);
             bool alreadyInShoppingCart = false;
             List<OrderItem> orderItems = new List<OrderItem>();
             if(ShoppingCart.orderItems != null)
@@ -218,7 +218,7 @@
             }
             if (alreadyInShoppingCart == false)
                 {
-                    OrderItemCreationDto dto = new OrderItemCreationDto(id, 1);
+                    OrderItemCreationDto dto = new OrderItemCreationDto(id, 1, currentUser.username);
                     await orderItemService.OrderProduct(dto);
                 }
                 navMgr.NavigateTo("/ShoppingCart");

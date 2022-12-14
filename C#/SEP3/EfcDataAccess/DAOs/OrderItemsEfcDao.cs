@@ -68,7 +68,7 @@ public class OrderItemsEfcDao : IOrderItemDao
         return existing;
     }
 
-    public async Task<IEnumerable<OrderItem>> GetNotBoughtOrderItemsAsync()
+    public async Task<IEnumerable<OrderItem>> GetNotBoughtOrderItemsAsyncByUsername(string username)
     {
         IQueryable<OrderItem> orderItems = context.OrderItems
             .Include(orderItem => orderItem.product)
@@ -76,6 +76,11 @@ public class OrderItemsEfcDao : IOrderItemDao
             .Where(o => o.hasBeenBought == false)
             .AsQueryable();
 
+        if (username != null)
+        {
+            orderItems = orderItems.Where(o =>
+                o.username.Contains(username));
+        }
         IEnumerable<OrderItem> result = await orderItems.ToListAsync();
         return result;
     }

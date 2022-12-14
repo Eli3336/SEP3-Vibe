@@ -122,12 +122,12 @@ public class OrderItemsController : ControllerBase
         }
     }
     
-    [HttpGet("/NotBought")]
-    public async Task<ActionResult<IEnumerable<OrderItem>>> GetNotBoughtOrderItems()
+    [HttpGet("/NotBought/{username}")]
+    public async Task<ActionResult<IEnumerable<OrderItem>>> GetNotBoughtOrderItems([FromRoute] string username)
     {
         try
         {
-            IEnumerable<OrderItem> orderItems = await orderItemLogic.GetNotBoughtOrderItems();
+            IEnumerable<OrderItem> orderItems = await orderItemLogic.GetNotBoughtOrderItemsByUsername(username);
             return Ok(orderItems);
         }
         catch (Exception e)
