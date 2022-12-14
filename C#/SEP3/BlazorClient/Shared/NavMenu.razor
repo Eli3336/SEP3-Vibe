@@ -1,4 +1,7 @@
-﻿@inject NavigationManager navMgr
+﻿@using BlazorClient.Services
+@inject NavigationManager navMgr
+@inject IAuthService authService
+
 <BSNavbar Color="BSColor.Dark" IsDark="true" >
     <BSContainer Container="Container.Fluid">
         <BSNavbarBrand>Vibe Shop✓</BSNavbarBrand>
@@ -31,7 +34,7 @@
                                 <BSDropdownItem Url="PurchaseHistory"> Purchase History</BSDropdownItem>
                                 
                                 <BSDropdownItem IsDivider="true"/>
-                                <BSDropdownItem Url="LogOut" Class="oi oi-account-logout"> Log out</BSDropdownItem>
+                                <BSDropdownItem @onclick="@Logout" Class="oi oi-account-logout"> Log out</BSDropdownItem>
                             </Content>
                         </BSDropdown>
                     </BSNavItem>
@@ -48,6 +51,11 @@
 @code {
    
     private string toSearch = "";
+    private async void Logout()
+    {
+        await authService.LogoutAsync();
+        navMgr.NavigateTo("/login");
+    }
 }
 
 
