@@ -127,16 +127,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        AuthenticationState authState = await AuthState;
-        ClaimsPrincipal user = authState.User;
-        isLoggedIn = user.Identity != null;
-        
-        if (!isLoggedIn) return;
-        
-        userClaims = user.Claims;
-        currentUsername = user.Identity!.Name!;
-
-        currentUser = await userService.GetByUsername(currentUsername);
         msg = "";
         try
         {
@@ -152,6 +142,16 @@
             Console.WriteLine(e);
             msg = e.Message;
         }
+        AuthenticationState authState = await AuthState;
+                 ClaimsPrincipal user = authState.User;
+                 isLoggedIn = user.Identity != null;
+                 
+                 if (!isLoggedIn) return;
+                 
+                 userClaims = user.Claims;
+                 currentUsername = user.Identity!.Name!;
+         
+                 currentUser = await userService.GetByUsername(currentUsername);
     }
 
     public async Task MakeOrder()

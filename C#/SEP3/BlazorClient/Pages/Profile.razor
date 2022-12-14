@@ -28,9 +28,12 @@
                                     <BSCard CardType="CardType.Card">
                                         <BSCard CardType="CardType.Image" src="/img/profile.jpg" alt="Card image cap" width="150" height="400"/>
                                         <BSCard CardType="CardType.Body">
-                                            <BSCard CardType="CardType.Title">@currentUser.name</BSCard>
-                                            <BSCard CardType="CardType.Text">@currentUser.username</BSCard>
-                                            <BSCard CardType="CardType.Text">@currentUser.phoneNumber</BSCard>
+                                            @if(currentUser!=null)
+                                            {
+                                                <BSCard CardType="CardType.Title">@currentUser.name</BSCard>
+                                                <BSCard CardType="CardType.Text">@currentUser.username</BSCard>
+                                                <BSCard CardType="CardType.Text">@currentUser.phoneNumber</BSCard>
+                                            }
                                         </BSCard>
                                     </BSCard>
                                 </BSCol>
@@ -47,14 +50,21 @@
                                             </BSTR>
                                         </BSTHead>
                                         <BSTBody>
-                                            @foreach (Receipt receipt in receipts)
+                                            @if (receipts == null)
                                             {
-                                                <BSTR AlignRow="AlignRow.Middle">
-                                                    <BSTD>@receipt.id</BSTD>
-                                                    <BSTD>@receipt.order.items.Count</BSTD>
-                                                    <BSTD>@receipt.order.orderDate</BSTD>
-                                                    <BSTD>@receipt.finalPrice</BSTD>
-                                                </BSTR>
+                                             <span>Loading..</span>
+                                             }
+                                            else
+                                            {
+                                                @foreach (Receipt receipt in receipts)
+                                                {
+                                                    <BSTR AlignRow="AlignRow.Middle">
+                                                        <BSTD>@receipt.id</BSTD>
+                                                        <BSTD>@receipt.order.items.Count</BSTD>
+                                                        <BSTD>@receipt.order.orderDate</BSTD>
+                                                        <BSTD>@receipt.finalPrice</BSTD>
+                                                    </BSTR>
+                                                }
                                             }
                                         </BSTBody>
                                         <BSTFoot>
@@ -64,7 +74,7 @@
             
                                         </BSTFoot>
                                     </BSTable>
-                                    <BSButton Class="oi oi-account-logout" Color="BSColor.Dark" @onclick="@(() => navMgr.NavigateTo("/Logout"))"> Log Out
+                                    <BSButton Class="oi oi-account-logout" Color="BSColor.Dark" @onclick="@Logout"> Log Out
                                     </BSButton>
             
                                 </BSCol>
@@ -86,24 +96,22 @@
     private bool isLoggedIn;
     
     
-    private IEnumerable<Receipt>? receipts;
+    private IEnumerable<Receipt>? receipts = null;
     private string msg = "";
-    private long? id= null;
-    private User currentUser;
+    private User currentUser = null;
     
     protected override async Task OnInitializedAsync()
     {
         AuthenticationState authState = await AuthState;
-        ClaimsPrincipal user = authState.User;
-        isLoggedIn = user.Identity != null;
-        
-        if (!isLoggedIn) return;
-        
-        userClaims = user.Claims;
-        currentUsername = user.Identity!.Name!;
-
-        currentUser = await userService.GetByUsername(currentUsername);
-        
+             ClaimsPrincipal user = authState.User;
+             isLoggedIn = user.Identity != null;
+             
+             if (!isLoggedIn) return;
+             
+             userClaims = user.Claims;
+             currentUsername = user.Identity!.Name!;
+     
+             currentUser = await userService.GetByUsername(currentUsername);
         msg = "";
                 try
                 {
@@ -114,6 +122,7 @@
                     Console.WriteLine(e);
                     msg = e.Message;
                 }
+        
     }
 
     private void login()
@@ -121,5 +130,10 @@
         navMgr.NavigateTo("/login");
     }
     
+    private async void Logout()
+    {
+        await authService.LogoutAsync();
+        navMgr.NavigateTo("/login");
+    }
     
 }

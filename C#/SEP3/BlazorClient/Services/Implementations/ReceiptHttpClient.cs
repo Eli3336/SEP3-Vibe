@@ -70,7 +70,7 @@ public class ReceiptHttpClient : IReceiptService
 
     public async Task<IEnumerable<Receipt>> GetByUserIdAsync(long id)
     {
-        HttpResponseMessage response = await client.GetAsync($"/Receipt/User/{id}");
+        HttpResponseMessage response = await client.GetAsync($"/User/{id}");
         string content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {

@@ -142,8 +142,7 @@
     {
         resultMsg = "";
         password = pwField1.Value;
-
-
+        
         try
         {
             await authService.RegisterAsync(new UserCreationDto(name, phoneNumber, username, password));
@@ -188,7 +187,7 @@
     private async void LogOut()
     {
         await authService.LogoutAsync();
-        navMgr.NavigateTo("/");
+        navMgr.NavigateTo("/login");
     }
 
 }

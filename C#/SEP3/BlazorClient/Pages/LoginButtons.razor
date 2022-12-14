@@ -16,13 +16,13 @@
 
     private void Login()
     {
-        navMgr.NavigateTo("/Login");
+        navMgr.NavigateTo("/ViewProducts");
     }
 
     private async Task Logout()
     {
         await authService.LogoutAsync();
-        navMgr.NavigateTo("/");
+        navMgr.NavigateTo("/login");
     }
 
 }

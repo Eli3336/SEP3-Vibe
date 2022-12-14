@@ -66,24 +66,23 @@ else
 	private string? currentUsername;
 	private IEnumerable<Claim>? userClaims;
 	private bool isLoggedIn;
-	private IEnumerable<Receipt>? receipts;
+	private IEnumerable<Receipt>? receipts = null;
 	private string msg = "";
 	private long? id= null;
-	private User currentUser;
+	private User currentUser = null;
     
 	protected override async Task OnInitializedAsync()
 	{
 		AuthenticationState authState = await AuthState;
-		ClaimsPrincipal user = authState.User;
-		isLoggedIn = user.Identity != null;
-        
-		if (!isLoggedIn) return;
-        
-		userClaims = user.Claims;
-		currentUsername = user.Identity!.Name!;
-
-		currentUser = await userService.GetByUsername(currentUsername);
-        
+     		ClaimsPrincipal user = authState.User;
+     		isLoggedIn = user.Identity != null;
+             
+     		if (!isLoggedIn) return;
+             
+     		userClaims = user.Claims;
+     		currentUsername = user.Identity!.Name!;
+     
+     		currentUser = await userService.GetByUsername(currentUsername);
 		msg = "";
 		try
 		{
@@ -94,6 +93,8 @@ else
 			Console.WriteLine(e);
 			msg = e.Message;
 		}
+		
+
 	}
 	
 	private void login()
