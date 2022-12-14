@@ -130,7 +130,7 @@
         msg = "";
         try
         {
-            orderItems = await orderItemService.GetNotBoughtOrderItems();
+            orderItems = await orderItemService.GetNotBoughtOrderItemsByUsername(currentUser.username);
             foreach (var order in orderItems)
             {
                 price += order.price;
@@ -188,7 +188,7 @@
             int stock = orderItemsList[i].product.stock - orderItemsList[i].quantity;
             ProductUpdateDto dtoProduct = new ProductUpdateDto(orderItemsList[i].product.id, stock);
             await productService.UpdateAsync(dtoProduct);
-            OrderItemUpdateDto dto = new OrderItemUpdateDto(orderItemsList[i].id, orderItemsList[i].quantity, true);
+            OrderItemUpdateDto dto = new OrderItemUpdateDto(orderItemsList[i].id, orderItemsList[i].quantity, true, currentUser.username);
             await orderItemService.SetOrderItemToBought(dto);
         }
         ShoppingCart.orderItems = new List<OrderItem>();

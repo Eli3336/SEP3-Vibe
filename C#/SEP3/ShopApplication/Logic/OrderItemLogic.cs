@@ -39,7 +39,7 @@ public class OrderItemLogic : IOrderItemLogic
         double price = product.price;
         
         ValidateData(dto);
-        OrderItem orderItem = new OrderItem(product, dto.quantity, price*dto.quantity, false);
+        OrderItem orderItem = new OrderItem(product, dto.quantity, price*dto.quantity, false, dto.username);
         OrderItem created = await orderItemDao.OrderProduct(orderItem);
         return created;
     }
@@ -59,7 +59,7 @@ public class OrderItemLogic : IOrderItemLogic
         int quantity = dto.quantity ?? existing.quantity;
 
 
-        OrderItem updated = new ( productToUse, quantity, quantity*productToUse.price, existing.hasBeenBought)
+        OrderItem updated = new ( productToUse, quantity, quantity*productToUse.price, existing.hasBeenBought, dto.username)
         {
             id=existing.id
         };
@@ -118,8 +118,8 @@ public class OrderItemLogic : IOrderItemLogic
         return new OrderItemGetDto(orderItem.product, orderItem.quantity, orderItem.price, orderItem.hasBeenBought);
     }
 
-    public async Task<IEnumerable<OrderItem>> GetNotBoughtOrderItems()
+    public async Task<IEnumerable<OrderItem>> GetNotBoughtOrderItemsByUsername(string username)
     {
-        return await orderItemDao.GetNotBoughtOrderItemsAsync();
+        return await orderItemDao.GetNotBoughtOrderItemsAsyncByUsername(username);
     }
 }

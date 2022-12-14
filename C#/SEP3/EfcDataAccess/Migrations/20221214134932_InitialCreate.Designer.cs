@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfcDataAccess.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    [Migration("20221214041755_InitialCreate")]
+    [Migration("20221214134932_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -70,6 +70,10 @@ namespace EfcDataAccess.Migrations
 
                     b.Property<int>("quantity")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("username")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("id");
 

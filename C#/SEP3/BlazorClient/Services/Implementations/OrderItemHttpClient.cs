@@ -128,9 +128,9 @@ public class OrderItemHttpClient : IOrderItemService
         }
     }
 
-    public async Task<IEnumerable<OrderItem>> GetNotBoughtOrderItems()
+    public async Task<IEnumerable<OrderItem>> GetNotBoughtOrderItemsByUsername(string username)
     {
-        string uri = "/NotBought";
+        string uri = $"/NotBought/{username}";
         HttpResponseMessage response = await client.GetAsync(uri);
         string result = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)

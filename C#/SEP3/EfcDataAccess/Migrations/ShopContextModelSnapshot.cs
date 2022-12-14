@@ -69,6 +69,10 @@ namespace EfcDataAccess.Migrations
                     b.Property<int>("quantity")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("username")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("id");
 
                     b.HasIndex("OrderId");
