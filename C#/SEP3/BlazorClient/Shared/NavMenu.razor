@@ -43,7 +43,7 @@
         </BSCollapse>
         <form class="d-flex">
             <input class="form-control " type="search" placeholder="Search" aria-label="Search" @bind="toSearch" @bind:event="oninput">
-            <BSButton Color="BSColor.Light" IsOutlined="true" @onclick="@Search">Search</BSButton>
+            <BSButton Color="BSColor.Light" IsOutlined="true" @onclick="@(() => navMgr.NavigateTo($"/SearchPage/{toSearch}"))">Search</BSButton>
         </form>
     </BSContainer>
 </BSNavbar>
@@ -55,13 +55,6 @@
     {
         await authService.LogoutAsync();
         navMgr.NavigateTo("/login");
-    }
-    
-    private async void Search()
-    {
-        navMgr.NavigateTo($"/SearchPage/{toSearch}");
-        toSearch = new string("");
-
     }
     
     

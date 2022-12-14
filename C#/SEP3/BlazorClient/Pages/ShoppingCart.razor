@@ -166,14 +166,12 @@
                 };
                 await orderItemService.UpdateAsync(dto);
                 if (dto.quantity== 0 )
-                            {
-                                await orderItemService.DeleteAsync(id);
-                            }
+                {
+                    await orderItemService.DeleteAsync(id);
+                }
                 UpdatePrice();
-                navMgr.NavigateTo("/ShoppingCart");
+                await LoadData();
             }
-            
-            
         }
         catch (Exception e)
         {
@@ -191,8 +189,6 @@
             OrderItemGetWithProductIdDto creationDto = await orderItemService.GetByIdAsync(id);
             if (creationDto.quantity < stock) 
             {
-                Console.WriteLine((creationDto.quantity));
-                Console.WriteLine((creationDto.productId));
                 dto = new(id)
                 {
                     quantity = creationDto.quantity + 1,
@@ -201,13 +197,13 @@
                 };
                 await orderItemService.UpdateAsync(dto);
                 UpdatePrice();
-                navMgr.NavigateTo("/ShoppingCart");
+                await LoadData();
             }
             else if (creationDto.quantity==stock)
             {
                 msg = "There is no more stock!";
                 UpdatePrice();
-                navMgr.NavigateTo("/ShoppingCart");
+                await LoadData();
             }
 
         }
@@ -216,5 +212,19 @@
             Console.WriteLine(e);
             msg = e.Message;
         }   
+    }
+
+    private async Task LoadData()
+    {
+        try
+        {
+            orderItems = await orderItemService.GetNotBoughtOrderItemsByUsername(currentUser.username);
+            UpdatePrice();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
     }
 }

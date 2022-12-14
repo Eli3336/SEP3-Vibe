@@ -92,7 +92,7 @@ public class OrderItemHttpClient : IOrderItemService
         OrderItemGetWithProductIdDto? orderItemGetWithProductIdDto =
             JsonSerializer.Deserialize<OrderItemGetWithProductIdDto>(content);
         
-        Console.WriteLine(orderItemGetWithProductIdDto.quantity);
+        Console.WriteLine("q"+orderItemGetWithProductIdDto.quantity);
         Console.WriteLine(orderItemGetWithProductIdDto.productId);
         
         return orderItemGetWithProductIdDto;

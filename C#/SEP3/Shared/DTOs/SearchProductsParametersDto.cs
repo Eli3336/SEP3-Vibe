@@ -2,7 +2,7 @@ namespace Shared.DTOs;
 
 public class SearchProductsParametersDto
 {
-    public  string? nameContains { get; }
+    public  string? nameContains { get;set; }
 
     public SearchProductsParametersDto(string? nameContains)
     {

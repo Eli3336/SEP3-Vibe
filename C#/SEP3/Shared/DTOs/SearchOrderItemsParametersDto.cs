@@ -2,7 +2,7 @@ namespace Shared.DTOs;
 
 public class SearchOrderItemsParametersDto
 {
-    public  long? id { get; }
+    public  long? id { get; set;}
 
     public SearchOrderItemsParametersDto(long? id)
     {

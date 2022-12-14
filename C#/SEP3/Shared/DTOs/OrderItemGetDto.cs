@@ -2,13 +2,13 @@ namespace Shared.DTOs;
 
 public class OrderItemGetDto
 {
-    public Product product{ get;  }
-    public int quantity{ get;  }
-    public double price{ get; }
+    public Product product{ get;  set;}
+    public int quantity{ get; set; }
+    public double price{ get; set;}
     
-    public bool hasBeenBought { get; }
+    public bool hasBeenBought { get; set;}
     
-    public string username { get; }
+    public string username { get; set;}
     
     public OrderItemGetDto(){}
     public OrderItemGetDto(Product product, int quantity, double price, bool hasBeenBought, string username)
