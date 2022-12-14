@@ -33,10 +33,7 @@
                                     <div class="col align-self-center text-right text-muted">@orderItems.Count() items</div>
                                 </div>
                             </CardHeaderContent>
-
-
-
-
+                            
                             <div class="order-container">
                                 @foreach (OrderItem orderItem in orderItems)
                                 {
@@ -47,7 +44,7 @@
                                                 <div class="row text-muted">@orderItem.product.name</div>
                                             </div>
                                             <div class="col">
-                                                <a href="#" @onclick="@(() => decrease(orderItem.id))" >-</a><a href="#" class="border">@orderItem.quantity</a><a href="#" @onclick="@(() => increase(orderItem.id, orderItem.product.stock))">+</a>
+                                                <div @onclick="@(() => decrease(orderItem.id, currentUser.username))" >-</div><div class="border">@orderItem.quantity</div><div @onclick="@(() => increase(orderItem.id, orderItem.product.stock, currentUser.username))">+</div>
                                             </div>
                                             <div class="col" >&euro; @orderItem.price </div><Button class="col oi oi-x d-flex flex-row-reverse" @onclick="@(() => removeItem(orderItem.id))"></Button>
                                         </div>
@@ -152,18 +149,18 @@
         }
     }
 
-    private async Task decrease(long id)
+    private async Task decrease(long id, string username)
     {
         msg = "";
         try
         {
-            OrderItemCreationDto creationDto = await orderItemService.GetByIdAsync(id);
+            OrderItemGetDto creationDto = await orderItemService.GetByIdAsync(id);
             if (creationDto.quantity > 0)
             {
-                dto = new(id)
+                dto = new(id, username)
                 {
                     quantity = (creationDto.quantity - 1),
-                    id = id
+                    hasBeenBought = false
                 };
                 await orderItemService.UpdateAsync(dto);
                 if (dto.quantity== 0 )
@@ -183,19 +180,19 @@
         }
     }
 
-    private async Task increase(long id, int stock)
+    private async Task increase(long id, int stock, string username)
     {
      
         msg = "";
         try
         {
-            OrderItemCreationDto creationDto = await orderItemService.GetByIdAsync(id);
+            OrderItemGetDto creationDto = await orderItemService.GetByIdAsync(id);
             if (creationDto.quantity < stock) 
             {
-                dto = new(id)
+                dto = new(id, username)
                 {
                     quantity = (creationDto.quantity + 1),
-                    id = id
+                    hasBeenBought = false
                 };
                 await orderItemService.UpdateAsync(dto);
                 UpdatePrice();

@@ -56,6 +56,7 @@ public class OrderItemsEfcDao : IOrderItemDao
             //.AsNoTracking()
             //.FindAsync(id)
             .Include(orderItem => orderItem.product)
+            .Include(item => item.product.category)
             .SingleOrDefaultAsync(t => t.id == id);
         return existing;
     }

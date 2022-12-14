@@ -14,6 +14,12 @@ public class OrderItemUpdateDto
         this.id = id;
     }
     
+    public OrderItemUpdateDto(long id, string username)
+    {
+        this.id = id;
+        this.username = username;
+    }
+    
     public OrderItemUpdateDto(){}
     
     public OrderItemUpdateDto(long id, int quantity, bool hasBeenBought, string username)

@@ -9,7 +9,7 @@ public interface IOrderItemService
     Task<IEnumerable<OrderItem>> GetOrderItem(string? nameContains = null);
     Task DeleteAsync(long id);
     Task UpdateAsync(OrderItemUpdateDto orderItem);
-    Task<OrderItemCreationDto> GetByIdAsync(long id);
+    Task<OrderItemGetDto> GetByIdAsync(long id);
 
     Task<List<OrderItem>> GetAll();
     Task SetOrderItemToBought(OrderItemUpdateDto dto);

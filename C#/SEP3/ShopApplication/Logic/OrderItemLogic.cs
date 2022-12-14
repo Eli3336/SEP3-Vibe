@@ -57,9 +57,9 @@ public class OrderItemLogic : IOrderItemLogic
 
         Product productToUse = product ?? existing.product;
         int quantity = dto.quantity ?? existing.quantity;
+        string usernameToUse = dto.username ?? existing.username;
 
-
-        OrderItem updated = new ( productToUse, quantity, quantity*productToUse.price, existing.hasBeenBought, dto.username)
+        OrderItem updated = new ( productToUse, quantity, quantity*productToUse.price, existing.hasBeenBought, usernameToUse)
         {
             id=existing.id
         };
@@ -115,7 +115,7 @@ public class OrderItemLogic : IOrderItemLogic
             throw new Exception($"OrderItem with id {id} not found");
         }
 
-        return new OrderItemGetDto(orderItem.product, orderItem.quantity, orderItem.price, orderItem.hasBeenBought);
+        return new OrderItemGetDto(orderItem.product, orderItem.quantity, orderItem.price, orderItem.hasBeenBought, orderItem.username);
     }
 
     public async Task<IEnumerable<OrderItem>> GetNotBoughtOrderItemsByUsername(string username)

@@ -154,7 +154,7 @@
     
     
     private string msg = "";
-    private Product currentProduct;
+    private Product currentProduct = null;
     private OrderItemUpdateDto dto = null!;
     
     [CascadingParameter]
@@ -163,10 +163,21 @@
     private string? currentUsername;
     private IEnumerable<Claim>? userClaims;
     private bool isLoggedIn;
-    private User currentUser;
+    private User currentUser = null;
     
     protected override async Task OnInitializedAsync()
     {      
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal user = authState.User;
+        isLoggedIn = user.Identity != null;
+        
+        if (isLoggedIn)
+        {
+            userClaims = user.Claims;
+            currentUsername = user.Identity!.Name!;
+            currentUser = await userService.GetByUsername(currentUsername);
+        }
+        
         msg = "";
         try
         {
@@ -178,16 +189,6 @@
             Console.WriteLine(e);
             msg = e.Message;
         }
-        AuthenticationState authState = await AuthState;
-        ClaimsPrincipal user = authState.User;
-        isLoggedIn = user.Identity != null;
-        
-        if (!isLoggedIn) return;
-        
-        userClaims = user.Claims;
-        currentUsername = user.Identity!.Name!;
-
-        currentUser = await userService.GetByUsername(currentUsername);
     }
 
     private async void AddToCart()
@@ -203,13 +204,13 @@
             {
                 if (orderItems[i].product.id == id)
                 {
-                    OrderItemCreationDto creationDto = await orderItemService.GetByIdAsync(orderItems[i].id);
+                    OrderItemGetDto creationDto = await orderItemService.GetByIdAsync(orderItems[i].id);
                     if (creationDto.quantity < orderItems[i].product.stock)
                     {
-                        dto = new(orderItems[i].id)
+                        dto = new(orderItems[i].id, orderItems[i].username)
                         {
                             quantity = (creationDto.quantity + 1),
-                            id = orderItems[i].id
+                            hasBeenBought = false
                         };
                         await orderItemService.UpdateAsync(dto);
                     }

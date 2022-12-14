@@ -79,7 +79,7 @@ public class OrderItemHttpClient : IOrderItemService
         }
     }
 
-    public async Task<OrderItemCreationDto> GetByIdAsync(long id)
+    public async Task<OrderItemGetDto> GetByIdAsync(long id)
     {
         HttpResponseMessage response = await client.GetAsync($"/OrderItems/{id}");
         string content = await response.Content.ReadAsStringAsync();
@@ -88,7 +88,7 @@ public class OrderItemHttpClient : IOrderItemService
             throw new Exception(content);
         }
 
-        OrderItemCreationDto orderItem = JsonSerializer.Deserialize<OrderItemCreationDto>(content, 
+        OrderItemGetDto orderItem = JsonSerializer.Deserialize<OrderItemGetDto>(content, 
             new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
