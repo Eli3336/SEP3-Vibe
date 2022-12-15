@@ -980,10 +980,11 @@ public class ProductEfcDao : IProductDao
             Price = product.price
             
         });
-        
-        
-        context.Products.Update(product);
-        await context.SaveChangesAsync();    
+        if (productGrpc.Confirmed.Equals("Confirmed"))
+        {
+            context.Products.Update(product);
+            await context.SaveChangesAsync();
+        }
     }
 
     public async Task<String> CreateAdminOrderAsync(Product product)

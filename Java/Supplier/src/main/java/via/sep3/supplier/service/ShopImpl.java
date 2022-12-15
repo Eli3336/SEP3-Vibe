@@ -16,31 +16,12 @@ import via.sep3.supplier.protobuf.ShopGrpcGrpc;
 @GRpcService
 public class ShopImpl extends ShopGrpcGrpc.ShopGrpcImplBase
 {
-   private ProductsLogic logic;
-
+    private ProductsLogic logic;
    @Autowired
     public ShopImpl(ProductsLogic logic)
     {
         this.logic = logic;
     }
-
-    @Override
-    public void orderProduct(ProductGrpc request, StreamObserver<ProductResponse> responseObserver)
-    {
-        if(!logic.existsProductById(request.getId()))
-        {
-            ProductResponse response = ProductResponse.newBuilder().setConfirmed("Product not found").build();
-            responseObserver.onNext(response);
-            responseObserver.onCompleted();
-        }
-        else
-        {
-            ProductResponse response = ProductResponse.newBuilder().setConfirmed("Confirmed").build();
-            responseObserver.onNext(response);
-            responseObserver.onCompleted();
-        }
-    }
-
     @Override
     public void editProduct(ProductGrpc request, StreamObserver<ProductResponse> responseObserver)
     {
@@ -60,5 +41,20 @@ public class ShopImpl extends ShopGrpcGrpc.ShopGrpcImplBase
             responseObserver.onCompleted();
         }
     }
-
+    @Override
+    public void orderProduct(ProductGrpc request, StreamObserver<ProductResponse> responseObserver)
+    {
+        if(!logic.existsProductById(request.getId()))
+        {
+            ProductResponse response = ProductResponse.newBuilder().setConfirmed("Product not found").build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
+        else
+        {
+            ProductResponse response = ProductResponse.newBuilder().setConfirmed("Confirmed").build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
+        }
+    }
 }

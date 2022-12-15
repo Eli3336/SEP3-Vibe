@@ -29,7 +29,6 @@ public class ProductsLogic {
     public void toEditProduct(long id, String name, String description, double price)
     {
         productRep.editProductById(id,name,description,price);
-
     }
 
     public List<Product> getProduct(long id)

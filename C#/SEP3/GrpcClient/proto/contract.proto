@@ -9,7 +9,6 @@ service ShopGrpc{
   rpc OrderProduct(ProductGrpc) returns(ProductResponse);
   rpc EditProduct(ProductGrpc) returns (ProductResponse);
 }
-
 message ProductGrpc{
   int64 id = 1;
   string name = 2;
@@ -17,12 +16,9 @@ message ProductGrpc{
   double price = 4;
   CategoryGrpc category = 5;
 }
-
-
 message CategoryGrpc{
   string name = 1;
 }
-
 message ProductResponse{
   string confirmed = 1;
 }

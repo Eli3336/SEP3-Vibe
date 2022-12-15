@@ -123,27 +123,22 @@ public Task<IEnumerable<Product>> GetAsync(SearchProductsParametersDto searchPro
     public async Task AdminUpdateAsync(ProductAdminUpdateDto dto)
     {
         Product? existing = await productDao.GetByIdToUpdateAsync(dto.id);
-
         if (existing == null)
         {
             throw new Exception($"Product with ID {dto.id} not found!");
         }
-        
         string nameToUse = dto.name ?? existing.name;
         string descriptionToUse = dto.description ?? existing.description;
         double priceToUse = dto.price ?? existing.price;
         string imageToUse = dto.image ?? existing.image;
         string ingredientsToUse = dto.ingredients ?? existing.ingredients;
         Category categoryToUse = await categoryDao.GetByName(dto.categoryName);
-    
         Product updated = new (nameToUse, descriptionToUse, priceToUse, imageToUse, ingredientsToUse, categoryToUse)
         {
             id = existing.id,
             stock = existing.stock,
         };
-
         ValidateProduct(updated);
-        
         await productDao.AdminUpdateAsync(updated);
     }
     
